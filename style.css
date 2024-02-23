@@ -579,10 +579,6 @@ Nav h1 {
     transition: all 0.1s ease-in-out;
 }
 
-.IndoForAll_PriceCard:hover {
-    opacity: 0.8;
-}
-
 .IndoForAll_PriceCard img {
     width: 40%;
     padding: 30px 0;
