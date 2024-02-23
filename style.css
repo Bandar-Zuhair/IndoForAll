@@ -23,7 +23,7 @@ body {
 .IndoForAll_FullScreenOverlay {
     width: 100%;
     height: 100%;
-    background: rgb(93, 93, 93);
+    background: rgb(59, 59, 59);
     padding: 20px 0;
     z-index: 997;
     display: flex;
@@ -80,7 +80,6 @@ body {
 .IndoForAll_FullScreenImgOverlay {
     width: 100%;
     height: 100%;
-    background: red;
     padding: 20px 0;
     z-index: 997;
     display: flex;
