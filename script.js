@@ -23,57 +23,22 @@ let WorkerCradsArray = [
     },
 
     {
-        workerNum: 2,
+        workerNum: 3,
+        workerImg: "pic2.jpg",
+        workerPassport: "pic6.jpg",
+        workerVideo: "video2.mp4",
+    },
+
+    {
+        workerNum: 4,
         workerImg: "pic5.jpg",
         workerPassport: "pic6.jpg",
         workerVideo: "video2.mp4",
     },
 
     {
-        workerNum: 2,
-        workerImg: "pic5.jpg",
-        workerPassport: "pic6.jpg",
-        workerVideo: "video2.mp4",
-    },
-
-    {
-        workerNum: 2,
-        workerImg: "pic5.jpg",
-        workerPassport: "pic6.jpg",
-        workerVideo: "video2.mp4",
-    },
-
-    {
-        workerNum: 2,
-        workerImg: "pic5.jpg",
-        workerPassport: "pic6.jpg",
-        workerVideo: "video2.mp4",
-    },
-
-    {
-        workerNum: 2,
-        workerImg: "pic5.jpg",
-        workerPassport: "pic6.jpg",
-        workerVideo: "video2.mp4",
-    },
-
-    {
-        workerNum: 2,
-        workerImg: "pic5.jpg",
-        workerPassport: "pic6.jpg",
-        workerVideo: "video2.mp4",
-    },
-
-    {
-        workerNum: 2,
-        workerImg: "pic5.jpg",
-        workerPassport: "pic6.jpg",
-        workerVideo: "video2.mp4",
-    },
-
-    {
-        workerNum: 2,
-        workerImg: "pic5.jpg",
+        workerNum: 5,
+        workerImg: "pic2.jpg",
         workerPassport: "pic6.jpg",
         workerVideo: "video2.mp4",
     },
@@ -83,7 +48,7 @@ let WorkerCradsArray = [
 let QuestionAndAnswerArray = [
 
     {
-        questionText: "كيف يتم اختيار العاملة المناسبة",
+        questionText: "كيف يتم اختيار العاملة المناسبة؟",
         answerText: "يتم اختيار العاملة المناسبة بناء على رغبات العميل عن طريق التواصل معنا",
     },
 
@@ -167,24 +132,6 @@ let ProofVideosArray = [
         videoNum: 5,
         videoSrc: "video1.mp4",
     },
-    {
-        videoNum: 6,
-        videoSrc: "video2.mp4",
-    },
-    {
-        videoNum: 7,
-        videoSrc: "video1.mp4",
-    },
-    {
-        videoNum: 8,
-        videoSrc: "video1.mp4",
-    },
-    {
-        videoNum: 9,
-        videoSrc: "video2.mp4",
-    },
-
-
 ]
 
 
