@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600;700&display=swap');
 
+@keyframes floatAnimation {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
 /* All */
 * {
     font-family: 'Readex Pro', Arial, sans-serif;
@@ -197,21 +209,18 @@ nav {
     cursor: pointer;
 }
 
-nav h3,
-nav h4 {
-    color: black;
-    font-size: 20px;
-    padding-left: 10px;
-    cursor: pointer;
-}
-
-#indoforall_navIcon {
-    width: 25px;
-    cursor: pointer;
-}
-
 #indoforall_nav:hover {
     opacity: 0.5;
+}
+
+nav h3 {
+    color: black;
+    font-size: 1.5vw;
+    margin-left: 10px;
+}
+
+#indoforall_navicon {
+    width: 2vw;
 }
 
 #indoforall_navoptions {
@@ -219,32 +228,38 @@ nav h4 {
     padding: 10px;
     z-index: 999;
     position: fixed;
+    right: -75%; /* Initial position outside the right side of the viewport */
     top: 50%;
-    right: 0;
+    width: 75%; /* Set the width to 75% of the viewport */
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
     opacity: 0;
     height: 0;
     overflow: hidden;
-    transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out, right 0.3s ease-in-out; /* Include right property in the transition */
 }
 
 
+
+
+
+
 #indoforall_navlogo {
-    width: 150px;
-    padding: 15px;
+    width: 10vw;
+    margin-bottom: 10px;
     animation: floatAnimation 4s ease-in-out infinite;
 }
 
 
 #indoforall_navoptions h4 {
     color: white;
-    margin: 5px 0;
+    margin: 10px 0;
     width: 100%;
-    border: 2px solid black;
+    font-size: 1.5vw;
+    border: 5px solid black;
     text-align: center;
-    padding: 10px;
+    padding: 8px 16px;
     cursor: pointer;
     transition: all 0.1s ease-in-out;
 }
@@ -255,11 +270,12 @@ nav h4 {
 
 #indoforall_closenav {
     background: black;
+    font-size: 1vw;
+    width: 100%;
     margin: 5px;
     text-decoration: none;
     text-align: center;
-    font-size: 17px;
-    padding: 9px 18px;
+    padding: 8px 16px;
     color: white;
     border: 1px solid white;
     border-radius: 30px;
@@ -270,19 +286,6 @@ nav h4 {
 #indoforall_closenav:hover {
     background: rgb(77, 66, 66);
     color: white;
-    transform: scale(1.03);
-}
-
-@keyframes floatAnimation {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
 }
 
 #indoforall_WhatsAppIcon {
@@ -402,7 +405,7 @@ nav h4 {
     opacity: 0.9;
 }
 
-.indoforall_WorkerCard h1 {
+.indoforall_WorkerCard h2 {
     margin-bottom: 5px;
     font-size: 20px;
 }
@@ -626,8 +629,8 @@ nav h4 {
     animation: floatAnimation 4s ease-in-out infinite;
 }
 
-#indoforall_questionarea div {
-    margin: 15px;
+.indoforall_QuestionDiv {
+    margin: 20px 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -683,7 +686,7 @@ nav h4 {
     height: fit-content;
 }
 
-.indoforall_ProofVideoDiv h1 {
+.indoforall_ProofVideoDiv h2 {
     margin-bottom: 5px;
     font-size: 20px;
     width: 95%;
@@ -763,7 +766,7 @@ nav h4 {
 /* About Us Section */
 #indoforall_companydescription {
     background: rgb(78, 78, 78);
-    width: fit-content;
+    width: 100%;
     margin-top: 25px;
     padding: 20px;
     display: flex;
@@ -775,7 +778,7 @@ nav h4 {
 }
 
 #indoforall_companydescription h2 {
-    font-size: 15px;
+    font-size: 1.5vw;
     text-align: center;
     padding: 6px 12px;
     cursor: pointer;
@@ -844,6 +847,21 @@ footer img {
 
 
 /* Media Queries */
+/* 1250px */
+@media(max-width:1250px) {
+    #indoforall_navlogo {
+        width: 15vw;
+    }
+    
+    
+    #indoforall_navoptions h4 {
+        font-size: 2.5vw;
+    }
+    #indoforall_closenav {
+        font-size: 2vw;
+    }
+}
+
 /* 1040px */
 @media(max-width:1040px) {
     .indoforall_systemworknum {
@@ -865,21 +883,6 @@ footer img {
 
 /* 950px */
 @media(max-width:950px) {
-    #indoforall_navlogo {
-        width: 100px;
-        padding: 15px;
-    }
-
-    nav h3,
-    nav h4 {
-        font-size: 15px;
-    }
-
-    #indoforall_closenav {
-        font-size: 12px;
-        padding: 6px 12px;
-    }
-
     #indoforall_systemworkarea div {
         width: 80%;
     }
@@ -887,6 +890,15 @@ footer img {
 
 /* 850px */
 @media(max-width:850px) {
+    nav h3 {
+        font-size: 2vw;
+        margin-left: 5px;
+    }
+    
+    #indoforall_navicon {
+        width: 2.5vw;
+    }
+
     #indoforall_indonesiainfo h2 {
         font-size: 1.7vw;
     }
@@ -946,6 +958,10 @@ footer img {
         width: 150px;
     }
 
+    .indoforall_ProofVideoDiv h2 {
+        font-size: 10px;
+    }
+
     .indoforall_systemworknum {
         font-size: 13px;
     }
@@ -961,24 +977,14 @@ footer img {
     #indoforall_systemworkarea ion-icon {
         font-size: 50px;
     }
+
+    #indoforall_companydescription h2 {
+        font-size: 2vw;
+    }
 }
 
 /* 760px */
 @media(max-width:760px) {
-    #indoforall_NavIcon {
-        width: 20px;
-    }
-
-    nav h3,
-    nav h4 {
-        font-size: 11px;
-    }
-
-    #indoforall_closenav {
-        font-size: 10px;
-        padding: 5px 10px;
-    }
-
     .indoforall_sections {
         padding: 20px;
     }
@@ -995,14 +1001,9 @@ footer img {
         padding: 5px;
     }
 
-    #indoforall_companydescription h2 {
-        font-size: 12px;
-    }
-
     #indoforall_companydescription img {
         width: 120px;
     }
-
 
     footer h1,
     footer h2 {
@@ -1017,6 +1018,18 @@ footer img {
 
 /* 650px */
 @media(max-width:650px) {
+    #indoforall_navlogo {
+        width: 19vw;
+    }
+    
+    
+    #indoforall_navoptions h4 {
+        font-size: 3.5vw;
+        margin: 5px 0;
+    }
+    #indoforall_closenav {
+        font-size: 3vw;
+    }
 
     .indoforall_pricecard h3,
     .indoforall_pricecard h4,
@@ -1042,25 +1055,16 @@ footer img {
         padding: 0 10px 0 0;
     }
 
-    nav h3,
-    nav h4 {
-        font-size: 9px;
-    }
-
     #indoforall_nav {
-        padding: 5px;
+        padding: 3.5px;
     }
-
-    #indoforall_navIcon {
-        width: 17px;
+    
+    nav h3 {
+        font-size: 3vw;
     }
-
-    #indoforall_navoptions h4 {
-        padding: 5px;
-    }
-
-    #indoforall_closenav {
-        font-size: 8px;
+    
+    #indoforall_navicon {
+        width: 3.5vw;
     }
 
     #indoforall_webintro1 {
@@ -1094,7 +1098,7 @@ footer img {
         margin: 5px;
     }
 
-    .indoforall_WorkerCard h1 {
+    .indoforall_WorkerCard h2 {
         font-size: 13px;
     }
 
@@ -1203,10 +1207,6 @@ footer img {
         padding: 10px 0;
     }
 
-    #indoforall_companydescription h2 {
-        font-size: 9px;
-    }
-
     #indoforall_companydescription img {
         width: 90px;
     }
@@ -1252,21 +1252,20 @@ footer img {
         font-size: 35px;
     }
 
-    nav h3,
-    nav h4 {
-        font-size: 8px;
+    nav h3 {
+        font-size: 3vw;
     }
 
-    #indoforall_navIcon {
-        width: 16px;
+    #indoforall_navlogo {
+        width: 24vw;
     }
-
+    
+    
     #indoforall_navoptions h4 {
-        padding: 3px;
+        font-size: 4.5vw;
     }
-
     #indoforall_closenav {
-        font-size: 7px;
+        font-size: 4vw;
     }
 
     #indoforall_indonesiainfo h2 {
@@ -1282,7 +1281,7 @@ footer img {
         width: 80px;
     }
 
-    .indoforall_WorkerCard h1 {
+    .indoforall_WorkerCard h2 {
         font-size: 10px;
     }
 
@@ -1352,10 +1351,6 @@ footer img {
         font-size: 30px;
     }
 
-    #indoforall_navlogo {
-        width: 70px;
-    }
-
     .indoforall_WorkerCard {
         width: 60px;
     }
@@ -1397,10 +1392,6 @@ footer img {
 
     #indoforall_systemworkarea ion-icon {
         font-size: 20px;
-    }
-
-    #indoforall_companydescription h2 {
-        font-size: 7px;
     }
 
     #indoforall_companydescription img {
