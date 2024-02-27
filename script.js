@@ -316,20 +316,26 @@ let shownavoptions = () => {
     indoforall_navoptions.style.opacity = "1";
     indoforall_navoptions.style.height = "100%";
     indoforall_navoptions.style.right = "0"; // Move from right (-50%) to the original position (0%)
+    document.body.classList.add("nav-open"); // Add class to body when nav is open
 };
+
 let hidenavoptions = () => {
     indoforall_navoptions.style.opacity = "0";
     indoforall_navoptions.style.height = "0";
     indoforall_navoptions.style.right = "-50%"; // Move to the right (-50%)
+    document.body.classList.remove("nav-open"); // Remove class from body when nav is closed
 };
+
 indoforall_nav.onclick = (event) => {
     event.stopPropagation();
     shownavoptions();
 };
+
 indoforall_closenav.onclick = (event) => {
     event.stopPropagation();
     hidenavoptions();
 };
+
 document.addEventListener('click', (event) => {
     if (!indoforall_navoptions.contains(event.target) && event.target !== indoforall_closenav) {
         hidenavoptions();
