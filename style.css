@@ -223,6 +223,10 @@ nav h3 {
     width: 2vw;
 }
 
+body.nav-open #indoforall_navoptions * {
+    pointer-events: auto;
+}
+
 #indoforall_navoptions {
     background: rgb(99, 99, 99);
     padding: 10px;
