@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600;700&display=swap');
 
+/* Simple Animation SetUp For Later Use */
 @keyframes floatAnimation {
 
     0%,
@@ -244,11 +245,6 @@ body.nav-open #indoforall_navoptions * {
     transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out, right 0.3s ease-in-out; /* Include right property in the transition */
 }
 
-
-
-
-
-
 #indoforall_navlogo {
     width: 10vw;
     margin-bottom: 10px;
@@ -394,13 +390,13 @@ body.nav-open #indoforall_navoptions * {
     height: fit-content;
     width: 180px;
     margin: 10px;
-    padding: 5px;
     display: flex;
     align-items: center;
     text-align: center;
     flex-direction: column;
     cursor: pointer;
     border-radius: 30px;
+    box-shadow: 0px 0px 10px 1px black;
     transition: all 0.1s ease-in-out;
 }
 
@@ -412,12 +408,12 @@ body.nav-open #indoforall_navoptions * {
 .indoforall_WorkerCard h2 {
     margin-bottom: 5px;
     font-size: 20px;
+    padding: 5px 0;
 }
 
 #indoforall_cardsarea img {
     width: 100%;
     border-radius: 30px;
-    box-shadow: 0px 0px 10px 1px black;
 }
 
 
@@ -683,11 +679,10 @@ body.nav-open #indoforall_navoptions * {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 200px;
-    padding: 10px 0;
+    width: 250px;
     margin: 10px;
     border-radius: 30px;
-    height: fit-content;
+    box-shadow: 0px 0px 10px 1px black;
 }
 
 .indoforall_ProofVideoDiv h2 {
@@ -699,9 +694,8 @@ body.nav-open #indoforall_navoptions * {
 }
 
 .indoforall_ProofVideoDiv video {
-    width: 95%;
+    width: 100%;
     border-radius: 30px;
-    box-shadow: 0px 0px 10px 1px black;
 }
 
 
@@ -998,7 +992,7 @@ footer img {
     }
 
     .indoforall_WorkerCard {
-        width: 130px;
+        width: 150px;
     }
 
     .indoforall_systemworknum {
@@ -1098,7 +1092,7 @@ footer img {
     }
 
     .indoforall_WorkerCard {
-        width: 100px;
+        width: 130px;
         margin: 5px;
     }
 
@@ -1282,7 +1276,7 @@ footer img {
     }
 
     .indoforall_WorkerCard {
-        width: 80px;
+        width: 100px;
     }
 
     .indoforall_WorkerCard h2 {
@@ -1356,7 +1350,7 @@ footer img {
     }
 
     .indoforall_WorkerCard {
-        width: 60px;
+        width: 80px;
     }
 
     #indoforall_indonesiainfoimage1 {
