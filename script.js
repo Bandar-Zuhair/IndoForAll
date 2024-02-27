@@ -33,21 +33,6 @@ let WorkerCradsArray = [
 
 
 
-/* Create An Array of Proof Videos Data */
-let ProofVideosArray = [
-
-    {
-        videoNum: 1,
-        videoSrc: "worker1/3.mp4",
-    },
-    {
-        videoNum: 2,
-        videoSrc: "worker2/3.mp4",
-    },
-]
-
-
-
 /* Create An Array of Questions With Their Answers Data */
 let QuestionAndAnswerArray = [
 
@@ -113,6 +98,21 @@ let QuestionAndAnswerArray = [
 
 ]
 
+
+
+
+/* Create An Array of Proof Videos Data */
+let ProofVideosArray = [
+
+    {
+        videoNum: 1,
+        videoSrc: "worker1/3.mp4",
+    },
+    {
+        videoNum: 2,
+        videoSrc: "worker2/3.mp4",
+    },
+]
 
 
 
@@ -311,80 +311,42 @@ ProofVideosArray.forEach((item) => {
 
 
 
-
-
-
-
-/* navigate Between Page And Hide Or Show Pages */
-function showSection(section) {
-    indoforall_cardssection.style.display = 'none';
-    indoforall_mainpagesection.style.display = 'none';
-    indoforall_pricesection.style.display = 'none';
-    indoforall_questionsection.style.display = 'none';
-    indoforall_proofsection.style.display = 'none';
-    indoforall_systemworksection.style.display = 'none';
-    indoforall_aboutussection.style.display = 'none';
-
-    if (section === indoforall_cardssection || section === indoforall_aboutussection) {
-        section.style.display = 'flex';
-        indoforall_mainpagesection.style.display = 'flex';
-    } else {
-        section.style.display = 'flex';
-    }
-}
-function avalibaleworkerpage() {
-    showSection(indoforall_cardssection);
-}
-function bookingpricepage() {
-    showSection(indoforall_pricesection);
-}
-function questionpage() {
-    showSection(indoforall_questionsection);
-}
-function proofpage() {
-    showSection(indoforall_proofsection);
-}
-function systemworkpage() {
-    showSection(indoforall_systemworksection);
-}
-function aboutuspage() {
-    showSection(indoforall_aboutussection);
-}
-
-
-
-
-
-
-
-
-
-
-
 /* Hide And Show nav Bar */
 let shownavoptions = () => {
     indoforall_navoptions.style.opacity = "1";
     indoforall_navoptions.style.height = "100%";
+    indoforall_navoptions.style.right = "0"; // Move from right (-50%) to the original position (0%)
 };
-
 let hidenavoptions = () => {
     indoforall_navoptions.style.opacity = "0";
     indoforall_navoptions.style.height = "0";
+    indoforall_navoptions.style.right = "-50%"; // Move to the right (-50%)
 };
-
-indoforall_nav.onclick = (event) => { event.stopPropagation(); shownavoptions(); };
-indoforall_closenav.onclick = (event) => { event.stopPropagation(); hidenavoptions(); };
-
+indoforall_nav.onclick = (event) => {
+    event.stopPropagation();
+    shownavoptions();
+};
+indoforall_closenav.onclick = (event) => {
+    event.stopPropagation();
+    hidenavoptions();
+};
 document.addEventListener('click', (event) => {
     if (!indoforall_navoptions.contains(event.target) && event.target !== indoforall_closenav) {
         hidenavoptions();
     }
 });
 
+
+
+
+
+
+
+
 /* Open WhatsApp Chat */
 function openwhatsappchat() {
     // Create the WhatsApp URL with the phone number.
-    var whatsappURL = 'https://wa.me/+966509465975';
+    let whatsappURL = 'https://wa.me/+966509465975';
 
     // Open the WhatsApp chat window in a new tab.
     window.open(whatsappURL, '_blank');
@@ -392,7 +354,7 @@ function openwhatsappchat() {
 
 /* Open Gmail Contact */
 function opengmailchat() {
-    var mailtoLink = "mailto:bndoory300@gmail.com";
+    let mailtoLink = "mailto:bndoory300@gmail.com";
 
     window.location.href = mailtoLink;
 }
@@ -400,11 +362,11 @@ function opengmailchat() {
 /* Open Loation Address */
 function openlocationaddress() {
     // Replace the coordinates with the latitude and longitude of Jakarta, Indonesia
-    var latitude = -6.2088;
-    var longitude = 106.8456;
+    let latitude = -6.2088;
+    let longitude = 106.8456;
 
     // Construct the Google Maps URL
-    var mapsUrl = "https://www.google.com/maps?q=" + latitude + "," + longitude;
+    let mapsUrl = "https://www.google.com/maps?q=" + latitude + "," + longitude;
 
     // Open the Google Maps link in a new tab/window
     window.open(mapsUrl, "_blank");
@@ -413,17 +375,6 @@ function openlocationaddress() {
 /* Scroll Up To The Beginning Icon */
 function scrollupicon() {
     indoforall_header.scrollIntoView({ top: 0, behavior: 'smooth' });
-}
-
-/* Scrolling To The Targeted Elements After navigating Throught The nav Bar */
-function scrolltosectiontext() {
-    // Select all elements with the specified class
-    var elements = document.querySelectorAll('.indoforall_SectionIntroText');
-
-    // Iterate over each element and scroll to it
-    elements.forEach(function (element) {
-        element.scrollIntoView({ block: 'center', inline: 'center' });
-    });
 }
 
 window.onscroll = function () {
