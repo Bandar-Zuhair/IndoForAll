@@ -1,6 +1,37 @@
 # Enable the rewrite engine
 RewriteEngine On
 
+# Rewrite rule for index.html
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^استقدام-عمالة-اندونيسية$ index.html [NC,L]
+
+# Rewrite rule for indoforall_pricepage.html
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^اسعار-الإستقدام-من-اندونيسية$ indoforall_pricepage.html [NC,L]
+
+# Rewrite rule for indoforall_questionpage.html
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^الأسئلة-الشائعة$ indoforall_questionpage.html [NC,L]
+
+# Rewrite rule for indoforall_proofpage.html
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^إثبات-المصداقية$ indoforall_proofpage.html [NC,L]
+
+# Rewrite rule for indoforall_systempage.html
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^طريقة-الإستقدام$ indoforall_systempage.html [NC,L]
+
+# Rewrite rule for indoforall_aboutuspage.html
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^عن-شركتنا$ indoforall_aboutuspage.html [NC,L]
+
+
 # Custom error pages
 ErrorDocument 404 /404.html
 ErrorDocument 500 /500.html
