@@ -900,7 +900,7 @@ footer div {
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: space-between;
+    align-items: center;
     padding: 10px 0;
 }
 
