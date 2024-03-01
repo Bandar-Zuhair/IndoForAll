@@ -137,35 +137,38 @@ header div {
 }
 
 #indoforall_weblogo {
-    width: 40vw;
-    border-radius: 30px;
+    width: 70Vw;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
     animation: floatAnimation 4s ease-in-out infinite;
 }
 
+
 .indoforall_web_intro {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
     color: rgb(0, 162, 255);
-    width: fit-content;
-    padding: 10px;
     font-size: 3vw;
+    display: flex;
+    width: fit-content;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin: 10px 0;
+    line-height: 1.5;
 }
 
 #indoforall_web_intro_1 {
-    font-size: 3.5vw;
+    font-size: 4vw;
     animation: floatAnimation 4s ease-in-out infinite;
 }
 
 #indoforall_web_intro_2 {
     color: white;
-    font-size: 2vw;
+    font-size: 3vw;
 }
 
 #indoforall_web_intro_3 {
     color: white;
-    font-size: 2vw;
+    font-size: 2.5vw;
     padding: 15px 0;
 }
 
@@ -211,12 +214,12 @@ nav {
 
 nav h3 {
     color: black;
-    font-size: 1.5vw;
+    font-size: 2vw;
     margin-left: 10px;
 }
 
 #indoforall_nav_icon {
-    width: 2vw;
+    width: 3vw;
 }
 
 body.nav-open #indoforall_nav_options * {
@@ -253,7 +256,8 @@ body.nav-open #indoforall_nav_options * {
     margin: 5px 0;
     width: 100%;
     font-size: 1.5vw;
-    border: 5px solid black;
+    border: 5px solid white;
+    border-radius: 30px;
     text-align: center;
     padding: 8px 16px;
     cursor: pointer;
@@ -266,7 +270,7 @@ body.nav-open #indoforall_nav_options * {
 }
 
 #indoforall_close_nav {
-    background: rgb(0, 162, 255);
+    background: linear-gradient(to right, rgb(255, 0, 221), rgb(174, 0, 255), rgb(13, 0, 255)) ;
     font-size: 1vw;
     width: 100%;
     margin: 5px;
@@ -274,7 +278,6 @@ body.nav-open #indoforall_nav_options * {
     text-align: center;
     padding: 8px 16px;
     color: white;
-    border: 1px solid white;
     border-radius: 30px;
     cursor: pointer;
     transition: all 0.1s ease;
@@ -361,19 +364,22 @@ body.nav-open #indoforall_nav_options * {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     margin-bottom: 15px;
 }
 
 #indoforall_worker_type_area h1 {
-    background: linear-gradient(to right, rgb(255, 0, 221), rgb(174, 0, 255), rgb(13, 0, 255));
+    background: rgb(114, 114, 114);
     font-size: 2vw;
-    margin: 20px;
+    border: 5px solid;
+    border-image: linear-gradient(to right, rgb(255, 0, 221), rgb(174, 0, 255), rgb(13, 0, 255)) 1;
+    margin: 10px;
     padding: 8px 16px;
     text-align: center;
-    border-radius: 30px;
     cursor: pointer;
     transition: all 0.1s ease-in-out;
 }
+
 
 #indoforall_worker_type_area h1:hover {
     transform: scale(1.03);
@@ -391,7 +397,7 @@ body.nav-open #indoforall_nav_options * {
 
 .indoforall_quick_info {
     font-size: 1.5vw;
-    text-align: center;
+    line-height: 1.5;
     padding: 10px;
     cursor: pointer;
 }
@@ -417,8 +423,8 @@ body.nav-open #indoforall_nav_options * {
 
 .indoforall_section_intro_text {
     background: black;
-    font-size: 1.5vw;
-    padding: 10px 20px;
+    font-size: 2.5vw;
+    padding: 8px 16px;
     width: fit-content;
     text-align: center;
     border-radius: 30px;
@@ -426,7 +432,7 @@ body.nav-open #indoforall_nav_options * {
 }
 
 .indoforall_section_intro_text_2 {
-    font-size: 1.5vw;
+    font-size: 2.5vw;
     margin: 30px 0;
     text-align: center;
 }
@@ -520,6 +526,17 @@ body.nav-open #indoforall_nav_options * {
     box-shadow: 0px 0px 10px 1px white;
 }
 
+.indoforall_main_page_text_2 {
+    background: black;
+    font-size: 2vw;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    width: fit-content;
+    text-align: center;
+    border-radius: 30px;
+    box-shadow: 0px 0px 10px 1px white;
+}
+
 #indoforall_our_features_area {
     background: rgb(78, 78, 78);
     width: 100%;
@@ -576,6 +593,7 @@ body.nav-open #indoforall_nav_options * {
 
 #indoforall_indonesia_info h2 {
     font-size: 1vw;
+    line-height: 1.5;
 }
 
 
@@ -720,6 +738,7 @@ body.nav-open #indoforall_nav_options * {
 .indoforall_QuestionText {
     background: black;
     font-size: 1.5vw;
+    line-height: 1.5;
     text-align: center;
     padding: 8px 16px;
     border-radius: 30px;
@@ -729,6 +748,7 @@ body.nav-open #indoforall_nav_options * {
 .indoforall_AnswerText {
     background: gray;
     font-size: 1.5vw;
+    line-height: 1.5;
     text-align: center;
     padding: 8px 16px;
     box-shadow: 0px 0px 10px 1px black;
@@ -823,7 +843,7 @@ body.nav-open #indoforall_nav_options * {
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 15vw;
+    width: 20vw;
     margin: 10px;
     border-radius: 30px;
     cursor: pointer;
@@ -876,6 +896,7 @@ body.nav-open #indoforall_nav_options * {
 
 #indoforall_companydescription h2 {
     font-size: 1.5vw;
+    line-height: 1.5;
     text-align: center;
     padding: 6px 12px;
     cursor: pointer;
@@ -1017,13 +1038,17 @@ footer img {
 
 /* 850px */
 @media(max-width:850px) {
-    nav h3 {
+    .indoforall_contact_us {
         font-size: 2vw;
-        margin-left: 5px;
     }
 
+    nav h3 {
+        font-size: 2.5vw;
+        margin-left: 5px;
+    }
+    
     #indoforall_nav_icon {
-        width: 2.5vw;
+        width: 4vw;
     }
 
     .indoforall_price_card {
@@ -1076,11 +1101,11 @@ footer img {
     }
 
     .indoforall_QuestionText {
-        font-size: 2vw;
+        font-size: 2.5vw;
     }
 
     .indoforall_AnswerText {
-        font-size: 2vw;
+        font-size: 2.5vw;
     }
 
     .indoforall_systemworknum {
@@ -1092,11 +1117,11 @@ footer img {
     }
 
     .indoforall_Proof_video_div {
-        width: 20vw;
+        width: 25vw;
     }
 
     .indoforall_Proof_video_div h2 {
-        font-size: 2vw;
+        font-size: 2.5vw;
     }
 
     .indoforall_explainsystemworktext {
@@ -1108,7 +1133,7 @@ footer img {
     }
 
     #indoforall_companydescription h2 {
-        font-size: 2vw;
+        font-size: 2.5vw;
     }
 
     footer h1,
@@ -1135,6 +1160,10 @@ footer img {
         font-size: 7.5vw;
     }
 
+    #indoforall_weblogo {
+        width: 100Vw;
+    }
+
     .indoforall_sections {
         padding: 20px;
     }
@@ -1149,6 +1178,10 @@ footer img {
 
     .indoforall_main_page_text {
         font-size: 2vw;
+    }
+
+    .indoforall_main_page_text_2 {
+        font-size: 2.5vw;
     }
 
     .indoforall_price_card {
@@ -1192,27 +1225,28 @@ footer img {
     }
 
     #indoforall_nav {
-        padding: 3.5px;
+        padding: 5px;
     }
 
     nav h3 {
         font-size: 3vw;
+        margin-left: 5px;
     }
-
+    
     #indoforall_nav_icon {
-        width: 3.5vw;
+        width: 5vw;
     }
 
     #indoforall_web_intro_1 {
-        font-size: 4vw;
+        font-size: 6vw;
     }
 
     #indoforall_web_intro_2 {
-        font-size: 2.5vw;
+        font-size: 4vw;
     }
 
     #indoforall_web_intro_3 {
-        font-size: 2.5vw;
+        font-size: 4vw;
     }
 
     .indoforall_contact_us {
@@ -1221,16 +1255,12 @@ footer img {
     }
 
     .indoforall_section_intro_text {
-        font-size: 2vw;
+        font-size: 3vw;
     }
 
     .indoforall_section_intro_text_2 {
-        font-size: 2vw;
-        margin: 25px 0;
-    }
-
-    #indoforall_main_page_text {
-        font-size: 13px;
+        font-size: 3vw;
+        margin: 15px 0;
     }
 }
 
@@ -1264,12 +1294,28 @@ footer img {
         font-size: 9.5vw;
     }
 
-    #indoforall_weblogo {
-        width: 45vw;
+    #indoforall_web_intro_1 {
+        font-size: 8vw;
+    }
+    
+    #indoforall_web_intro_2 {
+        font-size: 4.5vw;
+    }
+
+    #indoforall_web_intro_3 {
+        font-size: 4.5vw;
+    }
+
+    nav h3 {
+        font-size: 3.5vw;
+    }
+    
+    #indoforall_nav_icon {
+        width: 5.5vw;
     }
 
     #indoforall_worker_type_area h1 {
-        font-size: 2.5vw;
+        font-size: 3vw;
         margin: 10px;
         padding: 5px 10px;
     }
@@ -1294,12 +1340,20 @@ footer img {
     }
 
     .indoforall_main_page_text {
-        font-size: 2.3vw;
+        font-size: 3vw;
         padding: 6px 12px;
     }
 
+    .indoforall_main_page_text_2 {
+        font-size: 3vw;
+    }
+
+    .indoforall_pay_results {
+        padding: 10px 0;
+    }
+
     .indoforall_price_card {
-        width: 50vw;
+        width: 60vw;
     }
 
     .indoforall_price_card img {
@@ -1348,15 +1402,19 @@ footer img {
     }
 
     .indoforall_Proof_video_div {
-        width: 25vw;
+        width: 35vw;
     }
 
     .indoforall_Proof_video_div h2 {
-        font-size: 2.5vw;
+        font-size: 3vw;
     }
 
     #indoforall_companydescription {
         padding: 10px 0;
+    }
+
+    #indoforall_companydescription h2 {
+        font-size: 3vw;
     }
 
     #indoforall_companydescription img {
@@ -1381,7 +1439,11 @@ footer img {
     }
 
     nav h3 {
-        font-size: 3vw;
+        font-size: 4vw;
+    }
+    
+    #indoforall_nav_icon {
+        width: 6vw;
     }
 
     #indoforall_nav_logo {
@@ -1415,12 +1477,21 @@ footer img {
         padding: 6px 12px;
     }
 
-    #indoforall_main_page_text {
-        font-size: 10px;
+    .indoforall_section_intro_text {
+        font-size: 3vw;
+        padding: 6px 12px;
+    }
+
+    .indoforall_section_intro_text_2 {
+        font-size: 3vw;
+    }
+
+    .indoforall_pay_results {
+        padding: 5px 0;
     }
 
     .indoforall_price_card {
-        width: 60vw;
+        width: 65vw;
     }
 
     .indoforall_price_card img {
@@ -1447,12 +1518,12 @@ footer img {
     }
 
     .indoforall_QuestionText {
-        font-size: 2.5vw;
+        font-size: 3vw;
         padding: 5px 10px;
     }
 
     .indoforall_AnswerText {
-        font-size: 2.5vw;
+        font-size: 3vw;
         padding: 5px 10px;
     }
 
@@ -1469,11 +1540,11 @@ footer img {
     }
 
     .indoforall_Proof_video_div {
-        width: 30vw;
+        width: 45vw;
     }
 
     .indoforall_Proof_video_div h2 {
-        font-size: 3vw;
+        font-size: 4.5vw;
     }
 
     footer h1,
@@ -1510,8 +1581,17 @@ footer img {
         width: 70px;
     }
 
+    .indoforall_main_page_text_2 {
+        font-size: 3.2vw;
+        padding: 6px 10px;
+    }
+
     .indoforall_systemworktext {
         font-size: 10px;
+    }
+
+    .indoforall_Proof_video_div {
+        width: 55vw;
     }
 
     .indoforall_explainsystemworktext {
