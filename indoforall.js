@@ -7,7 +7,7 @@
 
 
 
-/* Create An Array of Workers Cards Data */
+/* Create An Array of Different Worker Types Cards Data */
 let indoforall_homeWorkerArray = [
     {
         workerImg: "worker1/1.jpg",
@@ -39,8 +39,6 @@ let indoforall_homeWorkerArray = [
         workerVideo: "worker1/3.mp4",
     },
 ];
-
-
 let indoforall_driveWorkerArray = [
     {
         workerImg: "worker2/1.jpg",
@@ -60,8 +58,6 @@ let indoforall_driveWorkerArray = [
         workerVideo: "worker1/3.mp4",
     },
 ];
-
-
 let indoforall_hairWorkerArray = [
     {
         workerImg: "worker3/1.jpg",
@@ -81,8 +77,6 @@ let indoforall_hairWorkerArray = [
         workerVideo: "worker1/3.mp4",
     },
 ];
-
-
 let indoforall_doctorWorkerArray = [
     {
         workerImg: "worker1/1.jpg",
@@ -109,17 +103,11 @@ let indoforall_doctorWorkerArray = [
 
 
 
-
-
-
-
-
-
 /* Create An Array of Questions With Their Answers Data */
 let indoforall_questionAndAnswerArray = [
 
     {
-        questionText: "كيف يتم اختيار العاملة المناسبة؟",
+        questionText: "كيف يتم اختيار العمالة المناسبة؟",
         answerText: "يتم عن طريق الفيديوهات المرسلة ثم التواصل معنا أو عن طريق التواصل مع العمالة بشكل مباشر.",
     },
 
@@ -150,7 +138,7 @@ let indoforall_questionAndAnswerArray = [
 
     {
         questionText: "ماهي مدة وصول العاملة",
-        answerText: "تختلف على حسب نوع الفيزا وغالبا تتراوح المدة بين 12 الى 14 يوم.",
+        answerText: "تختلف على حسب نوع الفيزا وغالبا تتراوح المدة من 12 الى 14 يوم.",
     },
 
     {
@@ -176,10 +164,6 @@ let indoforall_questionAndAnswerArray = [
     },
 
 ]
-
-
-
-
 /* Create An Array of Proof Videos Data */
 let indoforall_proofVideosArray = [
 
@@ -195,6 +179,29 @@ let indoforall_proofVideosArray = [
         imgSrc: "worker1/1.jpg",
     },
 ]
+/* Array For Ads Videos/Images */
+let indoforall_adsVideosArray = [
+
+    {
+        videoSrc: "worker1/3.mp4",
+    },
+
+    {
+        videoSrc: "indoforall_ads/1.mp4",
+    },
+
+    {
+        imgSrc: "worker1/1.jpg",
+    },
+]
+
+
+
+
+
+
+
+
 
 
 
@@ -246,7 +253,7 @@ function indoforall_createWorkerTypeDetalis(arrayName) {
         let workerCardInfo = `
             <div onclick="indoforall_showCardsDetails( '${cardCounter}', '${workerImg}', '${workerPassport}', '${workerVideo}');">
                 <h2>${cardCounter}</h2>
-                <img src="${workerImg}" alt="استقدام-عمالة-اندونيسية">
+                <img src="${workerImg}" alt="استقدام-اندونيسيا">
             </div>
         `;
 
@@ -278,9 +285,9 @@ function indoforall_showCardsDetails(cardCounter, workerImg, workerPassport, wor
     fullscreenoverlay.style.display = 'flex';
 
     /* Create A Button To Exit Worker Card Details */
-    let fullscreenoverlayexitbutton = document.createElement('a');
-    fullscreenoverlayexitbutton.classList.add('indoforall_full_screen_overlay_exit_button');
-    fullscreenoverlayexitbutton.innerText = "عودة";
+    let fullScreenOverlayExitButton = document.createElement('a');
+    fullScreenOverlayExitButton.classList.add('indoforall_full_screen_overlay_exit_button');
+    fullScreenOverlayExitButton.innerText = "عودة";
 
     /* Create The Elements With Their Info */
     let FullScreencardCounter = document.createElement('h1');
@@ -288,14 +295,14 @@ function indoforall_showCardsDetails(cardCounter, workerImg, workerPassport, wor
 
     let FullScreenWorkerImg = document.createElement('img');
     FullScreenWorkerImg.src = workerImg;
-    FullScreenWorkerImg.alt = "استقدام-عمالة-اندونيسيلا";
+    FullScreenWorkerImg.alt = "استقدام-اندونيسيا";
     FullScreenWorkerImg.onclick = function () {
         indoforall_show_full_screen_image(FullScreenWorkerImg.src)
     }
 
     let FullScreenWorkerPassport = document.createElement('img');
     FullScreenWorkerPassport.src = workerPassport;
-    FullScreenWorkerPassport.alt = "استقدام-عمالة-اندونيسيلا";
+    FullScreenWorkerPassport.alt = "استقدام-اندونيسيا";
     FullScreenWorkerPassport.onclick = function () {
         indoforall_show_full_screen_image(FullScreenWorkerPassport.src)
     }
@@ -303,10 +310,10 @@ function indoforall_showCardsDetails(cardCounter, workerImg, workerPassport, wor
     let FullScreenWorkerVideo = document.createElement('video');
     FullScreenWorkerVideo.src = workerVideo;
     FullScreenWorkerVideo.setAttribute('controls', true);
-    FullScreenWorkerVideo.setAttribute('title', 'استقدام-عمالة-اندونيسية');
+    FullScreenWorkerVideo.setAttribute('title', 'استقدام-اندونيسيا');
 
     /* Append All Elements Inside The 'fullscreenoverlay' ELement */
-    fullscreenoverlay.appendChild(fullscreenoverlayexitbutton);
+    fullscreenoverlay.appendChild(fullScreenOverlayExitButton);
     fullscreenoverlay.appendChild(FullScreencardCounter);
     fullscreenoverlay.appendChild(FullScreenWorkerImg);
     fullscreenoverlay.appendChild(FullScreenWorkerPassport);
@@ -325,7 +332,7 @@ function indoforall_showCardsDetails(cardCounter, workerImg, workerPassport, wor
     window.scrollTo({ top: 0, });
 
     /* Function To Exit Worker Card Details */
-    fullscreenoverlayexitbutton.onclick = function () {
+    fullScreenOverlayExitButton.onclick = function () {
         indoforall_header.style.display = 'block';
         indoforall_choose_worker_type_section.style.display = 'flex';
         indoforall_worker_detalis_section.style.display = 'flex';
@@ -350,18 +357,18 @@ function indoforall_showCardsDetails(cardCounter, workerImg, workerPassport, wor
         FullScreenImgOverlay.classList.add("indoforall_full_screen_img_overlay");
 
         /* Create A Button To Exit The Big Image Page */
-        let fullscreenoverlayexitbutton = document.createElement('a');
-        fullscreenoverlayexitbutton.classList.add('indoforall_full_screen_overlay_exit_button');
-        fullscreenoverlayexitbutton.innerText = "عودة";
+        let fullScreenOverlayExitButton = document.createElement('a');
+        fullScreenOverlayExitButton.classList.add('indoforall_full_screen_overlay_exit_button');
+        fullScreenOverlayExitButton.innerText = "عودة";
 
         /* Create The Big Image Element Based on The 'src' Value */
         let FullScreenImg = document.createElement('img');
         FullScreenImg.src = src;
-        FullScreenImg.alt = "استقدام-عمالة-اندونيسيلا";
+        FullScreenImg.alt = "استقدام-اندونيسيا";
         FullScreenImg.classList.add('indoforall_big_img');
 
         /* Append All The elements inside 'FullScreenImgOverlay' */
-        FullScreenImgOverlay.appendChild(fullscreenoverlayexitbutton);
+        FullScreenImgOverlay.appendChild(fullScreenOverlayExitButton);
         FullScreenImgOverlay.appendChild(FullScreenImg);
         document.body.appendChild(FullScreenImgOverlay);
 
@@ -369,7 +376,7 @@ function indoforall_showCardsDetails(cardCounter, workerImg, workerPassport, wor
         fullscreenoverlay.style.display = 'none';
 
         /* Function To Exit The Big Image Page */
-        fullscreenoverlayexitbutton.onclick = function () {
+        fullScreenOverlayExitButton.onclick = function () {
             /* ReDispaly The Worker Card Details Again */
             fullscreenoverlay.style.display = 'flex';
 
@@ -442,7 +449,7 @@ indoforall_proofVideosArray.forEach((item) => {
     } else if (videoSrc) {
         ProofVideoInfo = `
             <h2>${cardCounter}</h2>
-            <video src="${videoSrc}" controls></video>
+            <video src="${videoSrc}" controls title="استقدام-اندونيسيا"></video>
         `;
     }
 
@@ -456,8 +463,6 @@ indoforall_proofVideosArray.forEach((item) => {
     indoforall_proof_area.appendChild(ProofVideoDiv);
 
 
-
-
     /* Function For Showing Full Screen Images */
     function indoforall_show_full_screen_image(src) {
 
@@ -466,33 +471,33 @@ indoforall_proofVideosArray.forEach((item) => {
         FullScreenImgOverlay.classList.add("indoforall_full_screen_img_overlay");
 
         /* Create A Button To Exit The Big Image Page */
-        let fullscreenoverlayexitbutton = document.createElement('a');
-        fullscreenoverlayexitbutton.classList.add('indoforall_full_screen_overlay_exit_button');
-        fullscreenoverlayexitbutton.innerText = "عودة";
+        let fullScreenOverlayExitButton = document.createElement('a');
+        fullScreenOverlayExitButton.classList.add('indoforall_full_screen_overlay_exit_button');
+        fullScreenOverlayExitButton.innerText = "عودة";
 
         /* Create The Big Image Element Based on The 'src' Value */
         let FullScreenImg = document.createElement('img');
         FullScreenImg.src = src;
-        FullScreenImg.alt = "استقدام-عمالة-اندونيسيلا";
+        FullScreenImg.alt = "استقدام-اندونيسيا";
         FullScreenImg.classList.add('indoforall_big_img');
 
         /* Append All The elements inside 'FullScreenImgOverlay' */
-        FullScreenImgOverlay.appendChild(fullscreenoverlayexitbutton);
+        FullScreenImgOverlay.appendChild(fullScreenOverlayExitButton);
         FullScreenImgOverlay.appendChild(FullScreenImg);
         document.body.appendChild(FullScreenImgOverlay);
 
         /* Hide And Show Diffrenet Sections */
         indoforall_header.style.display = 'none';
-        indoforall_proofsection.style.display = 'none';
+        indoforall_proof_section.style.display = 'none';
         indoforall_footer.style.display = 'none';
 
 
         /* Function To Exit The Big Image Page */
-        fullscreenoverlayexitbutton.onclick = function () {
+        fullScreenOverlayExitButton.onclick = function () {
             /* ReDispaly The Worker Card Details Again */
             /* Hide And Show Diffrenet Sections */
             indoforall_header.style.display = 'block';
-            indoforall_proofsection.style.display = 'flex';
+            indoforall_proof_section.style.display = 'flex';
             indoforall_footer.style.display = 'flex';
 
             /* Scoll Back The 'indoforall_worker_cards_div' Element After Exiting The Worker Card Details Page */
@@ -507,6 +512,172 @@ indoforall_proofVideosArray.forEach((item) => {
         }
     }
 });
+
+
+indoforall_adsVideosArray.forEach((item) => {
+    /* Get The Array Properties */
+    let { imgSrc, videoSrc } = item;
+
+    /* Create The Card Container Div */
+    let AdsVideoDiv = document.createElement("div");
+    AdsVideoDiv.classList.add("indoforall_ads_only_videos_div");
+
+    let AdsImgDiv = document.createElement("div");
+    AdsImgDiv.classList.add("indoforall_ads_only_img_div");
+
+    /* Create A Variable To Store The Inner HTML Code */
+    let AdsVideoInfo;
+
+    /* Check If The Object Has 'imgSrc' Or 'videoSrc' And Based On it, It Will Show Different Code */
+    if (imgSrc) {
+        AdsVideoInfo = `
+            <img src="${imgSrc}">
+        `;
+
+        /* Set The InnerHTML Code For the 'AdsVideoDiv' */
+        AdsImgDiv.innerHTML = AdsVideoInfo;
+    
+    
+        /* Append The 'AdsVideoDiv' To the 'indoforall_proof_area' */
+        indoforall_ads_videos_and_img_div.appendChild(AdsImgDiv);
+
+        AdsImgDiv.onclick = function () {
+            indoforall_show_full_screen_image(imgSrc);
+        };
+    } else if (videoSrc) {
+        AdsVideoInfo = `
+            <video src="${videoSrc}" controls title="استقدام-اندونيسيا"></video>
+        `;
+
+        /* Set The InnerHTML Code For the 'AdsVideoDiv' */
+        AdsVideoDiv.innerHTML = AdsVideoInfo;
+    
+    
+        /* Append The 'AdsVideoDiv' To the 'indoforall_proof_area' */
+        indoforall_ads_videos_and_img_div.appendChild(AdsVideoDiv);
+    }
+
+
+
+    /* Function For Showing Full Screen Images */
+    function indoforall_show_full_screen_image(src) {
+
+        /* Create A Div To Contain The Big Image */
+        let FullScreenImgOverlay = document.createElement('div');
+        FullScreenImgOverlay.classList.add("indoforall_full_screen_img_overlay");
+
+        /* Create A Button To Exit The Big Image Page */
+        let fullScreenOverlayExitButton = document.createElement('a');
+        fullScreenOverlayExitButton.classList.add('indoforall_full_screen_overlay_exit_button');
+        fullScreenOverlayExitButton.innerText = "عودة";
+
+        /* Create The Big Image Element Based on The 'src' Value */
+        let FullScreenImg = document.createElement('img');
+        FullScreenImg.src = src;
+        FullScreenImg.alt = "استقدام-اندونيسيا";
+        FullScreenImg.classList.add('indoforall_big_img');
+
+        /* Append All The elements inside 'FullScreenImgOverlay' */
+        FullScreenImgOverlay.appendChild(fullScreenOverlayExitButton);
+        FullScreenImgOverlay.appendChild(FullScreenImg);
+        document.body.appendChild(FullScreenImgOverlay);
+
+        /* Hide And Show Diffrenet Sections */
+        indoforall_header.style.display = 'none';
+        indoforall_our_accounts_section.style.display = 'none';
+        indoforall_footer.style.display = 'none';
+
+
+        /* Function To Exit The Big Image Page */
+        fullScreenOverlayExitButton.onclick = function () {
+            /* ReDispaly The Worker Card Details Again */
+            /* Hide And Show Diffrenet Sections */
+            indoforall_header.style.display = 'block';
+            indoforall_our_accounts_section.style.display = 'flex';
+            indoforall_footer.style.display = 'flex';
+
+            /* Scoll Back The 'indoforall_worker_cards_div' Element After Exiting The Worker Card Details Page */
+            indoforall_ads_videos_and_img_div.scrollIntoView({
+                block: 'center',
+                inline: 'center',
+            });
+
+            /* Hide And Reset All Data Stored inside The 'FullScreenImgOverlay' Element */
+            FullScreenImgOverlay.innerHTML = '';
+            FullScreenImgOverlay.style.display = 'none';
+        }
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Open Website Guidance */
+function indoforall_websiteGuidance() {
+
+    // Disable scrolling
+    document.documentElement.style.overflow = 'hidden';
+
+    // Create A Div To Contain The Big Image
+    let FullScreenGuidanceOverlay = document.createElement('div');
+    FullScreenGuidanceOverlay.classList.add("indoforall_full_screen_guidance_overlay");
+
+    // Create A Button To Exit The Big Image Page
+    let fullScreenOverlayExitButton = document.createElement('a');
+    fullScreenOverlayExitButton.classList.add('indoforall_full_screen_overlay_exit_button');
+    fullScreenOverlayExitButton.innerText = "عودة";
+
+    // Create Website Guidance Content
+    let webGuidanceDiv = document.createElement('div');
+    webGuidanceDiv.classList.add('web_guidance_div');
+
+    let webGuidanceText = `
+        <a href="https://indoforall.com">1- في الصفحة الرئيسية انزل الى قسم اختيار نوع العمالة الاندونيسية.</a>
+        <a href="https://indoforall.com">2- بعد اختيار نوع العمالة، خذ نظرة على اسعار الاستقدام ومدة إنجاز العمل.</a>
+        <a onclick="indoforall_whatsApp()">3- اخيرا، تواصل معنا للاستقدام او لطلب المزيد من المعلومات والنصائح.</a>
+        <a href="https://indoforall.com/indoforall_questionpage.html" id="indoforall_web_guidance_note_text">ملاحظة: اذا كنت تبحث عن معلومات أكثر اذهب لصفحة الأسئلة الشائعة او تواصل معنا على الواتس.</a>
+    `;
+
+    // Append All The elements inside 'FullScreenGuidanceOverlay'
+    webGuidanceDiv.innerHTML = webGuidanceText;
+    FullScreenGuidanceOverlay.appendChild(webGuidanceDiv);
+    FullScreenGuidanceOverlay.appendChild(fullScreenOverlayExitButton);
+
+    // Hide And Show Different Sections
+    document.body.appendChild(FullScreenGuidanceOverlay);
+
+    // Function To Exit The Big Image Page
+    fullScreenOverlayExitButton.onclick = function () {
+        // Re-enable scrolling
+        document.documentElement.style.overflow = 'auto';
+
+        // Hide And Reset All Data Stored inside The 'FullScreenGuidanceOverlay' Element
+        FullScreenGuidanceOverlay.style.display = 'none';
+        FullScreenGuidanceOverlay.innerHTML = '';
+
+        // Scroll Back The 'indoforall_nav' Element After Exiting The Website Guidance Page
+        indoforall_nav.scrollIntoView({
+            block: 'center',
+            inline: 'center',
+        });
+    }
+}
+
+
+
+
+
+
 
 
 
@@ -568,7 +739,7 @@ function indoforall_whatsApp() {
 
 /* Open Gmail Contact */
 function indoforall_gmail() {
-    let mailtoLink = "mailto:bndoory300@gmail.com";
+    let mailtoLink = "mailto:indoforall.office@gmail.com";
 
     window.location.href = mailtoLink;
 }
