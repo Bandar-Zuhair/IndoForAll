@@ -426,6 +426,7 @@ indoforall_questionAndAnswerArray.forEach((item) => {
 /* Uniqe Number For Each Card */
 let cardCounter = 1;
 
+/* Function For Creating Proof Videos & Images Conetent */
 indoforall_proofVideosArray.forEach((item) => {
     /* Get The Array Properties */
     let { imgSrc, videoSrc } = item;
@@ -513,7 +514,7 @@ indoforall_proofVideosArray.forEach((item) => {
     }
 });
 
-
+/* Function For Creating Ads Videos & Images Content */
 indoforall_adsVideosArray.forEach((item) => {
     /* Get The Array Properties */
     let { imgSrc, videoSrc } = item;
@@ -584,7 +585,7 @@ indoforall_adsVideosArray.forEach((item) => {
 
         /* Hide And Show Diffrenet Sections */
         indoforall_header.style.display = 'none';
-        indoforall_our_accounts_section.style.display = 'none';
+        indoforall_accounts_section.style.display = 'none';
         indoforall_footer.style.display = 'none';
 
 
@@ -593,7 +594,7 @@ indoforall_adsVideosArray.forEach((item) => {
             /* ReDispaly The Worker Card Details Again */
             /* Hide And Show Diffrenet Sections */
             indoforall_header.style.display = 'block';
-            indoforall_our_accounts_section.style.display = 'flex';
+            indoforall_accounts_section.style.display = 'flex';
             indoforall_footer.style.display = 'flex';
 
             /* Scoll Back The 'indoforall_worker_cards_div' Element After Exiting The Worker Card Details Page */
