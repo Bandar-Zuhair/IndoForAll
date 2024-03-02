@@ -80,6 +80,7 @@ body {
     padding: 8px 16px;
     border-radius: 30px;
     cursor: pointer;
+    border: 1px solid white;
     transition: all 0.1s ease-in-out;
 }
 
@@ -113,6 +114,24 @@ body {
     box-shadow: 0px 0px 10px 1px black;
 }
 
+.indoforall_full_screen_guidance_overlay {
+    background: rgb(59, 59, 59);
+    width: 100%;
+    height: 100%;
+    padding: 20px 0;
+    z-index: 997;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    /* Prevent scrolling */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
 
 
 
@@ -143,7 +162,6 @@ header div {
     animation: floatAnimation 4s ease-in-out infinite;
 }
 
-
 .indoforall_web_intro {
     color: rgb(0, 162, 255);
     font-size: 3vw;
@@ -170,15 +188,16 @@ header div {
     color: white;
     font-size: 2.5vw;
     padding: 15px 0;
+    margin-bottom: 15px;
 }
 
-.indoforall_contact_us {
+.indoforall_web_intro_contact_us {
     background: black;
-    margin: 15px 0;
+    margin: 5px 0;
     font-size: 1.5vw;
     text-decoration: none;
     text-align: center;
-    padding: 9px 18px;
+    padding: 10px 18px;
     color: white;
     border: 1px solid white;
     border-radius: 30px;
@@ -186,13 +205,76 @@ header div {
     transition: all 0.1s ease;
 }
 
-.indoforall_contact_us:hover {
+.indoforall_web_intro_contact_us:hover {
     background: rgb(59, 59, 59);
     color: rgb(0, 255, 0);
     transform: scale(1.03);
 }
 
+#indoforall_website_guidance_text {
+    background: black;
+    margin: 5px 0;
+    font-size: 2vw;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 18px;
+    color: white;
+    border: 1px solid white;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+
+#indoforall_website_guidance_text:hover {
+    background: rgb(59, 59, 59);
+    color: rgb(0, 255, 0);
+    transform: scale(1.03);
+}
+
+.web_guidance_div {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgb(78, 78, 78);
+    width: 90%;
+    padding: 50px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 30px;
+    box-shadow: 0px 0px 10px 1px white;
+}
+
+
+.web_guidance_div a {
+    text-decoration: none;
+    background: black;
+    color: white;
+    font-size: 2.5vw;
+    line-height: 1.5;
+    text-align: center;
+    margin: 5px 0;
+    padding: 8px 12px;
+    border: 1px solid white;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+.web_guidance_div a:hover {
+    background: rgb(166, 166, 166);
+    color: black;
+}
+
+#indoforall_web_guidance_note_text {
+    margin-top: 70px;
+}
+
 nav {
+    margin-top: 20px;
     padding: 10px;
 }
 
@@ -217,10 +299,12 @@ nav h3 {
     color: black;
     font-size: 2vw;
     margin-left: 10px;
+    cursor: pointer;
 }
 
 #indoforall_nav_icon {
     width: 3vw;
+    cursor: pointer;
 }
 
 body.nav-open #indoforall_nav_options * {
@@ -251,8 +335,8 @@ body.nav-open #indoforall_nav_options * {
     animation: floatAnimation 4s ease-in-out infinite;
 }
 
-
-#indoforall_nav_options h4 {
+#indoforall_nav_options a {
+    text-decoration: none;
     color: white;
     margin: 5px 0;
     width: 100%;
@@ -265,28 +349,13 @@ body.nav-open #indoforall_nav_options * {
     transition: all 0.1s ease-in-out;
 }
 
-#indoforall_nav_options h4:hover {
+#indoforall_nav_options a:hover {
     background: rgb(152, 152, 152);
     color: rgb(0, 255, 0);
 }
 
 #indoforall_close_nav {
-    background: linear-gradient(to right, rgb(255, 0, 221), rgb(174, 0, 255), rgb(13, 0, 255)) ;
-    font-size: 1vw;
-    width: 100%;
-    margin: 5px;
-    text-decoration: none;
-    text-align: center;
-    padding: 8px 16px;
-    color: white;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all 0.1s ease;
-}
-
-#indoforall_close_nav:hover {
-    background: rgb(97, 197, 255);
-    color: black;
+    background: linear-gradient(to right, rgb(255, 0, 221), rgb(174, 0, 255), rgb(13, 0, 255));
 }
 
 #indoforall_whatsapp_icon {
@@ -491,8 +560,17 @@ body.nav-open #indoforall_nav_options * {
     border-radius: 30px;
 }
 
-#indoforall_worker_details_area h3 {
+#indoforall_worker_details_text_div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#indoforall_worker_details_text_div a {
     background: linear-gradient(to right, rgb(255, 0, 221), rgb(174, 0, 255), rgb(13, 0, 255));
+    color: white;
+    text-decoration: none;
     font-size: 2vw;
     text-align: center;
     margin: 10px 0;
@@ -503,7 +581,7 @@ body.nav-open #indoforall_nav_options * {
     transition: all 0.1s ease-in-out;
 }
 
-#indoforall_worker_details_area h3:hover {
+#indoforall_worker_details_text_div a:hover {
     transform: scale(1.03);
     color: rgb(0, 255, 0);
 }
@@ -573,11 +651,13 @@ body.nav-open #indoforall_nav_options * {
 #indoforall_indonesia_info_image_1 {
     width: 100px;
     margin: 15px 0;
+    cursor: pointer;
 }
 
 #indoforall_indonesia_info_image_2 {
     width: 150px;
     margin: 15px 0;
+    cursor: pointer;
 }
 
 #indoforall_indonesia_info {
@@ -603,7 +683,9 @@ body.nav-open #indoforall_nav_options * {
 #indoforall_our_contact_info {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     margin-top: 10px
 }
 
@@ -630,7 +712,7 @@ body.nav-open #indoforall_nav_options * {
     background: linear-gradient(#00ddff, rgb(251, 0, 255));
     font-size: 5vw;
     text-align: center;
-    margin: 40px 0 10px 0;
+    margin: 10px 0;
     padding: 10px;
     border-radius: 30px;
     box-shadow: 0px 0px 10px 1px black;
@@ -645,6 +727,7 @@ body.nav-open #indoforall_nav_options * {
     margin: 5px 0;
     padding: 6px 12px;
     border-radius: 30px;
+    box-shadow: 0px 0px 10px 1px black;
 }
 
 
@@ -847,10 +930,11 @@ body.nav-open #indoforall_nav_options * {
     align-items: center;
     flex-direction: column;
     width: 20vw;
+    height: fit-content;
     margin: 10px;
+    border: 1px solid white;
     border-radius: 30px;
     cursor: pointer;
-    box-shadow: 0px 0px 10px 1px black;
 }
 
 .indoforall_Proof_video_div h2 {
@@ -913,6 +997,129 @@ body.nav-open #indoforall_nav_options * {
     animation: floatAnimation 4s ease-in-out infinite;
 }
 
+
+
+
+
+
+
+
+
+
+/* Our Accounts Section */
+#indoforall_our_accounts_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#indoforall_our_accounts_area {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#indoforall_our_accounts_div {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#indoforall_our_accounts_section h1 {
+    background: black;
+    font-size: 3vw;
+    text-align: center;
+    padding: 8px 16px;
+    border: 1px solid white;
+    border-radius: 30px;
+    margin-bottom: 20px;
+}
+
+#indoforall_our_accounts_section a {
+    background: rgb(90, 90, 90);
+    color: white;
+    width: 20vw;
+    font-size: 3vw;
+    margin: 10px;
+    padding: 10px 0;
+    text-decoration: none;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 30px;
+    transition: all 0.1s ease-in-out;
+    animation: floatAnimation 4s ease-in-out infinite;
+}
+
+#indoforall_our_accounts_section ion-icon {
+    width: 100%;
+    font-size: 4.5vw;
+    padding: 5px 0;
+    text-decoration: none;
+    text-align: center;
+}
+
+#indoforall_our_accounts_section a:hover {
+    background: rgb(188, 188, 188);
+    color: black
+}
+
+#indoforall_ads_videos_and_img_div {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.indoforall_ads_only_videos_div {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    margin: 15px;
+    overflow: hidden;
+    border: 1px solid white;
+    border-radius: 30px;
+}
+
+.indoforall_ads_only_img_div {
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+    border: 1px solid white;
+    border-radius: 30px;
+}
+
+.indoforall_ads_only_videos_div video {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.indoforall_ads_only_img_div img {
+    width: 100%;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+/* Footer Section */
 footer {
     background: black;
     display: flex;
@@ -933,6 +1140,7 @@ footer h2 {
     font-size: 2vw;
     border-radius: 30px;
     cursor: pointer;
+    text-align: center;
     animation: floatAnimation 4s ease-in-out infinite;
 }
 
@@ -970,7 +1178,7 @@ footer img {
     }
 
 
-    #indoforall_nav_options h4 {
+    #indoforall_nav_options a {
         font-size: 2.5vw;
     }
 
@@ -1008,6 +1216,15 @@ footer img {
     #indoforall_systemworkarea ion-icon {
         font-size: 70px;
     }
+
+    .indoforall_ads_only_videos_div {
+        width: 80vw;
+        height: 450px;
+    }
+
+    .indoforall_ads_only_img_div {
+        width: 40vw;
+    }
 }
 
 /* 950px */
@@ -1041,15 +1258,19 @@ footer img {
 
 /* 850px */
 @media(max-width:850px) {
-    .indoforall_contact_us {
+    .indoforall_web_intro_contact_us {
         font-size: 2vw;
+    }
+
+    #indoforall_website_guidance_text {
+        font-size: 2.5vw;
     }
 
     nav h3 {
         font-size: 2.5vw;
         margin-left: 5px;
     }
-    
+
     #indoforall_nav_icon {
         width: 4vw;
     }
@@ -1078,11 +1299,6 @@ footer img {
 
     #indoforall_our_features_area h2 {
         font-size: 2vw;
-    }
-
-    #indoforall_our_contact_info {
-        flex-direction: column;
-        align-items: center;
     }
 
     #indoforall_our_contact_info div {
@@ -1139,6 +1355,23 @@ footer img {
         font-size: 2.5vw;
     }
 
+    #indoforall_our_accounts_section h1 {
+        font-size: 3.5vw;
+    }
+
+    #indoforall_our_accounts_section a {
+        width: 25vw;
+        font-size: 4vw;
+    }
+
+    #indoforall_our_accounts_section ion-icon {
+        font-size: 6vw;
+    }
+
+    .indoforall_ads_only_videos_div {
+        height: 400px;
+    }
+
     footer h1,
     footer h2 {
         font-size: 3vw;
@@ -1165,6 +1398,10 @@ footer img {
 
     #indoforall_weblogo {
         width: 100Vw;
+    }
+
+    #indoforall_web_guidance_note_text {
+        margin-top: 40px;
     }
 
     .indoforall_sections {
@@ -1198,6 +1435,15 @@ footer img {
     #indoforall_companydescription img {
         width: 120px;
     }
+
+    .indoforall_ads_only_videos_div {
+        height: 350px;
+    }
+
+    .indoforall_ads_only_img_div {
+        width: 50vw;
+    }
+
 }
 
 /* 650px */
@@ -1207,7 +1453,7 @@ footer img {
     }
 
 
-    #indoforall_nav_options h4 {
+    #indoforall_nav_options a {
         font-size: 3.5vw;
     }
 
@@ -1235,7 +1481,7 @@ footer img {
         font-size: 3vw;
         margin-left: 5px;
     }
-    
+
     #indoforall_nav_icon {
         width: 5vw;
     }
@@ -1252,9 +1498,14 @@ footer img {
         font-size: 4vw;
     }
 
-    .indoforall_contact_us {
+    .indoforall_web_intro_contact_us {
         font-size: 2.5vw;
-        padding: 6px 12px;
+        padding: 8px 12px;
+    }
+
+    #indoforall_website_guidance_text {
+        font-size: 3vw;
+        padding: 8px 12px;
     }
 
     .indoforall_section_intro_text {
@@ -1264,6 +1515,19 @@ footer img {
     .indoforall_section_intro_text_2 {
         font-size: 3vw;
         margin: 15px 0;
+    }
+
+    #indoforall_our_accounts_section h1 {
+        font-size: 4vw;
+    }
+
+    .indoforall_ads_only_videos_div {
+        width: 90vw;
+        height: 300px;
+    }
+
+    .indoforall_ads_only_img_div {
+        width: 55vw;
     }
 }
 
@@ -1300,7 +1564,7 @@ footer img {
     #indoforall_web_intro_1 {
         font-size: 8vw;
     }
-    
+
     #indoforall_web_intro_2 {
         font-size: 4.5vw;
     }
@@ -1309,10 +1573,19 @@ footer img {
         font-size: 4.5vw;
     }
 
+    .web_guidance_div a {
+        font-size: 3vw;
+        padding: 8px 10px;
+    }
+
+    #indoforall_web_guidance_note_text {
+        margin-top: 20px;
+    }
+
     nav h3 {
         font-size: 3.5vw;
     }
-    
+
     #indoforall_nav_icon {
         width: 5.5vw;
     }
@@ -1336,7 +1609,7 @@ footer img {
         padding: 0;
     }
 
-    #indoforall_worker_details_area h3 {
+    #indoforall_worker_details_text_div a {
         font-size: 2.5vw;
         margin: 5px 0;
         padding: 6px 10px;
@@ -1374,7 +1647,6 @@ footer img {
     #indoforall_indonesia_info h2 {
         font-size: 2.1vw;
     }
-
 
     #indoforall_our_features_area {
         padding: 5px;
@@ -1423,6 +1695,29 @@ footer img {
     #indoforall_companydescription img {
         width: 90px;
     }
+
+    #indoforall_our_accounts_section h1 {
+        font-size: 5vw;
+        margin-bottom: 10px;
+    }
+
+    #indoforall_our_accounts_section a {
+        width: 30vw;
+        font-size: 5vw;
+    }
+
+    #indoforall_our_accounts_section ion-icon {
+        font-size: 8vw;
+    }
+
+    .indoforall_ads_only_videos_div {
+        width: 95vw;
+        height: 250px;
+    }
+    
+    .indoforall_ads_only_img_div {
+        width: 60vw;
+    }
 }
 
 /* 400px */
@@ -1444,7 +1739,7 @@ footer img {
     nav h3 {
         font-size: 4vw;
     }
-    
+
     #indoforall_nav_icon {
         width: 6vw;
     }
@@ -1454,7 +1749,7 @@ footer img {
     }
 
 
-    #indoforall_nav_options h4 {
+    #indoforall_nav_options a {
         font-size: 4.5vw;
     }
 
@@ -1520,6 +1815,10 @@ footer img {
         width: 100px;
     }
 
+    #indoforall_our_contact_info div {
+        width: 70vw;
+    }
+
     .indoforall_QuestionText {
         font-size: 3vw;
         padding: 5px 10px;
@@ -1550,6 +1849,14 @@ footer img {
         font-size: 4.5vw;
     }
 
+    #indoforall_our_accounts_section a {
+        font-size: 6vw;
+    }
+
+    #indoforall_our_accounts_section ion-icon {
+        font-size: 10vw;
+    }
+
     footer h1,
     footer h2 {
         font-size: 4vw;
@@ -1557,6 +1864,14 @@ footer img {
 
     footer img {
         width: 8vw;
+    }
+
+    .indoforall_ads_only_videos_div {
+        height: 200px;
+    }
+
+    .indoforall_ads_only_img_div {
+        width: 65vw;
     }
 }
 
@@ -1607,5 +1922,9 @@ footer img {
 
     #indoforall_companydescription img {
         width: 70px;
+    }
+
+    .indoforall_ads_only_videos_div {
+        height: 150px;
     }
 }
