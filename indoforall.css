@@ -994,6 +994,7 @@ body.nav-open #indoforall_nav_options * {
 #indoforall_companydescription img {
     margin-top: 10px;
     width: 150px;
+    cursor: pointer;
     animation: floatAnimation 4s ease-in-out infinite;
 }
 
