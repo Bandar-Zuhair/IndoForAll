@@ -191,7 +191,15 @@ let indoforall_adsVideosArray = [
     },
 
     {
+        videoSrc: "indoforall_ads/3.mp4",
+    },
+
+    {
         imgSrc: "worker1/1.jpg",
+    },
+
+    {
+        videoSrc: "indoforall_ads/2.mp4",
     },
 ]
 
