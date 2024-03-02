@@ -1008,14 +1008,14 @@ body.nav-open #indoforall_nav_options * {
 
 
 /* Our Accounts Section */
-#indoforall_our_accounts_section {
+#indoforall_accounts_section {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-#indoforall_our_accounts_area {
+#indoforall_accounts_area {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -1023,7 +1023,7 @@ body.nav-open #indoforall_nav_options * {
     align-items: center;
 }
 
-#indoforall_our_accounts_div {
+#indoforall_accounts_div {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -1031,7 +1031,7 @@ body.nav-open #indoforall_nav_options * {
     align-items: center;
 }
 
-#indoforall_our_accounts_section h1 {
+#indoforall_accounts_section h1 {
     background: black;
     font-size: 3vw;
     text-align: center;
@@ -1041,7 +1041,7 @@ body.nav-open #indoforall_nav_options * {
     margin-bottom: 20px;
 }
 
-#indoforall_our_accounts_section a {
+#indoforall_accounts_section a {
     background: rgb(90, 90, 90);
     color: white;
     width: 20vw;
@@ -1056,7 +1056,7 @@ body.nav-open #indoforall_nav_options * {
     animation: floatAnimation 4s ease-in-out infinite;
 }
 
-#indoforall_our_accounts_section ion-icon {
+#indoforall_accounts_section ion-icon {
     width: 100%;
     font-size: 4.5vw;
     padding: 5px 0;
@@ -1064,7 +1064,7 @@ body.nav-open #indoforall_nav_options * {
     text-align: center;
 }
 
-#indoforall_our_accounts_section a:hover {
+#indoforall_accounts_section a:hover {
     background: rgb(188, 188, 188);
     color: black
 }
@@ -1356,16 +1356,16 @@ footer img {
         font-size: 2.5vw;
     }
 
-    #indoforall_our_accounts_section h1 {
+    #indoforall_accounts_section h1 {
         font-size: 3.5vw;
     }
 
-    #indoforall_our_accounts_section a {
+    #indoforall_accounts_section a {
         width: 25vw;
         font-size: 4vw;
     }
 
-    #indoforall_our_accounts_section ion-icon {
+    #indoforall_accounts_section ion-icon {
         font-size: 6vw;
     }
 
@@ -1518,7 +1518,7 @@ footer img {
         margin: 15px 0;
     }
 
-    #indoforall_our_accounts_section h1 {
+    #indoforall_accounts_section h1 {
         font-size: 4vw;
     }
 
@@ -1697,17 +1697,17 @@ footer img {
         width: 90px;
     }
 
-    #indoforall_our_accounts_section h1 {
+    #indoforall_accounts_section h1 {
         font-size: 5vw;
         margin-bottom: 10px;
     }
 
-    #indoforall_our_accounts_section a {
+    #indoforall_accounts_section a {
         width: 30vw;
         font-size: 5vw;
     }
 
-    #indoforall_our_accounts_section ion-icon {
+    #indoforall_accounts_section ion-icon {
         font-size: 8vw;
     }
 
@@ -1850,11 +1850,11 @@ footer img {
         font-size: 4.5vw;
     }
 
-    #indoforall_our_accounts_section a {
+    #indoforall_accounts_section a {
         font-size: 6vw;
     }
 
-    #indoforall_our_accounts_section ion-icon {
+    #indoforall_accounts_section ion-icon {
         font-size: 10vw;
     }
 
