@@ -221,13 +221,13 @@ function indoforall_createWorkerTypeDetalis(arrayName) {
 
     /* Check Which Button Has Clicked And Based On That Set The InnerText For The 'indoforall_worker_details_text' */
     if (arrayName === indoforall_homeWorkerArray) {
-        indoforall_worker_details_text.innerText = 'قسم العمالة المنزلية الاندونيسية';
+        indoforall_worker_details_text.innerText = 'قسم معلومات العمالة المنزلية الاندونيسية';
     } else if (arrayName === indoforall_driveWorkerArray) {
-        indoforall_worker_details_text.innerText = 'قسم العمالة السائقين الخاص';
+        indoforall_worker_details_text.innerText = 'قسم معلومات السائقين الخاص';
     } else if (arrayName === indoforall_hairWorkerArray) {
-        indoforall_worker_details_text.innerText = 'قسم العمالة الكوفيرة الاندونيسية';
+        indoforall_worker_details_text.innerText = 'قسم معلومات الكوفيرة الاندونيسية';
     } else if (arrayName === indoforall_doctorWorkerArray) {
-        indoforall_worker_details_text.innerText = 'قسم العمالة الممرضة الاندونيسية';
+        indoforall_worker_details_text.innerText = 'قسم معلومات الممرضة الاندونيسية';
     }
 
     // Apply fade-in animation
@@ -251,7 +251,7 @@ function indoforall_createWorkerTypeDetalis(arrayName) {
         let workerCardInfo = `
             <div onclick="indoforall_showCardsDetails( '${cardCounter}', '${workerImg}', '${workerPassport}', '${workerVideo}');">
                 <h2>${cardCounter}</h2>
-                <img src="${workerImg}" alt="استقدام-اندونيسيا">
+                <img src="${workerImg}" alt="استقدام-اندونيسيا" title="استقدام-اندونيسيا">
             </div>
         `;
 
@@ -301,6 +301,7 @@ function indoforall_showCardsDetails(cardCounter, workerImg, workerPassport, wor
     let FullScreenWorkerPassport = document.createElement('img');
     FullScreenWorkerPassport.src = workerPassport;
     FullScreenWorkerPassport.alt = "استقدام-اندونيسيا";
+    FullScreenWorkerPassport.title = "استقدام-اندونيسيا";
     FullScreenWorkerPassport.onclick = function () {
         indoforall_show_full_screen_image(FullScreenWorkerPassport.src)
     }
@@ -363,6 +364,7 @@ function indoforall_showCardsDetails(cardCounter, workerImg, workerPassport, wor
         let FullScreenImg = document.createElement('img');
         FullScreenImg.src = src;
         FullScreenImg.alt = "استقدام-اندونيسيا";
+        FullScreenImg.title = "استقدام-اندونيسيا";
         FullScreenImg.classList.add('indoforall_big_img');
 
         /* Append All The elements inside 'FullScreenImgOverlay' */
@@ -440,7 +442,7 @@ indoforall_proofVideosArray.forEach((item) => {
     if (imgSrc) {
         ProofVideoInfo = `
             <h2>${cardCounter}</h2>
-            <img src="${imgSrc}">
+            <img src="${imgSrc}" alt="استقدام-اندونيسيا" title="استقدام-اندونيسيا">
         `;
         ProofVideoDiv.onclick = function () {
             indoforall_show_full_screen_image(imgSrc);
@@ -478,6 +480,7 @@ indoforall_proofVideosArray.forEach((item) => {
         let FullScreenImg = document.createElement('img');
         FullScreenImg.src = src;
         FullScreenImg.alt = "استقدام-اندونيسيا";
+        FullScreenImg.title = "استقدام-اندونيسيا";
         FullScreenImg.classList.add('indoforall_big_img');
 
         /* Append All The elements inside 'FullScreenImgOverlay' */
@@ -532,7 +535,7 @@ indoforall_adsVideosArray.forEach((item) => {
     if (imgSrc) {
         /* Create The HTML Content For The Images */
         AdsImgInfo = `
-            <img src=${imgSrc}>
+            <img src=${imgSrc} alt="استقدام-اندونيسيا" title="استقدام-اندونيسيا">
         `;
     
         /* Set The InnerHTML Code For the 'AdsVideoDiv' */
@@ -548,7 +551,7 @@ indoforall_adsVideosArray.forEach((item) => {
     } else if (videoSrc) {
         /* Create The HTML Content For The Videos */
         AdsVideoInfo = `
-            <img src=${videoThumbnailSrc} alt="استقدام-اندونيسيا" class="indoforall_ads_thumbnail_img">
+            <img src=${videoThumbnailSrc} alt="استقدام-اندونيسيا" class="indoforall_ads_thumbnail_img" title="استقدام-اندونيسيا">
             <video src=${videoSrc} controls title="استقدام-اندونيسيا" class="indoforall_ads_orignal_video"></video>
         `;
     
@@ -597,6 +600,7 @@ indoforall_adsVideosArray.forEach((item) => {
         let FullScreenImg = document.createElement('img');
         FullScreenImg.src = src;
         FullScreenImg.alt = "استقدام-اندونيسيا";
+        FullScreenImg.title = "استقدام-اندونيسيا";
         FullScreenImg.classList.add('indoforall_big_img');
 
         /* Append All The elements inside 'FullScreenImgOverlay' */
