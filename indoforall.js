@@ -1,3 +1,427 @@
+/* How To Manage This Website? */
+/* Use The Down Arrays To Add or Remove Any Worker Pictures & Videos or Proof Videos or Coomon Questions */
+
+
+
+
+
+
+
+/* Create An Array of Different Worker Types Cards Data */
+let indoforall_homeWorkerArray = [
+    {
+        workerImg: "worker1/1.jpg",
+        workerPassport: "worker1/2.jpg",
+        workerVideo: "worker1/3.mp4",
+    },
+
+    {
+        workerImg: "worker1/1.jpg",
+        workerPassport: "worker1/2.jpg",
+        workerVideo: "worker1/3.mp4",
+    },
+
+    {
+        workerImg: "worker1/1.jpg",
+        workerPassport: "worker1/2.jpg",
+        workerVideo: "worker1/3.mp4",
+    },
+
+    {
+        workerImg: "worker1/1.jpg",
+        workerPassport: "worker1/2.jpg",
+        workerVideo: "worker1/3.mp4",
+    },
+
+    {
+        workerImg: "worker1/1.jpg",
+        workerPassport: "worker1/2.jpg",
+        workerVideo: "worker1/3.mp4",
+    },
+];
+let indoforall_driveWorkerArray = [
+    {
+        workerImg: "worker2/1.jpg",
+        workerPassport: "worker1/2.jpg",
+        workerVideo: "worker1/3.mp4",
+    },
+
+    {
+        workerImg: "worker2/1.jpg",
+        workerPassport: "worker1/2.jpg",
+        workerVideo: "worker1/3.mp4",
+    },
+
+    {
+        workerImg: "worker2/1.jpg",
+        workerPassport: "worker1/2.jpg",
+        workerVideo: "worker1/3.mp4",
+    },
+];
+let indoforall_hairWorkerArray = [
+    {
+        workerImg: "worker3/1.jpg",
+        workerPassport: "worker1/2.jpg",
+        workerVideo: "worker1/3.mp4",
+    },
+
+    {
+        workerImg: "worker3/1.jpg",
+        workerPassport: "worker1/2.jpg",
+        workerVideo: "worker1/3.mp4",
+    },
+
+    {
+        workerImg: "worker3/1.jpg",
+        workerPassport: "worker1/2.jpg",
+        workerVideo: "worker1/3.mp4",
+    },
+];
+let indoforall_doctorWorkerArray = [
+    {
+        workerImg: "worker1/1.jpg",
+        workerPassport: "worker1/2.jpg",
+        workerVideo: "worker1/3.mp4",
+    },
+
+    {
+        workerImg: "worker1/1.jpg",
+        workerPassport: "worker1/2.jpg",
+        workerVideo: "worker1/3.mp4",
+    },
+
+    {
+        workerImg: "worker1/1.jpg",
+        workerPassport: "worker1/2.jpg",
+        workerVideo: "worker1/3.mp4",
+    },
+];
+
+
+
+
+
+
+
+/* Create An Array of Questions With Their Answers Data */
+let indoforall_questionAndAnswerArray = [
+
+    {
+        questionText: "كيف يتم اختيار العمالة المناسبة؟",
+        answerText: "يتم عن طريق الفيديوهات المرسلة ثم التواصل معنا أو عن طريق التواصل مع العمالة بشكل مباشر.",
+    },
+
+    {
+        questionText: "هل لابد من وجود تاشيرة لبدا اجراءات الاستقدام؟",
+        answerText: "التاشيرة هي اساس عملية الاستقدام ولايمكن عمل اي اجراء قبل استخراج التاشيرة.",
+    },
+
+    {
+        questionText: "ماهي متطلبات استخراج التاشيرة؟",
+        answerText: "ان يكون لديك رقم نفاذ وطني.",
+    },
+
+    {
+        questionText: "كيف يتم استخراج التاشيرة؟",
+        answerText: "يتم استخراج تاشيرات العمالة بشكل الكتروني",
+    },
+
+    {
+        questionText: "ماهي الحالات التي يتم فيها تعويض العميل خلال فترة الضمان؟",
+        answerText: "رفض العمل - الهروب - الحمل.",
+    },
+
+    {
+        questionText: "ماهي التعويض الذي نقدمه للعميل؟",
+        answerText: "التعويض يتم عن طريق استبدال العاملة فقط في خلال فترة الضمان (3 شهور).",
+    },
+
+    {
+        questionText: "ماهي مدة وصول العاملة",
+        answerText: "تختلف على حسب نوع الفيزا وغالبا تتراوح المدة من 12 الى 14 يوم.",
+    },
+
+    {
+        questionText: "كيف يتم اشعار العميل بوقت وصول العاملة؟",
+        answerText: "يتم اشعار العميل عن طريق الواتس اب وإرسال له تذكرة السفر لموعد وصول العاملة.",
+    },
+
+    {
+        questionText: "كيف يمكننا ارسال المبلغ لكم؟",
+        answerText: "عن طريق التحويل بالبنك",
+    },
+    {
+        questionText: "ماهي طريقة تجديد الفيزا؟",
+        answerText: "عن طريق موقع ابشر أو عن طريق الجوازات",
+    },
+    {
+        questionText: "ماهو مبلغ تجديد الفيزا؟",
+        answerText: "مية ريال شهريا",
+    },
+    {
+        questionText: "هل استطيع تحويل فيزة الزيارة الى إقامة؟",
+        answerText: "نعم، يتم عن طريق الوزارة الداخلية اونلاين",
+    },
+
+]
+/* Create An Array of Proof Videos Data */
+let indoforall_proofVideosArray = [
+
+    {
+        videoSrc: "worker1/3.mp4",
+    },
+
+    {
+        videoSrc: "worker2/3.mp4",
+    },
+
+    {
+        imgSrc: "worker1/1.jpg",
+    },
+]
+/* Array For Ads Videos/Images Use Only (imgSrc - videoSrc - videoThumbnailSrc) Words */
+let indoforall_adsVideosArray = [
+
+    {
+        videoSrc: "worker1/3.mp4",
+        videoThumbnailSrc: "indoforall_ads/استقدام-اندونيسيا.png",
+    },
+
+    {
+        imgSrc: "indoforall_ads/استقدام-اندونيسيا.png",
+    },
+
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Create Worker Type Details */
+/* ArrayName is the name of the Array of The Worker Type Button Clicked */
+function indoforall_createWorkerTypeDetalis(arrayName) {
+    /* Uinque Number For Each Card */
+    let cardCounter = 1;
+
+    // Clear existing content
+    indoforall_worker_cards_div.innerHTML = '';
+
+    /* Make A Smooth Fade In When The 'indoforall_worker_details_text' Apear */
+    indoforall_worker_details_text.style.opacity = '0';
+    indoforall_worker_details_text.style.transition = 'opacity 0.5s ease-in-out';
+    indoforall_worker_details_text.style.opacity = '1';
+
+    /* Check Which Button Has Clicked And Based On That Set The InnerText For The 'indoforall_worker_details_text' */
+    if (arrayName === indoforall_homeWorkerArray) {
+        indoforall_worker_details_text.innerText = 'قسم معلومات العمالة المنزلية الاندونيسية';
+    } else if (arrayName === indoforall_driveWorkerArray) {
+        indoforall_worker_details_text.innerText = 'قسم معلومات السائقين الخاص';
+    } else if (arrayName === indoforall_hairWorkerArray) {
+        indoforall_worker_details_text.innerText = 'قسم معلومات الكوفيرة الاندونيسية';
+    } else if (arrayName === indoforall_doctorWorkerArray) {
+        indoforall_worker_details_text.innerText = 'قسم معلومات الممرضة الاندونيسية';
+    }
+
+    // Apply fade-in animation
+    indoforall_worker_detalis_section.style.opacity = '0';
+    indoforall_worker_detalis_section.style.transition = 'opacity 0.5s ease-in-out';
+    indoforall_worker_detalis_section.style.display = 'flex';
+
+    // Trigger reflow to ensure transition is applied
+    void indoforall_worker_detalis_section.offsetWidth;
+
+    // Fade in the section
+    indoforall_worker_detalis_section.style.opacity = '1';
+
+    // Loop through the array to create worker cards
+    arrayName.forEach((item) => {
+        let { workerImg, workerPassport, workerVideo } = item;
+
+        let WorkerCard = document.createElement("div");
+        WorkerCard.classList.add("indoforall_worker_card");
+
+        let workerCardInfo = `
+            <div onclick="indoforall_showCardsDetails( '${cardCounter}', '${workerImg}', '${workerPassport}', '${workerVideo}');">
+                <h2>${cardCounter}</h2>
+                <img src="${workerImg}" alt="استقدام-اندونيسيا" title="استقدام-اندونيسيا">
+            </div>
+        `;
+
+        /* Set The InnerHTML Code For The 'WorkerCard' */
+        WorkerCard.innerHTML = workerCardInfo;
+
+        /* Append The 'WorkerCard' To the 'indoforall_worker_cards_div' */
+        indoforall_worker_cards_div.appendChild(WorkerCard);
+
+        cardCounter++;
+    });
+
+    indoforall_worker_details_text.scrollIntoView({
+        block: 'center',
+        inline: 'center',
+        behavior: 'smooth',
+    });
+}
+
+
+
+
+/* Show Cards Details On Ovelay Layer */
+function indoforall_showCardsDetails(cardCounter, workerImg, workerPassport, workerVideo) {
+
+    /* Create Overlay For Show Workers Card Detals */
+    let fullscreenoverlay = document.createElement('div');
+    fullscreenoverlay.classList.add('indoforall_full_screen_overlay');
+    fullscreenoverlay.style.display = 'flex';
+
+    /* Create A Button To Exit Worker Card Details */
+    let fullScreenOverlayExitButton = document.createElement('a');
+    fullScreenOverlayExitButton.classList.add('indoforall_full_screen_overlay_exit_button');
+    fullScreenOverlayExitButton.innerText = "عودة";
+
+    /* Create The Elements With Their Info */
+    let FullScreencardCounter = document.createElement('h1');
+    FullScreencardCounter.innerHTML = 'عمالة اندونيسية رقم ' + cardCounter;
+
+    let FullScreenWorkerImg = document.createElement('img');
+    FullScreenWorkerImg.src = workerImg;
+    FullScreenWorkerImg.alt = "استقدام-اندونيسيا";
+    FullScreenWorkerImg.title = "استقدام-اندونيسيا";
+    FullScreenWorkerImg.onclick = function () {
+        indoforall_show_full_screen_image(FullScreenWorkerImg.src)
+    }
+
+    let FullScreenWorkerPassport = document.createElement('img');
+    FullScreenWorkerPassport.src = workerPassport;
+    FullScreenWorkerPassport.alt = "استقدام-اندونيسيا";
+    FullScreenWorkerPassport.title = "استقدام-اندونيسيا";
+    FullScreenWorkerPassport.onclick = function () {
+        indoforall_show_full_screen_image(FullScreenWorkerPassport.src)
+    }
+
+    let FullScreenWorkerVideo = document.createElement('video');
+    FullScreenWorkerVideo.src = workerVideo;
+    FullScreenWorkerVideo.setAttribute('controls', true);
+    FullScreenWorkerVideo.setAttribute('title', 'استقدام-اندونيسيا');
+
+    /* Append All Elements Inside The 'fullscreenoverlay' ELement */
+    fullscreenoverlay.appendChild(fullScreenOverlayExitButton);
+    fullscreenoverlay.appendChild(FullScreencardCounter);
+    fullscreenoverlay.appendChild(FullScreenWorkerImg);
+    fullscreenoverlay.appendChild(FullScreenWorkerPassport);
+    fullscreenoverlay.appendChild(FullScreenWorkerVideo);
+
+
+    /* Hide And Show Diffrenet Sections */
+    indoforall_header.style.display = 'none';
+    indoforall_choose_worker_type_section.style.display = 'none';
+    indoforall_worker_detalis_section.style.display = 'none';
+    indoforall_main_page_section.style.display = 'none';
+    indoforall_footer.style.display = 'none';
+    document.body.appendChild(fullscreenoverlay);
+
+    /* Scroll Up Once Clicked on Any Card */
+    window.scrollTo({ top: 0, });
+
+    /* Function To Exit Worker Card Details */
+    fullScreenOverlayExitButton.onclick = function () {
+        indoforall_header.style.display = 'block';
+        indoforall_choose_worker_type_section.style.display = 'flex';
+        indoforall_worker_detalis_section.style.display = 'flex';
+        indoforall_main_page_section.style.display = 'flex';
+        indoforall_footer.style.display = 'flex';
+
+        fullscreenoverlay.innerHTML = '';
+        fullscreenoverlay.style.display = 'none';
+
+        /* Scoll Back The 'indoforall_worker_cards_div' Element After Exiting The Worker Card Details Page */
+        indoforall_worker_cards_div.scrollIntoView({
+            block: 'center',
+            inline: 'center',
+        });
+    }
+
+    /* Function For Showing Full Screen Images */
+    function indoforall_show_full_screen_image(src) {
+
+        /* Create A Div To Contain The Big Image */
+        let FullScreenImgOverlay = document.createElement('div');
+        FullScreenImgOverlay.classList.add("indoforall_full_screen_img_overlay");
+
+        /* Create A Button To Exit The Big Image Page */
+        let fullScreenOverlayExitButton = document.createElement('a');
+        fullScreenOverlayExitButton.classList.add('indoforall_full_screen_overlay_exit_button');
+        fullScreenOverlayExitButton.innerText = "عودة";
+
+        /* Create The Big Image Element Based on The 'src' Value */
+        let FullScreenImg = document.createElement('img');
+        FullScreenImg.src = src;
+        FullScreenImg.alt = "استقدام-اندونيسيا";
+        FullScreenImg.title = "استقدام-اندونيسيا";
+        FullScreenImg.classList.add('indoforall_big_img');
+
+        /* Append All The elements inside 'FullScreenImgOverlay' */
+        FullScreenImgOverlay.appendChild(fullScreenOverlayExitButton);
+        FullScreenImgOverlay.appendChild(FullScreenImg);
+        document.body.appendChild(FullScreenImgOverlay);
+
+        /* Hide The Worker card Details So You Can See The Big Image */
+        fullscreenoverlay.style.display = 'none';
+
+        /* Function To Exit The Big Image Page */
+        fullScreenOverlayExitButton.onclick = function () {
+            /* ReDispaly The Worker Card Details Again */
+            fullscreenoverlay.style.display = 'flex';
+
+            /* Hide And Reset All Data Stored inside The 'FullScreenImgOverlay' Element */
+            FullScreenImgOverlay.innerHTML = '';
+            FullScreenImgOverlay.style.display = 'none';
+        }
+    }
+}
+
+
+
+
+// Go through each item in the 'data' value array 'indoforall_questionAndAnswerArray'
+indoforall_questionAndAnswerArray.forEach((item) => {
+    // Get all the properties from each item in the object from the array
+    let { questionText, answerText } = item;
+
+    // Create a new div element for the Questions And Answers
+    let indoforall_QuestionDiv = document.createElement("div");
+    indoforall_QuestionDiv.classList.add("indoforall_QuestionDiv");
+
+    // Create the HTML content for the Questions And Answers Elements
+    let indoforall_QuestionAndAnswerInfo = `
+            <h2 class="indoforall_QuestionText">${questionText}</h2>
+            <h3 class="indoforall_AnswerText">${answerText}</h3>
+    `;
+
+    // Set the innerHTML of the created div to the workerCardInfo HTML
+    indoforall_QuestionDiv.innerHTML = indoforall_QuestionAndAnswerInfo;
+
+    // Append the 'indoforall_QuestionDiv' element inside the 'indoforall_question_area'
+    indoforall_question_area.appendChild(indoforall_QuestionDiv);
+});
+
+
+
+
+
+
+
+
+
+
 // Define cardCounter outside the loop
 /* Uniqe Number For Each Card */
 let cardCounter = 1;
@@ -99,3 +523,295 @@ indoforall_proofVideosArray.forEach((item) => {
         }
     }
 });
+
+
+/* Function For Creating Ads Videos & Images Content */
+indoforall_adsVideosArray.forEach((item) => {
+    /* Get The Array Properties */
+    let { imgSrc, videoSrc, videoThumbnailSrc } = item;
+
+    /* Create The Card Container Div */
+    let AdsVideoDiv = document.createElement("div");
+    AdsVideoDiv.classList.add("indoforall_ads_only_videos_div");
+
+    let AdsImgDiv = document.createElement("div");
+    AdsImgDiv.classList.add("indoforall_ads_only_img_div");
+
+    /* Create A Variable To Store The Inner HTML Code */
+    let AdsVideoInfo;
+    let AdsImgInfo;
+
+    /* Check If The Object Has 'imgSrc' Or 'videoSrc' And Based On it, It Will Show Different Code */
+    if (imgSrc) {
+        /* Create The HTML Content For The Images */
+        AdsImgInfo = `
+            <img src=${imgSrc} alt="استقدام-اندونيسيا" title="استقدام-اندونيسيا">
+        `;
+
+        /* Set The InnerHTML Code For the 'AdsVideoDiv' */
+        AdsImgDiv.innerHTML = AdsImgInfo;
+
+
+        /* Append The 'AdsVideoDiv' To the 'indoforall_proof_area' */
+        indoforall_ads_videos_and_img_div.appendChild(AdsImgDiv);
+
+        AdsImgDiv.onclick = function () {
+            indoforall_show_full_screen_image(imgSrc);
+        };
+    } else if (videoSrc) {
+        /* Create The HTML Content For The Videos */
+        AdsVideoInfo = `
+            <img src=${videoThumbnailSrc} alt="استقدام-اندونيسيا" class="indoforall_ads_thumbnail_img" title="استقدام-اندونيسيا">
+            <video src=${videoSrc} controls title="استقدام-اندونيسيا" class="indoforall_ads_orignal_video"></video>
+        `;
+
+        /* Set The InnerHTML Code For the 'AdsVideoDiv' */
+        AdsVideoDiv.innerHTML = AdsVideoInfo;
+
+        /* Append The 'AdsVideoDiv' To the 'indoforall_proof_area' */
+        indoforall_ads_videos_and_img_div.appendChild(AdsVideoDiv);
+
+        /* Get The Elements So You Can Use it Later */
+        let orignalVideos = document.getElementsByClassName('indoforall_ads_orignal_video');
+        let thumbnailImages = document.getElementsByClassName('indoforall_ads_thumbnail_img');
+
+        for (let i = 0; i < orignalVideos.length; i++) {
+            orignalVideos[i].addEventListener('play', function () {
+                console.log('Video started playing');
+                // Pause other videos
+                for (let j = 0; j < orignalVideos.length; j++) {
+                    if (j !== i) {
+                        orignalVideos[j].pause();
+                        thumbnailImages[j].style.opacity = 1; // Make thumbnail visible
+                    }
+                }
+                thumbnailImages[i].style.opacity = 0; // Hide thumbnail of the playing video
+            });
+        }
+    }
+
+
+
+
+
+    /* Function For Showing Full Screen Images */
+    function indoforall_show_full_screen_image(src) {
+
+        /* Create A Div To Contain The Big Image */
+        let FullScreenImgOverlay = document.createElement('div');
+        FullScreenImgOverlay.classList.add("indoforall_full_screen_img_overlay");
+
+        /* Create A Button To Exit The Big Image Page */
+        let fullScreenOverlayExitButton = document.createElement('a');
+        fullScreenOverlayExitButton.classList.add('indoforall_full_screen_overlay_exit_button');
+        fullScreenOverlayExitButton.innerText = "عودة";
+
+        /* Create The Big Image Element Based on The 'src' Value */
+        let FullScreenImg = document.createElement('img');
+        FullScreenImg.src = src;
+        FullScreenImg.alt = "استقدام-اندونيسيا";
+        FullScreenImg.title = "استقدام-اندونيسيا";
+        FullScreenImg.classList.add('indoforall_big_img');
+
+        /* Append All The elements inside 'FullScreenImgOverlay' */
+        FullScreenImgOverlay.appendChild(fullScreenOverlayExitButton);
+        FullScreenImgOverlay.appendChild(FullScreenImg);
+        document.body.appendChild(FullScreenImgOverlay);
+
+        /* Hide And Show Different Sections */
+        indoforall_header.style.display = 'none';
+        indoforall_accounts_section.style.display = 'none';
+        indoforall_footer.style.display = 'none';
+
+        /* Function To Exit The Big Image Page */
+        fullScreenOverlayExitButton.onclick = function () {
+            /* Re-display The Worker Card Details Again */
+            /* Hide And Show Different Sections */
+            indoforall_header.style.display = 'block';
+            indoforall_accounts_section.style.display = 'flex';
+            indoforall_footer.style.display = 'flex';
+
+            /* Scroll To Center The Element Vertically On The Screen */
+            let elementToScrollTo = document.querySelector(`img[src="${src}"]`);
+            if (elementToScrollTo) {
+                const windowHeight = window.innerHeight;
+                const elementHeight = elementToScrollTo.offsetHeight;
+                const elementTop = elementToScrollTo.getBoundingClientRect().top;
+                const scrollY = elementTop - (windowHeight - elementHeight) / 2;
+                window.scrollTo({ top: scrollY });
+            }
+
+            /* Hide And Reset All Data Stored Inside The 'FullScreenImgOverlay' Element */
+            FullScreenImgOverlay.innerHTML = '';
+            FullScreenImgOverlay.style.display = 'none';
+        }
+
+    }
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Open Website Guidance */
+function indoforall_websiteGuidance() {
+
+    // Disable scrolling
+    document.documentElement.style.overflow = 'hidden';
+
+    // Create A Div To Contain The Big Image
+    let FullScreenGuidanceOverlay = document.createElement('div');
+    FullScreenGuidanceOverlay.classList.add("indoforall_full_screen_guidance_overlay");
+
+    // Create A Button To Exit The Big Image Page
+    let fullScreenOverlayExitButton = document.createElement('a');
+    fullScreenOverlayExitButton.classList.add('indoforall_full_screen_overlay_exit_button');
+    fullScreenOverlayExitButton.innerText = "عودة";
+
+    // Create Website Guidance Content
+    let webGuidanceDiv = document.createElement('div');
+    webGuidanceDiv.classList.add('web_guidance_div');
+
+    let webGuidanceText = `
+        <a href="https://indoforall.com">1- في الصفحة الرئيسية انزل الى قسم اختيار نوع العمالة الاندونيسية.</a>
+        <a href="https://indoforall.com">2- بعد اختيار نوع العمالة، خذ نظرة على اسعار الاستقدام ومدة إنجاز العمل.</a>
+        <a onclick="indoforall_whatsApp()">3- اخيرا، تواصل معنا للاستقدام او لطلب المزيد من المعلومات والنصائح.</a>
+        <a href="https://indoforall.com/indoforall_questionpage.html" id="indoforall_web_guidance_note_text">ملاحظة: اذا كنت تبحث عن معلومات أكثر اذهب لصفحة الأسئلة الشائعة او تواصل معنا على الواتس.</a>
+    `;
+
+    // Append All The elements inside 'FullScreenGuidanceOverlay'
+    webGuidanceDiv.innerHTML = webGuidanceText;
+    FullScreenGuidanceOverlay.appendChild(webGuidanceDiv);
+    FullScreenGuidanceOverlay.appendChild(fullScreenOverlayExitButton);
+
+    // Hide And Show Different Sections
+    document.body.appendChild(FullScreenGuidanceOverlay);
+
+    // Function To Exit The Big Image Page
+    fullScreenOverlayExitButton.onclick = function () {
+        // Re-enable scrolling
+        document.documentElement.style.overflow = 'auto';
+
+        // Hide And Reset All Data Stored inside The 'FullScreenGuidanceOverlay' Element
+        FullScreenGuidanceOverlay.style.display = 'none';
+        FullScreenGuidanceOverlay.innerHTML = '';
+
+        // Scroll Back The 'indoforall_nav' Element After Exiting The Website Guidance Page
+        indoforall_nav.scrollIntoView({
+            block: 'center',
+            inline: 'center',
+        });
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Hide And Show nav Bar */
+let indoforall_showNavOptions = () => {
+    indoforall_nav_options.style.opacity = "1";
+    indoforall_nav_options.style.height = "100%";
+    indoforall_nav_options.style.right = "0"; // Move from right (-50%) to the original position (0%)
+    document.body.classList.add("nav-open");
+    document.body.style.overflow = "hidden"; // Disable scrolling
+};
+
+let indoforall_hideNavOptions = () => {
+    indoforall_nav_options.style.opacity = "0";
+    indoforall_nav_options.style.height = "0";
+    indoforall_nav_options.style.right = "-50%"; // Move to the right (-50%)
+    document.body.classList.remove("nav-open");
+    document.body.style.overflow = ""; // Enable scrolling (restore default)
+};
+
+indoforall_nav.onclick = (event) => {
+    event.stopPropagation();
+    indoforall_showNavOptions();
+};
+
+indoforall_close_nav.onclick = (event) => {
+    event.stopPropagation();
+    indoforall_hideNavOptions();
+};
+
+document.addEventListener('click', (event) => {
+    if (!indoforall_nav_options.contains(event.target) && event.target !== indoforall_close_nav) {
+        indoforall_hideNavOptions();
+    }
+});
+
+
+
+
+
+
+
+
+/* Open WhatsApp Chat */
+function indoforall_whatsApp() {
+    // Create the WhatsApp URL with the phone number.
+    let whatsappURL = 'https://wa.me/+966509465975';
+
+    // Open the WhatsApp chat window in a new tab.
+    window.open(whatsappURL, '_blank');
+}
+
+/* Open Gmail Contact */
+function indoforall_gmail() {
+    let mailtoLink = "mailto:indoforall.office@gmail.com";
+
+    window.location.href = mailtoLink;
+}
+
+/* Open Loation Address */
+function indoforall_location() {
+    // Replace the coordinates with the latitude and longitude of Jakarta, Indonesia
+    let latitude = -6.2088;
+    let longitude = 106.8456;
+
+    // Construct the Google Maps URL
+    let mapsUrl = "https://www.google.com/maps?q=" + latitude + "," + longitude;
+
+    // Open the Google Maps link in a new tab/window
+    window.open(mapsUrl, "_blank");
+}
+
+/* Scroll Up To The Beginning Icon */
+function indoforall_scrollUpIcon() {
+    indoforall_header.scrollIntoView({ top: 0, behavior: 'smooth' });
+}
+
+window.onscroll = function () {
+    if (window.pageYOffset >= indoforall_nav.offsetTop) {
+        indoforall_go_up_arrow.style.opacity = "1";
+    } else {
+        indoforall_go_up_arrow.style.opacity = "0";
+    }
+};
+
+/* Page Load Header Fade Animation */
+setTimeout(function () {
+    indoforall_header.style.opacity = "1";
+}, 100);
