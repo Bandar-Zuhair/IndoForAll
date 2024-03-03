@@ -180,14 +180,14 @@ header div {
 
 #indoforall_web_intro_2 {
     color: white;
-    font-size: 3vw;
+    font-size: 1.5vw;
 }
 
 #indoforall_web_intro_3 {
     color: white;
     font-size: 2.5vw;
     padding: 15px 0;
-    margin-bottom: 15px;
+    margin: 5px 0 15px 0;
 }
 
 .indoforall_web_intro_contact_us {
@@ -1499,7 +1499,7 @@ footer img {
     }
 
     #indoforall_web_intro_2 {
-        font-size: 4vw;
+        font-size: 2.5vw;
     }
 
     #indoforall_web_intro_3 {
@@ -1574,7 +1574,7 @@ footer img {
     }
 
     #indoforall_web_intro_2 {
-        font-size: 4.5vw;
+        font-size: 3vw;
     }
 
     #indoforall_web_intro_3 {
