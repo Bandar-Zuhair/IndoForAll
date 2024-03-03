@@ -184,14 +184,12 @@ let indoforall_adsVideosArray = [
 
     {
         videoSrc: "worker1/3.mp4",
+        videoThumbnailSrc: "1.jpeg",
     },
 
     {
         videoSrc: "indoforall_ads/1.mp4",
-    },
-
-    {
-        videoSrc: "indoforall_ads/3.mp4",
+        videoThumbnailSrc: "2.jpeg",
     },
 
     {
@@ -200,6 +198,16 @@ let indoforall_adsVideosArray = [
 
     {
         videoSrc: "indoforall_ads/2.mp4",
+        videoThumbnailSrc: "3.jpeg",
+    },
+
+    {
+        imgSrc: "worker2/1.jpg",
+    },
+
+    {
+        videoSrc: "indoforall_ads/3.mp4",
+        videoThumbnailSrc: "4.jpeg",
     },
 ]
 
@@ -525,7 +533,7 @@ indoforall_proofVideosArray.forEach((item) => {
 /* Function For Creating Ads Videos & Images Content */
 indoforall_adsVideosArray.forEach((item) => {
     /* Get The Array Properties */
-    let { imgSrc, videoSrc } = item;
+    let { imgSrc, videoSrc, videoThumbnailSrc } = item;
 
     /* Create The Card Container Div */
     let AdsVideoDiv = document.createElement("div");
@@ -536,35 +544,58 @@ indoforall_adsVideosArray.forEach((item) => {
 
     /* Create A Variable To Store The Inner HTML Code */
     let AdsVideoInfo;
+    let AdsImgInfo;
 
     /* Check If The Object Has 'imgSrc' Or 'videoSrc' And Based On it, It Will Show Different Code */
     if (imgSrc) {
-        AdsVideoInfo = `
-            <img src="${imgSrc}">
+        /* Create The HTML Content For The Images */
+        AdsImgInfo = `
+            <img src=${imgSrc}>
         `;
-
+    
         /* Set The InnerHTML Code For the 'AdsVideoDiv' */
-        AdsImgDiv.innerHTML = AdsVideoInfo;
+        AdsImgDiv.innerHTML = AdsImgInfo;
     
     
         /* Append The 'AdsVideoDiv' To the 'indoforall_proof_area' */
         indoforall_ads_videos_and_img_div.appendChild(AdsImgDiv);
-
+    
         AdsImgDiv.onclick = function () {
             indoforall_show_full_screen_image(imgSrc);
         };
     } else if (videoSrc) {
+        /* Create The HTML Content For The Videos */
         AdsVideoInfo = `
-            <video src="${videoSrc}" controls title="استقدام-اندونيسيا"></video>
+            <img src=${videoThumbnailSrc} alt="استقدام-اندونيسيا" class="indoforall_ads_thumbnail_img">
+            <video src=${videoSrc} controls title="استقدام-اندونيسيا" class="indoforall_ads_orignal_video"></video>
         `;
-
+    
         /* Set The InnerHTML Code For the 'AdsVideoDiv' */
         AdsVideoDiv.innerHTML = AdsVideoInfo;
     
-    
         /* Append The 'AdsVideoDiv' To the 'indoforall_proof_area' */
         indoforall_ads_videos_and_img_div.appendChild(AdsVideoDiv);
+    
+        /* Get The Elements So You Can Use it Later */
+        let orignalVideos = document.getElementsByClassName('indoforall_ads_orignal_video');
+        let thumbnailImages = document.getElementsByClassName('indoforall_ads_thumbnail_img');
+    
+        for (let i = 0; i < orignalVideos.length; i++) {
+            orignalVideos[i].addEventListener('play', function () {
+                console.log('Video started playing');
+                // Pause other videos
+                for (let j = 0; j < orignalVideos.length; j++) {
+                    if (j !== i) {
+                        orignalVideos[j].pause();
+                        thumbnailImages[j].style.opacity = 1; // Make thumbnail visible
+                    }
+                }
+                thumbnailImages[i].style.opacity = 0; // Hide thumbnail of the playing video
+            });
+        }
     }
+    
+
 
 
 
@@ -591,31 +622,36 @@ indoforall_adsVideosArray.forEach((item) => {
         FullScreenImgOverlay.appendChild(FullScreenImg);
         document.body.appendChild(FullScreenImgOverlay);
 
-        /* Hide And Show Diffrenet Sections */
+        /* Hide And Show Different Sections */
         indoforall_header.style.display = 'none';
         indoforall_accounts_section.style.display = 'none';
         indoforall_footer.style.display = 'none';
 
-
         /* Function To Exit The Big Image Page */
         fullScreenOverlayExitButton.onclick = function () {
-            /* ReDispaly The Worker Card Details Again */
-            /* Hide And Show Diffrenet Sections */
+            /* Re-display The Worker Card Details Again */
+            /* Hide And Show Different Sections */
             indoforall_header.style.display = 'block';
             indoforall_accounts_section.style.display = 'flex';
             indoforall_footer.style.display = 'flex';
 
-            /* Scoll Back The 'indoforall_worker_cards_div' Element After Exiting The Worker Card Details Page */
-            indoforall_ads_videos_and_img_div.scrollIntoView({
-                block: 'center',
-                inline: 'center',
-            });
+            /* Scroll To Center The Element Vertically On The Screen */
+            let elementToScrollTo = document.querySelector(`img[src="${src}"]`);
+            if (elementToScrollTo) {
+                const windowHeight = window.innerHeight;
+                const elementHeight = elementToScrollTo.offsetHeight;
+                const elementTop = elementToScrollTo.getBoundingClientRect().top;
+                const scrollY = elementTop - (windowHeight - elementHeight) / 2;
+                window.scrollTo({ top: scrollY });
+            }
 
-            /* Hide And Reset All Data Stored inside The 'FullScreenImgOverlay' Element */
+            /* Hide And Reset All Data Stored Inside The 'FullScreenImgOverlay' Element */
             FullScreenImgOverlay.innerHTML = '';
             FullScreenImgOverlay.style.display = 'none';
         }
+
     }
+
 });
 
 
