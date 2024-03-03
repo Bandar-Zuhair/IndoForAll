@@ -16,7 +16,13 @@ let indoforall_homeWorkerArray = [
     },
 
     {
-        workerImg: "worker1/1.jpg",
+        workerImg: "worker2/1.jpg",
+        workerPassport: "worker1/2.jpg",
+        workerVideo: "worker1/3.mp4",
+    },
+
+    {
+        workerImg: "worker3/1.jpg",
         workerPassport: "worker1/2.jpg",
         workerVideo: "worker1/3.mp4",
     },
@@ -28,13 +34,7 @@ let indoforall_homeWorkerArray = [
     },
 
     {
-        workerImg: "worker1/1.jpg",
-        workerPassport: "worker1/2.jpg",
-        workerVideo: "worker1/3.mp4",
-    },
-
-    {
-        workerImg: "worker1/1.jpg",
+        workerImg: "worker2/1.jpg",
         workerPassport: "worker1/2.jpg",
         workerVideo: "worker1/3.mp4",
     },
