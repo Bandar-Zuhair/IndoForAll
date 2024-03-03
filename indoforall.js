@@ -179,36 +179,18 @@ let indoforall_proofVideosArray = [
         imgSrc: "worker1/1.jpg",
     },
 ]
-/* Array For Ads Videos/Images */
+/* Array For Ads Videos/Images Use Only (imgSrc - videoSrc - videoThumbnailSrc) Words */
 let indoforall_adsVideosArray = [
 
     {
         videoSrc: "worker1/3.mp4",
-        videoThumbnailSrc: "1.jpeg",
+        videoThumbnailSrc: "indoforall_ads/استقدام-اندونيسيا.png",
     },
 
     {
-        videoSrc: "indoforall_ads/1.mp4",
-        videoThumbnailSrc: "2.jpeg",
+        imgSrc: "indoforall_ads/استقدام-اندونيسيا.png",
     },
 
-    {
-        imgSrc: "worker1/1.jpg",
-    },
-
-    {
-        videoSrc: "indoforall_ads/2.mp4",
-        videoThumbnailSrc: "3.jpeg",
-    },
-
-    {
-        imgSrc: "worker2/1.jpg",
-    },
-
-    {
-        videoSrc: "indoforall_ads/3.mp4",
-        videoThumbnailSrc: "4.jpeg",
-    },
 ]
 
 
