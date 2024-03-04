@@ -787,12 +787,14 @@ function indoforall_gmail() {
 
 /* Open Loation Address */
 function indoforall_location() {
-    // Replace the coordinates with the latitude and longitude of Jakarta, Indonesia
-    let latitude = -6.2088;
-    let longitude = 106.8456;
+    // Address to search on Google Maps
+    let address = "Jl. Mandalawangi No.7, RT.04/RW.04, Babakan, Kecamatan Bogor Tengah, Kota Bogor, Jawa Barat 16128";
+
+    // Encode the address to be used in the URL
+    let encodedAddress = encodeURIComponent(address);
 
     // Construct the Google Maps URL
-    let mapsUrl = "https://www.google.com/maps?q=" + latitude + "," + longitude;
+    let mapsUrl = "https://www.google.com/maps?q=" + encodedAddress;
 
     // Open the Google Maps link in a new tab/window
     window.open(mapsUrl, "_blank");
