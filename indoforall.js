@@ -174,7 +174,7 @@ let indoforall_proofVideosArray = [
 let indoforall_adsVideosArray = [
 
     {
-        videoSrc: "worker1/3.mp4",
+        videoSrc: "indoforall_ads/video1.mp4",
         videoThumbnailSrc: "indoforall_ads/استقدام-اندونيسيا.png",
     },
 
