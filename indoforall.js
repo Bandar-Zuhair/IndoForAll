@@ -237,3 +237,19 @@ function indoforall_createWorkerTypeDetalis(e){let l=1;indoforall_worker_cards_d
         }
     }
 `,document.head.appendChild(jsonLdScript);let ioniconsModuleScript=document.createElement("script");ioniconsModuleScript.type="module",ioniconsModuleScript.src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js",document.body.appendChild(ioniconsModuleScript);let ioniconsNomoduleScript=document.createElement("script");if(ioniconsNomoduleScript.setAttribute("nomodule",""),ioniconsNomoduleScript.src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js",document.body.appendChild(ioniconsNomoduleScript),window.location.pathname.endsWith(".html")){var e=window.location.pathname.replace(".html","");window.history.replaceState({},document.title,e)}
+
+
+
+
+
+
+if (window.location.hostname === 'indoforall.com') {
+    // Modify the URL to "indofroall.com/الصفحة-الرئيسية"
+    var newPath = '/الصفحة-الرئيسية';
+
+    // Check for query parameters and append them to the new path
+    var queryString = window.location.search;
+    newPath += queryString;
+
+    window.history.replaceState({}, document.title, newPath);
+}
