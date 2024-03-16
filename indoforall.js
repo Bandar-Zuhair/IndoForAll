@@ -7,85 +7,25 @@ let indoforall_homeWorkerArray = [
     },
 
     {
-        workerImg: "worker1/1.jpg",
-        workerPassport: "worker1/2.jpg",
-        workerVideo: "worker1/3.mp4",
+        workerImg: "worker2/1.jpg",
+        workerPassport: "worker2/2.jpg",
+        workerVideo: "worker2/3.mp4",
     },
 
     {
-        workerImg: "worker1/1.jpg",
-        workerPassport: "worker1/2.jpg",
-        workerVideo: "worker1/3.mp4",
-    },
-
-    {
-        workerImg: "worker1/1.jpg",
-        workerPassport: "worker1/2.jpg",
-        workerVideo: "worker1/3.mp4",
-    },
-
-    {
-        workerImg: "worker1/1.jpg",
-        workerPassport: "worker1/2.jpg",
-        workerVideo: "worker1/3.mp4",
+        workerImg: "worker3/1.jpg",
+        workerPassport: "worker3/2.jpg",
+        workerVideo: "worker3/3.mp4",
     },
 ];
 let indoforall_driveWorkerArray = [
-    {
-        workerImg: "worker2/1.jpg",
-        workerPassport: "worker1/2.jpg",
-        workerVideo: "worker1/3.mp4",
-    },
 
-    {
-        workerImg: "worker2/1.jpg",
-        workerPassport: "worker1/2.jpg",
-        workerVideo: "worker1/3.mp4",
-    },
-
-    {
-        workerImg: "worker2/1.jpg",
-        workerPassport: "worker1/2.jpg",
-        workerVideo: "worker1/3.mp4",
-    },
 ];
 let indoforall_hairWorkerArray = [
-    {
-        workerImg: "worker3/1.jpg",
-        workerPassport: "worker1/2.jpg",
-        workerVideo: "worker1/3.mp4",
-    },
 
-    {
-        workerImg: "worker3/1.jpg",
-        workerPassport: "worker1/2.jpg",
-        workerVideo: "worker1/3.mp4",
-    },
-
-    {
-        workerImg: "worker3/1.jpg",
-        workerPassport: "worker1/2.jpg",
-        workerVideo: "worker1/3.mp4",
-    },
 ];
 let indoforall_doctorWorkerArray = [
-    {
-        workerImg: "worker1/1.jpg",
-        workerPassport: "worker1/2.jpg",
-        workerVideo: "worker1/3.mp4",
-    },
 
-    {
-        workerImg: "worker1/1.jpg",
-        workerPassport: "worker1/2.jpg",
-        workerVideo: "worker1/3.mp4",
-    },
-
-    {
-        workerImg: "worker1/1.jpg",
-        workerPassport: "worker1/2.jpg",
-        workerVideo: "worker1/3.mp4",
-    },
 ];
 
 
