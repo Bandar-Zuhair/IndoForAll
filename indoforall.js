@@ -87,7 +87,7 @@ let indoforall_questionAndAnswerArray = [
     },
     {
         questionText: "ماهو مبلغ تجديد الفيزا؟",
-        answerText: "مية ريال شهريا",
+        answerText: "مية ريال سعودي شهريا",
     },
     {
         questionText: "هل استطيع تحويل فيزة الزيارة الى إقامة؟",
