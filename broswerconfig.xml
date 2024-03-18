@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<browserconfig>
+    <msapplication>
+        <tile>
+            <square32x32logo src="images/favicon32.png"/>
+            <square180x180logo src="favicon-apple-touch.png"/>
+            <square250x250logo src="favicon.png"/>
+            <TileColor>#009900</TileColor>
+            <TileName>اندو للجميع</TileName>
+            <TileDescription>استقدام من اندونيسيا - استقدام عمالة اندونيسية - استقدام اندونيسيا</TileDescription>
+        </tile>
+    </msapplication>
+</browserconfig>
