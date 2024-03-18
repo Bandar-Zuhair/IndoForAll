@@ -4,6 +4,8 @@
         <tile>
             <square150x150logo src="/mstile-150x150.png"/>
             <TileColor>#00aba9</TileColor>
+            <TileName>اندو للجميع</TileName>
+            <TileDescription>استقدام من اندونيسيا - استقدام عمالة اندونيسية - استقدام اندونيسيا</TileDescription>
         </tile>
     </msapplication>
 </browserconfig>
