@@ -1,0 +1,16 @@
+{
+    "name": "استقدام من اندونيسيا - اندو للجميع",
+    "short_name": "اندو للجميع",
+    "icons": [
+      {
+        "src": "favicon-apple-touch.png",
+        "sizes": "180x180",
+        "type": "image/png"
+      }
+    ],
+    "start_url": "/index.html",
+    "display": "standalone",
+    "theme_color": "#009900",
+    "background_color": "#FFFFFF"
+  }
+  
