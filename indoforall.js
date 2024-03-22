@@ -80,7 +80,7 @@ let indoforall_questionAndAnswerArray = [
 
     {
         questionText: "كيف يتم استخراج التاشيرة؟",
-        answerText: "يتم استخراج تاشيرات العمالة بشكل الكتروني",
+        answerText: "يتم استخراج تاشيرات العمالة بشكل الكتروني.",
     },
 
     {
@@ -105,19 +105,19 @@ let indoforall_questionAndAnswerArray = [
 
     {
         questionText: "كيف يمكننا ارسال المبلغ لكم؟",
-        answerText: "عن طريق التحويل بالبنك",
+        answerText: "عن طريق التحويل بالبنك.",
     },
     {
         questionText: "ماهي طريقة تجديد الفيزا؟",
-        answerText: "عن طريق موقع ابشر أو عن طريق الجوازات",
+        answerText: "عن طريق موقع ابشر أو عن طريق الجوازات.",
     },
     {
         questionText: "ماهو مبلغ تجديد الفيزا؟",
-        answerText: "مية ريال سعودي شهريا",
+        answerText: "مية ريال سعودي شهريا.",
     },
     {
         questionText: "هل استطيع تحويل فيزة الزيارة الى إقامة؟",
-        answerText: "نعم، يتم عن طريق الوزارة الداخلية اونلاين",
+        answerText: "نعم، يتم عن طريق الوزارة الداخلية اونلاين.",
     },
 
 ]
