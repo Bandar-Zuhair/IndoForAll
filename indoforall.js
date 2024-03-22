@@ -1,25 +1,54 @@
 /* Create An Array of Different Worker Types Cards Data */
 let indoforall_homeWorkerArray = [
     {
-        workerImg: "worker1/1.jpg",
-        workerVideo: "worker1/3.mp4",
+        workerImg: "استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-1.jpg",
+        workerVideo: "استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-2.mp4",
     },
 
     {
-        workerImg: "worker2/1.jpg",
-        workerVideo: "worker2/3.mp4",
+        workerImg: "استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-3.jpg",
+        workerVideo: "استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-4.mp4",
     },
 
     {
-        workerImg: "worker3/1.jpg",
-        workerVideo: "worker3/3.mp4",
+        workerImg: "استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-5.jpg",
+        workerVideo: "استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-6.mp4",
     },
 ];
 let indoforall_driveWorkerArray = [
 
 ];
 let indoforall_hairWorkerArray = [
+    {
+        workerImg: "استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-21.jpg",
+        workerVideo: "استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-22.mp4",
+    },
 
+    {
+        workerImg: "استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-7.jpg",
+        workerVideo: "استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-8.mp4",
+    },
+
+    {
+        workerImg: "استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-9.jpg",
+        workerVideo: "استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-10.mp4",
+    },
+];
+let indoforall_sewingWorkerArray = [
+    {
+        workerImg: "استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-11.jpg",
+        workerVideo: "استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-12.mp4",
+    },
+    
+    {
+        workerImg: "استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-13.jpg",
+        workerVideo: "استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-14.mp4",
+    },
+    
+    {
+        workerImg: "استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-15.jpg",
+        workerVideo: "استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-16.mp4",
+    },
 ];
 let indoforall_doctorWorkerArray = [
 
@@ -94,17 +123,44 @@ let indoforall_questionAndAnswerArray = [
 ]
 /* Create An Array of Proof Videos Data */
 let indoforall_proofVideosArray = [
-
     {
-        videoSrc: "worker1/3.mp4",
+        imgSrc: "مصداقية-استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-1.jpg",
     },
 
     {
-        videoSrc: "worker2/3.mp4",
+        imgSrc: "مصداقية-استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-2.jpg",
     },
 
     {
-        imgSrc: "worker1/1.jpg",
+        imgSrc: "مصداقية-استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-3.jpg",
+    },
+
+    {
+        imgSrc: "مصداقية-استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-4.jpg",
+    },
+
+    {
+        imgSrc: "مصداقية-استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-5.jpg",
+    },
+
+    {
+        imgSrc: "مصداقية-استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-6.jpg",
+    },
+
+    {
+        imgSrc: "مصداقية-استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-7.jpg",
+    },
+
+    {
+        imgSrc: "مصداقية-استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-8.jpg",
+    },
+
+    {
+        imgSrc: "مصداقية-استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-9.jpg",
+    },
+
+    {
+        videoSrc: "مصداقية-استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-1.mp4",
     },
 ]
 /* Array For Ads Videos/Images Use Only (imgSrc - videoSrc - videoThumbnailSrc) Words */
@@ -122,7 +178,7 @@ let indoforall_adsVideosArray = [
 ]
 
 
-if(document.getElementById("indoforall_worker_cards_div"))function indoforall_createWorkerTypeDetalis(e){let l=1;indoforall_worker_cards_div.innerHTML="",indoforall_worker_details_text.style.opacity="0",indoforall_worker_details_text.style.transition="opacity 0.5s ease-in-out",indoforall_worker_details_text.style.opacity="1",e===indoforall_homeWorkerArray?indoforall_worker_details_text.innerText="قسم معلومات استقدام عمالة المنزلية":e===indoforall_driveWorkerArray?indoforall_worker_details_text.innerText="قسم معلومات استقدام سائق الخاص":e===indoforall_hairWorkerArray?indoforall_worker_details_text.innerText="قسم معلومات استقدام كوفيرة":e===indoforall_doctorWorkerArray&&(indoforall_worker_details_text.innerText="قسم معلومات استقدام ممرضة"),indoforall_worker_detalis_section.style.opacity="0",indoforall_worker_detalis_section.style.transition="opacity 0.5s ease-in-out",indoforall_worker_detalis_section.style.display="flex",indoforall_worker_detalis_section.offsetWidth,indoforall_worker_detalis_section.style.opacity="1",e.forEach(e=>{let{workerImg:t,workerVideo:i}=e,n=document.createElement("div");n.classList.add("indoforall_worker_card");let o=`
+if(document.getElementById("indoforall_worker_cards_div"))function indoforall_createWorkerTypeDetalis(e){let l=1;indoforall_worker_cards_div.innerHTML="",indoforall_worker_details_text.style.opacity="0",indoforall_worker_details_text.style.transition="opacity 0.5s ease-in-out",indoforall_worker_details_text.style.opacity="1",e===indoforall_homeWorkerArray?indoforall_worker_details_text.innerText="قسم معلومات استقدام عمالة المنزلية":e===indoforall_driveWorkerArray?indoforall_worker_details_text.innerText="قسم معلومات استقدام سائق الخاص":e===indoforall_hairWorkerArray?indoforall_worker_details_text.innerText="قسم معلومات استقدام كوفيرة":e===indoforall_sewingWorkerArray?indoforall_worker_details_text.innerText="قسم معلومات استقدام خياطة":e===indoforall_doctorWorkerArray&&(indoforall_worker_details_text.innerText="قسم معلومات استقدام ممرضة"),indoforall_worker_detalis_section.style.opacity="0",indoforall_worker_detalis_section.style.transition="opacity 0.5s ease-in-out",indoforall_worker_detalis_section.style.display="flex",indoforall_worker_detalis_section.offsetWidth,indoforall_worker_detalis_section.style.opacity="1",e.forEach(e=>{let{workerImg:t,workerVideo:i}=e,n=document.createElement("div");n.classList.add("indoforall_worker_card");let o=`
             <div onclick="indoforall_showCardsDetails( '${l}', '${t}', '${i}');">
                 <h2>${l}</h2>
                 <img src="${t}" alt="استقدام-من-اندونيسيا" title="استقدام-من-اندونيسيا">
@@ -135,7 +191,7 @@ if(document.getElementById("indoforall_worker_cards_div"))function indoforall_cr
         <a href="https://indoforall.com">2- بعد اختيار نوع العمالة، خذ نظرة على اسعار الاستقدام ومدة إنجاز العمل.</a>
         <a onclick="indoforall_whatsApp()">3- اخيرا، تواصل معنا للاستقدام او لطلب المزيد من المعلومات والنصائح.</a>
         <a href="https://indoforall.com/اسئلة-استقدام-من-اندونيسيا.html" id="indoforall_web_guidance_note_text">ملاحظة: اذا كنت تبحث عن معلومات أكثر اذهب لصفحة الأسئلة الشائعة او تواصل معنا على الواتس.</a>
-    `;t.innerHTML=i,e.appendChild(t),e.appendChild(l),document.body.appendChild(e),l.onclick=function(){document.documentElement.style.overflow="auto",e.style.display="none",e.innerHTML="",indoforall_nav.scrollIntoView({block:"center",inline:"center"})}}document.getElementById("indoforall_proof_area")&&indoforall_proofVideosArray.forEach(e=>{let{imgSrc:l,videoSrc:t}=e,i=document.createElement("div");i.classList.add("indoforall_Proof_video_div");let n;function o(e){let l=document.createElement("div");l.classList.add("indoforall_full_screen_img_overlay");let t=document.createElement("a");t.classList.add("indoforall_full_screen_overlay_exit_button"),t.innerText="عودة";let i=document.createElement("img");i.src=e,i.alt="استقدام-من-اندونيسيا",i.title="استقدام-من-اندونيسيا",i.classList.add("indoforall_big_img"),l.appendChild(t),l.appendChild(i),document.body.appendChild(l),indoforall_header.style.display="none",indoforall_proof_section.style.display="none",indoforall_footer.style.display="none",t.onclick=function(){indoforall_header.style.display="block",indoforall_proof_section.style.display="flex",indoforall_footer.style.display="flex",indoforall_proof_area.scrollIntoView({block:"center",inline:"center"}),l.innerHTML="",l.style.display="none"}}l?(n=`
+    `;t.innerHTML=i,e.appendChild(t),e.appendChild(l),document.body.appendChild(e),l.onclick=function(){document.documentElement.style.overflow="auto",e.style.display="none",e.innerHTML="",indoforall_nav.scrollIntoView({block:"center",inline:"center"})}}document.getElementById("indoforall_proof_area")&&indoforall_proofVideosArray.forEach(e=>{let{imgSrc:l,videoSrc:t}=e,i=document.createElement("div");i.classList.add("indoforall_Proof_video_div");let n;function o(e){let l=document.createElement("div");l.classList.add("indoforall_full_screen_img_overlay");let t=document.createElement("a");t.classList.add("indoforall_full_screen_overlay_exit_button"),t.innerText="عودة";let i=document.createElement("img");i.src=e,i.alt="استقدام-من-اندونيسيا",i.title="استقدام-من-اندونيسيا",i.classList.add("indoforall_big_img"),l.appendChild(t),l.appendChild(i),document.body.appendChild(l),indoforall_header.style.display="none",indoforall_proof_section.style.display="none",indoforall_footer.style.display="none",t.onclick=function(){indoforall_header.style.display="block",indoforall_proof_section.style.display="flex",indoforall_footer.style.display="flex";document.querySelector(`img[src="${e}"]`).scrollIntoView({block:"center",inline:"center"}),l.innerHTML="",l.style.display="none"}}l?(n=`
             <h2>${cardCounter}</h2>
             <img src="${l}" alt="استقدام-من-اندونيسيا" title="استقدام-من-اندونيسيا">
         `,i.onclick=function(){o(l)}):t&&(n=`
