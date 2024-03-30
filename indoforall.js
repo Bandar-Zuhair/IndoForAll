@@ -1,11 +1,6 @@
 /* Create An Array of Different Worker Types Cards Data */
 let indoforall_homeWorkerArray = [
     {
-        workerImg: "استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-1.jpg",
-        workerVideo: "استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-2.mp4",
-    },
-
-    {
         workerImg: "استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-3.jpg",
         workerVideo: "استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-4.mp4",
     },
@@ -13,6 +8,11 @@ let indoforall_homeWorkerArray = [
     {
         workerImg: "استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-5.jpg",
         workerVideo: "استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-6.mp4",
+    },
+
+    {
+        workerImg: "استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-1.jpg",
+        workerVideo: "استقدام-من-اندونيسيا/استقدام-من-اندونيسيا-2.mp4",
     },
 ];
 let indoforall_driveWorkerArray = [
