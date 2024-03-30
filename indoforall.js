@@ -56,6 +56,133 @@ let indoforall_doctorWorkerArray = [
 ];
 
 
+
+
+
+
+/* Create An Array of Questions With Their Answers Data */
+let indoforall_questionAndAnswerArray = [
+
+    {
+        questionText: "كيف يتم اختيار العمالة المناسبة؟",
+        answerText: "يتم عن طريق الفيديوهات المرسلة ثم التواصل معنا أو عن طريق التواصل مع العمالة بشكل مباشر.",
+    },
+
+    {
+        questionText: "هل لابد من وجود تاشيرة لبدا اجراءات الاستقدام؟",
+        answerText: "التاشيرة هي اساس عملية الاستقدام ولايمكن عمل اي اجراء قبل استخراج التاشيرة.",
+    },
+
+    {
+        questionText: "ماهي متطلبات استخراج التاشيرة؟",
+        answerText: "ان يكون لديك رقم نفاذ وطني.",
+    },
+
+    {
+        questionText: "كيف يتم استخراج التاشيرة؟",
+        answerText: "يتم استخراج تاشيرات العمالة بشكل الكتروني.",
+    },
+
+    {
+        questionText: "ماهي الحالات التي يتم فيها تعويض العميل خلال فترة الضمان؟",
+        answerText: "رفض العمل - الهروب - الحمل.",
+    },
+
+    {
+        questionText: "ماهي التعويض الذي نقدمه للعميل؟",
+        answerText: "التعويض يتم عن طريق استبدال العاملة فقط في خلال فترة الضمان (3 شهور).",
+    },
+
+    {
+        questionText: "ماهي مدة وصول العاملة",
+        answerText: "تختلف على حسب نوع الفيزا وغالبا تتراوح المدة من 12 الى 14 يوم.",
+    },
+
+    {
+        questionText: "كيف يتم اشعار العميل بوقت وصول العاملة؟",
+        answerText: "يتم اشعار العميل عن طريق الواتس اب وإرسال له تذكرة السفر لموعد وصول العاملة.",
+    },
+
+    {
+        questionText: "كيف يمكننا ارسال المبلغ لكم؟",
+        answerText: "عن طريق التحويل بالبنك.",
+    },
+    {
+        questionText: "ماهي طريقة تجديد الفيزا؟",
+        answerText: "عن طريق موقع ابشر أو عن طريق الجوازات.",
+    },
+    {
+        questionText: "ماهو مبلغ تجديد الفيزا؟",
+        answerText: "مية ريال سعودي شهريا.",
+    },
+    {
+        questionText: "هل استطيع تحويل فيزة الزيارة الى إقامة؟",
+        answerText: "نعم، يتم عن طريق الوزارة الداخلية اونلاين.",
+    },
+
+]
+/* Create An Array of Proof Videos Data */
+let indoforall_proofVideosArray = [
+    {
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-1.jpg",
+    },
+
+    {
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-2.jpg",
+    },
+
+    {
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-3.jpg",
+    },
+
+    {
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-4.jpg",
+    },
+
+    {
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-5.jpg",
+    },
+
+    {
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-6.jpg",
+    },
+
+    {
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-7.jpg",
+    },
+
+    {
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-8.jpg",
+    },
+
+    {
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-9.jpg",
+    },
+
+    {
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-10.jpg",
+    },
+
+    {
+        videoSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-11.mp4",
+    },
+]
+/* Array For Ads Videos/Images Use Only (imgSrc - videoSrc - videoThumbnailSrc) Words */
+let indoforall_adsVideosArray = [
+
+    {
+        videoSrc: "indoforall_ads/video1.mp4",
+        videoThumbnailSrc: "indoforall_ads/استقدام-من-اندونيسيا.png",
+    },
+
+    {
+        imgSrc: "indoforall_ads/استقدام-من-اندونيسيا.png",
+    },
+
+]
+
+
+
 if(document.getElementById("indoforall_worker_cards_div"))function indoforall_createWorkerTypeDetalis(e){let l=1;indoforall_worker_cards_div.innerHTML="",indoforall_worker_details_text.style.opacity="0",indoforall_worker_details_text.style.transition="opacity 0.5s ease-in-out",indoforall_worker_details_text.style.opacity="1",e===indoforall_homeWorkerArray?indoforall_worker_details_text.innerText="قسم معلومات استقدام عمالة المنزلية":e===indoforall_driveWorkerArray?indoforall_worker_details_text.innerText="قسم معلومات استقدام سائق الخاص":e===indoforall_hairWorkerArray?indoforall_worker_details_text.innerText="قسم معلومات استقدام كوفيرة":e===indoforall_sewingWorkerArray?indoforall_worker_details_text.innerText="قسم معلومات استقدام خياطة":e===indoforall_doctorWorkerArray&&(indoforall_worker_details_text.innerText="قسم معلومات استقدام ممرضة"),indoforall_worker_detalis_section.style.opacity="0",indoforall_worker_detalis_section.style.transition="opacity 0.5s ease-in-out",indoforall_worker_detalis_section.style.display="flex",indoforall_worker_detalis_section.offsetWidth,indoforall_worker_detalis_section.style.opacity="1",e.forEach(e=>{let{workerImg:t,workerVideo:i}=e,n=document.createElement("div");n.classList.add("indoforall_worker_card");let o=`
             <div onclick="indoforall_showCardsDetails( '${l}', '${t}', '${i}');">
                 <h2>${l}</h2>
