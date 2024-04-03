@@ -639,7 +639,8 @@ function indoforall_websiteGuidance() {
         document.documentElement.style.overflow = "auto";
 
         // Hide And Reset All Data Stored inside The 'FullScreenGuidanceOverlay' Element
-        FullScreenGuidanceOverlay.style.display = "none";
+        let FullScreenGuidanceOverlay = document.getElementById("koktelindo_full_screen_guidance_overlay");
+        document.body.removeChild(FullScreenGuidanceOverlay);
         FullScreenGuidanceOverlay.innerHTML = "";
 
         // Scroll Back The 'indoforall_nav' Element After Exiting The Website Guidance Page
