@@ -298,7 +298,6 @@ nav {
     padding: 10px;
     display: flex;
     justify-content: start;
-    flex-direction: row;
     width: fit-content;
     border: 1px solid white;
     border-radius: 7px;
