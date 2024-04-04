@@ -88,10 +88,16 @@ body {
 }
 
 .indoforall_full_screen_img_overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgb(99, 99, 99);
     width: 100%;
     height: 100%;
     padding: 20px 0;
-    z-index: 997;
+    z-index: 999;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -99,13 +105,9 @@ body {
 }
 
 .indoforall_big_img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 95%;
-    width: auto;
-    max-height: 90vh;
+    width: fit-content; /* Set width to 100% */
+    height: 100%; /* Set height to 100% */
+    object-fit: contain; /* Maintain aspect ratio */
     border-radius: 7px;
     box-shadow: 0 0 10px 1px black;
 }
