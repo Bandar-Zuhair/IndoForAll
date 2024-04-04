@@ -105,11 +105,9 @@ body {
 }
 
 .indoforall_big_img {
-    width: fit-content; /* Set width to 100% */
+    width: 100%; /* Set width to 100% */
     height: 100%; /* Set height to 100% */
     object-fit: contain; /* Maintain aspect ratio */
-    border-radius: 7px;
-    box-shadow: 0 0 10px 1px black;
 }
 
 .indoforall_full_screen_guidance_overlay {
@@ -299,7 +297,6 @@ nav {
     background: rgb(0, 162, 255);
     padding: 10px;
     display: flex;
-    flex-direction: row;
     justify-content: start;
     width: fit-content;
     border: 1px solid white;
