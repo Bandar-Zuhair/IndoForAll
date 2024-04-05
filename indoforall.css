@@ -297,6 +297,7 @@ nav {
     background: rgb(0, 162, 255);
     padding: 10px;
     display: flex;
+    flex-direction: row;
     justify-content: start;
     width: fit-content;
     border: 1px solid white;
