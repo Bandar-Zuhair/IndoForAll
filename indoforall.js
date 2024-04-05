@@ -182,6 +182,7 @@ let indoforall_adsVideosArray = [
 ]
 
 
+
 if (document.getElementById("indoforall_worker_cards_div")) {
     function indoforall_createWorkerTypeDetalis(arrayName) {
         /* Uinque Number For Each Card */
@@ -638,10 +639,10 @@ function indoforall_websiteGuidance() {
         // Re-enable scrolling
         document.documentElement.style.overflow = "auto";
 
-        // Hide And Reset All Data Stored inside The 'FullScreenGuidanceOverlay' Element
-        let FullScreenGuidanceOverlay = document.getElementById("koktelindo_full_screen_guidance_overlay");
-        document.body.removeChild(FullScreenGuidanceOverlay);
-        FullScreenGuidanceOverlay.innerHTML = "";
+        // Remove the overlay if it exists
+        if (document.body.contains(FullScreenGuidanceOverlay)) {
+            document.body.removeChild(FullScreenGuidanceOverlay);
+        }
 
         // Scroll Back The 'indoforall_nav' Element After Exiting The Website Guidance Page
         indoforall_nav.scrollIntoView({
@@ -751,3 +752,4 @@ let ioniconsNomoduleScript = document.createElement("script");
 ioniconsNomoduleScript.setAttribute("nomodule", "");
 ioniconsNomoduleScript.src = "https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js";
 document.body.appendChild(ioniconsNomoduleScript);
+
