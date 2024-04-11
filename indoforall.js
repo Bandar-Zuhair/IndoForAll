@@ -156,15 +156,7 @@ let indoforall_proofVideosArray = [
     },
 
     {
-        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-9.jpg",
-    },
-
-    {
-        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-10.jpg",
-    },
-
-    {
-        videoSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-11.mp4",
+        videoSrc: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-4.mp4",
     },
 ]
 /* Array For Ads Videos/Images Use Only (imgSrc - videoSrc - videoThumbnailSrc) Words */
