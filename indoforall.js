@@ -280,7 +280,7 @@ indoforall_craeteRequestWorkerMessage = function () {
         if (workerTypeName === "home") {
             workerTypeNameVariable = "عاملة منزلية";
             indoforall_filterWorkerCityType = `
-            <h3>اختار نوع الفيزا</h3>
+                <h3>السعر</h3>
                 <h4>استقدام عاملة منزلية = 18,500 ريال سعودي</h4>
             `;
         } else if (workerTypeName === "driver") {
