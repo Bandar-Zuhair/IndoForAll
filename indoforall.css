@@ -1181,18 +1181,18 @@ body.nav-open #indoforall_nav_options * {
 }
 
 #indoforall_companydescription h2 {
-    font-size: 1.5vw;
+    font-size: 2vw;
     line-height: 1.5;
     text-align: center;
-    padding: 6px 12px;
+    padding: 5px;
     cursor: pointer;
     margin-bottom: 15px;
     border-radius: 7px;
 }
 
 #indoforall_companydescription img {
+    width: 10vw;
     margin-top: 10px;
-    width: 150px;
     cursor: pointer;
     animation: floatAnimation 4s ease-in-out infinite;
 }
@@ -1534,6 +1534,14 @@ footer img {
     #indoforall_systemworkarea div {
         width: 80%;
     }
+
+    #indoforall_companydescription h2 {
+        font-size: 3vw;
+    }
+
+    #indoforall_companydescription img {
+        width: 15vw;
+    }
 }
 
 /* 850px */
@@ -1627,10 +1635,6 @@ footer img {
         font-size: 50px;
     }
 
-    #indoforall_companydescription h2 {
-        font-size: 2.5vw;
-    }
-
     #indoforall_accounts_section h1 {
         font-size: 3.5vw;
     }
@@ -1698,10 +1702,6 @@ footer img {
 
     .indoforall_systemworknum {
         padding: 5px;
-    }
-
-    #indoforall_companydescription img {
-        width: 120px;
     }
 
     .indoforall_ads_only_videos_div {
@@ -1831,6 +1831,15 @@ footer img {
         font-size: 4.5vw;
         margin: 5px 0;
         padding: 8px 0;
+    }
+
+    #indoforall_companydescription h2 {
+        font-size: 3.5vw;
+    }
+
+    #indoforall_companydescription img {
+        width: 20vw;
+        margin-top: 5px;
     }
 }
 
@@ -1982,14 +1991,6 @@ footer img {
 
     #indoforall_companydescription {
         padding: 10px 0;
-    }
-
-    #indoforall_companydescription h2 {
-        font-size: 3vw;
-    }
-
-    #indoforall_companydescription img {
-        width: 90px;
     }
 
     #indoforall_accounts_section h1 {
@@ -2220,6 +2221,15 @@ footer img {
         font-size: 4.5vw;
     }
 
+    #indoforall_companydescription h2 {
+        font-size: 4vw;
+    }
+
+    #indoforall_companydescription img {
+        width: 25vw;
+        margin-top: 2px;
+    }
+
     #indoforall_accounts_section a {
         font-size: 6vw;
     }
@@ -2274,8 +2284,8 @@ footer img {
         font-size: 20px;
     }
 
-    #indoforall_companydescription img {
-        width: 70px;
+    #indoforall_companydescription h2 {
+        font-size: 4.5vw;
     }
 
     .indoforall_ads_only_videos_div {
