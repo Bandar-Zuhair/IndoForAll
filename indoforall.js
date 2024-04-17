@@ -175,6 +175,7 @@ let indoforall_adsVideosArray = [
 
 
 
+/* Function For Showing Full Screen Images */
 function indoforall_show_full_screen_image(src) {
     // Disable scrolling
     document.documentElement.style.overflow = "hidden";
@@ -218,10 +219,175 @@ function indoforall_show_full_screen_image(src) {
     };
 }
 
-/* in Case If The Element With The Id Name 'indoforall_worker_cards_div' Exsist Then Create Worker Type Details */
+/* Function To Create Filter Worker Type Data Message From Worker Details Button */
+indoforall_craeteRequestWorkerMessage = function () {
+    // Disable scrolling
+    document.documentElement.style.overflow = "hidden";
+
+    /* Create The Filter Worker Type Data Content */
+    let filterWorkerTypeDataDivOverlay = document.createElement("div");
+    filterWorkerTypeDataDivOverlay.id = "indoforall_filter_worker_type_overlay";
+
+    let filterWorkerTypeDataDiv = document.createElement("div");
+    filterWorkerTypeDataDiv.id = "indoforall_filter_worker_type_div";
+
+    let filterWorkerTypeDataContent = document.createElement("div");
+    filterWorkerTypeDataContent.innerHTML = `
+        <div id='indoforall_filter_worker_type_title'>
+            <h3>طلب استقدام الآن</h3>
+        </div>
+
+        <div id="indoforall_filter_worker_work_type">
+            <h3>اختار نوع العمالة</h3>
+            <div id="indoforall_filter_worker_work_type_options">
+                <h4 onclick="indoforall_chooseWorkerTypeDataFunction('home')">عاملة منزلية</h4>
+                <h4 onclick="indoforall_chooseWorkerTypeDataFunction('driver')">سائق خاص</h4>
+                <h4 onclick="indoforall_chooseWorkerTypeDataFunction('hair')">كوفيرة</h4>
+                <h4 onclick="indoforall_chooseWorkerTypeDataFunction('sewing')">خياطة</h4>
+                <h4 onclick="indoforall_chooseWorkerTypeDataFunction('nurse')">ممرضة</h4>
+                <h4  onclick="indoforall_whatsApp()">خيارات اخرى؟ تواصل معنا على الواتس</h4>
+            </div>
+        </div>
+
+        <div id="indoforall_submit_filter_worker_type">
+            <h5 id="indoforall_cancel_worker_data_message_button">إلغاء</h5>
+        </div>
+    `;
+
+    /* Append The Elements in Each Other */
+    filterWorkerTypeDataDiv.appendChild(filterWorkerTypeDataContent);
+    filterWorkerTypeDataDivOverlay.appendChild(filterWorkerTypeDataDiv);
+    document.body.appendChild(filterWorkerTypeDataDivOverlay);
+
+    /* Re-enable Scrolling And Remove The 'filterWorkerTypeDataDivOverlay' Element */
+    indoforall_cancel_worker_data_message_button.onclick = function () {
+        // Re-enable Scrolling
+        document.documentElement.style.overflow = "auto";
+
+        // Remove the filterWorkerTypeDataDivOverlay
+        document.body.removeChild(filterWorkerTypeDataDivOverlay);
+    };
+
+    /* Function To Filter And Create The Worker Type Data Content */
+    indoforall_chooseWorkerTypeDataFunction = function (workerTypeName) {
+        /* Save The Text Based on The workerType Value */
+        let workerTypeNameVariable;
+
+        /* Save The clicked City Type in This Variable */
+        let indoforall_filterWorkerCityType;
+
+        /* Based on The Passed 'workerTypeName' Value Set The Name of Worker Type Data */
+        if (workerTypeName === "home") {
+            workerTypeNameVariable = "عاملة منزلية";
+            indoforall_filterWorkerCityType = `
+            <h3>اختار نوع الفيزا</h3>
+                <h4>استقدام عاملة منزلية = 18,500 ريال سعودي</h4>
+            `;
+        } else if (workerTypeName === "driver") {
+            workerTypeNameVariable = "سائق خاص";
+            indoforall_filterWorkerCityType = `
+                <h3>السعر</h3>
+                <h4>استقدام سائق خاص = 7,000 ريال سعودي</h4>
+            `;
+        } else if (workerTypeName === "hair") {
+            workerTypeNameVariable = "كوفيرة";
+            indoforall_filterWorkerCityType = `
+                <h3>السعر</h3>
+                <h4>فيزة عمالة مهنية = 18,500 ريال سعودي</h4>
+            `;
+        } else if (workerTypeName === "sewing") {
+            workerTypeNameVariable = "خياطة";
+            indoforall_filterWorkerCityType = `
+                <h3>السعر</h3>
+                <h4>فيزة عمالة مهنية = 18,500 ريال سعودي</h4>
+            `;
+        } else if (workerTypeName === "nurse") {
+            workerTypeNameVariable = "ممرضة";
+            indoforall_filterWorkerCityType = `
+                <h3>السعر</h3>
+                <h4>فيزة عمالة مهنية = 18,500 ريال سعودي</h4>
+            `;
+        }
+
+        /* Create Filter Worker Type Data Content */
+        filterWorkerTypeDataContent.innerHTML = `
+        <div id='indoforall_filter_worker_type_title'>
+            <h3>طلب استقدام ${workerTypeNameVariable}</h3>
+        </div>
+
+        <div id="indoforall_filter_worker_visa_type"></div>
+
+        <div id="indoforall_filter_worker_city_type">
+            <h3>استقدام الى</h3>
+            <textarea placeholder="اسم المدينة" maxlength="30"></textarea>
+        </div>
+
+        <div id="indoforall_submit_filter_worker_type">
+            <h5 onclick="indoforall_workerTypeWhatsAppMessageFunction()">إرسال</h5>
+            <h5 id="indoforall_cancel_worker_data_message_button">إلغاء</h5>
+        </div>
+    `;
+
+        /* Append The Elements in Each Other */
+        filterWorkerTypeDataDiv.appendChild(filterWorkerTypeDataContent);
+        filterWorkerTypeDataDivOverlay.appendChild(filterWorkerTypeDataDiv);
+        document.body.appendChild(filterWorkerTypeDataDivOverlay);
+        indoforall_filter_worker_visa_type.innerHTML = indoforall_filterWorkerCityType; // Update this line
+
+        /* Re-enable Scrolling And Remove The 'filterWorkerTypeDataDivOverlay' Element */
+        indoforall_cancel_worker_data_message_button.onclick = function () {
+            // Re-enable Scrolling
+            document.documentElement.style.overflow = "auto";
+
+            // Remove the filterWorkerTypeDataDivOverlay
+            document.body.removeChild(filterWorkerTypeDataDivOverlay);
+        };
+
+        /* Function To Create Final WhatsApp Message Based on Worker Type Data Selected */
+        indoforall_workerTypeWhatsAppMessageFunction = function () {
+            // Get the text from the textarea
+            let cityName = document.querySelector("#indoforall_filter_worker_city_type textarea").value;
+
+            if (cityName === "") {
+                alert("يرجى التأكد من كتابة اسم المدينة");
+            } else {
+                // Get today's date
+                let today = new Date();
+                let formattedDate = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`;
+
+                // Create the final message with all the details
+                let finalMessage = `طلب جديدة استقدام ${workerTypeNameVariable} من اندونيسيا\n`;
+                finalMessage += `تاريخ إرسال الطلب: ${formattedDate}\n\n`; // Add today's date
+
+                /* Based on The Passed 'workerTypeName' Value Set The Name of Worker Type Data */
+                if (workerTypeNameVariable === "عاملة منزلية") {
+                    finalMessage += `السعر: 18,500 ريال سعودي\n`;
+                } else if (workerTypeNameVariable === "سائق خاص") {
+                    finalMessage += `السعر: 7,000 ريال سعودي\n`;
+                } else {
+                    finalMessage += `نوع الفيزا: فيزة عمالة مهنية\n`;
+                    finalMessage += `السعر: 18,500 ريال سعودي\n`;
+                }
+
+                finalMessage += `استقدام الى: ${cityName}\n\n`;
+                finalMessage += `شركة استقدام اندو للجميع`;
+
+                // Encode the message using encodeURIComponent
+                let encodedMessage = encodeURIComponent(finalMessage);
+
+                // Create the WhatsApp URL
+                let whatsappURL = `https://wa.me/966509465975?text=${encodedMessage}`;
+
+                // Open WhatsApp in a new window
+                window.open(whatsappURL, "_blank");
+            }
+        };
+    };
+};
+
 /* ArrayName is the name of the Array of The Worker Type Button Clicked */
 if (document.getElementById("indoforall_worker_cards_div")) {
-    function indoforall_createWorkerTypeDetalis(arrayName) {
+    indoforall_createWorkerTypeDetalis = function (arrayName) {
         /* Uinque Number For Each Card */
         let cardCounter = 1;
 
@@ -233,18 +399,52 @@ if (document.getElementById("indoforall_worker_cards_div")) {
         indoforall_worker_details_text.style.transition = "opacity 0.5s ease-in-out";
         indoforall_worker_details_text.style.opacity = "1";
 
+        // Remove existing indoforall_workerTypeMessageButton element if it exists
+        let existingButton = document.getElementById("indoforall_worker_type_message_button");
+        if (existingButton) {
+            existingButton.remove();
+        }
+
+        /* Create The Book Worker Now Button in The Worker Details Section */
+        let indoforall_workerTypeMessageButton = document.createElement("a");
+        indoforall_workerTypeMessageButton.id = "indoforall_worker_type_message_button";
+        indoforall_workerTypeMessageButton.style.background = "linear-gradient(to right, rgb(255, 0, 221), rgb(174, 0, 255), rgb(13, 0, 255))";
+
         /* Check Which Button Has Clicked And Based On That Set The InnerText For The 'indoforall_worker_details_text' */
         if (arrayName === indoforall_homeWorkerArray) {
-            indoforall_worker_details_text.innerText = "استقدام عمالة منزلية";
+            indoforall_worker_details_text.innerText = "استقدام عاملة منزلية من اندونيسيا";
+            indoforall_workerTypeMessageButton.innerHTML = "طلب استقدام عاملة منزلية الآن";
+            indoforall_workerTypeMessageButton.onclick = function () {
+                indoforall_chooseWorkerTypeDataFunction("home");
+            };
         } else if (arrayName === indoforall_driveWorkerArray) {
-            indoforall_worker_details_text.innerText = "استقدام سائق الخاص";
+            indoforall_worker_details_text.innerText = "استقدام سائق الخاص من اندونيسيا";
+            indoforall_workerTypeMessageButton.innerHTML = "طلب استقدام سائق خاص الآن";
+            indoforall_workerTypeMessageButton.onclick = function () {
+                indoforall_chooseWorkerTypeDataFunction("driver");
+            };
         } else if (arrayName === indoforall_hairWorkerArray) {
-            indoforall_worker_details_text.innerText = "استقدام كوفيرة";
+            indoforall_worker_details_text.innerText = "استقدام كوفيرة من اندونيسيا";
+            indoforall_workerTypeMessageButton.innerHTML = "طلب استقدام كوفيرة الآن";
+            indoforall_workerTypeMessageButton.onclick = function () {
+                indoforall_chooseWorkerTypeDataFunction("hair");
+            };
         } else if (arrayName === indoforall_sewingWorkerArray) {
-            indoforall_worker_details_text.innerText = "استقدام خياطة";
+            indoforall_worker_details_text.innerText = "استقدام خياطة من اندونيسيا";
+            indoforall_workerTypeMessageButton.innerHTML = "طلب استقدام خياطة الآن";
+            indoforall_workerTypeMessageButton.onclick = function () {
+                indoforall_chooseWorkerTypeDataFunction("sewing");
+            };
         } else if (arrayName === indoforall_doctorWorkerArray) {
-            indoforall_worker_details_text.innerText = "استقدام ممرضة";
+            indoforall_worker_details_text.innerText = "استقدام ممرضة من اندونيسيا";
+            indoforall_workerTypeMessageButton.innerHTML = "طلب استقدام ممرضة الآن";
+            indoforall_workerTypeMessageButton.onclick = function () {
+                indoforall_chooseWorkerTypeDataFunction("nurse");
+            };
         }
+
+        /* Append The Content of The Worker Type Title Text */
+        indoforall_worker_details_text_div.appendChild(indoforall_workerTypeMessageButton);
 
         // Apply fade-in animation
         indoforall_worker_detalis_section.style.opacity = "0";
@@ -285,7 +485,121 @@ if (document.getElementById("indoforall_worker_cards_div")) {
             inline: "center",
             behavior: "smooth",
         });
-    }
+    };
+
+    /* Function To Create Filter Worker Type Data Message From Worker Details Button */
+    indoforall_chooseWorkerTypeDataFunction = function (workerTypeName) {
+        // Disable scrolling
+        document.documentElement.style.overflow = "hidden";
+
+        /* Save The Text Based on The 'workerTypeName' Value */
+        let workerTypeNameVariable;
+
+        /* Based on The 'workerTypeName' Value Save The Content Inside This Variable */
+        let indoforall_filterWorkerCityType;
+
+        /* Based on The Passed 'workerTypeName' Value Set The Name of Worker Type Data */
+        if (workerTypeName === "home") {
+            workerTypeNameVariable = "عاملة منزلية";
+            indoforall_filterWorkerCityType = `
+            <h3>السعر</h3>
+            <h4>استقدام عاملة منزلية = 18,500 ريال سعودي</h4>
+        `;
+        } else if (workerTypeName === "driver") {
+            workerTypeNameVariable = "سائق خاص";
+            indoforall_filterWorkerCityType = `
+            <h3>السعر</h3>
+            <h4>استقدام سائق خاص = 7,000 ريال سعودي</h4>
+        `;
+        } else {
+            workerTypeNameVariable = workerTypeName === "hair" ? "كوفيرة" : workerTypeName === "sewing" ? "خياطة" : "ممرضة";
+            indoforall_filterWorkerCityType = `
+            <h3>السعر</h3>
+            <h4>فيزة عمالة مهنية = 18,500 ريال سعودي</h4>
+        `;
+        }
+
+        /* Create The Filter Worker Type Data Content */
+        let filterWorkerTypeDataDivOverlay = document.createElement("div");
+        filterWorkerTypeDataDivOverlay.id = "indoforall_filter_worker_type_overlay";
+
+        let filterWorkerTypeDataDiv = document.createElement("div");
+        filterWorkerTypeDataDiv.id = "indoforall_filter_worker_type_div";
+
+        let filterWorkerTypeDataContent = document.createElement("div");
+        filterWorkerTypeDataContent.innerHTML = `
+            <div id='indoforall_filter_worker_type_title'>
+                <h3>طلب استقدام ${workerTypeNameVariable}</h3>
+            </div>
+
+            <div id="indoforall_filter_worker_visa_type"></div>
+
+            <div id="indoforall_filter_worker_city_type">
+                <h3>استقدام الى</h3>
+                <textarea placeholder="اسم المدينة" maxlength="30"></textarea>
+            </div>
+
+            <div id="indoforall_submit_filter_worker_type">
+                <h5 onclick="indoforall_workerTypeWhatsAppMessageFunction()">إرسال</h5>
+                <h5 id="indoforall_cancel_worker_data_message_button">إلغاء</h5>
+            </div>
+        `;
+
+        /* Append The Elements in Each Other */
+        filterWorkerTypeDataDiv.appendChild(filterWorkerTypeDataContent);
+        filterWorkerTypeDataDivOverlay.appendChild(filterWorkerTypeDataDiv);
+        document.body.appendChild(filterWorkerTypeDataDivOverlay);
+        indoforall_filter_worker_visa_type.innerHTML = indoforall_filterWorkerCityType; // Update this line
+
+        /* Re-enable Scrolling And Remove The 'filterWorkerTypeDataDivOverlay' Element */
+        indoforall_cancel_worker_data_message_button.onclick = function () {
+            // Re-enable Scrolling
+            document.documentElement.style.overflow = "auto";
+
+            // Remove the filterWorkerTypeDataDivOverlay
+            document.body.removeChild(filterWorkerTypeDataDivOverlay);
+        };
+
+        /* Function To Create Final WhatsApp Message Based on Worker Type Data Selected */
+        indoforall_workerTypeWhatsAppMessageFunction = function () {
+            // Get the text from the textarea
+            let cityName = document.querySelector("#indoforall_filter_worker_city_type textarea").value;
+
+            if (cityName === "") {
+                alert("يرجى التأكد من كتابة اسم المدينة");
+            } else {
+                // Get today's date
+                let today = new Date();
+                let formattedDate = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`;
+
+                // Create the final message with all the details
+                let finalMessage = `طلب جديدة استقدام ${workerTypeNameVariable} من اندونيسيا\n`;
+                finalMessage += `تاريخ إرسال الطلب: ${formattedDate}\n\n`; // Add today's date
+
+                /* Based on The Passed 'workerTypeName' Value Set The Name of Worker Type Data */
+                if (workerTypeNameVariable === "عاملة منزلية") {
+                    finalMessage += `السعر: 18,500 ريال سعودي\n`;
+                } else if (workerTypeNameVariable === "سائق خاص") {
+                    finalMessage += `السعر: 7,000 ريال سعودي\n`;
+                } else {
+                    finalMessage += `نوع الفيزا: فيزة عمالة مهنية\n`;
+                    finalMessage += `السعر: 18,500 ريال سعودي\n`;
+                }
+
+                finalMessage += `استقدام الى: ${cityName}\n\n`;
+                finalMessage += `شركة استقدام اندو للجميع`;
+
+                // Encode the message using encodeURIComponent
+                let encodedMessage = encodeURIComponent(finalMessage);
+
+                // Create the WhatsApp URL
+                let whatsappURL = `https://wa.me/966509465975?text=${encodedMessage}`;
+
+                // Open WhatsApp in a new window
+                window.open(whatsappURL, "_blank");
+            }
+        };
+    };
 }
 
 /* in Case If The Element With The Id Name 'indoforall_worker_detalis_section' Exsist Then Show Cards Details On Ovelay Layer */
@@ -353,6 +667,182 @@ if (document.getElementById("indoforall_worker_detalis_section")) {
             });
         };
     }
+}
+
+/* In Case if The 'indoforall_price_section' Elemenet Exist Then Create The Following Code */
+if (document.getElementById("indoforall_price_section")) {
+    /* Function To Filter Worker Type Data Content */
+    indoforall_filterWorkerTypeBasedOnVisaFunction = function (clickedWorkerVisaTypeTitle, clickedWorkerVisaTypeMessage) {
+        // Disable scrolling
+        document.documentElement.style.overflow = "hidden";
+
+        /* Store The Clicked Worker Visa Type */
+        let clickedWorkerVisaTypeVariable = clickedWorkerVisaTypeTitle.innerText;
+
+        /* Store The Clicked Worker Visa Type */
+        let availableWorkerVisaTypeVariable;
+
+        /* Based on The Passed 'clickedWorkerVisaTypeMessage' Value Create A Spicific Content */
+        if (clickedWorkerVisaTypeMessage === "استقدام عاملة منزلية = 18,500 ريال سعودي") {
+            availableWorkerVisaTypeVariable = `
+                <h4 onclick="indoforall_filterWorkerTypeDataFunction('home', '${clickedWorkerVisaTypeMessage}')">عاملة منزلية</h4>
+                <h4 onclick="indoforall_filterWorkerTypeDataFunction('driver', 'استقدام سائق خاص = 7,000 ريال سعودي')">سائق خاص</h4>
+                <h4 onclick="indoforall_whatsApp()">خيارات اخرى؟ تواصل معنا على الواتس</h4>
+            `;
+        } else if (clickedWorkerVisaTypeMessage === "استقدام سائق خاص = 7,000 ريال سعودي") {
+            availableWorkerVisaTypeVariable = `
+                <h4 onclick="indoforall_filterWorkerTypeDataFunction('driver', '${clickedWorkerVisaTypeMessage}')">سائق خاص</h4>
+                <h4 onclick="indoforall_whatsApp()">خيارات اخرى؟ تواصل معنا على الواتس</h4>
+            `;
+        } else if (clickedWorkerVisaTypeMessage === "فيزة عمالة مهنية = 18,500 ريال سعودي") {
+            availableWorkerVisaTypeVariable = `
+                <h4 onclick="indoforall_filterWorkerTypeDataFunction('driver', '${clickedWorkerVisaTypeMessage}')">سائق خاص</h4>
+                <h4 onclick="indoforall_filterWorkerTypeDataFunction('hair', '${clickedWorkerVisaTypeMessage}')">كوفيرة</h4>
+                <h4 onclick="indoforall_filterWorkerTypeDataFunction('sewing', '${clickedWorkerVisaTypeMessage}')">خياطة</h4>
+                <h4 onclick="indoforall_filterWorkerTypeDataFunction('nurse', '${clickedWorkerVisaTypeMessage}')">ممرضة</h4>
+                <h4 onclick="indoforall_whatsApp()">خيارات اخرى؟ تواصل معنا على الواتس</h4>
+            `;
+        }
+
+        /* Create The Filter Worker Type Data Content */
+        let filterWorkerTypeDataDivOverlay = document.createElement("div");
+        filterWorkerTypeDataDivOverlay.id = "indoforall_filter_worker_type_overlay";
+
+        let filterWorkerTypeDataDiv = document.createElement("div");
+        filterWorkerTypeDataDiv.id = "indoforall_filter_worker_type_div";
+
+        let filterWorkerTypeDataContent = document.createElement("div");
+        filterWorkerTypeDataContent.innerHTML = `
+            <div id='indoforall_filter_worker_type_title'>
+                <h3>${clickedWorkerVisaTypeVariable}</h3>
+            </div>
+
+            <div id="indoforall_filter_worker_work_type">
+                <h3>اختار نوع العمالة</h3>
+
+                <div id="indoforall_filter_worker_work_type_options"></div>
+                
+            </div>
+
+            <div id="indoforall_submit_filter_worker_type">
+                <h5 id="indoforall_cancel_worker_data_message_button">إلغاء</h5>
+            </div>
+        `;
+
+        /* Append The Elements in Each Other */
+        filterWorkerTypeDataDiv.appendChild(filterWorkerTypeDataContent);
+        filterWorkerTypeDataDivOverlay.appendChild(filterWorkerTypeDataDiv);
+        document.body.appendChild(filterWorkerTypeDataDivOverlay);
+        indoforall_filter_worker_work_type_options.innerHTML = availableWorkerVisaTypeVariable;
+
+        /* Re-enable Scrolling And Remove The 'filterWorkerTypeDataDivOverlay' Elemenet */
+        indoforall_cancel_worker_data_message_button.onclick = function () {
+            // Re-enable Scrolling
+            document.documentElement.style.overflow = "auto";
+
+            document.body.removeChild(filterWorkerTypeDataDivOverlay);
+        };
+
+        /* Function To Filter Worker Type Data */
+        indoforall_filterWorkerTypeDataFunction = function (workerTypeName, workerVisaTypeMessage) {
+            /* Append The Elements in Each Other */
+            indoforall_filter_worker_type_div.innerHTML = "";
+            indoforall_filter_worker_type_overlay.removeChild(indoforall_filter_worker_type_div);
+            document.body.removeChild(indoforall_filter_worker_type_overlay);
+
+            /* Save The Text Based on The workerType Value */
+            let workerTypeNameVariable;
+
+            /* Based on The Passed 'workerTypeName' Value Set The Name of Worker Type Data */
+            if (workerTypeName === "home") {
+                workerTypeNameVariable = "عاملة منزلية";
+            } else if (workerTypeName === "driver") {
+                workerTypeNameVariable = "سائق خاص";
+            } else if (workerTypeName === "hair") {
+                workerTypeNameVariable = "كوفيرة";
+            } else if (workerTypeName === "sewing") {
+                workerTypeNameVariable = "خياطة";
+            } else if (workerTypeName === "nurse") {
+                workerTypeNameVariable = "ممرضة";
+            }
+
+            /* Create The Content For The Worker Type Data Content */
+            let filterWorkerTypeDataContent = document.createElement("div");
+            filterWorkerTypeDataContent.innerHTML = `
+                <div id='indoforall_filter_worker_type_title'>
+                    <h3>طلب استقدام ${workerTypeNameVariable}</h3>
+                </div>
+
+                <div id="indoforall_filter_worker_visa_type">
+                    <h3>السعر</h3>
+                    <h4>${workerVisaTypeMessage}</h4>
+                </div>
+
+                <div id="indoforall_filter_worker_city_type">
+                    <h3>استقدام الى</h3>
+                    <textarea placeholder="اسم المدينة" maxlength="30"></textarea>
+                </div>
+
+                <div id="indoforall_submit_filter_worker_type">
+                    <h5 onclick="indoforall_workerTypeWhatsAppMessageFunction()">إرسال</h5>
+                    <h5 onclick="indoforall_cancelFilterWorkerTypeData()">إلغاء</h5>
+                </div>
+            `;
+
+            /* Append The Elements in Each Other */
+            filterWorkerTypeDataDiv.appendChild(filterWorkerTypeDataContent);
+            filterWorkerTypeDataDivOverlay.appendChild(filterWorkerTypeDataDiv);
+            document.body.appendChild(filterWorkerTypeDataDivOverlay);
+
+            /* Re-enable Scrolling And Remove The 'filterWorkerTypeDataDivOverlay' Elemenet */
+            indoforall_cancelFilterWorkerTypeData = function () {
+                // Re-enable Scrolling
+                document.documentElement.style.overflow = "auto";
+
+                document.body.removeChild(filterWorkerTypeDataDivOverlay);
+            };
+
+            /* Function To Create Final WhatsApp Message Based on Worker Type Data Selected */
+            indoforall_workerTypeWhatsAppMessageFunction = function () {
+                // Get the text from the textarea
+                let cityName = document.querySelector("#indoforall_filter_worker_city_type textarea").value;
+
+                if (cityName === "") {
+                    alert("يرجى التأكد من كتابة اسم المدينة");
+                } else {
+                    // Get today's date
+                    let today = new Date();
+                    let formattedDate = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`;
+
+                    // Create the final message with all the details
+                    let finalMessage = `طلب جديدة استقدام ${workerTypeNameVariable} من اندونيسيا\n`;
+                    finalMessage += `تاريخ إرسال الطلب: ${formattedDate}\n\n`; // Add today's date
+
+                    /* Based on The 'workerTypeNameVariable' Value Create The WhatsApp Message*/
+                    if (workerTypeNameVariable === "عاملة منزلية") {
+                        finalMessage += `السعر: 18,500 ريال سعودي\n`;
+                    } else if (workerTypeNameVariable === "سائق خاص") {
+                        finalMessage += `السعر: 7,000 ريال سعودي\n`;
+                    } else {
+                        finalMessage += `نوع الفيزا: فيزة عمالة مهنية\n`;
+                        finalMessage += `السعر: 18,500 ريال سعودي\n`;
+                    }
+
+                    finalMessage += `استقدام الى: ${cityName}\n\n`;
+                    finalMessage += `شركة استقدام اندو للجميع`;
+
+                    // Encode the message using encodeURIComponent
+                    let encodedMessage = encodeURIComponent(finalMessage);
+
+                    // Create the WhatsApp URL
+                    let whatsappURL = `https://wa.me/966509465975?text=${encodedMessage}`;
+
+                    // Open WhatsApp in a new window
+                    window.open(whatsappURL, "_blank");
+                }
+            };
+        };
+    };
 }
 
 // in Case If The Element With The Id Name 'indoforall_question_area' Exsist Then Go through each item in the 'data' value array 'indoforall_questionAndAnswerArray'
@@ -485,7 +975,6 @@ if (document.getElementById("indoforall_ads_videos_and_img_div")) {
 
             for (let i = 0; i < orignalVideos.length; i++) {
                 orignalVideos[i].addEventListener("play", function () {
-                    console.log("Video started playing");
                     // Pause other videos
                     for (let j = 0; j < orignalVideos.length; j++) {
                         if (j !== i) {
