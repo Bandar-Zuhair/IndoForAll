@@ -175,7 +175,7 @@ let indoforall_adsVideosArray = [
 
 
 
-/* Function For Showing Full Screen Images */
+
 function indoforall_show_full_screen_image(src) {
     // Disable scrolling
     document.documentElement.style.overflow = "hidden";
@@ -280,7 +280,7 @@ indoforall_craeteRequestWorkerMessage = function () {
         if (workerTypeName === "home") {
             workerTypeNameVariable = "عاملة منزلية";
             indoforall_filterWorkerCityType = `
-                <h3>السعر</h3>
+            <h3>السعر</h3>
                 <h4>استقدام عاملة منزلية = 18,500 ريال سعودي</h4>
             `;
         } else if (workerTypeName === "driver") {
@@ -356,7 +356,7 @@ indoforall_craeteRequestWorkerMessage = function () {
                 let formattedDate = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`;
 
                 // Create the final message with all the details
-                let finalMessage = `طلب جديدة استقدام ${workerTypeNameVariable} من اندونيسيا\n`;
+                let finalMessage = `طلب جديد استقدام ${workerTypeNameVariable} من اندونيسيا\n`;
                 finalMessage += `تاريخ إرسال الطلب: ${formattedDate}\n\n`; // Add today's date
 
                 /* Based on The Passed 'workerTypeName' Value Set The Name of Worker Type Data */
@@ -408,7 +408,7 @@ if (document.getElementById("indoforall_worker_cards_div")) {
         /* Create The Book Worker Now Button in The Worker Details Section */
         let indoforall_workerTypeMessageButton = document.createElement("a");
         indoforall_workerTypeMessageButton.id = "indoforall_worker_type_message_button";
-        indoforall_workerTypeMessageButton.style.background = "linear-gradient(to right, rgb(255, 0, 221), rgb(174, 0, 255), rgb(13, 0, 255))";
+        indoforall_workerTypeMessageButton.style.background = "linear-gradient(to right, rgb(5, 0, 91), rgb(13, 0, 255))";
 
         /* Check Which Button Has Clicked And Based On That Set The InnerText For The 'indoforall_worker_details_text' */
         if (arrayName === indoforall_homeWorkerArray) {
@@ -573,7 +573,7 @@ if (document.getElementById("indoforall_worker_cards_div")) {
                 let formattedDate = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`;
 
                 // Create the final message with all the details
-                let finalMessage = `طلب جديدة استقدام ${workerTypeNameVariable} من اندونيسيا\n`;
+                let finalMessage = `طلب جديد استقدام ${workerTypeNameVariable} من اندونيسيا\n`;
                 finalMessage += `تاريخ إرسال الطلب: ${formattedDate}\n\n`; // Add today's date
 
                 /* Based on The Passed 'workerTypeName' Value Set The Name of Worker Type Data */
@@ -815,7 +815,7 @@ if (document.getElementById("indoforall_price_section")) {
                     let formattedDate = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`;
 
                     // Create the final message with all the details
-                    let finalMessage = `طلب جديدة استقدام ${workerTypeNameVariable} من اندونيسيا\n`;
+                    let finalMessage = `طلب جديد استقدام ${workerTypeNameVariable} من اندونيسيا\n`;
                     finalMessage += `تاريخ إرسال الطلب: ${formattedDate}\n\n`; // Add today's date
 
                     /* Based on The 'workerTypeNameVariable' Value Create The WhatsApp Message*/
