@@ -175,7 +175,6 @@ let indoforall_adsVideosArray = [
 
 
 
-
 function indoforall_show_full_screen_image(src) {
     // Disable scrolling
     document.documentElement.style.overflow = "hidden";
@@ -604,6 +603,9 @@ if (document.getElementById("indoforall_worker_cards_div")) {
 
 /* in Case If The Element With The Id Name 'indoforall_worker_detalis_section' Exsist Then Show Cards Details On Ovelay Layer */
 if (document.getElementById("indoforall_worker_detalis_section")) {
+    /* Hide The 'indoforall_worker_detalis_section' Element in Everytime Users Visit This 'index.html' Page */
+    document.getElementById("indoforall_worker_detalis_section").style.display = "none";
+
     function indoforall_showCardsDetails(cardCounter, workerImg, workerVideo) {
         /* Create Overlay For Show Workers Card Detals */
         let fullscreenoverlay = document.createElement("div");
@@ -1140,3 +1142,4 @@ let ioniconsNomoduleScript = document.createElement("script");
 ioniconsNomoduleScript.setAttribute("nomodule", "");
 ioniconsNomoduleScript.src = "https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js";
 document.body.appendChild(ioniconsNomoduleScript);
+
