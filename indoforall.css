@@ -197,7 +197,6 @@ header div {
     text-decoration: none;
     text-align: center;
     padding: 10px 18px;
-    color: white;
     border: 1px solid white;
     border-radius: 7px;
     cursor: pointer;
@@ -217,7 +216,6 @@ header div {
     text-decoration: none;
     text-align: center;
     padding: 10px 18px;
-    color: white;
     border: 1px solid white;
     border-radius: 7px;
     cursor: pointer;
@@ -237,7 +235,6 @@ header div {
     text-decoration: none;
     text-align: center;
     padding: 10px 20px;
-    color: white;
     border: 1px solid white;
     border-radius: 7px;
     cursor: pointer;
@@ -257,7 +254,6 @@ header div {
     text-decoration: none;
     text-align: center;
     padding: 10px 18px;
-    color: white;
     border: 1px solid white;
     border-radius: 7px;
     cursor: pointer;
@@ -290,7 +286,6 @@ header div {
 .web_guidance_div a {
     text-decoration: none;
     background: black;
-    color: white;
     font-size: 2.5vw;
     line-height: 1.5;
     text-align: center;
@@ -1072,8 +1067,8 @@ body.nav-open #indoforall_nav_options * {
 }
 
 #indoforall_systemworkarea div {
-    background: linear-gradient(90deg, #00ddff, orange);
-    width: 40%;
+    background: linear-gradient(to right, #00ddff, orange);
+    width: 50vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1088,33 +1083,33 @@ body.nav-open #indoforall_nav_options * {
 .indoforall_systemworknum {
     background: white;
     color: black;
-    font-size: 20px;
-    padding: 10px;
+    font-size: 2.5vw;
+    padding: 5px;
     border-radius: 7px;
     box-shadow: 0 0 5px 1px black;
 }
 
+#indoforall_systemworkarea ion-icon {
+    background: linear-gradient(#00ddff, rgb(251, 0, 255));
+    font-size: 7vw;
+    margin: 5px 0;
+    padding: 15px;
+    border-radius: 7px;
+    box-shadow: 0 0 10px 1px black;
+}
+
 .indoforall_systemworktext {
     background: black;
-    font-size: 20px;
-    padding: 10px;
+    font-size: 2.5vw;
+    padding: 8px 14px;
     border-radius: 7px;
 }
 
 .indoforall_explainsystemworktext {
     background: black;
-    font-size: 15px;
-    padding: 10px;
+    font-size: 2vw;
+    padding: 8px 14px;
     border-radius: 7px;
-}
-
-#indoforall_systemworkarea ion-icon {
-    background: linear-gradient(#00ddff, rgb(251, 0, 255));
-    font-size: 80px;
-    margin: 5px 0;
-    padding: 15px;
-    border-radius: 7px;
-    box-shadow: 0 0 10px 1px black;
 }
 
 /* Proof Section */
@@ -1382,22 +1377,6 @@ footer img {
         font-size: 5.5vw;
     }
 
-    .indoforall_systemworknum {
-        font-size: 17px;
-    }
-
-    .indoforall_systemworktext {
-        font-size: 17px;
-    }
-
-    .indoforall_explainsystemworktext {
-        font-size: 13px;
-    }
-
-    #indoforall_systemworkarea ion-icon {
-        font-size: 70px;
-    }
-
     .indoforall_ads_only_videos_div {
         width: 80vw;
         height: 450px;
@@ -1532,7 +1511,26 @@ footer img {
     }
 
     #indoforall_systemworkarea div {
-        width: 80%;
+        width: 75vw;
+        margin: 10px;
+    }
+
+    .indoforall_systemworknum {
+        font-size: 3vw;
+    }
+
+    #indoforall_systemworkarea ion-icon {
+        font-size: 10vw;
+    }
+
+    .indoforall_systemworktext {
+        font-size: 3vw;
+        padding: 8px;
+    }
+
+    .indoforall_explainsystemworktext {
+        font-size: 2.5vw;
+        padding: 8px;
     }
 
     #indoforall_companydescription h2 {
@@ -1611,28 +1609,12 @@ footer img {
         font-size: 2.5vw;
     }
 
-    .indoforall_systemworknum {
-        font-size: 13px;
-    }
-
-    .indoforall_systemworktext {
-        font-size: 16px;
-    }
-
     .indoforall_Proof_video_div {
         width: 25vw;
     }
 
     .indoforall_Proof_video_div h2 {
         font-size: 2.5vw;
-    }
-
-    .indoforall_explainsystemworktext {
-        font-size: 13px;
-    }
-
-    #indoforall_systemworkarea ion-icon {
-        font-size: 50px;
     }
 
     #indoforall_accounts_section h1 {
@@ -1698,10 +1680,6 @@ footer img {
     .indoforall_worker_details_text_h1 {
         font-size: 5vw;
         padding: 6px;
-    }
-
-    .indoforall_systemworknum {
-        padding: 5px;
     }
 
     .indoforall_ads_only_videos_div {
@@ -1833,6 +1811,28 @@ footer img {
         padding: 8px 0;
     }
 
+    #indoforall_systemworkarea div {
+        width: 80vw;
+        margin: 7px;
+        padding: 10px;
+    }
+
+    .indoforall_systemworknum {
+        font-size: 4vw;
+    }
+
+    #indoforall_systemworkarea ion-icon {
+        font-size: 13vw;
+    }
+
+    .indoforall_systemworktext {
+        font-size: 4vw;
+    }
+
+    .indoforall_explainsystemworktext {
+        font-size: 3.5vw;
+    }
+
     #indoforall_companydescription h2 {
         font-size: 3.5vw;
     }
@@ -1955,26 +1955,6 @@ footer img {
 
     #indoforall_worker_details_text_div a {
         margin: 5px 0;
-    }
-
-    #indoforall_systemworkarea div {
-        width: 100%;
-    }
-
-    .indoforall_systemworknum {
-        font-size: 10px;
-    }
-
-    .indoforall_systemworktext {
-        font-size: 13px;
-    }
-
-    .indoforall_explainsystemworktext {
-        font-size: 11px;
-    }
-
-    #indoforall_systemworkarea ion-icon {
-        font-size: 40px;
     }
 
     #indoforall_proof_area {
@@ -2201,24 +2181,33 @@ footer img {
         padding: 5px 10px;
     }
 
-    .indoforall_systemworktext {
-        font-size: 12px;
-    }
-
-    .indoforall_explainsystemworktext {
-        font-size: 9px;
-    }
-
-    #indoforall_systemworkarea ion-icon {
-        font-size: 30px;
-    }
-
     .indoforall_Proof_video_div {
         width: 45vw;
     }
 
     .indoforall_Proof_video_div h2 {
         font-size: 4.5vw;
+    }
+
+    #indoforall_systemworkarea div {
+        width: 100vw;
+        margin: 5px;
+        padding: 7px;
+    }
+
+    .indoforall_systemworknum {
+        font-size: 5vw;
+        padding: 3px;
+    }
+
+    .indoforall_systemworktext {
+        font-size: 4.5vw;
+        padding: 5px;
+    }
+
+    .indoforall_explainsystemworktext {
+        font-size: 4vw;
+        padding: 5px;
     }
 
     #indoforall_companydescription h2 {
@@ -2268,20 +2257,8 @@ footer img {
         padding: 6px 10px;
     }
 
-    .indoforall_systemworktext {
-        font-size: 10px;
-    }
-
     .indoforall_Proof_video_div {
         width: 55vw;
-    }
-
-    .indoforall_explainsystemworktext {
-        font-size: 7px;
-    }
-
-    #indoforall_systemworkarea ion-icon {
-        font-size: 20px;
     }
 
     #indoforall_companydescription h2 {
