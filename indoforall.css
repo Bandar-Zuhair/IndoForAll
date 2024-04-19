@@ -1562,14 +1562,6 @@ footer img {
         margin: 2px 0;
     }
 
-    .indoforall_indonesia_info_image {
-        width: 15vw;
-    }
-
-    #indoforall_indonesia_info h2 {
-        font-size: 2.5vw;
-    }
-
     #indoforall_our_features_area spam {
         margin-left: 3px;
     }
@@ -1582,6 +1574,10 @@ footer img {
     .indoforall_worker_details_text_h1 {
         font-size: 4.5vw;
         padding: 6px;
+    }
+
+    .indoforall_indonesia_info_image {
+        width: 15vw;
     }
 
     #indoforall_indonesia_info h2 {
@@ -2051,10 +2047,6 @@ footer img {
         padding: 6px;
     }
 
-    #indoforall_indonesia_info h2 {
-        font-size: 3.5vw;
-    }
-
     #indoforall_nav_options a {
         font-size: 4.5vw;
     }
@@ -2112,11 +2104,6 @@ footer img {
         font-size: 6.5vw;
     }
 
-    #indoforall_our_features_area h2 {
-        font-size: 3.5vw;
-        margin: 0;
-    }
-
     .indoforall_indonesia_info_image {
         width: 20vw;
     }
@@ -2125,12 +2112,13 @@ footer img {
         font-size: 3.5vw;
     }
 
-    #indoforall_our_features_area spam {
-        margin-left: 1px;
+    #indoforall_our_features_area h2 {
+        font-size: 3.5vw;
+        margin: 0;
     }
 
-    #indoforall_indonesia_info_image_1 {
-        width: 70px;
+    #indoforall_our_features_area spam {
+        margin-left: 1px;
     }
 
     #indoforall_our_contact_info div {
