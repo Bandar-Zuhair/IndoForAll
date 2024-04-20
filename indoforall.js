@@ -1119,11 +1119,16 @@ function indoforall_scrollUpIcon() {
 }
 
 /* Hide Or Show Go Up Button */
+let koktelindo_footer = document.getElementById("indoforall_footer");
+let goUpIcon = document.getElementById("indoforall_go_up_arrow");
 window.onscroll = function () {
-    if (window.pageYOffset >= indoforall_nav.offsetTop) {
-        indoforall_go_up_arrow.style.opacity = "1";
+    let footerRect = koktelindo_footer.getBoundingClientRect();
+    if (footerRect.top < window.innerHeight) {
+        goUpIcon.style.opacity = "1";
+        goUpIcon.style.pointerEvents = "auto"; // Make the icon clickable
     } else {
-        indoforall_go_up_arrow.style.opacity = "0";
+        goUpIcon.style.opacity = "0";
+        goUpIcon.style.pointerEvents = "none"; // Make the icon unclickable
     }
 };
 
