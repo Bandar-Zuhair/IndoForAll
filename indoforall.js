@@ -261,6 +261,20 @@ let indoforall_adsVideosArray = [
 /* Array For Clint Rate Data */
 let indoforall_clintRateData = [
     {
+        date: '2024/5/14',
+        profileSRC: 'indoforall_clint_rate/man.svg',
+        name: 'راكان',
+        comment: 'تم الاستقدام من اندو للجميع وما شاء الله سرعة في الانجاز وسرعة في الرد على كل الاستفسارات',
+        starSRC: 'indoforall_clint_rate/stars5.svg',
+    },
+    {
+        date: '2024/5/9',
+        profileSRC: 'indoforall_clint_rate/woman.svg',
+        name: 'ام بندر',
+        comment: 'الحمد لله وصلت العاملة والله يجعلها عون لنا ويجزاكم كل خير',
+        starSRC: 'indoforall_clint_rate/stars5.svg',
+    },
+    {
         date: '2024/2/16',
         profileSRC: 'indoforall_clint_rate/man.svg',
         name: 'ابو خالد',
