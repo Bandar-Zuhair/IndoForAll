@@ -247,12 +247,12 @@ let indoforall_proofVideosArray = [
 let indoforall_adsVideosArray = [
 
     {
-        videoSrc: "indoforall_ads/video1.mp4",
-        videoThumbnailSrc: "indoforall_ads/استقدام-من-اندونيسيا.png",
+        videoSrc: "استقدام-اندونيسيا/استقدام-من-اندونيسيا.mp4",
+        videoThumbnailSrc: "استقدام-اندونيسيا/استقدام-من-اندونيسيا.png",
     },
 
     {
-        imgSrc: "indoforall_ads/استقدام-من-اندونيسيا.png",
+        imgSrc: "استقدام-اندونيسيا/استقدام-من-اندونيسيا.png",
     },
 
 ]
@@ -262,82 +262,83 @@ let indoforall_adsVideosArray = [
 let indoforall_clintRateData = [
     {
         date: '2024/5/14',
-        profileSRC: 'indoforall_clint_rate/man.svg',
+        profileSRC: 'تقييم-عملائنا/man.svg',
         name: 'راكان',
         comment: 'تم الاستقدام من اندو للجميع وما شاء الله سرعة في الانجاز وسرعة في الرد على كل الاستفسارات',
-        starSRC: 'indoforall_clint_rate/stars5.svg',
+        starSRC: 'تقييم-عملائنا/stars5.svg',
     },
     {
         date: '2024/5/9',
-        profileSRC: 'indoforall_clint_rate/woman.svg',
+        profileSRC: 'تقييم-عملائنا/woman.svg',
         name: 'ام بندر',
         comment: 'الحمد لله وصلت العاملة والله يجعلها عون لنا ويجزاكم كل خير',
-        starSRC: 'indoforall_clint_rate/stars5.svg',
+        starSRC: 'تقييم-عملائنا/stars5.svg',
     },
     {
         date: '2024/2/16',
-        profileSRC: 'indoforall_clint_rate/man.svg',
+        profileSRC: 'تقييم-عملائنا/man.svg',
         name: 'ابو خالد',
         comment: 'الى الان هذا افضل موقع طلبت منه استقدام عمالة اندونيسية',
-        starSRC: 'indoforall_clint_rate/stars5.svg',
+        starSRC: 'تقييم-عملائنا/stars5.svg',
     },
     {
         date: '2024/4/12',
-        profileSRC: 'indoforall_clint_rate/woman.svg',
+        profileSRC: 'تقييم-عملائنا/woman.svg',
         name: 'عبير صالح',
         comment: 'العاملة المنزلية ممتازة واتمنى تضيفو عاملة فنادق كمان',
-        starSRC: 'indoforall_clint_rate/stars4.svg',
+        starSRC: 'تقييم-عملائنا/stars4.svg',
     },
     {
         date: '2024/5/4',
-        profileSRC: 'indoforall_clint_rate/man.svg',
+        profileSRC: 'تقييم-عملائنا/man.svg',
         name: 'عامر',
         comment: 'رجل صادق انصح التعامل معه',
-        starSRC: 'indoforall_clint_rate/stars5.svg',
+        starSRC: 'تقييم-عملائنا/stars5.svg',
     },
     {
         date: '2024/1/04',
-        profileSRC: 'indoforall_clint_rate/man.svg',
+        profileSRC: 'تقييم-عملائنا/man.svg',
         name: 'عبد العزيز الحربي',
         comment: 'شكرا على تعاملكم الجميل وشغلكم مافيه ولا غلطة',
-        starSRC: 'indoforall_clint_rate/stars5.svg',
+        starSRC: 'تقييم-عملائنا/stars5.svg',
     },
     {
         date: '2024/4/28',
-        profileSRC: 'indoforall_clint_rate/man.svg',
+        profileSRC: 'تقييم-عملائنا/man.svg',
         name: 'ابو منصور',
         comment: 'كان في تأخير بسيط في انجاز الاستقدام بس بشكل عام الشغل ممتاز',
-        starSRC: 'indoforall_clint_rate/stars4.svg',
+        starSRC: 'تقييم-عملائنا/stars4.svg',
     },
     {
         date: '2024/4/02',
-        profileSRC: 'indoforall_clint_rate/man.svg',
+        profileSRC: 'تقييم-عملائنا/man.svg',
         name: 'سلطان محمد',
         comment: 'شكرا على تسهيل طلب الاستقدام وطريقة الاستقدام مجهود يشكر عليه',
-        starSRC: 'indoforall_clint_rate/stars5.svg',
+        starSRC: 'تقييم-عملائنا/stars5.svg',
     },
     {
         date: '2024/3/17',
-        profileSRC: 'indoforall_clint_rate/woman.svg',
+        profileSRC: 'تقييم-عملائنا/woman.svg',
         name: 'ام سليمان',
         comment: 'العاملة المنزلية ممتازة جدا وشالت عني كل شغل البيت',
-        starSRC: 'indoforall_clint_rate/stars5.svg',
+        starSRC: 'تقييم-عملائنا/stars5.svg',
     },
     {
         date: '2024/1/09',
-        profileSRC: 'indoforall_clint_rate/man.svg',
+        profileSRC: 'تقييم-عملائنا/man.svg',
         name: 'محمود العتيبي',
         comment: 'شكرا لكم على شغلكم المرتب',
-        starSRC: 'indoforall_clint_rate/stars4.svg',
+        starSRC: 'تقييم-عملائنا/stars4.svg',
     },
     {
         date: '2024/4/11',
-        profileSRC: 'indoforall_clint_rate/woman.svg',
+        profileSRC: 'تقييم-عملائنا/woman.svg',
         name: 'افنان الشهري',
         comment: 'شكرا ماقصرتو الاستقدام اليوم صار اسهل من قبل بكثير',
-        starSRC: 'indoforall_clint_rate/stars5.svg',
+        starSRC: 'تقييم-عملائنا/stars5.svg',
     },
-];
+]
+
 
 
 
