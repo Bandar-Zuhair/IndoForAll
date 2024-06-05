@@ -263,7 +263,7 @@ let indoforall_clintRateData = [
     {
         date: '2024/6/01',
         profileSRC: 'تقييم-عملائنا/man.svg',
-        name: 'ابو صقر',
+        name: 'ابو طارق',
         comment: 'ما شاء الله على شغلكم المرتب والبسيط وتعوانكم معنا الله يسعدكم',
         starSRC: 'تقييم-عملائنا/stars5.svg',
     },
