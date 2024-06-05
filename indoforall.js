@@ -261,28 +261,14 @@ let indoforall_adsVideosArray = [
 /* Array For Clint Rate Data */
 let indoforall_clintRateData = [
     {
-        date: '2024/6/01',
-        profileSRC: 'تقييم-عملائنا/man.svg',
-        name: 'ابو طارق',
-        comment: 'ما شاء الله على شغلكم المرتب والبسيط وتعوانكم معنا الله يسعدكم',
-        starSRC: 'تقييم-عملائنا/stars5.svg',
-    },
-    {
-        date: '2024/5/30',
-        profileSRC: 'تقييم-عملائنا/woman.svg',
-        name: 'آمنة علي',
-        comment: 'الله يبارك فيكم وعلى الخدمة الي تقدموها',
-        starSRC: 'تقييم-عملائنا/stars4.svg',
-    },
-    {
-        date: '2024/5/27',
+        date: '2024/6/3',
         profileSRC: 'تقييم-عملائنا/man.svg',
         name: 'راكان',
         comment: 'تم الاستقدام من اندو للجميع وما شاء الله سرعة في الانجاز وسرعة في الرد على كل الاستفسارات',
         starSRC: 'تقييم-عملائنا/stars5.svg',
     },
     {
-        date: '2024/5/18',
+        date: '2024/5/28',
         profileSRC: 'تقييم-عملائنا/woman.svg',
         name: 'ام بندر',
         comment: 'الحمد لله وصلت العاملة والله يجعلها عون لنا ويجزاكم كل خير',
