@@ -261,42 +261,42 @@ let indoforall_adsVideosArray = [
 /* Array For Clint Rate Data */
 let indoforall_clintRateData = [
     {
-        date: '2024/7/1',
+        date: '2024/7/31',
         profileSRC: 'تقييم-عملائنا/man.svg',
         name: 'راكان',
         comment: 'تم الاستقدام من اندو للجميع وما شاء الله سرعة في الانجاز وسرعة في الرد على كل الاستفسارات',
         starSRC: 'تقييم-عملائنا/stars5.svg',
     },
     {
-        date: '2024/6/25',
+        date: '2024/7/27',
         profileSRC: 'تقييم-عملائنا/woman.svg',
         name: 'ام بندر',
         comment: 'الحمد لله وصلت العاملة والله يجعلها عون لنا ويجزاكم كل خير',
         starSRC: 'تقييم-عملائنا/stars5.svg',
     },
     {
-        date: '2024/6/16',
+        date: '2024/7/12',
         profileSRC: 'تقييم-عملائنا/man.svg',
         name: 'ابو خالد',
         comment: 'الى الان هذا افضل موقع طلبت منه استقدام عمالة اندونيسية',
         starSRC: 'تقييم-عملائنا/stars5.svg',
     },
     {
-        date: '2024/6/08',
+        date: '2024/7/03',
         profileSRC: 'تقييم-عملائنا/woman.svg',
         name: 'عبير صالح',
         comment: 'العاملة المنزلية ممتازة واتمنى تضيفو عاملة فنادق كمان',
         starSRC: 'تقييم-عملائنا/stars4.svg',
     },
     {
-        date: '2024/6/01',
+        date: '2024/6/28',
         profileSRC: 'تقييم-عملائنا/man.svg',
         name: 'عامر',
         comment: 'رجل صادق انصح التعامل معه',
         starSRC: 'تقييم-عملائنا/stars5.svg',
     },
     {
-        date: '2024/5/27',
+        date: '2024/6/21',
         profileSRC: 'تقييم-عملائنا/man.svg',
         name: 'عبد العزيز الحربي',
         comment: 'شكرا على تعاملكم الجميل وشغلكم مافيه ولا غلطة',
