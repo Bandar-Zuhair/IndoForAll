@@ -145,7 +145,6 @@ body {
 header {
     background: rgb(215, 232, 244);
     width: 100%;
-    padding: 10px;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
 }
@@ -312,11 +311,11 @@ nav {
 
 #indoforall_nav {
     background: linear-gradient(to top, rgb(0, 72, 114), rgb(0, 162, 255));
-    padding: 10px 16px;
+    width: fit-content;
+    padding: 5px;
     display: flex;
     flex-direction: row;
     justify-content: start;
-    width: fit-content;
     border-radius: 3px;
     box-shadow: 0 0 1px 0.5px black;
     cursor: pointer;
@@ -329,13 +328,13 @@ nav {
 
 nav h3 {
     color: white;
-    font-size: 2vw;
-    margin-left: 10px;
+    font-size: 2.5vmax;
+    margin-left: 1vmax;
     cursor: pointer;
 }
 
 #indoforall_nav_icon {
-    width: 3vw;
+    width: 4vmax;
     cursor: pointer;
 }
 
@@ -412,7 +411,7 @@ body.nav-open #indoforall_nav_options * {
 }
 
 #indoforall_whatsapp_icon img {
-    width: 8vmax;
+    width: 7vmax;
     padding-bottom: 5px;
     cursor: pointer;
 }
@@ -1448,22 +1447,6 @@ footer img {
 
 /* 950px */
 @media (max-width: 950px) {
-    #indoforall_nav {
-        padding: 8px 14px;
-    }
-
-    nav h3 {
-        font-size: 3.5vw;
-    }
-
-    #indoforall_nav_icon {
-        width: 5vw;
-    }
-
-    .indoforall_worker_cards_div_class {
-        padding: 10px 0 50px;
-    }
-
     #indoforall_filter_worker_type_title h3 {
         font-size: 4.5vw;
     }
@@ -1557,15 +1540,6 @@ footer img {
 @media (max-width: 850px) {
     #indoforall_error_page_go_back_button {
         font-size: 2.5vw;
-    }
-
-    nav h3 {
-        font-size: 2.5vw;
-        margin-left: 5px;
-    }
-
-    #indoforall_nav_icon {
-        width: 4vw;
     }
 
     #indoforall_our_features_area spam {
@@ -1766,18 +1740,6 @@ footer img {
 
 /* 580px */
 @media (max-width: 580px) {
-    #indoforall_nav {
-        padding: 5px 10px;
-    }
-
-    nav h3 {
-        font-size: 5vw;
-    }
-
-    #indoforall_nav_icon {
-        width: 7vw;
-    }
-
     #indoforall_error_page_go_back_button {
         font-size: 3vw;
         padding: 8px 12px;
@@ -1845,14 +1807,6 @@ footer img {
 
 /* 400px */
 @media (max-width: 400px) {
-    nav h3 {
-        font-size: 6.5vw;
-    }
-
-    #indoforall_nav_icon {
-        width: 9vw;
-    }
-
     #indoforall_nav_logo {
         width: 24vw;
     }
