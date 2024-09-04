@@ -755,7 +755,7 @@ body.nav-open #indoforall_nav_options * {
 }
 
 #indoforall_filter_worker_type_title {
-    background: rgb(0, 162, 255);
+    background: linear-gradient(to right, rgb(0, 72, 114), rgb(0, 162, 255));
     width: 100%;
     display: flex;
     justify-content: center;
@@ -766,7 +766,7 @@ body.nav-open #indoforall_nav_options * {
 }
 
 #indoforall_filter_worker_type_title h3 {
-    font-size: 2.5vw;
+    font-size: 2.5vmax;
     text-align: center;
     line-height: 1.5;
 }
@@ -783,9 +783,9 @@ body.nav-open #indoforall_nav_options * {
 }
 
 #indoforall_filter_worker_work_type h3 {
-    background: rgb(255, 102, 0);
-    font-size: 3vw;
-    padding: 15px 20px;
+    background: linear-gradient(to right, rgb(140, 56, 0), rgb(255, 102, 0));
+    font-size: 3vmax;
+    padding: 5px;
     border-radius: 3px;
     text-align: center;
     box-shadow: 0 0 1px 0.5px black;
@@ -799,10 +799,10 @@ body.nav-open #indoforall_nav_options * {
 }
 
 #indoforall_filter_worker_work_type h4 {
-    background: rgb(0, 162, 255);
-    font-size: 2.5vw;
-    margin: 10px;
-    padding: 10px 20px;
+    background: linear-gradient(to top, rgb(0, 72, 114), rgb(0, 162, 255));
+    font-size: 2.5vmax;
+    margin: 1vmax;
+    padding: 5px;
     text-align: center;
     border-radius: 3px;
     cursor: pointer;
@@ -815,7 +815,7 @@ body.nav-open #indoforall_nav_options * {
 }
 
 #indoforall_filter_worker_visa_type {
-    background: rgb(255, 102, 0);
+    background: linear-gradient(to right, rgb(140, 56, 0), rgb(255, 102, 0));
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -834,7 +834,7 @@ body.nav-open #indoforall_nav_options * {
 }
 
 #indoforall_filter_worker_visa_type h4 {
-    background: rgb(0, 162, 255);
+    background: linear-gradient(to top, rgb(0, 72, 114), rgb(0, 162, 255));
     font-size: 2vw;
     margin: 5px 0;
     padding: 10px 20px;
@@ -845,7 +845,7 @@ body.nav-open #indoforall_nav_options * {
 }
 
 #indoforall_filter_worker_city_type {
-    background: rgb(255, 102, 0);
+    background: linear-gradient(to right, rgb(140, 56, 0), rgb(255, 102, 0));
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -865,11 +865,15 @@ body.nav-open #indoforall_nav_options * {
 #indoforall_filter_worker_city_type textarea {
     width: 100%;
     font-size: 20px;
-    height: 50px;
+    height: 9vh;
     max-height: 250px;
     padding: 10px;
     outline: none;
     resize: none;
+    display: flex;
+    text-align: center;
+    justify-self: center;
+    align-self: center;
     border-color: rgb(0, 191, 255);
     border-radius: 3px;
 }
@@ -886,7 +890,7 @@ body.nav-open #indoforall_nav_options * {
 }
 
 #indoforall_submit_filter_worker_type h5 {
-    background: orange;
+    background: linear-gradient(to top, rgb(140, 56, 0), rgb(255, 102, 0));
     font-size: 2vw;
     margin: 0 15px;
     padding: 8px 16px;
@@ -1447,21 +1451,6 @@ footer img {
 
 /* 950px */
 @media (max-width: 950px) {
-    #indoforall_filter_worker_type_title h3 {
-        font-size: 4.5vw;
-    }
-
-    #indoforall_filter_worker_work_type h3 {
-        font-size: 5vw;
-        padding: 10px 16px;
-    }
-
-    #indoforall_filter_worker_work_type h4 {
-        font-size: 4.5vw;
-        margin: 5px;
-        padding: 8px 14px;
-    }
-
     #indoforall_filter_worker_visa_type h3 {
         font-size: 4.5vw;
         margin: 0 0 10px;
@@ -1658,20 +1647,6 @@ footer img {
         min-width: 40vw;
         width: 30vw;
         height: 47vw;
-    }
-
-    #indoforall_filter_worker_type_title h3 {
-        font-size: 6.5vw;
-    }
-
-    #indoforall_filter_worker_work_type h3 {
-        font-size: 6vw;
-        padding: 10px;
-    }
-
-    #indoforall_filter_worker_work_type h4 {
-        font-size: 5.5vw;
-        padding: 8px;
     }
 
     #indoforall_filter_worker_visa_type h3 {
@@ -1875,20 +1850,6 @@ footer img {
         height: 57vw;
     }
 
-    #indoforall_filter_worker_type_title h3 {
-        font-size: 7.5vw;
-    }
-
-    #indoforall_filter_worker_work_type h3 {
-        font-size: 7vw;
-        padding: 8px;
-    }
-
-    #indoforall_filter_worker_work_type h4 {
-        font-size: 6.5vw;
-        padding: 6px;
-    }
-
     #indoforall_filter_worker_visa_type h3 {
         font-size: 6.5vw;
     }
@@ -1896,11 +1857,6 @@ footer img {
     #indoforall_filter_worker_visa_type h4 {
         font-size: 5.5vw;
         padding: 6px;
-    }
-
-    #indoforall_filter_worker_city_type textarea {
-        font-size: 18px;
-        height: 45px;
     }
 
     #indoforall_filter_worker_city_type h3 {
