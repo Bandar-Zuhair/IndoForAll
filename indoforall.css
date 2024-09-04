@@ -62,7 +62,7 @@ body {
     margin: 10px 0;
     width: 20vmax;
     border-radius: 3px;
-    box-shadow: 0 0 10px 1px black;
+    box-shadow: 0 0 2.5px 1px black;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
@@ -155,7 +155,6 @@ header div {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
 }
 
 #indoforall_web_logo {
@@ -638,12 +637,11 @@ body.nav-open #indoforall_nav_options * {
 #indoforall_worker_details_area {
     background: rgb(215, 232, 244);
     width: 100%;
-    padding: 30px 20px;
+    padding: 30px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 3px;
 }
 
 .indoforall_worker_cards_div_class {
@@ -1806,7 +1804,7 @@ footer img {
     }
 
     #indoforall_worker_details_area {
-        padding: 10px 5px;
+        padding: 10px 0;
     }
 
     .indoforall_Proof_video_div {
