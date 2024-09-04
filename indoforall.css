@@ -14,8 +14,10 @@
 
 /* Change the background color and text color of highlighted text */
 ::selection {
-    background-color: rgb(0, 115, 182); /* Background color */
-    color: white; /* Text color */
+    background-color: rgb(0, 115, 182);
+    /* Background color */
+    color: white;
+    /* Text color */
 }
 
 /* All */
@@ -49,18 +51,17 @@ body {
 
 .indoforall_full_screen_overlay h1 {
     background: black;
-    font-size: 20px;
-    padding: 10px 20px;
-    border-radius: 7px;
+    font-size: 2vmax;
+    padding: 5px;
+    border-radius: 3px;
     margin-bottom: 5px;
-    box-shadow: 0 0 5px 0.5px black;
 }
 
 .indoforall_full_screen_overlay video,
 .indoforall_full_screen_overlay img {
     margin: 10px 0;
-    width: 400px;
-    border-radius: 7px;
+    width: 20vmax;
+    border-radius: 3px;
     box-shadow: 0 0 10px 1px black;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
@@ -77,15 +78,15 @@ body {
     background: black;
     color: white;
     width: fit-content;
-    font-size: 2vw;
-    padding: 8px 16px;
+    font-size: 2.5vmax;
+    padding: 5px;
     position: fixed;
     top: 5px;
     right: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 7px;
+    border-radius: 3px;
     cursor: pointer;
     border: 1px solid white;
     transition: all 0.2s ease-in-out;
@@ -162,48 +163,44 @@ header div {
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     cursor: pointer;
-    box-shadow: 0 0 3px 0.5px black;
+    box-shadow: 0 0 1px 0.5px black;
     animation: floatAnimation 4s ease-in-out infinite;
 }
 
 .indoforall_web_intro {
     color: rgb(0, 162, 255);
-    font-size: 3vw;
+    font-size: 3vmax;
     display: flex;
     width: fit-content;
     justify-content: center;
     text-align: center;
     align-items: center;
-    margin: 10px 0;
-    line-height: 1.5;
+    margin: 1vmax 0;
 }
 
 #indoforall_web_intro_1 {
-    font-size: 4vw;
-    animation: floatAnimation 4s ease-in-out infinite;
+    font-size: 4vmax;
 }
 
 #indoforall_web_intro_2 {
     color: black;
-    font-size: 1.5vw;
+    font-size: 1.7vmax;
 }
 
 #indoforall_web_intro_3 {
     color: black;
-    font-size: 2.5vw;
+    font-size: 2vmax;
     padding: 15px 0;
-    margin: 5px 0 15px 0;
 }
 
 .indoforall_web_intro_contact_us {
     background: black;
-    margin: 5px 0;
-    font-size: 1.5vw;
+    margin: 1vmax 0;
+    font-size: 1.8vmax;
     text-decoration: none;
     text-align: center;
-    padding: 10px 18px;
-    box-shadow: 0 0 3px 0.5px black;
-    border-radius: 7px;
+    padding: 5px;
+    border-radius: 3px;
     cursor: pointer;
     transition: all 0.2s ease;
 }
@@ -215,13 +212,12 @@ header div {
 
 #indoforall_website_guidance_text {
     background: black;
-    margin: 5px 0;
-    font-size: 2vw;
+    margin: 1vmax 0;
+    font-size: 2vmax;
     text-decoration: none;
     text-align: center;
-    padding: 10px 18px;
-    box-shadow: 0 0 3px 0.5px black;
-    border-radius: 7px;
+    padding: 5px;
+    border-radius: 3px;
     cursor: pointer;
     transition: all 0.2s ease;
 }
@@ -233,13 +229,13 @@ header div {
 
 #indoforall_request_worker_now_button {
     background: linear-gradient(to right, rgb(5, 0, 91), rgb(13, 0, 255));
-    margin: 20px 0 5px;
-    font-size: 3vw;
+    margin: 1vmax 0;
+    font-size: 3vmax;
     text-decoration: none;
     text-align: center;
-    padding: 10px 20px;
-    box-shadow: 0 0 3px 0.5px black;
-    border-radius: 7px;
+    padding: 5px;
+    box-shadow: 0 0 1px 0.5px black;
+    border-radius: 3px;
     cursor: pointer;
     transition: all 0.2s ease;
 }
@@ -259,7 +255,7 @@ header div {
     text-align: center;
     padding: 10px 18px;
     border: 1px solid white;
-    border-radius: 7px;
+    border-radius: 3px;
     cursor: pointer;
     transition: all 0.2s ease;
 }
@@ -283,8 +279,8 @@ header div {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    border-radius: 7px;
-    box-shadow: 0 0 3px 0.5px black;
+    border-radius: 3px;
+    box-shadow: 0 0 1px 0.5px black;
 }
 
 .web_guidance_div a {
@@ -297,7 +293,7 @@ header div {
     margin: 5px 0;
     padding: 8px 12px;
     border: 1px solid white;
-    border-radius: 7px;
+    border-radius: 3px;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
@@ -316,14 +312,14 @@ nav {
 }
 
 #indoforall_nav {
-    background: rgb(0, 162, 255);
+    background: linear-gradient(to top, rgb(0, 72, 114), rgb(0, 162, 255));
     padding: 10px 16px;
     display: flex;
     flex-direction: row;
     justify-content: start;
     width: fit-content;
-    border-radius: 7px;
-    box-shadow: 0 0 3px 0.5px black;
+    border-radius: 3px;
+    box-shadow: 0 0 1px 0.5px black;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
@@ -374,15 +370,15 @@ body.nav-open #indoforall_nav_options * {
 
 #indoforall_nav_options a {
     text-decoration: none;
-    background: rgb(0, 162, 255);
+    background: linear-gradient(to top, rgb(0, 72, 114), rgb(0, 162, 255));
     color: white;
-    margin: 5px 0;
+    margin: 0.5vmax 0;
     width: 100%;
-    font-size: 1.5vw;
+    font-size: 2.2vmax;
     border: 1px solid black;
-    border-radius: 7px;
+    border-radius: 3px;
     text-align: center;
-    padding: 8px 16px;
+    padding: 2px 0;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
@@ -398,26 +394,26 @@ body.nav-open #indoforall_nav_options * {
     flex-direction: column;
     align-items: center;
     position: fixed;
-    bottom: 80px;
-    left: 5px;
+    bottom: 60px;
+    left: 0;
     animation: floatAnimation 4s ease-in-out infinite;
 }
 
 #indoforall_whatsapp_icon h4 {
-    background: rgb(0, 162, 255);
+    background: linear-gradient(to top, rgb(0, 72, 114), rgb(0, 162, 255));
     color: white;
-    font-size: 1.5vw;
+    font-size: 1.7vmax;
     text-align: center;
-    padding: 5px 10px;
+    padding: 2px;
     width: fit-content;
     cursor: pointer;
-    border-radius: 7px;
-    box-shadow: 0 0 3px 0.5px black;
+    border-radius: 3px;
+    box-shadow: 0 0 1px 0.5px black;
     transition: all 0.2s ease-in-out;
 }
 
 #indoforall_whatsapp_icon img {
-    width: 5vw;
+    width: 8vmax;
     padding: 5px;
     cursor: pointer;
 }
@@ -432,25 +428,21 @@ body.nav-open #indoforall_nav_options * {
     z-index: 998;
     background: rgb(255, 157, 0);
     color: black;
-    font-size: 3.5vw;
+    font-size: 6.5vmax;
     position: fixed;
     bottom: 80px;
-    right: 5px;
+    right: 0;
     cursor: pointer;
     border-radius: 50%;
     animation: floatAnimation 4s ease-in-out infinite;
     transition: all 0.2s ease-in-out;
 }
 
-#indoforall_go_up_arrow:hover {
-    background: rgb(0, 162, 255);
-}
-
 /* Clint Rate Section */
 #indoforall_clint_rate_section {
     display: flex;
     overflow: hidden;
-    border-radius: 7px;
+    border-radius: 3px;
 }
 
 #indoforall_clint_rate_area {
@@ -461,7 +453,7 @@ body.nav-open #indoforall_nav_options * {
     display: flex;
     overflow-x: auto;
     overflow-y: hidden;
-    box-shadow: 0 0 3px 0.5px black;
+    box-shadow: 0 0 1px 0.5px black;
 }
 
 .indoforall_rate_div {
@@ -472,7 +464,7 @@ body.nav-open #indoforall_nav_options * {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-radius: 7px;
+    border-radius: 3px;
     box-shadow: 0 0 3px 0.5px rgb(0, 162, 255);
     transition: all 0.2s ease-in-out;
 }
@@ -546,8 +538,8 @@ body.nav-open #indoforall_nav_options * {
     flex-direction: column;
     justify-content: center;
     flex-wrap: wrap;
-    border-radius: 7px;
-    box-shadow: 0 0 3px 0.5px black;
+    border-radius: 3px;
+    box-shadow: 0 0 1px 0.5px black;
 }
 
 #indoforall_worker_type_div {
@@ -559,21 +551,21 @@ body.nav-open #indoforall_nav_options * {
 }
 
 #indoforall_worker_type_div h3 {
-    background: rgb(0, 162, 255);
+    background: linear-gradient(to top, rgb(0, 72, 114), rgb(0, 162, 255));
     color: white;
-    font-size: 3.5vw;
+    font-size: 2.5vmax;
     text-align: center;
     margin: 10px;
-    padding: 8px 16px;
+    padding: 5px;
     border: 1px solid black;
-    border-radius: 7px;
+    border-radius: 3px;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
 
 #indoforall_worker_type_div h3:hover {
     transform: scale(1.015);
-    color: rgb(0, 255, 0);
+    background: linear-gradient(to top, rgb(0, 22, 35), rgb(0, 99, 156));
 }
 
 #indoforall_quick_info_div {
@@ -584,14 +576,14 @@ body.nav-open #indoforall_nav_options * {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    border-radius: 7px;
-    box-shadow: 0 0 3px 0.5px black;
+    border-radius: 3px;
+    box-shadow: 0 0 1px 0.5px black;
 }
 
 .indoforall_quick_info {
-    font-size: 2vw;
+    font-size: 2vmax;
     line-height: 1.5;
-    margin: 10px;
+    margin: 0.5vmax;
 }
 
 /* Worker Card Details Section */
@@ -601,47 +593,44 @@ body.nav-open #indoforall_nav_options * {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 50px 10px;
+    padding: 50px 0;
 }
 
 .indoforall_worker_details_text_h1 {
     background: black;
-    font-size: 3.5vw;
-    margin-bottom: 10px;
-    padding: 10px 20px;
+    font-size: 2.5vmax;
+    padding: 5px;
     width: fit-content;
     text-align: center;
-    border-radius: 7px;
-    box-shadow: 0 0 3px 0.5px black;
+    border-radius: 3px;
     line-height: 1.5;
 }
 
 .indoforall_section_intro_text {
     background: black;
-    font-size: 3vw;
-    padding: 10px 20px;
+    font-size: 2vmax;
+    padding: 5px;
     width: fit-content;
     text-align: center;
-    box-shadow: 0 0 3px 0.5px black;
-    border-radius: 7px;
+    border-radius: 3px;
     line-height: 1.5;
 }
 
 .indoforall_section_intro_bigger_text {
     background: black;
-    font-size: 4vw;
-    padding: 10px 20px;
+    font-size: 3.5vmax;
+    padding: 5px;
     width: fit-content;
     text-align: center;
-    box-shadow: 0 0 3px 0.5px black;
-    border-radius: 7px;
+    box-shadow: 0 0 1px 0.5px black;
+    border-radius: 3px;
     line-height: 1.5;
 }
 
 .indoforall_section_intro_text_2 {
     color: black;
-    font-size: 3vw;
-    margin: 30px 0;
+    font-size: 2vmax;
+    margin: 1vmax 0;
     text-align: center;
     line-height: 1.5;
 }
@@ -654,7 +643,7 @@ body.nav-open #indoforall_nav_options * {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 7px;
+    border-radius: 3px;
 }
 
 .indoforall_worker_cards_div_class {
@@ -666,8 +655,8 @@ body.nav-open #indoforall_nav_options * {
     display: flex;
     overflow-x: auto;
     overflow-y: hidden;
-    border-radius: 7px;
-    box-shadow: 0 0 3px 0.5px black;
+    border-radius: 3px;
+    box-shadow: 0 0 1px 0.5px black;
 }
 
 .indoforall_worker_cards_div_class::-webkit-scrollbar {
@@ -687,7 +676,7 @@ body.nav-open #indoforall_nav_options * {
     align-items: center;
     text-align: center;
     cursor: pointer;
-    border-radius: 7px;
+    border-radius: 3px;
     box-shadow: 0 0 5px 0.5px black;
     transition: all 0.2s ease-in-out;
 }
@@ -708,7 +697,7 @@ body.nav-open #indoforall_nav_options * {
     height: 100%;
     object-fit: cover;
     /* Ensure the image covers the entire container */
-    border-radius: 7px;
+    border-radius: 3px;
 }
 
 #indoforall_worker_details_text_div {
@@ -719,15 +708,15 @@ body.nav-open #indoforall_nav_options * {
 }
 
 .indoforall_other_pages_link {
-    background: rgb(0, 162, 255);
+    background: linear-gradient(to top, rgb(0, 72, 114), rgb(0, 162, 255));
     color: white;
     text-decoration: none;
-    font-size: 2.5vw;
+    font-size: 2.5vmax;
     text-align: center;
-    margin: 10px 0;
-    padding: 10px 16px;
-    box-shadow: 0 0 3px 0.5px black;
-    border-radius: 7px;
+    margin: 1vmax 0;
+    padding: 5px;
+    box-shadow: 0 0 1px 0.5px black;
+    border-radius: 3px;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
@@ -756,8 +745,8 @@ body.nav-open #indoforall_nav_options * {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 7px;
-    box-shadow: 0 0 3px 0.5px black;
+    border-radius: 3px;
+    box-shadow: 0 0 1px 0.5px black;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -775,8 +764,8 @@ body.nav-open #indoforall_nav_options * {
     justify-content: center;
     align-items: center;
     padding: 10px;
-    border-radius: 7px;
-    box-shadow: 0 0 3px 0.5px black;
+    border-radius: 3px;
+    box-shadow: 0 0 1px 0.5px black;
 }
 
 #indoforall_filter_worker_type_title h3 {
@@ -793,16 +782,16 @@ body.nav-open #indoforall_nav_options * {
     align-items: center;
     padding: 10px;
     margin: 15px 0;
-    border-radius: 7px;
+    border-radius: 3px;
 }
 
 #indoforall_filter_worker_work_type h3 {
     background: rgb(255, 102, 0);
     font-size: 3vw;
     padding: 15px 20px;
-    border-radius: 7px;
+    border-radius: 3px;
     text-align: center;
-    box-shadow: 0 0 3px 0.5px black;
+    box-shadow: 0 0 1px 0.5px black;
 }
 
 #indoforall_filter_worker_work_type_options {
@@ -818,9 +807,9 @@ body.nav-open #indoforall_nav_options * {
     margin: 10px;
     padding: 10px 20px;
     text-align: center;
-    border-radius: 7px;
+    border-radius: 3px;
     cursor: pointer;
-    box-shadow: 0 0 3px 0.5px black;
+    box-shadow: 0 0 1px 0.5px black;
     transition: all 0.2s ease-in-out;
 }
 
@@ -836,8 +825,8 @@ body.nav-open #indoforall_nav_options * {
     justify-content: center;
     align-items: center;
     padding: 10px;
-    border-radius: 7px;
-    box-shadow: 0 0 3px 0.5px black;
+    border-radius: 3px;
+    box-shadow: 0 0 1px 0.5px black;
 }
 
 #indoforall_filter_worker_visa_type h3 {
@@ -853,9 +842,9 @@ body.nav-open #indoforall_nav_options * {
     margin: 5px 0;
     padding: 10px 20px;
     text-align: center;
-    border-radius: 7px;
+    border-radius: 3px;
     cursor: pointer;
-    box-shadow: 0 0 3px 0.5px black;
+    box-shadow: 0 0 1px 0.5px black;
 }
 
 #indoforall_filter_worker_city_type {
@@ -866,8 +855,8 @@ body.nav-open #indoforall_nav_options * {
     justify-content: center;
     align-items: center;
     padding: 10px;
-    border-radius: 7px;
-    box-shadow: 0 0 3px 0.5px black;
+    border-radius: 3px;
+    box-shadow: 0 0 1px 0.5px black;
 }
 
 #indoforall_filter_worker_city_type h3 {
@@ -885,7 +874,7 @@ body.nav-open #indoforall_nav_options * {
     outline: none;
     resize: none;
     border-color: rgb(0, 191, 255);
-    border-radius: 7px;
+    border-radius: 3px;
 }
 
 .indoforall_filter_worker_city_type textarea::-webkit-scrollbar {
@@ -904,9 +893,9 @@ body.nav-open #indoforall_nav_options * {
     font-size: 2vw;
     margin: 0 15px;
     padding: 8px 16px;
-    border-radius: 7px;
+    border-radius: 3px;
     cursor: pointer;
-    box-shadow: 0 0 3px 0.5px black;
+    box-shadow: 0 0 1px 0.5px black;
     transition: all 0.2s ease-in-out;
 }
 
@@ -921,25 +910,22 @@ body.nav-open #indoforall_nav_options * {
 
 .indoforall_main_page_text {
     background: black;
-    font-size: 2vw;
-    margin-bottom: 10px;
-    padding: 10px 20px;
+    font-size: 2vmax;
+    margin-bottom: 1vmax;
+    padding: 5px;
     width: fit-content;
     text-align: center;
-    border-radius: 7px;
-    box-shadow: 0 0 3px 0.5px black;
+    border-radius: 3px;
     line-height: 1.5;
 }
 
 .indoforall_main_page_text_2 {
     background: black;
-    font-size: 2vw;
-    margin-bottom: 10px;
-    padding: 10px 20px;
+    font-size: 2vmax;
+    padding: 5px;
     width: fit-content;
     text-align: center;
-    border-radius: 7px;
-    box-shadow: 0 0 3px 0.5px black;
+    border-radius: 3px;
     line-height: 1.5;
 }
 
@@ -947,22 +933,22 @@ body.nav-open #indoforall_nav_options * {
     background: rgb(157, 203, 236);
     width: 100%;
     height: fit-content;
-    margin-bottom: 30px;
-    border-radius: 7px;
+    margin-bottom: 5vmax;
+    border-radius: 3px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     text-align: center;
-    box-shadow: 0 0 3px 0.5px black;
+    box-shadow: 0 0 1px 0.5px black;
 }
 
 #indoforall_our_features_area h2 {
     color: black;
-    font-size: 2vw;
+    font-size: 2vmax;
     padding: 5px;
-    border-radius: 7px;
-    margin: 3px 0;
+    border-radius: 3px;
+    text-align: start;
 }
 
 #indoforall_our_features_area spam {
@@ -984,19 +970,19 @@ body.nav-open #indoforall_nav_options * {
     width: 100%;
     height: fit-content;
     margin-bottom: 30px;
-    border-radius: 7px;
+    border-radius: 3px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 3px 0.5px black;
+    box-shadow: 0 0 1px 0.5px black;
 }
 
 #indoforall_indonesia_info h2 {
     color: black;
-    font-size: 1.5vw;
+    font-size: 1.8vmax;
     line-height: 1.5;
-    padding: 15px 15px 0 15px;
+    padding: 1vmax 1vmax 0 1vmax;
 }
 
 #indoforall_our_contact_info {
@@ -1005,18 +991,18 @@ body.nav-open #indoforall_nav_options * {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 1vmax;
 }
 
 #indoforall_our_contact_info div {
     background: linear-gradient(to right, rgb(228, 22, 232), #18d3f0);
     display: flex;
-    width: 20vw;
+    width: 30vmax;
     margin: 10px;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
-    border-radius: 7px;
+    padding: 5px;
+    border-radius: 3px;
     cursor: pointer;
     box-shadow: 0 0 5px 0.5px black;
     transition: all 0.2s ease-in-out;
@@ -1028,24 +1014,23 @@ body.nav-open #indoforall_nav_options * {
 
 #indoforall_our_contact_info ion-icon {
     background: linear-gradient(#00ddff, rgb(251, 0, 255));
-    font-size: 5vw;
+    font-size: 8vmax;
     text-align: center;
     margin: 10px 0;
     padding: 10px;
-    border-radius: 7px;
+    border-radius: 3px;
     box-shadow: 0 0 10px 1px black;
 }
 
 #indoforall_our_contact_info h1,
 #indoforall_our_contact_info h2 {
     background: black;
-    font-size: 1vw;
+    font-size: 1.8vmax;
     text-align: center;
     align-items: center;
-    margin: 5px 0;
-    padding: 6px 12px;
-    border-radius: 7px;
-    box-shadow: 0 0 3px 0.5px black;
+    margin: 0.3vmax 0;
+    padding: 5px;
+    border-radius: 3px;
 }
 
 /* Prices Section */
@@ -1057,7 +1042,7 @@ body.nav-open #indoforall_nav_options * {
     align-items: flex-start;
     flex-wrap: wrap;
     width: 100%;
-    border-radius: 7px;
+    border-radius: 3px;
 }
 
 .indoforall_price_card {
@@ -1069,14 +1054,14 @@ body.nav-open #indoforall_nav_options * {
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
-    border-radius: 7px;
-    box-shadow: 0 0 3px 0.5px black;
+    border-radius: 3px;
+    box-shadow: 0 0 1px 0.5px black;
     animation: floatAnimation 4s ease-in-out infinite;
     transition: all 0.2s ease-in-out;
 }
 
 .indoforall_price_card h3 {
-    box-shadow: 0 0 3px 0.5px black;
+    box-shadow: 0 0 1px 0.5px black;
 }
 
 .indoforall_price_card h3,
@@ -1086,7 +1071,7 @@ body.nav-open #indoforall_nav_options * {
     background: black;
     width: fit-content;
     text-align: center;
-    border-radius: 7px;
+    border-radius: 3px;
     padding: 8px 14px;
 }
 
@@ -1116,7 +1101,7 @@ body.nav-open #indoforall_nav_options * {
     margin: 10px 0;
     padding: 10px 0;
     cursor: pointer;
-    box-shadow: 0 0 3px 0.5px black;
+    box-shadow: 0 0 1px 0.5px black;
     transition: all 0.2s ease-in-out;
 }
 
@@ -1138,14 +1123,13 @@ body.nav-open #indoforall_nav_options * {
     align-items: center;
     flex-wrap: wrap;
     padding: 20px 0;
-    margin: 15px 0;
-    border-radius: 7px;
-    box-shadow: 0 0 3px 0.5px black;
-    animation: floatAnimation 4s ease-in-out infinite;
+    margin: 1vmax 0;
+    border-radius: 3px;
+    box-shadow: 0 0 1px 0.5px black;
 }
 
 .indoforall_QuestionDiv {
-    margin: 20px 30px;
+    margin: 2vmax 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1154,22 +1138,20 @@ body.nav-open #indoforall_nav_options * {
 
 .indoforall_QuestionText {
     background: black;
-    font-size: 1.5vw;
-    line-height: 1.5;
+    font-size: 1.8vmax;
     text-align: center;
-    padding: 8px 16px;
-    border-radius: 7px;
-    box-shadow: 0 0 5px 0.5px black;
+    padding: 5px;
+    border-radius: 3px;
+    box-shadow: 0 0 1px 0.5px black;
 }
 
 .indoforall_AnswerText {
-    background: rgb(0, 162, 255);
-    font-size: 1.5vw;
-    line-height: 1.5;
+    background: linear-gradient(to top, rgb(0, 72, 114), rgb(0, 162, 255));
+    font-size: 1.8vmax;
     text-align: center;
-    padding: 8px 16px;
-    box-shadow: 0 0 5px 0.5px black;
-    border-radius: 7px;
+    padding: 5px;
+    box-shadow: 0 0 1px 0.5px black;
+    border-radius: 3px;
 }
 
 /* System Work Section */
@@ -1181,7 +1163,7 @@ body.nav-open #indoforall_nav_options * {
     justify-content: center;
     align-items: center;
     text-align: center;
-    border-radius: 7px;
+    border-radius: 3px;
 }
 
 #indoforall_system_work_area div {
@@ -1194,17 +1176,17 @@ body.nav-open #indoforall_nav_options * {
     text-align: center;
     margin: 15px;
     padding: 15px;
-    border-radius: 7px;
-    box-shadow: 0 0 5px 0.5px black;
+    border-radius: 3px;
+    box-shadow: 0 0 1px 0.5px black;
 }
 
 .indoforall_systemworknumber {
     background: white;
     color: black;
-    font-size: 2.5vw;
-    padding: 5px;
-    border-radius: 7px;
-    box-shadow: 0 0 5px 1px black;
+    font-size: 2.5vmax;
+    padding: 0 10px;
+    border-radius: 3px;
+    box-shadow: 0 0 1px 1px black;
 }
 
 #indoforall_system_work_area ion-icon {
@@ -1212,16 +1194,16 @@ body.nav-open #indoforall_nav_options * {
     font-size: 7vw;
     margin: 5px 0;
     padding: 15px;
-    border-radius: 7px;
-    box-shadow: 0 0 10px 1px black;
+    border-radius: 3px;
+    box-shadow: 0 0 2.5px 1px black;
 }
 
 .indoforall_system_work_text {
-    background: rgb(0, 162, 255);
-    font-size: 2.5vw;
-    padding: 8px 14px;
-    border-radius: 7px;
-    box-shadow: 0 0 3px 0.5px black;
+    background: linear-gradient(to top, rgb(0, 72, 114), rgb(0, 162, 255));
+    font-size: 2vmax;
+    padding: 5px;
+    border-radius: 3px;
+    box-shadow: 0 0 1px 0.5px black;
 }
 
 /* Proof Section */
@@ -1238,7 +1220,7 @@ body.nav-open #indoforall_nav_options * {
 .indoforall_worker_card video {
     width: 60%;
     height: 100%;
-    border-radius: 7px;
+    border-radius: 3px;
 }
 
 /* About Us Section */
@@ -1251,7 +1233,7 @@ body.nav-open #indoforall_nav_options * {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 7px;
+    border-radius: 3px;
 }
 
 #indoforall_companydescription h2 {
@@ -1262,7 +1244,7 @@ body.nav-open #indoforall_nav_options * {
     padding: 5px;
     cursor: pointer;
     margin-bottom: 15px;
-    border-radius: 7px;
+    border-radius: 3px;
 }
 
 #indoforall_companydescription img {
@@ -1301,8 +1283,8 @@ body.nav-open #indoforall_nav_options * {
     margin-bottom: 20px;
     text-align: center;
     padding: 8px 16px;
-    box-shadow: 0 0 3px 0.5px black;
-    border-radius: 7px;
+    box-shadow: 0 0 1px 0.5px black;
+    border-radius: 3px;
 }
 
 #indoforall_accounts_section a {
@@ -1314,8 +1296,8 @@ body.nav-open #indoforall_nav_options * {
     padding: 10px 0;
     text-decoration: none;
     text-align: center;
-    box-shadow: 0 0 3px 0.5px black;
-    border-radius: 7px;
+    box-shadow: 0 0 1px 0.5px black;
+    border-radius: 3px;
     transition: all 0.2s ease-in-out;
     animation: floatAnimation 4s ease-in-out infinite;
 }
@@ -1340,7 +1322,7 @@ body.nav-open #indoforall_nav_options * {
     justify-content: center;
     align-items: center;
     padding: 20px 0;
-    border-radius: 7px;
+    border-radius: 3px;
 }
 
 .indoforall_ads_only_videos_div {
@@ -1353,8 +1335,8 @@ body.nav-open #indoforall_nav_options * {
     height: 500px;
     margin: 15px;
     overflow: hidden;
-    border-radius: 7px;
-    box-shadow: 0 0 3px 0.5px black;
+    border-radius: 3px;
+    box-shadow: 0 0 1px 0.5px black;
 }
 
 .indoforall_ads_only_img_div {
@@ -1384,17 +1366,17 @@ body.nav-open #indoforall_nav_options * {
 .indoforall_ads_only_img_div img {
     width: 100%;
     cursor: pointer;
-    border-radius: 7px;
-    box-shadow: 0 0 3px 0.5px black;
+    border-radius: 3px;
+    box-shadow: 0 0 1px 0.5px black;
 }
 
 /* Footer Section */
 footer {
-    background: rgb(0, 162, 255);
+    background: linear-gradient(to top, rgb(0, 72, 114), rgb(0, 162, 255));
     display: flex;
     width: 100%;
     padding: 5px 0;
-    box-shadow: 0 0 3px 0.5px black;
+    box-shadow: 0 0 1px 0.5px black;
 }
 
 footer div {
@@ -1407,14 +1389,14 @@ footer div {
 
 footer h1,
 footer h2 {
-    font-size: 2vw;
-    border-radius: 7px;
+    font-size: 2vmax;
     cursor: pointer;
     text-align: center;
+    border-radius: 3px;
 }
 
 footer img {
-    width: 6vw;
+    width: 6vmax;
     cursor: pointer;
 }
 
@@ -1423,10 +1405,6 @@ footer img {
 @media (max-width: 1250px) {
     #indoforall_nav_logo {
         width: 15vw;
-    }
-
-    #indoforall_nav_options a {
-        font-size: 2.5vw;
     }
 
     #indoforall_close_nav {
@@ -1456,31 +1434,10 @@ footer img {
     .indoforall_clint_rate_star_div img {
         width: 15vw;
     }
-
-    footer h1,
-    footer h2 {
-        font-size: 3vw;
-    }
-
-    footer img {
-        width: 8vw;
-    }
 }
 
 /* 1040px */
 @media (max-width: 1040px) {
-    #indoforall_whatsapp_icon h4 {
-        font-size: 2vw;
-    }
-
-    #indoforall_whatsapp_icon img {
-        width: 7vw;
-    }
-
-    #indoforall_go_up_arrow {
-        font-size: 5.5vw;
-    }
-
     .indoforall_ads_only_videos_div {
         width: 80vw;
         height: 450px;
@@ -1493,29 +1450,6 @@ footer img {
 
 /* 950px */
 @media (max-width: 950px) {
-    .indoforall_full_screen_overlay_exit_button {
-        font-size: 3vw;
-        padding: 10px;
-    }
-
-    #indoforall_web_intro_1 {
-        font-size: 6vw;
-    }
-
-    .indoforall_web_intro_contact_us {
-        font-size: 3vw;
-    }
-
-    #indoforall_website_guidance_text {
-        font-size: 4vw;
-        padding: 8px 14px;
-    }
-
-    #indoforall_request_worker_now_button {
-        font-size: 4vw;
-        padding: 8px 14px;
-    }
-
     #indoforall_nav {
         padding: 8px 14px;
     }
@@ -1526,26 +1460,6 @@ footer img {
 
     #indoforall_nav_icon {
         width: 5vw;
-    }
-
-    .indoforall_section_intro_text {
-        padding: 8px 14px;
-        font-size: 4vw;
-    }
-
-    .indoforall_section_intro_bigger_text {
-        font-size: 5.5vw;
-        padding: 8px 14px;
-    }
-
-    .indoforall_quick_info {
-        font-size: 3vw;
-        margin: 5px;
-    }
-
-    .indoforall_other_pages_link {
-        font-size: 3.5vw;
-        padding: 8px 14px;
     }
 
     .indoforall_worker_cards_div_class {
@@ -1628,17 +1542,8 @@ footer img {
         margin: 10px;
     }
 
-    .indoforall_systemworknumber {
-        font-size: 3vw;
-    }
-
     #indoforall_system_work_area ion-icon {
         font-size: 10vw;
-    }
-
-    .indoforall_system_work_text {
-        font-size: 3vw;
-        padding: 8px;
     }
 
     #indoforall_companydescription h2 {
@@ -1665,52 +1570,12 @@ footer img {
         width: 4vw;
     }
 
-    #indoforall_our_features_area h2 {
-        font-size: 3vw;
-        margin: 2px 0;
-    }
-
     #indoforall_our_features_area spam {
         margin-left: 3px;
     }
 
-    .indoforall_main_page_text {
-        font-size: 3vw;
-        padding: 6px;
-    }
-
-    .indoforall_worker_details_text_h1 {
-        font-size: 4.5vw;
-        padding: 6px;
-    }
-
     .indoforall_indonesia_info_image {
         width: 15vw;
-    }
-
-    #indoforall_indonesia_info h2 {
-        font-size: 2.5vw;
-    }
-
-    #indoforall_our_contact_info div {
-        width: 50vw;
-    }
-
-    #indoforall_our_contact_info ion-icon {
-        font-size: 20vw;
-    }
-
-    #indoforall_our_contact_info h1,
-    #indoforall_our_contact_info h2 {
-        font-size: 3vw;
-    }
-
-    .indoforall_QuestionText {
-        font-size: 2.5vw;
-    }
-
-    .indoforall_AnswerText {
-        font-size: 2.5vw;
     }
 
     .indoforall_Proof_video_div {
@@ -1741,37 +1606,12 @@ footer img {
 
 /* 760px */
 @media (max-width: 760px) {
-    #indoforall_whatsapp_icon h4 {
-        font-size: 2.5vw;
-    }
-
-    #indoforall_whatsapp_icon img {
-        width: 9vw;
-    }
-
-    #indoforall_go_up_arrow {
-        font-size: 7.5vw;
-    }
-
     #indoforall_web_logo {
         width: 100vw;
     }
 
     #indoforall_web_guidance_note_text {
         margin-top: 40px;
-    }
-
-    .indoforall_main_page_text_2 {
-        font-size: 2.5vw;
-    }
-
-    .indoforall_main_page_text {
-        font-size: 3.5vw;
-    }
-
-    .indoforall_worker_details_text_h1 {
-        font-size: 5vw;
-        padding: 6px;
     }
 
     .indoforall_ads_only_videos_div {
@@ -1781,49 +1621,12 @@ footer img {
     .indoforall_ads_only_img_div {
         width: 53vw;
     }
-
-    footer h1,
-    footer h2 {
-        font-size: 4vw;
-    }
-
-    footer img {
-        width: 10vw;
-    }
 }
 
 /* 650px */
 @media (max-width: 650px) {
-    .indoforall_full_screen_overlay_exit_button {
-        font-size: 4vw;
-        padding: 8px;
-    }
-
-    #indoforall_web_intro_1 {
-        font-size: 8vw;
-    }
-
-    .indoforall_web_intro_contact_us {
-        font-size: 3.5vw;
-        padding: 8px;
-    }
-
-    #indoforall_website_guidance_text {
-        font-size: 4.5vw;
-        padding: 8px;
-    }
-
-    #indoforall_request_worker_now_button {
-        font-size: 5vw;
-        padding: 8px;
-    }
-
     #indoforall_nav_logo {
         width: 19vw;
-    }
-
-    #indoforall_nav_options a {
-        font-size: 3.5vw;
     }
 
     #indoforall_close_nav {
@@ -1833,16 +1636,6 @@ footer img {
     .web_guidance_div a {
         font-size: 3.5vw;
         padding: 8px;
-    }
-
-    .indoforall_section_intro_bigger_text {
-        font-size: 6.5vw;
-        padding: 8px;
-    }
-
-    .indoforall_section_intro_text_2 {
-        font-size: 4vw;
-        margin: 15px 0;
     }
 
     .indoforall_rate_div {
@@ -1872,16 +1665,6 @@ footer img {
 
     .indoforall_clint_rate_star_div img {
         width: 20vw;
-    }
-
-    #indoforall_worker_type_div h3 {
-        font-size: 4vw;
-        padding: 8px;
-    }
-
-    .indoforall_other_pages_link {
-        font-size: 4vw;
-        padding: 6px;
     }
 
     .indoforall_worker_cards_div_class {
@@ -1969,16 +1752,8 @@ footer img {
         padding: 10px;
     }
 
-    .indoforall_systemworknumber {
-        font-size: 4vw;
-    }
-
     #indoforall_system_work_area ion-icon {
         font-size: 13vw;
-    }
-
-    .indoforall_system_work_text {
-        font-size: 4vw;
     }
 
     #indoforall_companydescription h2 {
@@ -2005,22 +1780,9 @@ footer img {
         width: 7vw;
     }
 
-    #indoforall_web_intro_2 {
-        font-size: 2.5vw;
-    }
-
-    #indoforall_web_intro_3 {
-        font-size: 4vw;
-    }
-
     #indoforall_error_page_go_back_button {
         font-size: 3vw;
         padding: 8px 12px;
-    }
-
-    .indoforall_quick_info {
-        font-size: 3.5vw;
-        margin: 5px 0;
     }
 
     #indoforall_accounts_section h1 {
@@ -2039,51 +1801,12 @@ footer img {
 
 /* 500px */
 @media (max-width: 500px) {
-    .indoforall_full_screen_overlay h1 {
-        font-size: 15px;
-        padding: 8px 16px;
-    }
-
-    .indoforall_full_screen_overlay video,
-    .indoforall_full_screen_overlay img {
-        width: 300px;
-    }
-
-    #indoforall_whatsapp_icon h4 {
-        font-size: 3vw;
-        padding: 4px 8px;
-    }
-
-    #indoforall_whatsapp_icon img {
-        width: 11vw;
-    }
-
-    #indoforall_go_up_arrow {
-        font-size: 9.5vw;
-    }
-
-    #indoforall_web_intro_2 {
-        font-size: 3vw;
-    }
-
-    #indoforall_web_intro_3 {
-        font-size: 4.5vw;
-    }
-
     #indoforall_web_guidance_note_text {
         margin-top: 20px;
     }
 
     #indoforall_worker_details_area {
         padding: 10px 5px;
-    }
-
-    .indoforall_main_page_text_2 {
-        font-size: 3vw;
-    }
-
-    .indoforall_other_pages_link {
-        margin: 5px 0;
     }
 
     .indoforall_Proof_video_div {
@@ -2124,38 +1847,6 @@ footer img {
 
 /* 400px */
 @media (max-width: 400px) {
-    .indoforall_full_screen_overlay h1 {
-        font-size: 12px;
-        padding: 6px 12px;
-    }
-
-    .indoforall_full_screen_overlay video,
-    .indoforall_full_screen_overlay img {
-        width: 200px;
-    }
-
-    .indoforall_full_screen_overlay_exit_button {
-        font-size: 5vw;
-        padding: 6px;
-    }
-
-    #indoforall_web_intro_1 {
-        font-size: 10vw;
-    }
-
-    .indoforall_web_intro_contact_us {
-        padding: 6px;
-    }
-
-    #indoforall_website_guidance_text {
-        padding: 6px;
-    }
-
-    #indoforall_request_worker_now_button {
-        font-size: 5.5vw;
-        padding: 6px;
-    }
-
     nav h3 {
         font-size: 6.5vw;
     }
@@ -2174,28 +1865,11 @@ footer img {
     }
 
     .indoforall_sections {
-        padding: 20px 10px;
-    }
-
-    .indoforall_section_intro_text {
-        padding: 6px;
-        font-size: 3.7vw;
-    }
-
-    .indoforall_section_intro_bigger_text {
-        padding: 6px;
-    }
-
-    #indoforall_nav_options a {
-        font-size: 4.5vw;
+        padding: 20px 0;
     }
 
     #indoforall_close_nav {
         font-size: 4vw;
-    }
-
-    .indoforall_quick_info {
-        margin: 4px 0;
     }
 
     .indoforall_rate_div {
@@ -2225,15 +1899,6 @@ footer img {
 
     .indoforall_clint_rate_star_div img {
         width: 25vw;
-    }
-
-    #indoforall_worker_type_div h3 {
-        font-size: 5vw;
-        padding: 6px;
-    }
-
-    .indoforall_other_pages_link {
-        font-size: 5vw;
     }
 
     .indoforall_worker_cards_div_class {
@@ -2298,21 +1963,8 @@ footer img {
         width: 20vw;
     }
 
-    #indoforall_indonesia_info h2 {
-        font-size: 3.5vw;
-    }
-
-    #indoforall_our_features_area h2 {
-        font-size: 3.5vw;
-        margin: 0;
-    }
-
     #indoforall_our_features_area spam {
         margin-left: 1px;
-    }
-
-    #indoforall_our_contact_info div {
-        width: 70vw;
     }
 
     .indoforall_price_card {
@@ -2349,16 +2001,6 @@ footer img {
         font-size: 6vw;
     }
 
-    .indoforall_QuestionText {
-        font-size: 3vw;
-        padding: 5px 10px;
-    }
-
-    .indoforall_AnswerText {
-        font-size: 3vw;
-        padding: 5px 10px;
-    }
-
     .indoforall_Proof_video_div {
         width: 45vw;
     }
@@ -2371,16 +2013,6 @@ footer img {
         width: 100vw;
         margin: 5px;
         padding: 7px;
-    }
-
-    .indoforall_systemworknumber {
-        font-size: 5vw;
-        padding: 3px;
-    }
-
-    .indoforall_system_work_text {
-        font-size: 4.5vw;
-        padding: 5px;
     }
 
     #indoforall_companydescription h2 {
@@ -2411,25 +2043,6 @@ footer img {
 
 /* 320px */
 @media (max-width: 320px) {
-    .indoforall_full_screen_overlay h1 {
-        font-size: 11px;
-        padding: 5px 10px;
-    }
-
-    .indoforall_full_screen_overlay video,
-    .indoforall_full_screen_overlay img {
-        width: 180px;
-    }
-
-    .indoforall_full_screen_overlay_exit_button {
-        font-size: 10px;
-    }
-
-    .indoforall_main_page_text_2 {
-        font-size: 3.2vw;
-        padding: 6px 10px;
-    }
-
     .indoforall_Proof_video_div {
         width: 55vw;
     }
@@ -2440,14 +2053,5 @@ footer img {
 
     .indoforall_ads_only_videos_div {
         height: 150px;
-    }
-
-    footer h1,
-    footer h2 {
-        font-size: 5vw;
-    }
-
-    footer img {
-        width: 12vw;
     }
 }
