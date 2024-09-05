@@ -79,7 +79,7 @@ body {
     color: white;
     width: fit-content;
     font-size: 2.5vmax;
-    padding: 5px;
+    padding: 0 5px;
     position: fixed;
     top: 5px;
     right: 5px;
@@ -192,7 +192,7 @@ header div {
 }
 
 .indoforall_web_intro_contact_us {
-    background: black;
+    background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
     margin: 1vmax 0;
     font-size: 1.8vmax;
     text-decoration: none;
@@ -209,7 +209,7 @@ header div {
 }
 
 #indoforall_website_guidance_text {
-    background: black;
+    background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
     margin: 1vmax 0;
     font-size: 2vmax;
     text-decoration: none;
@@ -283,14 +283,12 @@ header div {
 
 .web_guidance_div a {
     text-decoration: none;
-    background: black;
+    background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
     color: white;
-    font-size: 2.5vw;
-    line-height: 1.5;
+    font-size: 1.8vmax;
     text-align: center;
-    margin: 5px 0;
-    padding: 8px 12px;
-    border: 1px solid white;
+    margin: 0.9vmax 0;
+    padding: 5px;
     border-radius: 3px;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
@@ -302,7 +300,7 @@ header div {
 }
 
 #indoforall_web_guidance_note_text {
-    margin-top: 70px;
+    margin-top: 4vmax;
 }
 
 nav {
@@ -310,7 +308,7 @@ nav {
 }
 
 #indoforall_nav {
-    background: linear-gradient(to top, rgb(0, 72, 114), rgb(0, 162, 255));
+    background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
     width: fit-content;
     padding: 5px;
     display: flex;
@@ -368,7 +366,7 @@ body.nav-open #indoforall_nav_options * {
 
 #indoforall_nav_options a {
     text-decoration: none;
-    background: linear-gradient(to top, rgb(0, 72, 114), rgb(0, 162, 255));
+    background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
     color: white;
     margin: 0.5vmax 0;
     width: 100%;
@@ -398,7 +396,7 @@ body.nav-open #indoforall_nav_options * {
 }
 
 #indoforall_whatsapp_icon h4 {
-    background: linear-gradient(to top, rgb(0, 72, 114), rgb(0, 162, 255));
+    background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
     color: white;
     font-size: 1.7vmax;
     text-align: center;
@@ -549,7 +547,7 @@ body.nav-open #indoforall_nav_options * {
 }
 
 #indoforall_worker_type_div h3 {
-    background: linear-gradient(to top, rgb(0, 72, 114), rgb(0, 162, 255));
+    background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
     color: white;
     font-size: 2.5vmax;
     text-align: center;
@@ -705,7 +703,7 @@ body.nav-open #indoforall_nav_options * {
 }
 
 .indoforall_other_pages_link {
-    background: linear-gradient(to top, rgb(0, 72, 114), rgb(0, 162, 255));
+    background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
     color: white;
     text-decoration: none;
     font-size: 2.5vmax;
@@ -755,7 +753,7 @@ body.nav-open #indoforall_nav_options * {
 }
 
 #indoforall_filter_worker_type_title {
-    background: linear-gradient(to right, rgb(0, 72, 114), rgb(0, 162, 255));
+    background: linear-gradient(to right, rgb(0, 52, 82), rgb(0, 127, 200));
     width: 100%;
     display: flex;
     justify-content: center;
@@ -799,7 +797,7 @@ body.nav-open #indoforall_nav_options * {
 }
 
 #indoforall_filter_worker_work_type h4 {
-    background: linear-gradient(to top, rgb(0, 72, 114), rgb(0, 162, 255));
+    background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
     font-size: 2.5vmax;
     margin: 1vmax;
     padding: 5px;
@@ -834,7 +832,7 @@ body.nav-open #indoforall_nav_options * {
 }
 
 #indoforall_filter_worker_visa_type h4 {
-    background: linear-gradient(to top, rgb(0, 72, 114), rgb(0, 162, 255));
+    background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
     font-size: 2vw;
     margin: 5px 0;
     padding: 10px 20px;
@@ -1147,7 +1145,7 @@ body.nav-open #indoforall_nav_options * {
 }
 
 .indoforall_AnswerText {
-    background: linear-gradient(to top, rgb(0, 72, 114), rgb(0, 162, 255));
+    background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
     font-size: 1.8vmax;
     text-align: center;
     padding: 5px;
@@ -1200,7 +1198,7 @@ body.nav-open #indoforall_nav_options * {
 }
 
 .indoforall_system_work_text {
-    background: linear-gradient(to top, rgb(0, 72, 114), rgb(0, 162, 255));
+    background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
     font-size: 2vmax;
     padding: 5px;
     border-radius: 3px;
@@ -1373,7 +1371,7 @@ body.nav-open #indoforall_nav_options * {
 
 /* Footer Section */
 footer {
-    background: linear-gradient(to top, rgb(0, 72, 114), rgb(0, 162, 255));
+    background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
     display: flex;
     width: 100%;
     padding: 5px 0;
@@ -1571,10 +1569,6 @@ footer img {
         width: 100vw;
     }
 
-    #indoforall_web_guidance_note_text {
-        margin-top: 40px;
-    }
-
     .indoforall_ads_only_videos_div {
         height: 350px;
     }
@@ -1592,11 +1586,6 @@ footer img {
 
     #indoforall_close_nav {
         font-size: 3vw;
-    }
-
-    .web_guidance_div a {
-        font-size: 3.5vw;
-        padding: 8px;
     }
 
     .indoforall_rate_div {
@@ -1736,10 +1725,6 @@ footer img {
 
 /* 500px */
 @media (max-width: 500px) {
-    #indoforall_web_guidance_note_text {
-        margin-top: 20px;
-    }
-
     #indoforall_worker_details_area {
         padding: 10px 0;
     }
@@ -1784,11 +1769,6 @@ footer img {
 @media (max-width: 400px) {
     #indoforall_nav_logo {
         width: 24vw;
-    }
-
-    .web_guidance_div a {
-        font-size: 4vw;
-        padding: 6px;
     }
 
     .indoforall_sections {
