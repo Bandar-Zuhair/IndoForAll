@@ -320,15 +320,16 @@ nav {
     transition: all 0.2s ease-in-out;
 }
 
-#indoforall_nav:hover {
-    background: rgb(118, 205, 255);
-}
-
 nav h3 {
     color: white;
     font-size: 2.5vmax;
     margin-left: 1vmax;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+nav h3:hover {
+    color: rgb(0, 255, 0);
 }
 
 #indoforall_nav_icon {
@@ -370,7 +371,7 @@ body.nav-open #indoforall_nav_options * {
     color: white;
     margin: 0.5vmax 0;
     width: 100%;
-    font-size: 2.2vmax;
+    font-size: 1.7vmax;
     border: 1px solid black;
     border-radius: 3px;
     text-align: center;
@@ -380,7 +381,6 @@ body.nav-open #indoforall_nav_options * {
 }
 
 #indoforall_nav_options a:hover {
-    background: rgb(0, 116, 184);
     color: rgb(0, 255, 0);
 }
 
@@ -561,7 +561,7 @@ body.nav-open #indoforall_nav_options * {
 
 #indoforall_worker_type_div h3:hover {
     transform: scale(1.015);
-    background: linear-gradient(to top, rgb(0, 22, 35), rgb(0, 99, 156));
+    color: rgb(0, 255, 0);
 }
 
 #indoforall_quick_info_div {
@@ -1008,7 +1008,7 @@ body.nav-open #indoforall_nav_options * {
 }
 
 #indoforall_our_contact_info div:hover {
-    opacity: 0.8;
+    transform: scale(1.015);
 }
 
 #indoforall_our_contact_info ion-icon {
