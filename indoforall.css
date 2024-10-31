@@ -1013,7 +1013,7 @@ body.nav-open #indoforall_nav_options * {
 }
 
 .indoforall_price_card {
-    background: linear-gradient(to right, #A64AC9, #4DB7D8);
+    background: linear-gradient(to right, #a64ac9, #4db7d8);
     width: 30vw;
     margin: 15px 5px;
     padding: 10px;
@@ -1133,7 +1133,7 @@ body.nav-open #indoforall_nav_options * {
 }
 
 #indoforall_system_work_area div {
-    background: linear-gradient(to right, #00ddff, orange);
+    background: linear-gradient(to right, #3b82f6, #f59e0b); /* Cool blue to warm amber */
     width: 50vw;
     display: flex;
     flex-direction: column;
@@ -1143,33 +1143,33 @@ body.nav-open #indoforall_nav_options * {
     margin: 15px;
     padding: 15px;
     border-radius: 3px;
-    box-shadow: 0 0 1px 0.5px black;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
 
 .indoforall_systemworknumber {
-    background: white;
-    color: black;
+    background: #ffffff;
+    color: #111827; /* Dark, subtle text color */
     font-size: 2.5vmax;
     padding: 0 10px;
     border-radius: 3px;
-    box-shadow: 0 0 1px 1px black;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
 }
 
 #indoforall_system_work_area ion-icon {
-    background: linear-gradient(#00ddff, rgb(251, 0, 255));
+    background: linear-gradient(#3b82f6, #d946ef); /* Blue to pink gradient */
     font-size: 7vw;
     margin: 5px 0;
     padding: 15px;
     border-radius: 3px;
-    box-shadow: 0 0 2.5px 1px black;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
 }
 
 .indoforall_system_work_text {
-    background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
+    background: linear-gradient(to top, #1e3a8a, #3b82f6); /* Navy to cool blue */
     font-size: 2vmax;
     padding: 5px;
     border-radius: 3px;
-    box-shadow: 0 0 1px 0.5px black;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
 }
 
 /* Proof Section */
