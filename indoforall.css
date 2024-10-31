@@ -1013,7 +1013,7 @@ body.nav-open #indoforall_nav_options * {
 }
 
 .indoforall_price_card {
-    background: linear-gradient(to right, rgb(228, 22, 232), #18d3f0);
+    background: linear-gradient(to right, #A64AC9, #4DB7D8);
     width: 30vw;
     margin: 15px 5px;
     padding: 10px;
