@@ -224,6 +224,42 @@ header div {
     transform: scale(1.015);
 }
 
+.web_guidance_div {
+    z-index: 998;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgb(201, 232, 255);
+    width: 90%;
+    padding: 50px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 3px;
+    box-shadow: 0 0 1px 0.5px black;
+}
+
+.web_guidance_div a {
+    text-decoration: none;
+    background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
+    color: white;
+    font-size: 1.8vmax;
+    text-align: center;
+    margin: 0.9vmax 0;
+    padding: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.web_guidance_div a:hover {
+    color: rgb(0, 255, 0);
+    transform: scale(1.015);
+}
+
 #indoforall_request_worker_now_button {
     background: linear-gradient(to right, rgb(5, 0, 91), rgb(13, 0, 255));
     margin: 1vmax 0;
