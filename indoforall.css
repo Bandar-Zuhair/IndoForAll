@@ -1404,20 +1404,17 @@ footer img {
 
 /* Initial state for animation */
 .indoforall_animate_on_scroll {
-    opacity: 0.3;
     transform: translateY(20px);
     transition: all 0.5s ease;
 }
 
 /* Intro Animation */
 .intro_animation {
-    opacity: 1;
     transform: translateY(0);
 }
 
 /* Outro Animation */
 .outro_animation {
-    opacity: 0.3;
     transform: translateY(20px);
 }
 
