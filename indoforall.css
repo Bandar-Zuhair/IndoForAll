@@ -1404,7 +1404,7 @@ footer img {
 
 /* Initial state for animation */
 .indoforall_animate_on_scroll {
-    transform: translateY(20px);
+    transform: translateY(0px);
     transition: all 0.5s ease;
 }
 
@@ -1415,7 +1415,7 @@ footer img {
 
 /* Outro Animation */
 .outro_animation {
-    transform: translateY(40px);
+    transform: translateY(30px);
 }
 
 /* Media Queries */
