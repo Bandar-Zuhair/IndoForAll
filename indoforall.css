@@ -1415,13 +1415,7 @@ footer img {
 
 /* Outro Animation */
 .outro_animation {
-    transform: translateY(30px);
-}
-
-/* No Animation - disables all animations */
-.no-animation {
-    transform: none;
-    transition: none;
+    transform: translateY(150px);
 }
 
 /* Media Queries */
