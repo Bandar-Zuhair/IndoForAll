@@ -1415,7 +1415,7 @@ footer img {
 
 /* Outro Animation */
 .outro_animation {
-    transform: translateY(150px);
+    transform: translateY(100px);
 }
 
 /* Media Queries */
