@@ -1688,6 +1688,10 @@ footer img {
 
 
     /* The dynamic cards numbers */
+    .indoforall_cards_container {
+        gap: 10px;
+    }
+
     .indoforall_card_class {
         width: 30vmax;
         padding: 5px;
