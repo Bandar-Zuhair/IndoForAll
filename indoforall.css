@@ -1,7 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap');
 
 /* Simple Animation SetUp For Later Use */
 @keyframes floatAnimation {
+
     0%,
     100% {
         transform: translateY(0);
@@ -12,6 +13,7 @@
     }
 }
 
+
 /* Change the background color and text color of highlighted text */
 ::selection {
     background-color: rgb(0, 115, 182);
@@ -19,6 +21,7 @@
     color: white;
     /* Text color */
 }
+
 
 /* All */
 * {
@@ -35,6 +38,8 @@ body {
     background: rgb(215, 232, 244);
     color: white;
 }
+
+
 
 /* Unknow Effects */
 .indoforall_full_screen_overlay {
@@ -66,6 +71,7 @@ body {
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
+
 
 .indoforall_full_screen_overlay video:hover,
 .indoforall_full_screen_overlay img:hover {
@@ -140,6 +146,14 @@ body {
     align-items: center;
     flex-direction: column;
 }
+
+
+
+
+
+
+
+
 
 /* Header */
 header {
@@ -360,6 +374,10 @@ body.nav-open #indoforall_nav_options * {
     color: rgb(0, 255, 0);
 }
 
+#indoforall_close_nav{
+ background: linear-gradient(to right, #A64AC9, #4DB7D8) !important;
+}
+
 #indoforall_whatsapp_icon {
     z-index: 998;
     display: flex;
@@ -398,7 +416,7 @@ body.nav-open #indoforall_nav_options * {
 #indoforall_go_up_arrow {
     opacity: 0;
     z-index: 998;
-    background: linear-gradient(135deg, #ffd700, #ff4500); /* Gold to Orange gradient for strong pop */
+    background: linear-gradient(135deg, #FFD700, #FF4500); /* Gold to Orange gradient for strong pop */
     color: white;
     font-size: 6.5vmax;
     position: fixed;
@@ -408,6 +426,9 @@ body.nav-open #indoforall_nav_options * {
     border-radius: 50%;
     transition: all 0.2s ease-in-out;
 }
+
+
+
 
 #indoforall_error_page_go_back_button {
     background: black;
@@ -427,6 +448,16 @@ body.nav-open #indoforall_nav_options * {
     color: rgb(0, 255, 0);
     transform: scale(1.015);
 }
+
+
+
+
+
+
+
+
+
+
 
 /* Clint Rate Section */
 #indoforall_clint_rate_section {
@@ -519,6 +550,14 @@ body.nav-open #indoforall_nav_options * {
     display: none;
 }
 
+
+
+
+
+
+
+
+
 /* Choose Worker Type Section */
 #indoforall_worker_type_area {
     background: rgb(201, 232, 255);
@@ -553,6 +592,7 @@ body.nav-open #indoforall_nav_options * {
     transition: all 0.2s ease-in-out;
 }
 
+
 #indoforall_worker_type_div h3:hover {
     transform: scale(1.015);
     color: rgb(0, 255, 0);
@@ -575,6 +615,15 @@ body.nav-open #indoforall_nav_options * {
     line-height: 1.5;
     margin: 0.5vmax;
 }
+
+
+
+
+
+
+
+
+
 
 /* Worker Card Details Section */
 .indoforall_sections {
@@ -688,6 +737,9 @@ body.nav-open #indoforall_nav_options * {
     /* Ensure the image covers the entire container */
     border-radius: 3px;
 }
+
+
+
 
 #indoforall_worker_details_text_div {
     display: flex;
@@ -896,6 +948,13 @@ body.nav-open #indoforall_nav_options * {
     box-shadow: 0 0 5px 0.5px white;
 }
 
+
+
+
+
+
+
+
 /* Main Page Section */
 #indoforall_main_page_section {
     background: rgb(215, 232, 244);
@@ -921,6 +980,68 @@ body.nav-open #indoforall_nav_options * {
     border-radius: 3px;
     line-height: 1.5;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+.indoforall_cards_container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.indoforall_card_class {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 18rem;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    margin-bottom: 5px;
+}
+
+.indoforall_card_class:hover {
+    transform: translateY(-10px);
+}
+
+.indoforall_number_class {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, rgb(224, 0, 194), rgb(174, 0, 255), rgb(13, 0, 255));
+    cursor: default;
+}
+
+.indoforall_title_class {
+    font-size: 1.5rem;
+    color: black;
+    margin-bottom: 5px;
+}
+
+.indoforall_subtitle_class {
+    font-size: 1rem;
+    color: black;
+}
+
+
+
+
+
+
+
+
+
 
 #indoforall_our_features_area {
     background: rgb(201, 232, 255);
@@ -978,6 +1099,7 @@ body.nav-open #indoforall_nav_options * {
     padding: 1vmax 1vmax 0 1vmax;
 }
 
+
 #indoforall_our_contact_info {
     width: 100%;
     display: flex;
@@ -988,7 +1110,7 @@ body.nav-open #indoforall_nav_options * {
 }
 
 #indoforall_our_contact_info div {
-    background: linear-gradient(to right, #a64ac9, #4db7d8);
+    background: linear-gradient(to right, #A64AC9, #4DB7D8);
     display: flex;
     width: 30vmax;
     margin: 10px;
@@ -1007,13 +1129,13 @@ body.nav-open #indoforall_nav_options * {
 }
 
 #indoforall_our_contact_info ion-icon {
-    background: linear-gradient(135deg, #ffd700, #ff4500); /* Gold to Orange gradient for strong pop */
+    background: linear-gradient(135deg, #FFD700, #FF4500); /* Gold to Orange gradient for strong pop */
     font-size: 7vmax;
     text-align: center;
     margin: 10px 0;
     padding: 0.5vmax;
     border-radius: 50%; /* Circular shape to enhance focus */
-    color: #ffffff;
+    color: #FFFFFF;
     box-shadow: 0 0 15px rgba(255, 69, 0, 0.6); /* Orange glow effect */
     transition: all 0.3s ease-in-out;
 }
@@ -1026,7 +1148,7 @@ body.nav-open #indoforall_nav_options * {
 #indoforall_our_contact_info h1,
 #indoforall_our_contact_info h2 {
     background: rgba(0, 0, 0, 0.8);
-    color: #ffffff;
+    color: #FFFFFF;
     font-size: 1.8vmax;
     text-align: center;
     align-items: center;
@@ -1035,6 +1157,15 @@ body.nav-open #indoforall_nav_options * {
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
+
+
+
+
+
+
+
+
 
 /* Prices Section */
 #indoforall_price_area {
@@ -1049,7 +1180,7 @@ body.nav-open #indoforall_nav_options * {
 }
 
 .indoforall_price_card {
-    background: linear-gradient(to right, #a64ac9, #4db7d8);
+    background: linear-gradient(to right, #A64AC9, #4DB7D8);
     width: 30vw;
     margin: 15px 5px;
     padding: 10px;
@@ -1116,6 +1247,12 @@ body.nav-open #indoforall_nav_options * {
     margin: 20px 0;
 }
 
+
+
+
+
+
+
 /* Questions And Answeres Section */
 #indoforall_question_area {
     background: rgb(201, 232, 255);
@@ -1155,6 +1292,14 @@ body.nav-open #indoforall_nav_options * {
     box-shadow: 0 0 1px 0.5px black;
     border-radius: 3px;
 }
+
+
+
+
+
+
+
+
 
 /* System Work Section */
 #indoforall_system_work_area {
@@ -1208,6 +1353,12 @@ body.nav-open #indoforall_nav_options * {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
 }
 
+
+
+
+
+
+
 /* Proof Section */
 #indoforall_proof_area {
     background: rgb(201, 232, 255);
@@ -1224,6 +1375,13 @@ body.nav-open #indoforall_nav_options * {
     height: 100%;
     border-radius: 3px;
 }
+
+
+
+
+
+
+
 
 /* About Us Section */
 #indoforall_companydescription {
@@ -1254,6 +1412,15 @@ body.nav-open #indoforall_nav_options * {
     margin-top: 10px;
     cursor: pointer;
 }
+
+
+
+
+
+
+
+
+
 
 /* Our Accounts Section */
 #indoforall_accounts_section {
@@ -1313,7 +1480,7 @@ body.nav-open #indoforall_nav_options * {
 
 #indoforall_accounts_section a:hover {
     background: rgb(188, 188, 188);
-    color: black;
+    color: black
 }
 
 #indoforall_ads_videos_and_img_div {
@@ -1371,6 +1538,11 @@ body.nav-open #indoforall_nav_options * {
     box-shadow: 0 0 1px 0.5px black;
 }
 
+
+
+
+
+
 /* Footer Section */
 footer {
     background: linear-gradient(to top, rgb(34, 43, 69), rgb(85, 92, 125));
@@ -1402,6 +1574,17 @@ footer img {
     cursor: pointer;
 }
 
+
+
+
+
+
+
+
+
+
+
+
 /* Initial state for animation */
 .indoforall_animate_on_scroll {
     transform: translateY(0px);
@@ -1418,9 +1601,19 @@ footer img {
     transform: translateY(100px);
 }
 
+
+
+
+
+
+
+
+
+
+
 /* Media Queries */
 /* 1250px */
-@media (max-width: 1250px) {
+@media(max-width:1250px) {
     #indoforall_nav_logo {
         width: 15vw;
     }
@@ -1455,7 +1648,7 @@ footer img {
 }
 
 /* 1040px */
-@media (max-width: 1040px) {
+@media(max-width:1040px) {
     .indoforall_ads_only_videos_div {
         width: 80vw;
         height: 450px;
@@ -1467,7 +1660,7 @@ footer img {
 }
 
 /* 950px */
-@media (max-width: 950px) {
+@media(max-width:950px) {
     #indoforall_filter_worker_visa_type h3 {
         font-size: 4.5vw;
         margin: 0 0 10px;
@@ -1488,6 +1681,36 @@ footer img {
         font-size: 4.5vw;
         padding: 8px;
     }
+
+
+
+
+
+
+    /* The dynamic cards numbers */
+    .indoforall_card_class {
+        width: 30vmax;
+        padding: 5px;
+    }
+    .indoforall_number_class {
+        font-size: 2.5vmax;
+    }
+    
+    .indoforall_title_class {
+        font-size: 2.3vmax;
+    }
+    
+    .indoforall_subtitle_class {
+        font-size: 1.5vmax;
+    }
+
+
+
+
+
+
+
+
 
     .indoforall_price_card {
         width: 50vw;
@@ -1543,7 +1766,7 @@ footer img {
 }
 
 /* 850px */
-@media (max-width: 850px) {
+@media(max-width:850px) {
     #indoforall_error_page_go_back_button {
         font-size: 2.5vw;
     }
@@ -1583,9 +1806,9 @@ footer img {
 }
 
 /* 760px */
-@media (max-width: 760px) {
+@media(max-width:760px) {
     #indoforall_web_logo {
-        width: 100vw;
+        width: 100Vw;
     }
 
     .indoforall_ads_only_videos_div {
@@ -1598,7 +1821,7 @@ footer img {
 }
 
 /* 650px */
-@media (max-width: 650px) {
+@media(max-width:650px) {
     #indoforall_nav_logo {
         width: 19vw;
     }
@@ -1635,6 +1858,14 @@ footer img {
     .indoforall_clint_rate_star_div img {
         width: 20vw;
     }
+
+
+
+
+
+
+
+
 
     .indoforall_worker_cards_div_class {
         margin-bottom: 5px;
@@ -1721,8 +1952,9 @@ footer img {
     }
 }
 
+
 /* 580px */
-@media (max-width: 580px) {
+@media(max-width:580px) {
     #indoforall_error_page_go_back_button {
         font-size: 3vw;
         padding: 8px 12px;
@@ -1743,7 +1975,7 @@ footer img {
 }
 
 /* 500px */
-@media (max-width: 500px) {
+@media(max-width:500px) {
     #indoforall_worker_details_area {
         padding: 10px 0;
     }
@@ -1785,7 +2017,7 @@ footer img {
 }
 
 /* 400px */
-@media (max-width: 400px) {
+@media(max-width:400px) {
     #indoforall_nav_logo {
         width: 24vw;
     }
@@ -1826,6 +2058,14 @@ footer img {
     .indoforall_clint_rate_star_div img {
         width: 25vw;
     }
+
+
+
+
+
+
+
+
 
     .indoforall_worker_cards_div_class {
         margin-bottom: 3px;
@@ -1949,7 +2189,7 @@ footer img {
 }
 
 /* 320px */
-@media (max-width: 320px) {
+@media(max-width:320px) {
     .indoforall_Proof_video_div {
         width: 55vw;
     }
