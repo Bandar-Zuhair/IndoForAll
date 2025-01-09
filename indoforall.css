@@ -93,8 +93,6 @@ body {
 }
 
 .indoforall_full_screen_overlay_exit_button:hover {
-    background: white;
-    color: black;
     transform: scale(1.015);
 }
 
@@ -140,18 +138,24 @@ body {
     top: 0;
     left: 0;
     overflow: hidden;
-    /* Prevent scrolling */
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.indoforall_full_screen_guidance_overlay.active {
+    opacity: 1;
+    visibility: visible;
 }
 
 /* Header */
 header {
     background: rgb(236, 247, 255);
     width: 100%;
-    opacity: 0;
     transition: opacity 0.5s ease-in-out;
 }
 
@@ -245,6 +249,14 @@ header div {
     flex-wrap: wrap;
     border-radius: 3px;
     box-shadow: 0 0 1px 0.5px black;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.web_guidance_div.active {
+    opacity: 1;
+    visibility: visible;
 }
 
 .web_guidance_div a {
