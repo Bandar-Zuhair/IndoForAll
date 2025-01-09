@@ -156,6 +156,7 @@ body {
 header {
     background: rgb(236, 247, 255);
     width: 100%;
+    opacity: 0;
     transition: opacity 0.5s ease-in-out;
 }
 
