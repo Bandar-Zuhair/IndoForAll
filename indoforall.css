@@ -35,6 +35,7 @@ body {
     background: rgb(236, 247, 255);
     color: white;
     opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 
 /* Unknow Effects */
