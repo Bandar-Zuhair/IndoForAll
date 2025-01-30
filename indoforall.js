@@ -6,113 +6,87 @@ setTimeout(function () {
 /* Create An Array of Different Worker Types Cards Data */
 let indoforall_homeWorkerArray = [
     {
-        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-1.jpg",
-        workerVideo: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-2.mp4",
+        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-1.webp",
     },
 
     {
-        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-3.jpg",
-        workerVideo: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-4.mp4",
+        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-2.webp",
     },
 
     {
-        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-5.jpg",
-        workerVideo: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-6.mp4",
+        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-3.webp",
     },
 
     {
-        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-7.jpg",
-        workerVideo: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-8.mp4",
+        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-4.webp",
     },
 
     {
-        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-9.jpg",
-        workerVideo: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-10.mp4",
+        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-5.webp",
     },
 
     {
-        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-11.jpg",
-        workerVideo: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-12.mp4",
+        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-6.webp",
     },
 
     {
-        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-13.jpg",
-        workerVideo: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-14.mp4",
+        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-7.webp",
     },
 
     {
-        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-15.jpg",
-        workerVideo: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-16.mp4",
+        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-8.webp",
     },
 
     {
-        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-17.jpg",
-        workerVideo: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-18.mp4",
+        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-9.webp",
     },
 
     {
-        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-19.jpg",
-        workerVideo: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-20.mp4",
+        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-10.webp",
     },
 
     {
-        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-21.jpg",
-        workerVideo: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-22.mp4",
+        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-11.webp",
     },
 
     {
-        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-23.jpg",
-        workerVideo: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-24.mp4",
+        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-12.webp",
     },
 
     {
-        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-25.jpg",
-        workerVideo: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-26.mp4",
+        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-13.webp",
     },
 
     {
-        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-27.jpg",
-        workerVideo: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-28.mp4",
+        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-14.webp",
     },
 
     {
-        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-29.jpg",
-        workerVideo: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-30.mp4",
+        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-15.webp",
     },
-
-    /* Last Number = 29 & 30 */
 ];
 let indoforall_driveWorkerArray = [];
 let indoforall_hairWorkerArray = [
     {
-        workerImg: "استقدام-كوفيرة/استقدام-كوفيرة-1.jpg",
-        workerVideo: "استقدام-كوفيرة/استقدام-كوفيرة-2.mp4",
+        workerImg: "استقدام-كوفيرة/استقدام-كوفيرة-1.webp",
     },
 
     {
-        workerImg: "استقدام-كوفيرة/استقدام-كوفيرة-3.jpg",
-        workerVideo: "استقدام-كوفيرة/استقدام-كوفيرة-4.mp4",
+        workerImg: "استقدام-كوفيرة/استقدام-كوفيرة-2.webp",
     },
-
-    /* Last Number = 3 & 4 */
 ];
 let indoforall_sewingWorkerArray = [
     {
-        workerImg: "استقدام-خياطة/استقدام-خياطة-1.jpg",
-        workerVideo: "استقدام-خياطة/استقدام-خياطة-2.mp4",
+        workerImg: "استقدام-خياطة/استقدام-خياطة-1.webp",
     },
 
     {
-        workerImg: "استقدام-خياطة/استقدام-خياطة-3.jpg",
-        workerVideo: "استقدام-خياطة/استقدام-خياطة-4.mp4",
+        workerImg: "استقدام-خياطة/استقدام-خياطة-2.webp",
     },
 
     {
-        workerImg: "استقدام-خياطة/استقدام-خياطة-5.jpg",
-        workerVideo: "استقدام-خياطة/استقدام-خياطة-6.mp4",
+        workerImg: "استقدام-خياطة/استقدام-خياطة-3.webp",
     },
-
-    /* Last Number = 5 & 6 */
 ];
 let indoforall_doctorWorkerArray = [];
 
@@ -179,63 +153,59 @@ let indoforall_questionAndAnswerArray = [
 /* Create An Array of Proof Videos Data */
 let indoforall_proofVideosArray = [
     {
-        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-1.jpg",
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-1.webp",
     },
 
     {
-        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-2.jpg",
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-2.webp",
     },
 
     {
-        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-3.jpg",
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-3.webp",
     },
 
     {
-        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-4.jpg",
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-4.webp",
     },
 
     {
-        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-5.jpg",
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-5.webp",
     },
 
     {
-        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-6.jpg",
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-6.webp",
     },
 
     {
-        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-7.jpg",
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-7.webp",
     },
 
     {
-        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-8.jpg",
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-8.webp",
     },
 
     {
-        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-9.jpg",
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-9.webp",
     },
 
     {
-        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-10.jpg",
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-10.webp",
     },
 
     {
-        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-11.jpg",
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-11.webp",
     },
 
     {
-        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-12.jpg",
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-12.webp",
     },
 
     {
-        videoSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-1.mp4",
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-13.webp",
     },
 
     {
-        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-13.jpg",
-    },
-
-    {
-        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-14.jpg",
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-14.webp",
     },
 ];
 
@@ -243,11 +213,11 @@ let indoforall_proofVideosArray = [
 let indoforall_adsVideosArray = [
     {
         videoSrc: "استقدام-اندونيسيا/استقدام-من-اندونيسيا.mp4",
-        videoThumbnailSrc: "استقدام-اندونيسيا/استقدام-من-اندونيسيا.png",
+        videoThumbnailSrc: "استقدام-اندونيسيا/استقدام-من-اندونيسيا.webp",
     },
 
     {
-        imgSrc: "استقدام-اندونيسيا/استقدام-من-اندونيسيا.png",
+        imgSrc: "استقدام-اندونيسيا/استقدام-من-اندونيسيا.webp",
     },
 ];
 
@@ -485,55 +455,57 @@ indoforall_craeteRequestWorkerMessage = function () {
     };
 };
 
-document.getElementById("indoforall_comment_form").addEventListener("submit", async function (event) {
-    event.preventDefault(); // Prevent page refresh
+/* Function for import all comments from google sheet */
+if (document.getElementById("indoforall_clint_rate_section") || document.getElementById("indoforall_proof_section")) {
+    document.getElementById("indoforall_comment_form").addEventListener("submit", async function (event) {
+        event.preventDefault(); // Prevent page refresh
 
-    let name = document.getElementById("indoforall_comment_username").value.trim();
-    let comment = document.getElementById("indoforall_comment_text").value.trim();
-    let stars = document.getElementById("indoforall_comment_stars").value;
+        let name = document.getElementById("indoforall_comment_username").value.trim();
+        let comment = document.getElementById("indoforall_comment_text").value.trim();
+        let stars = document.getElementById("indoforall_comment_stars").value;
 
-    let formData = new URLSearchParams();
-    formData.append("name", name); // Match Google Apps Script keys
-    formData.append("comment", comment);
-    formData.append("stars", stars);
+        let formData = new URLSearchParams();
+        formData.append("name", name); // Match Google Apps Script keys
+        formData.append("comment", comment);
+        formData.append("stars", stars);
 
-    try {
-        let response = await fetch("https://script.google.com/macros/s/AKfycbyg5u7aYubTF4tj0Ca8dSX-GXY8txqVT3-ogI3rRgw3ROxerw-qWg2WphnlcceiY5lWGg/exec", {
-            method: "POST",
-            body: formData,
-        });
+        try {
+            let response = await fetch("https://script.google.com/macros/s/AKfycbyg5u7aYubTF4tj0Ca8dSX-GXY8txqVT3-ogI3rRgw3ROxerw-qWg2WphnlcceiY5lWGg/exec", {
+                method: "POST",
+                body: formData,
+            });
 
-        let data = await response.text();
+            let data = await response.text();
 
-        if (data === "Success") {
-            document.getElementById("indoforall_comment_form").reset();
+            if (data === "Success") {
+                document.getElementById("indoforall_comment_form").reset();
 
-            await fetchReviews(); // Wait until fetchReviews() is fully executed
+                await fetchReviews(); // Wait until fetchReviews() is fully executed
 
-            showSuccessNotification(); // Now run the notification function
-        }
-    } catch (error) {}
-});
+                showSuccessNotification(); // Now run the notification function
+            }
+        } catch (error) {}
+    });
 
-// Function to Fetch and Display Reviews
-function fetchReviews() {
-    fetch("https://script.google.com/macros/s/AKfycbyg5u7aYubTF4tj0Ca8dSX-GXY8txqVT3-ogI3rRgw3ROxerw-qWg2WphnlcceiY5lWGg/exec")
-        .then((response) => response.json())
-        .then((data) => {
-            let indoforall_clint_rate_area = document.getElementById("indoforall_clint_rate_area");
-            indoforall_clint_rate_area.innerHTML = ""; // Clear old reviews
+    // Function to Fetch and Display Reviews
+    function fetchReviews() {
+        fetch("https://script.google.com/macros/s/AKfycbyg5u7aYubTF4tj0Ca8dSX-GXY8txqVT3-ogI3rRgw3ROxerw-qWg2WphnlcceiY5lWGg/exec")
+            .then((response) => response.json())
+            .then((data) => {
+                let indoforall_clint_rate_area = document.getElementById("indoforall_clint_rate_area");
+                indoforall_clint_rate_area.innerHTML = ""; // Clear old reviews
 
-            data.reverse().forEach((item) => {
-                // Reverse to show newest first
-                let { date, name, comment, starAmount } = item;
+                data.reverse().forEach((item) => {
+                    // Reverse to show newest first
+                    let { date, name, comment, starAmount } = item;
 
-                // Skip any row where the comment is empty
-                if (!comment.trim()) return;
+                    // Skip any row where the comment is empty
+                    if (!comment.trim()) return;
 
-                let clintRateDiv = document.createElement("div");
-                clintRateDiv.classList.add("indoforall_rate_div");
+                    let clintRateDiv = document.createElement("div");
+                    clintRateDiv.classList.add("indoforall_rate_div");
 
-                clintRateDiv.innerHTML = `
+                    clintRateDiv.innerHTML = `
                 <div class="indoforall_clint_rate_date_div indoforall_animate_on_scroll">
                     <h3 class="indoforall_animate_on_scroll">${date}</h3>
                 </div>
@@ -552,38 +524,39 @@ function fetchReviews() {
                 </div>
             `;
 
-                indoforall_clint_rate_area.appendChild(clintRateDiv);
-            });
+                    indoforall_clint_rate_area.appendChild(clintRateDiv);
+                });
 
-            // Smooth appearance with delay
-            setTimeout(() => {
-                indoforall_clint_rate_area.classList.add("show");
-            }, 100);
-        })
-        .catch((error) => console.error("Error fetching reviews:", error));
-}
+                // Smooth appearance with delay
+                setTimeout(() => {
+                    indoforall_clint_rate_area.classList.add("show");
+                }, 100);
+            })
+            .catch((error) => console.error("Error fetching reviews:", error));
+    }
 
-// Function to Show Floating Success Notification
-function showSuccessNotification() {
-    let notification = document.getElementById("indoforall_success_notification");
-    notification.style.display = "block";
+    // Function to Show Floating Success Notification
+    function showSuccessNotification() {
+        let notification = document.getElementById("indoforall_success_notification");
+        notification.style.display = "block";
 
-    setTimeout(() => {
-        notification.style.opacity = "1";
-        notification.style.transform = "translateX(-50%) translateY(0px)"; // Move slightly up
-    }, 10);
-
-    setTimeout(() => {
-        notification.style.opacity = "0";
-        notification.style.transform = "translateX(-50%) translateY(10px)"; // Move down slightly while fading out
         setTimeout(() => {
-            notification.style.display = "none";
-        }, 400);
-    }, 3000);
-}
+            notification.style.opacity = "1";
+            notification.style.transform = "translateX(-50%) translateY(0px)"; // Move slightly up
+        }, 10);
 
-// Fetch Reviews on Page Load
-fetchReviews();
+        setTimeout(() => {
+            notification.style.opacity = "0";
+            notification.style.transform = "translateX(-50%) translateY(10px)"; // Move down slightly while fading out
+            setTimeout(() => {
+                notification.style.display = "none";
+            }, 400);
+        }, 3000);
+    }
+
+    // Fetch Reviews on Page Load
+    fetchReviews();
+}
 
 /* ArrayName is the name of the Array of The Worker Type Button Clicked */
 if (document.getElementById("indoforall_choose_worker_type_section")) {
@@ -659,13 +632,13 @@ if (document.getElementById("indoforall_choose_worker_type_section")) {
 
         // Loop through the array to create worker cards
         arrayName.forEach((item) => {
-            let { workerImg, workerVideo } = item;
+            let { workerImg } = item;
 
             let workerCard = document.createElement("div");
             workerCard.classList.add("indoforall_worker_type_card");
 
             workerCard.innerHTML = `
-                <div onclick="indoforall_showCardsDetails( '${cardCounter}', '${workerImg}', '${workerVideo}');">
+                <div onclick="indoforall_show_full_screen_image('${workerImg}')">
                     <h2>${cardCounter}</h2>
                     <img src=${workerImg} alt="استقدام من اندونيسيا - اندو للجميع" title="استقدام من اندونيسيا - اندو للجميع" srcset="${workerImg} 480w, ${workerImg} 768w, ${workerImg} 1200w" sizes="(max-width: 768px) 100vw, 50vw" loading="lazy">
                 </div>
@@ -827,83 +800,6 @@ if (document.getElementById("indoforall_choose_worker_type_section")) {
             }
         };
     };
-}
-
-/* in Case If The Element With The Id Name 'indoforall_worker_detalis_section' Exsist Then Show Cards Details On Ovelay Layer */
-if (document.getElementById("indoforall_worker_detalis_section")) {
-    /* Hide The 'indoforall_worker_detalis_section' Element in Everytime Users Visit This 'index.html' Page */
-    document.getElementById("indoforall_worker_detalis_section").style.display = "none";
-
-    function indoforall_showCardsDetails(cardCounter, workerImg, workerVideo) {
-        /* Create Overlay For Show Workers Card Detals */
-        let fullscreenoverlay = document.createElement("div");
-        fullscreenoverlay.classList.add("indoforall_full_screen_overlay");
-        fullscreenoverlay.style.display = "flex";
-
-        /* Create A Button To Exit Worker Card Details */
-        let fullScreenOverlayExitButton = document.createElement("a");
-        fullScreenOverlayExitButton.classList.add("indoforall_full_screen_overlay_exit_button");
-        fullScreenOverlayExitButton.innerText = "عودة";
-
-        /* Create The Elements With Their Info */
-        let FullScreencardCounter = document.createElement("h1");
-        FullScreencardCounter.innerHTML = "عمالة اندونيسية رقم " + cardCounter;
-
-        let FullScreenWorkerImg = document.createElement("img");
-        FullScreenWorkerImg.src = workerImg;
-        FullScreenWorkerImg.srcset = `${workerImg} 480w, ${workerImg} 768w, ${workerImg} 1200w`;
-        FullScreenWorkerImg.sizes = "(max-width: 768px) 100vw, 50vw";
-        FullScreenWorkerImg.loading = "lazy";
-        FullScreenWorkerImg.alt = "استقدام من اندونيسيا - اندو للجميع";
-        FullScreenWorkerImg.title = "استقدام من اندونيسيا - اندو للجميع";
-        FullScreenWorkerImg.onclick = function () {
-            indoforall_show_full_screen_image(workerImg);
-        };
-
-        let FullScreenWorkerVideo = document.createElement("video");
-        FullScreenWorkerVideo.src = workerVideo;
-        FullScreenWorkerVideo.setAttribute("controls", true);
-        FullScreenWorkerVideo.setAttribute("title", "استقدام من اندونيسيا - اندو للجميع");
-        FullScreenWorkerVideo.setAttribute("preload", "metadata"); // Load only metadata initially
-        FullScreenWorkerVideo.setAttribute("poster", workerImg); // Set a poster image for better user experience
-
-        /* Append All Elements Inside The 'fullscreenoverlay' ELement */
-        fullscreenoverlay.appendChild(fullScreenOverlayExitButton);
-        fullscreenoverlay.appendChild(FullScreencardCounter);
-        fullscreenoverlay.appendChild(FullScreenWorkerImg);
-        fullscreenoverlay.appendChild(FullScreenWorkerVideo);
-
-        /* Hide And Show Diffrenet Sections */
-        indoforall_header.style.display = "none";
-        indoforall_clint_rate_section.style.display = "none";
-        indoforall_choose_worker_type_section.style.display = "none";
-        indoforall_worker_detalis_section.style.display = "none";
-        indoforall_main_page_section.style.display = "none";
-        indoforall_footer.style.display = "none";
-        document.body.appendChild(fullscreenoverlay);
-
-        /* Scroll Up Once Clicked on Any Card */
-        window.scrollTo({ top: 0 });
-
-        /* Function To Exit Worker Card Details */
-        fullScreenOverlayExitButton.onclick = function () {
-            indoforall_header.style.display = "block";
-            indoforall_clint_rate_section.style.display = "flex";
-            indoforall_choose_worker_type_section.style.display = "flex";
-            indoforall_worker_detalis_section.style.display = "flex";
-            indoforall_main_page_section.style.display = "flex";
-            indoforall_footer.style.display = "flex";
-
-            fullscreenoverlay.innerHTML = "";
-            fullscreenoverlay.style.display = "none";
-
-            /* Scoll Back The 'indoforall_worker_cards_div' Element After Exiting The Worker Card Details Page */
-            indoforall_worker_cards_div.scrollIntoView({
-                block: "center",
-                inline: "center",
-            });
-        };
-    }
 }
 
 /* In Case if The 'indoforall_price_section' Elemenet Exist Then Create The Following Code */
@@ -1124,7 +1020,7 @@ let currentVideo = null;
 // in Case If The Element With The Id Name 'indoforall_proof_section' Exsist Then Go through each item in the 'data' value array 'indoforall_proofVideosArray'
 if (document.getElementById("indoforall_proof_section")) {
     indoforall_proofVideosArray.forEach((item) => {
-        const { imgSrc, videoSrc } = item;
+        const { imgSrc } = item;
 
         // Create the card container div
         const ProofVideoDiv = document.createElement("div");
@@ -1133,8 +1029,7 @@ if (document.getElementById("indoforall_proof_section")) {
 
         // Generate the content dynamically based on 'imgSrc' or 'videoSrc'
         let content = `<h2>${cardCounter}</h2>`;
-        if (imgSrc) {
-            content += `
+        content += `
                 <img 
                     src="${imgSrc}" 
                     srcset="${imgSrc} 480w, ${imgSrc} 768w, ${imgSrc} 1200w" 
@@ -1144,24 +1039,6 @@ if (document.getElementById("indoforall_proof_section")) {
                     title="استقدام من اندونيسيا - اندو للجميع" 
                     onclick="indoforall_show_full_screen_image(this.src)">
             `;
-        } else if (videoSrc) {
-            content += `
-                <video 
-                    src="${videoSrc}" 
-                    controls 
-                    preload="metadata" 
-                    title="استقدام من اندونيسيا - اندو للجميع" 
-                    poster="${imgSrc || ""}">
-                </video>
-            `;
-            ProofVideoDiv.onclick = () => {
-                // Pause currently playing video
-                if (currentVideo && currentVideo !== ProofVideoDiv.querySelector("video")) {
-                    currentVideo.pause();
-                }
-                currentVideo = ProofVideoDiv.querySelector("video");
-            };
-        }
 
         // Set the inner HTML of the div
         ProofVideoDiv.innerHTML = content;
