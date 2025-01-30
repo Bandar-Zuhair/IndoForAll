@@ -38,42 +38,6 @@ body {
     transition: opacity 0.5s ease-in-out;
 }
 
-/* Unknow Effects */
-.indoforall_full_screen_overlay {
-    width: 100%;
-    height: 100%;
-    background: rgb(236, 247, 255);
-    padding: 20px 0;
-    z-index: 997;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.indoforall_full_screen_overlay h1 {
-    background: black;
-    font-size: 1.5rem;
-    padding: 5px;
-    border-radius: 3px;
-    margin-bottom: 5px;
-}
-
-.indoforall_full_screen_overlay video,
-.indoforall_full_screen_overlay img {
-    margin: 10px 0;
-    width: 15rem;
-    border-radius: 3px;
-    box-shadow: 0 0 2.5px 1px black;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-}
-
-.indoforall_full_screen_overlay video:hover,
-.indoforall_full_screen_overlay img:hover {
-    transform: scale(1.015);
-}
-
 .indoforall_full_screen_overlay_exit_button {
     z-index: 998;
     text-decoration: none;
@@ -124,9 +88,8 @@ body {
 }
 
 .indoforall_big_img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
     transition: transform 0.5s ease;
 }
 
@@ -733,6 +696,10 @@ body.nav-open #indoforall_nav_options * {
     margin: 1vmax 0;
     text-align: center;
     line-height: 1.5;
+}
+
+#indoforall_worker_detalis_section {
+    display: none;
 }
 
 #indoforall_worker_details_area {
@@ -1639,16 +1606,6 @@ footer img {
 
     .indoforall_worker_details_text_h1 {
         font-size: 4vmin;
-    }
-
-    .indoforall_full_screen_overlay h1 {
-        font-size: 4vmin;
-    }
-
-    .indoforall_full_screen_overlay video,
-    .indoforall_full_screen_overlay img {
-        width: 30vmax;
-        max-width: 90vw;
     }
 
     .indoforall_other_pages_link {
