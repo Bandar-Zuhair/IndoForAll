@@ -1958,16 +1958,16 @@ footer img {
     }
 
     .indoforall_insert_comment_form_div h3 {
-        font-size: 5.5vw;
+        font-size: 5vw;
         margin-bottom: 5px;
     }
 
     #indoforall_comment_form label {
-        font-size: 5vw;
+        font-size: 4vw;
     }
 
     #indoforall_comment_form button {
-        font-size: 5vw;
+        font-size: 4vw;
     }
 
     .indoforall_rate_div {
@@ -1976,7 +1976,7 @@ footer img {
     }
 
     .indoforall_clint_rate_date_div h3 {
-        font-size: 4.5vw;
+        font-size: 3.5vw;
     }
 
     .indoforall_clint_rate_info_div img {
@@ -1984,16 +1984,16 @@ footer img {
     }
 
     .indoforall_clint_rate_info_div h4 {
-        font-size: 4.5vw;
+        font-size: 3.5vw;
     }
 
     .indoforall_clint_rate_comment_div h5 {
-        font-size: 4.5vw;
+        font-size: 3.5vw;
     }
 
     .indoforall_clint_rate_star_div {
         margin-top: 8px;
-        font-size: 6vw;
+        font-size: 5vw;
     }
 
     .indoforall_sections {
@@ -2023,6 +2023,7 @@ footer img {
     /* Styling the main container */
     .indoforall_insert_comment_form_div {
         width: 100vw;
+        padding: 5px 10px;
     }
 
     .indoforall_Proof_video_div {
