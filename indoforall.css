@@ -455,6 +455,8 @@ body.nav-open #indoforall_nav_options * {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
 }
 
 #indoforall_clint_rate_area.show {
@@ -473,6 +475,7 @@ body.nav-open #indoforall_nav_options * {
     border-radius: 3px;
     box-shadow: 0 0 3px 0.5px rgb(0, 162, 255);
     transition: all 0.5s ease-in-out;
+    scroll-snap-align: center;
 }
 
 .indoforall_rate_div:hover {
