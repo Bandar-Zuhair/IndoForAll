@@ -158,7 +158,6 @@ body {
 header {
     background: rgb(236, 247, 255);
     width: 100%;
-    transition: opacity 0.5s ease-in-out;
 }
 
 header div {
@@ -435,6 +434,196 @@ body.nav-open #indoforall_nav_options * {
 #indoforall_error_page_go_back_button:hover {
     color: rgb(0, 255, 0);
     transform: scale(1.015);
+}
+
+/* Clint Rate Section */
+#indoforall_clint_rate_section {
+    display: flex;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+#indoforall_clint_rate_area {
+    background: rgb(201, 232, 255);
+    width: 100%;
+    max-width: 100%;
+    padding: 10px 0;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    box-shadow: 0 0 1px 0.5px black;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+#indoforall_clint_rate_area.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.indoforall_rate_div {
+    background: rgb(46, 46, 46);
+    min-width: 35rem;
+    margin: 0 10px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 3px;
+    box-shadow: 0 0 3px 0.5px rgb(0, 162, 255);
+    transition: all 0.5s ease-in-out;
+}
+
+.indoforall_rate_div:hover {
+    box-shadow: 0 0 3px 0.5px rgb(0, 255, 0);
+}
+
+.indoforall_clint_rate_date_div {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.indoforall_clint_rate_date_div h3 {
+    font-size: 1rem;
+    font-weight: 200;
+}
+
+.indoforall_clint_rate_info_div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.indoforall_clint_rate_info_div img {
+    width: 3.5rem;
+}
+
+.indoforall_clint_rate_info_div h4 {
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+.indoforall_clint_rate_comment_div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.indoforall_clint_rate_comment_div h5 {
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin-top: 10px;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.indoforall_clint_rate_star_div {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 2rem;
+    color: gold;
+}
+
+/* Hide vertical scrollbar */
+#indoforall_clint_rate_area::-webkit-scrollbar {
+    display: none;
+}
+
+/* Styling the main container */
+.indoforall_insert_comment_form_div {
+    width: 55vw;
+    margin: 10px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Styling the heading */
+.indoforall_insert_comment_form_div h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Form styling */
+#indoforall_comment_form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px 0;
+}
+
+/* Label styling */
+#indoforall_comment_form label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000000;
+    text-align: right;
+}
+
+/* Input and textarea styling */
+#indoforall_comment_username,
+#indoforall_comment_text,
+#indoforall_comment_stars {
+    width: 100%;
+    padding: 10px 0;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Textarea specific styling */
+#indoforall_comment_text {
+    min-height: 80px;
+    resize: vertical;
+}
+
+/* Select dropdown styling */
+#indoforall_comment_stars {
+    cursor: pointer;
+    background-color: #fff;
+}
+
+/* Submit button styling */
+#indoforall_comment_form button {
+    background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
+    color: white;
+    font-size: 1rem;
+    padding: 5px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#indoforall_success_notification {
+    position: fixed;
+    top: 50%;
+    /* Start from the middle of the screen vertically */
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    /* Start from the center */
+    background-color: #4caf50;
+    /* Green background */
+    color: white;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 16px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+/* Show animation */
+#indoforall_success_notification.show {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    /* Move up to center smoothly */
 }
 
 /* Choose Worker Type Section */
@@ -1355,6 +1544,16 @@ footer img {
     #indoforall_close_nav {
         font-size: 2vw;
     }
+
+    /* Styling the main container */
+    .indoforall_insert_comment_form_div {
+        width: 80vw;
+    }
+
+    /* Form styling */
+    #indoforall_comment_form {
+        gap: 5px 0;
+    }
 }
 
 /* 950px */
@@ -1610,6 +1809,33 @@ footer img {
         padding: 2px 0;
     }
 
+    .indoforall_rate_div {
+        min-width: 65vw;
+        margin: 0 8px;
+        padding: 5px 2px;
+    }
+
+    .indoforall_clint_rate_date_div h3 {
+        font-size: 2.5vw;
+    }
+
+    .indoforall_clint_rate_info_div img {
+        width: 5.5vw;
+    }
+
+    .indoforall_clint_rate_info_div h4 {
+        font-size: 2.5vw;
+    }
+
+    .indoforall_clint_rate_comment_div h5 {
+        font-size: 2.5vw;
+    }
+
+    .indoforall_clint_rate_star_div {
+        margin-top: 8px;
+        font-size: 3.5vw;
+    }
+
     #indoforall_filter_worker_type_div {
         width: 100vw;
         height: 100vh;
@@ -1650,6 +1876,10 @@ footer img {
     #indoforall_filter_worker_city_type textarea {
         font-size: 5vmin;
         padding: 5px;
+    }
+
+    .indoforall_insert_comment_form_div h3 {
+        font-size: 4vw;
     }
 
     #indoforall_error_page_go_back_button {
@@ -1724,6 +1954,45 @@ footer img {
         min-width: 95%;
     }
 
+    .indoforall_insert_comment_form_div h3 {
+        font-size: 5.5vw;
+        margin-bottom: 5px;
+    }
+
+    #indoforall_comment_form label {
+        font-size: 5vw;
+    }
+
+    #indoforall_comment_form button {
+        font-size: 5vw;
+    }
+
+    .indoforall_rate_div {
+        min-width: 90vw;
+        margin: 0 5px;
+    }
+
+    .indoforall_clint_rate_date_div h3 {
+        font-size: 4.5vw;
+    }
+
+    .indoforall_clint_rate_info_div img {
+        width: 8.5vw;
+    }
+
+    .indoforall_clint_rate_info_div h4 {
+        font-size: 4.5vw;
+    }
+
+    .indoforall_clint_rate_comment_div h5 {
+        font-size: 4.5vw;
+    }
+
+    .indoforall_clint_rate_star_div {
+        margin-top: 8px;
+        font-size: 6vw;
+    }
+
     .indoforall_sections {
         padding: 20px 0;
     }
@@ -1746,6 +2015,11 @@ footer img {
     .indoforall_worker_type_card h2 {
         font-size: 3.5vw;
         margin-bottom: 2px;
+    }
+
+    /* Styling the main container */
+    .indoforall_insert_comment_form_div {
+        width: 100vw;
     }
 
     .indoforall_Proof_video_div {
