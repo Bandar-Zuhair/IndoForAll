@@ -319,7 +319,7 @@ indoforall_craeteRequestWorkerMessage = function () {
     let filterWorkerTypeDataContent = document.createElement("div");
     filterWorkerTypeDataContent.innerHTML = `
         <div id='indoforall_filter_worker_type_title'>
-            <h3>طلب استقدام الآن</h3>
+            <h3>طلب استقدام</h3>
         </div>
         <div id="indoforall_filter_worker_work_type">
             <h3>اختار نوع العمالة</h3>
@@ -527,6 +527,9 @@ function fetchReviews() {
                 // Reverse to show newest first
                 let { date, name, comment, starAmount } = item;
 
+                // Skip any row where the comment is empty
+                if (!comment.trim()) return;
+
                 let clintRateDiv = document.createElement("div");
                 clintRateDiv.classList.add("indoforall_rate_div");
 
@@ -597,9 +600,8 @@ if (document.getElementById("indoforall_choose_worker_type_section")) {
         indoforall_worker_details_text.style.opacity = "1";
 
         // Remove existing indoforall_workerTypeMessageButton element if it exists
-        let existingButton = document.getElementById("indoforall_worker_type_message_button");
-        if (existingButton) {
-            existingButton.remove();
+        if (document.getElementById("indoforall_worker_type_message_button")) {
+            document.getElementById("indoforall_worker_type_message_button").remove();
         }
 
         /* Create The Book Worker Now Button in The Worker Details Section */
@@ -611,31 +613,31 @@ if (document.getElementById("indoforall_choose_worker_type_section")) {
         /* Check Which Button Has Clicked And Based On That Set The InnerText For The 'indoforall_worker_details_text' */
         if (arrayName === indoforall_homeWorkerArray) {
             indoforall_worker_details_text.innerText = "استقدام عاملة منزلية من اندونيسيا";
-            indoforall_workerTypeMessageButton.innerHTML = "طلب استقدام عاملة منزلية الآن";
+            indoforall_workerTypeMessageButton.innerHTML = "طلب استقدام عاملة منزلية";
             indoforall_workerTypeMessageButton.onclick = function () {
                 indoforall_chooseWorkerTypeDataFunction("home");
             };
         } else if (arrayName === indoforall_driveWorkerArray) {
             indoforall_worker_details_text.innerText = "استقدام سائق الخاص من اندونيسيا";
-            indoforall_workerTypeMessageButton.innerHTML = "طلب استقدام سائق خاص الآن";
+            indoforall_workerTypeMessageButton.innerHTML = "طلب استقدام سائق خاص";
             indoforall_workerTypeMessageButton.onclick = function () {
                 indoforall_chooseWorkerTypeDataFunction("driver");
             };
         } else if (arrayName === indoforall_hairWorkerArray) {
             indoforall_worker_details_text.innerText = "استقدام كوفيرة من اندونيسيا";
-            indoforall_workerTypeMessageButton.innerHTML = "طلب استقدام كوفيرة الآن";
+            indoforall_workerTypeMessageButton.innerHTML = "طلب استقدام كوفيرة";
             indoforall_workerTypeMessageButton.onclick = function () {
                 indoforall_chooseWorkerTypeDataFunction("hair");
             };
         } else if (arrayName === indoforall_sewingWorkerArray) {
             indoforall_worker_details_text.innerText = "استقدام خياطة من اندونيسيا";
-            indoforall_workerTypeMessageButton.innerHTML = "طلب استقدام خياطة الآن";
+            indoforall_workerTypeMessageButton.innerHTML = "طلب استقدام خياطة";
             indoforall_workerTypeMessageButton.onclick = function () {
                 indoforall_chooseWorkerTypeDataFunction("sewing");
             };
         } else if (arrayName === indoforall_doctorWorkerArray) {
             indoforall_worker_details_text.innerText = "استقدام ممرضة من اندونيسيا";
-            indoforall_workerTypeMessageButton.innerHTML = "طلب استقدام ممرضة الآن";
+            indoforall_workerTypeMessageButton.innerHTML = "طلب استقدام ممرضة";
             indoforall_workerTypeMessageButton.onclick = function () {
                 indoforall_chooseWorkerTypeDataFunction("nurse");
             };
@@ -778,6 +780,12 @@ if (document.getElementById("indoforall_choose_worker_type_section")) {
             // Remove the filterWorkerTypeDataDivOverlay
             document.body.removeChild(filterWorkerTypeDataDivOverlay);
         };
+
+        // Show overlay and content with animation
+        setTimeout(() => {
+            filterWorkerTypeDataDivOverlay.classList.add("show");
+            filterWorkerTypeDataDiv.classList.add("show");
+        }, 10);
 
         /* Function To Create Final WhatsApp Message Based on Worker Type Data Selected */
         indoforall_workerTypeWhatsAppMessageFunction = function () {
