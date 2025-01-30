@@ -3,18 +3,6 @@ setTimeout(function () {
     indoforall_body.style.opacity = "1";
 }, 100);
 
-// This function will be called when a right-click event is detected
-function disableRightClick(event) {
-    event.preventDefault();
-}
-
-/* Prevent the shortcut control + U to open page inspect */
-document.addEventListener("keydown", function (event) {
-    if (event.ctrlKey && (event.key === "u" || event.key === "U" || event.key === "s" || event.key === "S")) {
-        event.preventDefault();
-    }
-});
-
 /* Create An Array of Different Worker Types Cards Data */
 let indoforall_homeWorkerArray = [
     {
@@ -496,6 +484,103 @@ indoforall_craeteRequestWorkerMessage = function () {
         };
     };
 };
+
+document.getElementById("indoforall_comment_form").addEventListener("submit", async function (event) {
+    event.preventDefault(); // Prevent page refresh
+
+    let name = document.getElementById("indoforall_comment_username").value.trim();
+    let comment = document.getElementById("indoforall_comment_text").value.trim();
+    let stars = document.getElementById("indoforall_comment_stars").value;
+
+    let formData = new URLSearchParams();
+    formData.append("name", name); // Match Google Apps Script keys
+    formData.append("comment", comment);
+    formData.append("stars", stars);
+
+    try {
+        let response = await fetch("https://script.google.com/macros/s/AKfycbyg5u7aYubTF4tj0Ca8dSX-GXY8txqVT3-ogI3rRgw3ROxerw-qWg2WphnlcceiY5lWGg/exec", {
+            method: "POST",
+            body: formData,
+        });
+
+        let data = await response.text();
+
+        if (data === "Success") {
+            document.getElementById("indoforall_comment_form").reset();
+
+            await fetchReviews(); // Wait until fetchReviews() is fully executed
+
+            showSuccessNotification(); // Now run the notification function
+        }
+    } catch (error) {}
+});
+
+// Function to Fetch and Display Reviews
+function fetchReviews() {
+    fetch("https://script.google.com/macros/s/AKfycbyg5u7aYubTF4tj0Ca8dSX-GXY8txqVT3-ogI3rRgw3ROxerw-qWg2WphnlcceiY5lWGg/exec")
+        .then((response) => response.json())
+        .then((data) => {
+            let indoforall_clint_rate_area = document.getElementById("indoforall_clint_rate_area");
+            indoforall_clint_rate_area.innerHTML = ""; // Clear old reviews
+
+            data.reverse().forEach((item) => {
+                // Reverse to show newest first
+                let { date, name, comment, starAmount } = item;
+
+                let clintRateDiv = document.createElement("div");
+                clintRateDiv.classList.add("indoforall_rate_div");
+
+                clintRateDiv.innerHTML = `
+                <div class="indoforall_clint_rate_date_div indoforall_animate_on_scroll">
+                    <h3 class="indoforall_animate_on_scroll">${date}</h3>
+                </div>
+
+                <div class="indoforall_clint_rate_info_div indoforall_animate_on_scroll">
+                    <img src="favicon.png" alt="Review Profile" title="Review Profile">
+                    <h4>${name}</h4>
+                </div>
+
+                <div class="indoforall_clint_rate_comment_div">
+                    <h5>${comment}</h5>
+                </div>
+
+                <div class="indoforall_clint_rate_star_div">
+                    ${"★".repeat(starAmount)}
+                </div>
+            `;
+
+                indoforall_clint_rate_area.appendChild(clintRateDiv);
+            });
+
+            // Smooth appearance with delay
+            setTimeout(() => {
+                indoforall_clint_rate_area.classList.add("show");
+            }, 100);
+        })
+        .catch((error) => console.error("Error fetching reviews:", error));
+}
+
+// Function to Show Floating Success Notification
+function showSuccessNotification() {
+    let notification = document.getElementById("indoforall_success_notification");
+    notification.style.display = "block";
+
+    setTimeout(() => {
+        notification.style.opacity = "1";
+        notification.style.transform = "translateX(-50%) translateY(0px)"; // Move slightly up
+    }, 10);
+
+    setTimeout(() => {
+        notification.style.opacity = "0";
+        notification.style.transform = "translateX(-50%) translateY(10px)"; // Move down slightly while fading out
+        setTimeout(() => {
+            notification.style.display = "none";
+        }, 400);
+    }, 3000);
+}
+
+// Fetch Reviews on Page Load
+fetchReviews();
 
 /* ArrayName is the name of the Array of The Worker Type Button Clicked */
 if (document.getElementById("indoforall_choose_worker_type_section")) {
