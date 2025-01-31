@@ -395,7 +395,7 @@ indoforall_craeteRequestWorkerMessage = function () {
         filterWorkerTypeDataDiv.appendChild(filterWorkerTypeDataContent);
         filterWorkerTypeDataDivOverlay.appendChild(filterWorkerTypeDataDiv);
         document.body.appendChild(filterWorkerTypeDataDivOverlay);
-        indoforall_filter_worker_visa_type.innerHTML = indoforall_filterWorkerCityType; // Update this line
+        document.getElementById("indoforall_filter_worker_visa_type").innerHTML = indoforall_filterWorkerCityType; // Update this line
 
         /* Re-enable Scrolling And Remove The 'filterWorkerTypeDataDivOverlay' Element */
         indoforall_cancel_worker_data_message_button.onclick = function () {
@@ -682,7 +682,7 @@ if (document.getElementById("indoforall_choose_worker_type_section")) {
     };
 
     /* Function To Create Filter Worker Type Data Message From Worker Details Button */
-    indoforall_chooseWorkerTypeDataFunction = function (workerTypeName) {
+    function indoforall_chooseWorkerTypeDataFunction(workerTypeName) {
         // Disable scrolling
         document.documentElement.style.overflow = "hidden";
 
@@ -739,26 +739,30 @@ if (document.getElementById("indoforall_choose_worker_type_section")) {
             </div>
         `;
 
-        /* Append The Elements in Each Other */
+        // Append the elements
         filterWorkerTypeDataDiv.appendChild(filterWorkerTypeDataContent);
         filterWorkerTypeDataDivOverlay.appendChild(filterWorkerTypeDataDiv);
         document.body.appendChild(filterWorkerTypeDataDivOverlay);
-        indoforall_filter_worker_visa_type.innerHTML = indoforall_filterWorkerCityType; // Update this line
-
-        /* Re-enable Scrolling And Remove The 'filterWorkerTypeDataDivOverlay' Element */
-        indoforall_cancel_worker_data_message_button.onclick = function () {
-            // Re-enable Scrolling
-            document.documentElement.style.overflow = "auto";
-
-            // Remove the filterWorkerTypeDataDivOverlay
-            document.body.removeChild(filterWorkerTypeDataDivOverlay);
-        };
+        document.getElementById("indoforall_filter_worker_visa_type").innerHTML = indoforall_filterWorkerCityType; // Update this line
 
         // Show overlay and content with animation
         setTimeout(() => {
             filterWorkerTypeDataDivOverlay.classList.add("show");
             filterWorkerTypeDataDiv.classList.add("show");
         }, 10);
+
+        /* Re-enable Scrolling And Remove The 'filterWorkerTypeDataDivOverlay' Element */
+        indoforall_cancel_worker_data_message_button.onclick = function () {
+            // Remove 'show' class to trigger fade-out animation
+            filterWorkerTypeDataDiv.classList.remove("show");
+            filterWorkerTypeDataDivOverlay.classList.remove("show");
+
+            // Wait for animation to complete before removing the overlay
+            setTimeout(() => {
+                document.documentElement.style.overflow = "auto";
+                document.body.removeChild(filterWorkerTypeDataDivOverlay);
+            }, 500); // Matches the CSS transition duration
+        };
 
         /* Function To Create Final WhatsApp Message Based on Worker Type Data Selected */
         indoforall_workerTypeWhatsAppMessageFunction = function () {
@@ -799,7 +803,7 @@ if (document.getElementById("indoforall_choose_worker_type_section")) {
                 window.open(whatsappURL, "_blank");
             }
         };
-    };
+    }
 }
 
 /* In Case if The 'indoforall_price_section' Elemenet Exist Then Create The Following Code */
@@ -1194,19 +1198,26 @@ function indoforall_websiteGuidance() {
 
 /* Hide And Show nav Bar */
 let indoforall_showNavOptions = () => {
-    indoforall_nav_options.style.opacity = "1";
-    indoforall_nav_options.style.height = "100%";
-    indoforall_nav_options.style.right = "0"; // Move from right (-50%) to the original position (0%)
+    indoforall_nav_options.style.display = "flex"; // Make it visible
+    setTimeout(() => {
+        indoforall_nav_options.style.opacity = "1";
+        indoforall_nav_options.style.right = "0";
+        indoforall_nav_options.style.pointerEvents = "auto"; // Allow interaction
+    }, 10);
     document.body.classList.add("nav-open");
     document.body.style.overflow = "hidden"; // Disable scrolling
 };
 
 let indoforall_hideNavOptions = () => {
     indoforall_nav_options.style.opacity = "0";
-    indoforall_nav_options.style.height = "0";
-    indoforall_nav_options.style.right = "-50%"; // Move to the right (-50%)
+    indoforall_nav_options.style.right = "-75%";
+    indoforall_nav_options.style.pointerEvents = "none"; // Prevent interaction
+
+    setTimeout(() => {
+        indoforall_nav_options.style.display = "none"; // Fully hide after transition
+    }, 300); // Match transition time
     document.body.classList.remove("nav-open");
-    document.body.style.overflow = ""; // Enable scrolling (restore default)
+    document.body.style.overflow = ""; // Enable scrolling
 };
 
 document.getElementById("indoforall_nav").onclick = (event) => {
