@@ -511,7 +511,7 @@ if (document.getElementById("indoforall_clint_rate_section") || document.getElem
                 </div>
 
                 <div class="indoforall_clint_rate_info_div indoforall_animate_on_scroll">
-                    <img src="favicon.png" alt="Review Profile" title="Review Profile">
+                    <img src="استقدام-من-اندونيسيا.webp" alt="استقدام من اندونيسيا - اندو للجميع" title="استقدام من اندونيسيا - اندو للجميع">
                     <h4>${name}</h4>
                 </div>
 
