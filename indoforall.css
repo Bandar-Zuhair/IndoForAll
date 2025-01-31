@@ -310,7 +310,7 @@ body.nav-open #indoforall_nav_options * {
     flex-direction: column;
     justify-content: flex-start;
     opacity: 0;
-    height: 0;
+    height: 100%;
     overflow: hidden;
     transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out, right 0.3s ease-in-out;
 }
