@@ -38,7 +38,7 @@ body {
     transition: opacity 0.5s ease-in-out;
 }
 
-.indoforall_full_screen_overlay_exit_button {
+.indoforall-full-screen-overlay-exit-button {
     z-index: 998;
     text-decoration: none;
     background: black;
@@ -58,11 +58,11 @@ body {
     transition: all 0.2s ease-in-out;
 }
 
-.indoforall_full_screen_overlay_exit_button:hover {
+.indoforall-full-screen-overlay-exit-button:hover {
     transform: scale(1.015);
 }
 
-.indoforall_full_screen_img_overlay {
+.indoforall-full-screen-img-overlay {
     position: fixed;
     top: 0;
     right: 0;
@@ -82,18 +82,18 @@ body {
     transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
-.indoforall_full_screen_img_overlay.show {
+.indoforall-full-screen-img-overlay.show {
     opacity: 1;
     visibility: visible;
 }
 
-.indoforall_big_img {
+.indoforall-big-img {
     max-width: 100%;
     max-height: 100%;
     transition: transform 0.5s ease;
 }
 
-.indoforall_full_screen_guidance_overlay {
+.indoforall-full-screen-guidance-overlay {
     background: rgb(236, 247, 255);
     width: 100%;
     height: 100%;
@@ -112,7 +112,7 @@ body {
     transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
-.indoforall_full_screen_guidance_overlay.active {
+.indoforall-full-screen-guidance-overlay.active {
     opacity: 1;
     visibility: visible;
 }
@@ -130,7 +130,7 @@ header div {
     align-items: center;
 }
 
-#indoforall_web_logo {
+#indoforall-web-logo {
     width: 50rem;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -138,7 +138,7 @@ header div {
     box-shadow: 0 0 1px 0.5px black;
 }
 
-.indoforall_web_intro {
+.indoforall-web-intro {
     color: rgb(0, 162, 255);
     display: flex;
     width: fit-content;
@@ -148,23 +148,23 @@ header div {
     margin: 0.1vmax 0;
 }
 
-#indoforall_web_intro_1 {
+#indoforall-web-intro-1 {
     font-size: 3rem;
     font-weight: bolder;
 }
 
-#indoforall_web_intro_2 {
+#indoforall-web-intro-2 {
     color: black;
     font-size: 1.3rem;
 }
 
-#indoforall_web_intro_3 {
+#indoforall-web-intro-3 {
     color: black;
     font-size: 1.4rem;
     padding: 0.1vmax 0;
 }
 
-.indoforall_web_intro_contact_us {
+.indoforall-web-intro-contact-us {
     background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
     margin: 1vmax 0;
     font-size: 1.5rem;
@@ -176,12 +176,12 @@ header div {
     transition: all 0.2s ease;
 }
 
-.indoforall_web_intro_contact_us:hover {
+.indoforall-web-intro-contact-us:hover {
     color: rgb(0, 255, 0);
     transform: scale(1.015);
 }
 
-#indoforall_website_guidance_text {
+#indoforall-website-guidance-text {
     background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
     font-size: 1.5rem;
     text-decoration: none;
@@ -192,12 +192,12 @@ header div {
     transition: all 0.2s ease;
 }
 
-#indoforall_website_guidance_text:hover {
+#indoforall-website-guidance-text:hover {
     color: rgb(0, 255, 0);
     transform: scale(1.015);
 }
 
-.web_guidance_div {
+.web-guidance-div {
     z-index: 998;
     position: fixed;
     top: 50%;
@@ -218,12 +218,12 @@ header div {
     transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
-.web_guidance_div.active {
+.web-guidance-div.active {
     opacity: 1;
     visibility: visible;
 }
 
-.web_guidance_div a {
+.web-guidance-div a {
     text-decoration: none;
     background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
     color: white;
@@ -236,11 +236,11 @@ header div {
     transition: all 0.2s ease-in-out;
 }
 
-.web_guidance_div a:hover {
+.web-guidance-div a:hover {
     transform: scale(1.015);
 }
 
-#indoforall_request_worker_now_button {
+#indoforall-request-worker-now-button {
     background: linear-gradient(to right, rgb(5, 0, 91), rgb(13, 0, 255));
     margin: 1vmax 0;
     font-size: 2rem;
@@ -253,7 +253,7 @@ header div {
     transition: all 0.2s ease;
 }
 
-#indoforall_request_worker_now_button:hover {
+#indoforall-request-worker-now-button:hover {
     color: rgb(0, 255, 0);
     transform: scale(1.015);
     box-shadow: 0 0 10px 1px white;
@@ -263,7 +263,7 @@ nav {
     margin-top: 20px;
 }
 
-#indoforall_nav {
+#indoforall-nav {
     background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
     width: fit-content;
     padding: 5px;
@@ -288,16 +288,16 @@ nav h3:hover {
     color: rgb(0, 255, 0);
 }
 
-#indoforall_nav_icon {
+#indoforall-nav-icon {
     width: 4vmax;
     cursor: pointer;
 }
 
-body.nav-open #indoforall_nav_options * {
+body.nav-open #indoforall-nav-options * {
     pointer-events: auto;
 }
 
-#indoforall_nav_options {
+#indoforall-nav-options {
     background: rgb(220, 240, 255);
     padding: 10px;
     z-index: 999;
@@ -315,13 +315,13 @@ body.nav-open #indoforall_nav_options * {
     transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out, right 0.3s ease-in-out;
 }
 
-#indoforall_nav_logo {
+#indoforall-nav-logo {
     width: 6rem;
     margin: 10px 0;
     animation: floatAnimation 4s ease-in-out infinite;
 }
 
-#indoforall_nav_options a {
+#indoforall-nav-options a {
     text-decoration: none;
     background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
     color: white;
@@ -336,15 +336,15 @@ body.nav-open #indoforall_nav_options * {
     transition: all 0.2s ease-in-out;
 }
 
-#indoforall_nav_options a:hover {
+#indoforall-nav-options a:hover {
     color: rgb(0, 255, 0);
 }
 
-#indoforall_close_nav {
+#indoforall-close-nav {
     background: linear-gradient(to right, #471d58, #21596b) !important;
 }
 
-#indoforall_whatsapp_icon {
+#indoforall-whatsapp-icon {
     z-index: 998;
     display: flex;
     flex-direction: column;
@@ -355,7 +355,7 @@ body.nav-open #indoforall_nav_options * {
     animation: floatAnimation 4s ease-in-out infinite;
 }
 
-#indoforall_whatsapp_icon h4 {
+#indoforall-whatsapp-icon h4 {
     background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
     color: white;
     font-size: 1.5rem;
@@ -368,19 +368,19 @@ body.nav-open #indoforall_nav_options * {
     transition: all 0.2s ease-in-out;
 }
 
-#indoforall_whatsapp_icon img {
+#indoforall-whatsapp-icon img {
     width: 6rem;
     padding-bottom: 5px;
     cursor: pointer;
     align-self: center;
 }
 
-#indoforall_whatsapp_icon h4:hover,
-#indoforall_whatsapp_icon img:hover {
+#indoforall-whatsapp-icon h4:hover,
+#indoforall-whatsapp-icon img:hover {
     opacity: 0.5;
 }
 
-#indoforall_error_page_go_back_button {
+#indoforall-error-page-go-back-button {
     background: black;
     color: white;
     margin: 5px 0;
@@ -394,19 +394,19 @@ body.nav-open #indoforall_nav_options * {
     transition: all 0.2s ease;
 }
 
-#indoforall_error_page_go_back_button:hover {
+#indoforall-error-page-go-back-button:hover {
     color: rgb(0, 255, 0);
     transform: scale(1.015);
 }
 
 /* Clint Rate Section */
-#indoforall_clint_rate_section {
+#indoforall-clint-rate-section {
     display: flex;
     overflow: hidden;
     border-radius: 3px;
 }
 
-#indoforall_clint_rate_area {
+#indoforall-clint-rate-area {
     background: rgb(201, 232, 255);
     width: 100%;
     max-width: 100%;
@@ -422,12 +422,12 @@ body.nav-open #indoforall_nav_options * {
     scroll-snap-type: x mandatory;
 }
 
-#indoforall_clint_rate_area.show {
+#indoforall-clint-rate-area.show {
     opacity: 1;
     transform: translateY(0);
 }
 
-.indoforall_rate_div {
+.indoforall-rate-div {
     background: rgb(46, 46, 46);
     min-width: 35rem;
     margin: 0 10px;
@@ -441,42 +441,42 @@ body.nav-open #indoforall_nav_options * {
     scroll-snap-align: center;
 }
 
-.indoforall_rate_div:hover {
+.indoforall-rate-div:hover {
     box-shadow: 0 0 3px 0.5px rgb(0, 255, 0);
 }
 
-.indoforall_clint_rate_date_div {
+.indoforall-clint-rate-date-div {
     display: flex;
     justify-content: flex-end;
 }
 
-.indoforall_clint_rate_date_div h3 {
+.indoforall-clint-rate-date-div h3 {
     font-size: 1rem;
     font-weight: 200;
 }
 
-.indoforall_clint_rate_info_div {
+.indoforall-clint-rate-info-div {
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 
-.indoforall_clint_rate_info_div img {
+.indoforall-clint-rate-info-div img {
     width: 3.5rem;
 }
 
-.indoforall_clint_rate_info_div h4 {
+.indoforall-clint-rate-info-div h4 {
     font-size: 1rem;
     margin-right: 10px;
 }
 
-.indoforall_clint_rate_comment_div {
+.indoforall-clint-rate-comment-div {
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 
-.indoforall_clint_rate_comment_div h5 {
+.indoforall-clint-rate-comment-div h5 {
     font-size: 1.3rem;
     font-weight: 300;
     margin-top: 10px;
@@ -484,7 +484,7 @@ body.nav-open #indoforall_nav_options * {
     line-height: 1.4;
 }
 
-.indoforall_clint_rate_star_div {
+.indoforall-clint-rate-star-div {
     margin-top: 10px;
     display: flex;
     justify-content: flex-end;
@@ -494,12 +494,12 @@ body.nav-open #indoforall_nav_options * {
 }
 
 /* Hide vertical scrollbar */
-#indoforall_clint_rate_area::-webkit-scrollbar {
+#indoforall-clint-rate-area::-webkit-scrollbar {
     display: none;
 }
 
 /* Styling the main container */
-.indoforall_insert_comment_form_div {
+.indoforall-insert-comment-form-div {
     width: 55vw;
     margin: 10px auto;
     padding: 20px;
@@ -510,21 +510,21 @@ body.nav-open #indoforall_nav_options * {
 }
 
 /* Styling the heading */
-.indoforall_insert_comment_form_div h3 {
+.indoforall-insert-comment-form-div h3 {
     font-size: 1.5rem;
     color: #333;
     margin-bottom: 15px;
 }
 
 /* Form styling */
-#indoforall_comment_form {
+#indoforall-comment-form {
     display: flex;
     flex-direction: column;
     gap: 15px 0;
 }
 
 /* Label styling */
-#indoforall_comment_form label {
+#indoforall-comment-form label {
     font-size: 1rem;
     font-weight: bold;
     color: #000000;
@@ -532,9 +532,9 @@ body.nav-open #indoforall_nav_options * {
 }
 
 /* Input and textarea styling */
-#indoforall_comment_username,
-#indoforall_comment_text,
-#indoforall_comment_stars {
+#indoforall-comment-username,
+#indoforall-comment-text,
+#indoforall-comment-stars {
     width: 100%;
     padding: 10px 0;
     border: 1px solid #000000;
@@ -543,19 +543,19 @@ body.nav-open #indoforall_nav_options * {
 }
 
 /* Textarea specific styling */
-#indoforall_comment_text {
+#indoforall-comment-text {
     min-height: 80px;
     resize: vertical;
 }
 
 /* Select dropdown styling */
-#indoforall_comment_stars {
+#indoforall-comment-stars {
     cursor: pointer;
     background-color: #fff;
 }
 
 /* Submit button styling */
-#indoforall_comment_form button {
+#indoforall-comment-form button {
     background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
     color: white;
     font-size: 1rem;
@@ -566,15 +566,12 @@ body.nav-open #indoforall_nav_options * {
     transition: background 0.3s;
 }
 
-#indoforall_success_notification {
+#indoforall-success-notification {
     position: fixed;
     top: 50%;
-    /* Start from the middle of the screen vertically */
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    /* Start from the center */
     background-color: #4caf50;
-    /* Green background */
     color: white;
     padding: 12px 18px;
     border-radius: 8px;
@@ -586,14 +583,13 @@ body.nav-open #indoforall_nav_options * {
 }
 
 /* Show animation */
-#indoforall_success_notification.show {
+#indoforall-success-notification.show {
     opacity: 1;
     transform: translate(-50%, -50%);
-    /* Move up to center smoothly */
 }
 
 /* Choose Worker Type Section */
-#indoforall_worker_type_area {
+#indoforall-worker-type-area {
     background: rgb(220, 240, 255);
     width: 100%;
     padding: 30px 10px;
@@ -605,7 +601,7 @@ body.nav-open #indoforall_nav_options * {
     box-shadow: 0 0 1px 0.5px black;
 }
 
-#indoforall_worker_type_div {
+#indoforall-worker-type-div {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -613,7 +609,7 @@ body.nav-open #indoforall_nav_options * {
     margin-bottom: 10px;
 }
 
-#indoforall_worker_type_div h3 {
+#indoforall-worker-type-div h3 {
     background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
     color: white;
     font-size: 1.5rem;
@@ -626,12 +622,12 @@ body.nav-open #indoforall_nav_options * {
     transition: all 0.2s ease-in-out;
 }
 
-#indoforall_worker_type_div h3:hover {
+#indoforall-worker-type-div h3:hover {
     transform: scale(1.015);
     color: rgb(0, 255, 0);
 }
 
-#indoforall_quick_info_div {
+#indoforall-quick-info-div {
     background: rgb(220, 240, 255);
     color: black;
     width: 100%;
@@ -643,14 +639,14 @@ body.nav-open #indoforall_nav_options * {
     box-shadow: 0 0 1px 0.5px black;
 }
 
-.indoforall_quick_info {
+.indoforall-quick-info {
     font-size: 1.5rem;
     line-height: 1.5;
     margin: 0.5vmax;
 }
 
 /* Worker Card Details Section */
-.indoforall_sections {
+.indoforall-sections {
     background: rgb(236, 247, 255);
     display: flex;
     justify-content: center;
@@ -659,7 +655,7 @@ body.nav-open #indoforall_nav_options * {
     padding: 50px 0;
 }
 
-.indoforall_worker_details_text_h1 {
+.indoforall-worker-details-text-h1 {
     background: black;
     font-size: 1.5rem;
     padding: 5px;
@@ -669,7 +665,7 @@ body.nav-open #indoforall_nav_options * {
     line-height: 1.5;
 }
 
-.indoforall_section_intro_text {
+.indoforall-section-intro-text {
     background: black;
     font-size: 1.5rem;
     padding: 5px;
@@ -679,7 +675,7 @@ body.nav-open #indoforall_nav_options * {
     line-height: 1.5;
 }
 
-.indoforall_section_intro_bigger_text {
+.indoforall-section-intro-bigger-text {
     background: black;
     font-size: 2rem;
     padding: 5px;
@@ -690,7 +686,7 @@ body.nav-open #indoforall_nav_options * {
     line-height: 1.5;
 }
 
-.indoforall_section_intro_text_2 {
+.indoforall-section-intro-text-2 {
     color: black;
     font-size: 1.5rem;
     margin: 1vmax 0;
@@ -698,11 +694,11 @@ body.nav-open #indoforall_nav_options * {
     line-height: 1.5;
 }
 
-#indoforall_worker_detalis_section {
+#indoforall-worker-detalis-section {
     display: none;
 }
 
-#indoforall_worker_details_area {
+#indoforall-worker-details-area {
     background: rgb(236, 247, 255);
     width: 100%;
     padding: 30px 0;
@@ -712,7 +708,7 @@ body.nav-open #indoforall_nav_options * {
     align-items: center;
 }
 
-.indoforall_worker_cards_div_class {
+.indoforall-worker-cards-div-class {
     background: rgb(220, 240, 255);
     width: 100%;
     max-width: 100%;
@@ -727,11 +723,11 @@ body.nav-open #indoforall_nav_options * {
     scroll-snap-type: x mandatory;
 }
 
-.indoforall_worker_cards_div_class::-webkit-scrollbar {
+.indoforall-worker-cards-div-class::-webkit-scrollbar {
     display: none;
 }
 
-.indoforall_worker_type_card {
+.indoforall-worker-type-card {
     user-select: none;
     background: rgb(0, 97, 154);
     min-width: 15rem;
@@ -750,18 +746,18 @@ body.nav-open #indoforall_nav_options * {
     scroll-snap-align: center;
 }
 
-.indoforall_worker_type_card:hover {
+.indoforall-worker-type-card:hover {
     transform: scale(1.015);
     opacity: 0.9;
 }
 
-.indoforall_worker_type_card h2 {
+.indoforall-worker-type-card h2 {
     font-size: 1.5vw;
     margin-bottom: 5px;
     padding: 5px 0;
 }
 
-.indoforall_worker_type_card img {
+.indoforall-worker-type-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -769,14 +765,14 @@ body.nav-open #indoforall_nav_options * {
     border-radius: 3px;
 }
 
-#indoforall_worker_details_text_div {
+#indoforall-worker-details-text-div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.indoforall_other_pages_link {
+.indoforall-other-pages-link {
     background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
     color: white;
     text-decoration: none;
@@ -790,12 +786,12 @@ body.nav-open #indoforall_nav_options * {
     transition: all 0.2s ease-in-out;
 }
 
-.indoforall_other_pages_link:hover {
+.indoforall-other-pages-link:hover {
     transform: scale(1.015);
     color: rgb(0, 255, 0);
 }
 
-#indoforall_filter_worker_type_overlay {
+#indoforall-filter-worker-type-overlay {
     z-index: 999;
     opacity: 0;
     background: rgba(0, 0, 0, 0.6);
@@ -808,11 +804,11 @@ body.nav-open #indoforall_nav_options * {
 }
 
 /* Fade in the overlay */
-#indoforall_filter_worker_type_overlay.show {
+#indoforall-filter-worker-type-overlay.show {
     opacity: 1;
 }
 
-#indoforall_filter_worker_type_div {
+#indoforall-filter-worker-type-div {
     z-index: 997;
     opacity: 0;
     background: rgb(220, 240, 255);
@@ -832,15 +828,15 @@ body.nav-open #indoforall_nav_options * {
 }
 
 /* Show content */
-#indoforall_filter_worker_type_div.show {
+#indoforall-filter-worker-type-div.show {
     opacity: 1;
 }
 
-#indoforall_filter_worker_type_div div {
+#indoforall-filter-worker-type-div div {
     margin: 30px 0;
 }
 
-#indoforall_filter_worker_type_title {
+#indoforall-filter-worker-type-title {
     background: linear-gradient(to right, rgb(0, 52, 82), rgb(0, 127, 200));
     width: 100%;
     display: flex;
@@ -851,13 +847,13 @@ body.nav-open #indoforall_nav_options * {
     box-shadow: 0 0 1px 0.5px black;
 }
 
-#indoforall_filter_worker_type_title h3 {
+#indoforall-filter-worker-type-title h3 {
     font-size: 1.5rem;
     text-align: center;
     line-height: 1.5;
 }
 
-#indoforall_filter_worker_work_type {
+#indoforall-filter-worker-work-type {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -868,7 +864,7 @@ body.nav-open #indoforall_nav_options * {
     border-radius: 3px;
 }
 
-#indoforall_filter_worker_work_type h3 {
+#indoforall-filter-worker-work-type h3 {
     background: linear-gradient(to right, rgb(140, 56, 0), rgb(255, 102, 0));
     font-size: 1.5rem;
     padding: 5px;
@@ -877,14 +873,14 @@ body.nav-open #indoforall_nav_options * {
     box-shadow: 0 0 1px 0.5px black;
 }
 
-#indoforall_filter_worker_work_type_options {
+#indoforall-filter-worker-work-type-options {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
 
-#indoforall_filter_worker_work_type h4 {
+#indoforall-filter-worker-work-type h4 {
     background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
     font-size: 1.5rem;
     margin: 1vmax;
@@ -896,11 +892,11 @@ body.nav-open #indoforall_nav_options * {
     transition: all 0.2s ease-in-out;
 }
 
-#indoforall_filter_worker_work_type h4:hover {
+#indoforall-filter-worker-work-type h4:hover {
     box-shadow: 0 0 5px 0.5px white;
 }
 
-#indoforall_filter_worker_visa_type {
+#indoforall-filter-worker-visa-type {
     background: linear-gradient(to right, rgb(140, 56, 0), rgb(255, 102, 0));
     width: 100%;
     display: flex;
@@ -912,14 +908,14 @@ body.nav-open #indoforall_nav_options * {
     box-shadow: 0 0 1px 0.5px black;
 }
 
-#indoforall_filter_worker_visa_type h3 {
+#indoforall-filter-worker-visa-type h3 {
     font-size: 1.5rem;
     margin: 0 0 20px;
     text-align: center;
     line-height: 1.5;
 }
 
-#indoforall_filter_worker_visa_type h4 {
+#indoforall-filter-worker-visa-type h4 {
     background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
     font-size: 1.5rem;
     margin: 5px 0;
@@ -929,7 +925,7 @@ body.nav-open #indoforall_nav_options * {
     box-shadow: 0 0 1px 0.5px black;
 }
 
-#indoforall_filter_worker_city_type {
+#indoforall-filter-worker-city-type {
     background: linear-gradient(to right, rgb(140, 56, 0), rgb(255, 102, 0));
     width: 100%;
     display: flex;
@@ -941,13 +937,13 @@ body.nav-open #indoforall_nav_options * {
     box-shadow: 0 0 1px 0.5px black;
 }
 
-#indoforall_filter_worker_city_type h3 {
+#indoforall-filter-worker-city-type h3 {
     font-size: 1.5rem;
     margin: 0 0 10px;
     text-align: center;
 }
 
-#indoforall_filter_worker_city_type textarea {
+#indoforall-filter-worker-city-type textarea {
     width: 100%;
     font-size: 1.5rem;
     padding: 10px;
@@ -958,18 +954,18 @@ body.nav-open #indoforall_nav_options * {
     border-radius: 3px;
 }
 
-.indoforall_filter_worker_city_type textarea::-webkit-scrollbar {
+.indoforall-filter-worker-city-type textarea::-webkit-scrollbar {
     width: 0;
 }
 
-#indoforall_submit_filter_worker_type {
+#indoforall-submit-filter-worker-type {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#indoforall_submit_filter_worker_type h5 {
+#indoforall-submit-filter-worker-type h5 {
     background: linear-gradient(to top, rgb(140, 56, 0), rgb(255, 102, 0));
     font-size: 1.5rem;
     margin: 0 15px;
@@ -980,16 +976,16 @@ body.nav-open #indoforall_nav_options * {
     transition: all 0.2s ease-in-out;
 }
 
-#indoforall_submit_filter_worker_type h5:hover {
+#indoforall-submit-filter-worker-type h5:hover {
     box-shadow: 0 0 5px 0.5px white;
 }
 
 /* Main Page Section */
-#indoforall_main_page_section {
+#indoforall-main-page-section {
     background: rgb(236, 247, 255);
 }
 
-.indoforall_main_page_text {
+.indoforall-main-page-text {
     background: black;
     font-size: 1.5rem;
     margin-bottom: 1vmax;
@@ -1000,7 +996,7 @@ body.nav-open #indoforall_nav_options * {
     line-height: 1.5;
 }
 
-.indoforall_main_page_text_2 {
+.indoforall-main-page-text-2 {
     background: black;
     font-size: 1.5rem;
     padding: 5px;
@@ -1010,7 +1006,7 @@ body.nav-open #indoforall_nav_options * {
     line-height: 1.5;
 }
 
-#indoforall_our_features_area {
+#indoforall-our-features-area {
     background: rgb(220, 240, 255);
     width: 100%;
     height: fit-content;
@@ -1024,7 +1020,7 @@ body.nav-open #indoforall_nav_options * {
     box-shadow: 0 0 1px 0.5px black;
 }
 
-#indoforall_our_features_area h2 {
+#indoforall-our-features-area h2 {
     color: black;
     font-size: 1.5rem;
     padding: 5px;
@@ -1032,21 +1028,21 @@ body.nav-open #indoforall_nav_options * {
     text-align: start;
 }
 
-#indoforall_our_features_area spam {
+#indoforall-our-features-area spam {
     margin-left: 5px;
 }
 
-#indoforall_main_page_section img {
+#indoforall-main-page-section img {
     margin: 15px 0;
 }
 
-.indoforall_indonesia_info_image {
+.indoforall-indonesia-info-image {
     width: 5rem;
     cursor: pointer;
     align-self: center;
 }
 
-#indoforall_indonesia_info {
+#indoforall-indonesia-info {
     background: rgb(220, 240, 255);
     width: 100%;
     height: fit-content;
@@ -1059,14 +1055,14 @@ body.nav-open #indoforall_nav_options * {
     box-shadow: 0 0 1px 0.5px black;
 }
 
-#indoforall_indonesia_info h2 {
+#indoforall-indonesia-info h2 {
     color: black;
     font-size: 1.2rem;
     line-height: 1.5;
     padding: 1vmax 1vmax 0 1vmax;
 }
 
-#indoforall_our_contact_info {
+#indoforall-our-contact-info {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -1075,7 +1071,7 @@ body.nav-open #indoforall_nav_options * {
     margin-top: 1vmax;
 }
 
-#indoforall_our_contact_info div {
+#indoforall-our-contact-info div {
     background: linear-gradient(to right, #a64ac9, #4db7d8);
     display: flex;
     width: 20rem;
@@ -1089,12 +1085,12 @@ body.nav-open #indoforall_nav_options * {
     transition: all 0.3s ease-in-out;
 }
 
-#indoforall_our_contact_info div:hover {
+#indoforall-our-contact-info div:hover {
     transform: scale(1.02);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
 }
 
-#indoforall_our_contact_info ion-icon {
+#indoforall-our-contact-info ion-icon {
     background: linear-gradient(135deg, #ffd700, #ff4500);
     /* Gold to Orange gradient for strong pop */
     font-size: 4rem;
@@ -1109,14 +1105,14 @@ body.nav-open #indoforall_nav_options * {
     transition: all 0.3s ease-in-out;
 }
 
-#indoforall_our_contact_info ion-icon:hover {
+#indoforall-our-contact-info ion-icon:hover {
     transform: scale(1.05);
     box-shadow: 0 0 25px rgba(255, 69, 0, 0.8);
     /* Enhanced glow on hover */
 }
 
-#indoforall_our_contact_info h1,
-#indoforall_our_contact_info h2 {
+#indoforall-our-contact-info h1,
+#indoforall-our-contact-info h2 {
     background: rgba(0, 0, 0, 0.8);
     color: #ffffff;
     font-size: 1.2rem;
@@ -1129,7 +1125,7 @@ body.nav-open #indoforall_nav_options * {
 }
 
 /* Prices Section */
-#indoforall_price_area {
+#indoforall-price-area {
     background: rgb(220, 240, 255);
     padding: 20px 0;
     width: 100%;
@@ -1143,7 +1139,7 @@ body.nav-open #indoforall_nav_options * {
     /* Adds spacing between cards */
 }
 
-.indoforall_price_card {
+.indoforall-price-card {
     background: linear-gradient(to right, #a64ac9, #4db7d8);
     width: 30rem;
     margin: 15px 5px;
@@ -1156,14 +1152,14 @@ body.nav-open #indoforall_nav_options * {
     transition: all 0.2s ease-in-out;
 }
 
-.indoforall_price_card h3 {
+.indoforall-price-card h3 {
     box-shadow: 0 0 1px 0.5px black;
 }
 
-.indoforall_price_card h3,
-.indoforall_price_card h4,
-.indoforall_price_card h5,
-.indoforall_price_card h6 {
+.indoforall-price-card h3,
+.indoforall-price-card h4,
+.indoforall-price-card h5,
+.indoforall-price-card h6 {
     background: black;
     width: fit-content;
     font-size: 1.5rem;
@@ -1172,11 +1168,11 @@ body.nav-open #indoforall_nav_options * {
     padding: 8px 14px;
 }
 
-.indoforall_price_card spam {
+.indoforall-price-card spam {
     margin-left: 1px;
 }
 
-.indoforall_price_card h6 {
+.indoforall-price-card h6 {
     background: linear-gradient(to right, rgb(5, 0, 91), rgb(13, 0, 255));
     width: 100%;
     margin-top: auto;
@@ -1186,17 +1182,17 @@ body.nav-open #indoforall_nav_options * {
     transition: all 0.2s ease-in-out;
 }
 
-.indoforall_price_card h6:hover {
+.indoforall-price-card h6:hover {
     box-shadow: 0 0 5px 0.5px white;
 }
 
-.indoforall_pay_results {
+.indoforall-pay-results {
     width: 100%;
     margin: 20px 0;
 }
 
 /* Questions And Answeres Section */
-#indoforall_question_area {
+#indoforall-question-area {
     background: rgb(220, 240, 255);
     width: 100%;
     display: flex;
@@ -1209,7 +1205,7 @@ body.nav-open #indoforall_nav_options * {
     box-shadow: 0 0 1px 0.5px black;
 }
 
-.indoforall_QuestionDiv {
+.indoforall-question-div {
     margin: 2vmax;
     display: flex;
     justify-content: center;
@@ -1217,7 +1213,7 @@ body.nav-open #indoforall_nav_options * {
     flex-direction: column;
 }
 
-.indoforall_QuestionText {
+.indoforall-question-text {
     background: black;
     font-size: 1.5rem;
     text-align: center;
@@ -1226,7 +1222,7 @@ body.nav-open #indoforall_nav_options * {
     box-shadow: 0 0 1px 0.5px black;
 }
 
-.indoforall_AnswerText {
+.indoforall-answer-text {
     background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
     font-size: 1.5rem;
     text-align: center;
@@ -1236,7 +1232,7 @@ body.nav-open #indoforall_nav_options * {
 }
 
 /* System Work Section */
-#indoforall_system_work_area {
+#indoforall-system-work-area {
     background: rgb(220, 240, 255);
     width: 100%;
     display: flex;
@@ -1247,7 +1243,7 @@ body.nav-open #indoforall_nav_options * {
     border-radius: 3px;
 }
 
-#indoforall_system_work_area div {
+#indoforall-system-work-area div {
     background: linear-gradient(to right, #3b82f6, #f59e0b);
     width: 40rem;
     display: flex;
@@ -1261,7 +1257,7 @@ body.nav-open #indoforall_nav_options * {
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
 
-.indoforall_systemworknumber {
+.indoforall-system-work-number {
     background: #ffffff;
     color: #111827;
     font-size: 1.5rem;
@@ -1270,7 +1266,7 @@ body.nav-open #indoforall_nav_options * {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
 }
 
-#indoforall_system_work_area ion-icon {
+#indoforall-system-work-area ion-icon {
     background: linear-gradient(#3b82f6, #d946ef);
     font-size: 7rem;
     margin: 5px 0;
@@ -1279,7 +1275,7 @@ body.nav-open #indoforall_nav_options * {
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
 }
 
-.indoforall_system_work_text {
+.indoforall-system-work-text {
     background: linear-gradient(to top, #1e3a8a, #3b82f6);
     font-size: 1.5rem;
     padding: 5px;
@@ -1288,9 +1284,8 @@ body.nav-open #indoforall_nav_options * {
 }
 
 /* Proof Section */
-#indoforall_proof_area {
-    background: rgb(220, 240, 255);
-    background: rgb(0, 145, 255);
+#indoforall-proof-area {
+    background: rgb(208, 235, 255);
     width: 100%;
     display: flex;
     overflow-x: auto;
@@ -1301,7 +1296,7 @@ body.nav-open #indoforall_nav_options * {
 }
 
 /* Worker Card Proof Card */
-#indoforall_worker_card_proof_card {
+#indoforall-worker-card-proof-card {
     width: 20rem;
     flex: 0 0 auto;
     display: flex;
@@ -1315,8 +1310,12 @@ body.nav-open #indoforall_nav_options * {
     scroll-snap-align: center;
 }
 
+#indoforall-proof-area h2 {
+    color: black;
+}
+
 /* Images */
-#indoforall_worker_card_proof_card img {
+#indoforall-worker-card-proof-card img {
     width: 100%;
     height: 90%;
     object-fit: cover;
@@ -1324,7 +1323,7 @@ body.nav-open #indoforall_nav_options * {
 }
 
 /* Videos */
-.indoforall_worker_proof_card video {
+.indoforall-worker-proof-card video {
     width: 100%;
     height: 90%;
     object-fit: cover;
@@ -1332,7 +1331,7 @@ body.nav-open #indoforall_nav_options * {
 }
 
 /* About Us Section */
-#indoforall_companydescription {
+#indoforall-company-description {
     background: rgb(220, 240, 255);
     width: 100%;
     margin-top: 25px;
@@ -1344,7 +1343,7 @@ body.nav-open #indoforall_nav_options * {
     border-radius: 3px;
 }
 
-#indoforall_companydescription h2 {
+#indoforall-company-description h2 {
     color: black;
     font-size: 1.5rem;
     line-height: 1.5;
@@ -1355,21 +1354,21 @@ body.nav-open #indoforall_nav_options * {
     border-radius: 3px;
 }
 
-#indoforall_companydescription img {
+#indoforall-company-description img {
     width: 6rem;
     margin-top: 10px;
     cursor: pointer;
 }
 
 /* Our Accounts Section */
-#indoforall_accounts_section {
+#indoforall-accounts-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-#indoforall_accounts_area {
+#indoforall-accounts-area {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -1377,7 +1376,7 @@ body.nav-open #indoforall_nav_options * {
     align-items: center;
 }
 
-#indoforall_accounts_div {
+#indoforall-accounts-div {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -1385,7 +1384,7 @@ body.nav-open #indoforall_nav_options * {
     align-items: center;
 }
 
-#indoforall_accounts_section a {
+#indoforall-accounts-section a {
     background: rgb(0, 162, 255);
     color: white;
     width: 15rem;
@@ -1399,12 +1398,12 @@ body.nav-open #indoforall_nav_options * {
     transition: all 0.2s ease-in-out;
 }
 
-#indoforall_accounts_section a:hover {
+#indoforall-accounts-section a:hover {
     background: rgb(188, 188, 188);
     color: black;
 }
 
-#indoforall_accounts_section ion-icon {
+#indoforall-accounts-section ion-icon {
     width: 100%;
     font-size: 3rem;
     padding: 5px 0;
@@ -1412,7 +1411,7 @@ body.nav-open #indoforall_nav_options * {
     text-align: center;
 }
 
-#indoforall_ads_videos_and_img_div {
+#indoforall-ads-videos-and-img-div {
     background: rgb(220, 240, 255);
     width: 100%;
     display: flex;
@@ -1423,7 +1422,7 @@ body.nav-open #indoforall_nav_options * {
     border-radius: 3px;
 }
 
-.indoforall_ads_only_videos_div {
+.indoforall-ads-only-videos-div {
     width: 30rem;
     position: relative;
     display: flex;
@@ -1436,7 +1435,7 @@ body.nav-open #indoforall_nav_options * {
     box-shadow: 0 0 1px 0.5px black;
 }
 
-.indoforall_ads_only_img_div {
+.indoforall-ads-only-img-div {
     width: 30rem;
     display: flex;
     flex-direction: column;
@@ -1445,13 +1444,13 @@ body.nav-open #indoforall_nav_options * {
     margin: 15px;
 }
 
-.indoforall_ads_only_videos_div video {
+.indoforall-ads-only-videos-div video {
     width: 100%;
     height: 100%;
     cursor: pointer;
 }
 
-.indoforall_ads_only_videos_div img {
+.indoforall-ads-only-videos-div img {
     position: absolute;
     top: 0;
     left: 0;
@@ -1460,7 +1459,7 @@ body.nav-open #indoforall_nav_options * {
     transition: opacity 0.5s ease;
 }
 
-.indoforall_ads_only_img_div img {
+.indoforall-ads-only-img-div img {
     width: 100%;
     cursor: pointer;
     border-radius: 3px;
@@ -1497,76 +1496,60 @@ footer img {
     cursor: pointer;
 }
 
-/* Initial state for animation */
-.indoforall_animate_on_scroll {
-    transform: translateY(0px);
-    transition: all 0.5s ease !important;
-}
-
-/* Intro Animation */
-.intro_animation {
-    transform: translateY(0);
-}
-
-/* Outro Animation */
-.outro_animation {
-    transform: translateY(100px);
-}
-
 /* Media Queries */
 /* 1250px */
 @media (max-width: 1250px) {
-    #indoforall_close_nav {
+    #indoforall-close-nav {
         font-size: 2vw;
     }
 
     /* Styling the main container */
-    .indoforall_insert_comment_form_div {
+    .indoforall-insert-comment-form-div {
         width: 80vw;
     }
 
     /* Form styling */
-    #indoforall_comment_form {
+    #indoforall-comment-form {
         gap: 5px 0;
     }
 }
 
 /* 950px */
 @media (max-width: 950px) {
-    #indoforall_web_logo {
+    #indoforall-web-logo {
         width: 85vmin;
     }
 
-    #indoforall_web_intro_2 {
+    #indoforall-web-intro-2 {
         font-size: 3.5vmin;
     }
 
-    #indoforall_web_intro_1 {
+    #indoforall-web-intro-1 {
         font-size: 8vmin;
     }
 
-    #indoforall_web_intro_3 {
+    #indoforall-web-intro-3 {
         font-size: 3.5vmin;
     }
 
-    .indoforall_web_intro_contact_us {
+    .indoforall-web-intro-contact-us {
         font-size: 4vmin;
     }
 
-    .web_guidance_div {
+    .web-guidance-div {
         width: 95%;
         padding: 10px 5px;
     }
 
-    .web_guidance_div a {
+    .web-guidance-div a {
         font-size: 4vmin;
     }
 
-    #indoforall_website_guidance_text {
+    #indoforall-website-guidance-text {
         font-size: 4vmin;
     }
 
-    #indoforall_request_worker_now_button {
+    #indoforall-request-worker-now-button {
         font-size: 4.5vmin;
     }
 
@@ -1574,280 +1557,280 @@ footer img {
         font-size: 5vmin;
     }
 
-    #indoforall_nav_icon {
+    #indoforall-nav-icon {
         width: 8vmin;
     }
 
-    #indoforall_nav_logo {
+    #indoforall-nav-logo {
         width: 15vmin;
     }
 
-    #indoforall_nav_options a {
+    #indoforall-nav-options a {
         font-size: 3vmin;
     }
 
-    .indoforall_section_intro_text {
+    .indoforall-section-intro-text {
         font-size: 4vmin;
         margin-top: 10px;
     }
 
-    .indoforall_section_intro_text_2 {
+    .indoforall-section-intro-text-2 {
         font-size: 4vmin;
         margin-top: 10px;
     }
 
-    #indoforall_worker_type_area {
+    #indoforall-worker-type-area {
         padding: 5px 10px;
     }
 
-    #indoforall_worker_type_div h3 {
+    #indoforall-worker-type-div h3 {
         font-size: 4vmin;
     }
 
-    .indoforall_worker_details_text_h1 {
+    .indoforall-worker-details-text-h1 {
         font-size: 4vmin;
     }
 
-    .indoforall_other_pages_link {
+    .indoforall-other-pages-link {
         font-size: 4vmin;
     }
 
-    .indoforall_quick_info {
+    .indoforall-quick-info {
         font-size: 4vmin;
     }
 
-    .indoforall_main_page_text {
+    .indoforall-main-page-text {
         font-size: 4vmin;
     }
 
-    .indoforall_main_page_text_2 {
+    .indoforall-main-page-text-2 {
         font-size: 4vmin;
     }
 
-    #indoforall_our_features_area h2 {
+    #indoforall-our-features-area h2 {
         font-size: 4vmin;
     }
 
-    #indoforall_our_features_area spam {
+    #indoforall-our-features-area spam {
         margin-left: 3px;
     }
 
-    .indoforall_indonesia_info_image {
+    .indoforall-indonesia-info-image {
         width: 14vmin;
     }
 
-    #indoforall_indonesia_info h2 {
+    #indoforall-indonesia-info h2 {
         font-size: 3vmin;
     }
 
-    #indoforall_our_contact_info div {
+    #indoforall-our-contact-info div {
         width: 65vmin;
         margin: 5px;
     }
 
-    #indoforall_our_contact_info ion-icon {
+    #indoforall-our-contact-info ion-icon {
         font-size: 13vmin;
     }
 
-    #indoforall_our_contact_info h1,
-    #indoforall_our_contact_info h2 {
+    #indoforall-our-contact-info h1,
+    #indoforall-our-contact-info h2 {
         font-size: 4vmin;
         padding: 0.4vmax;
     }
 
-    .indoforall_full_screen_overlay_exit_button {
+    .indoforall-full-screen-overlay-exit-button {
         font-size: 5vmin;
     }
 
-    #indoforall_whatsapp_icon h4 {
+    #indoforall-whatsapp-icon h4 {
         font-size: 4vmin;
     }
 
-    #indoforall_whatsapp_icon img {
+    #indoforall-whatsapp-icon img {
         width: 14vmin;
     }
 
-    .indoforall_section_intro_bigger_text {
+    .indoforall-section-intro-bigger-text {
         font-size: 6vmin;
     }
 
-    #indoforall_companydescription {
+    #indoforall-company-description {
         margin-top: 5px;
         padding: 5px;
     }
 
-    #indoforall_companydescription h2 {
+    #indoforall-company-description h2 {
         font-size: 5vmin;
         padding: 1px;
     }
 
-    #indoforall_companydescription img {
+    #indoforall-company-description img {
         width: 15vmin;
         margin-top: 5px;
     }
 
-    #indoforall_price_area {
+    #indoforall-price-area {
         padding: 10px 0;
         gap: 10px;
     }
 
-    .indoforall_price_card {
+    .indoforall-price-card {
         min-width: 95%;
         margin: 10px 5px;
         padding: 5px;
     }
 
-    .indoforall_price_card h3,
-    .indoforall_price_card h4,
-    .indoforall_price_card h5,
-    .indoforall_price_card h6 {
+    .indoforall-price-card h3,
+    .indoforall-price-card h4,
+    .indoforall-price-card h5,
+    .indoforall-price-card h6 {
         font-size: 4vmin;
         margin: 1px 0;
         padding: 5px 10px;
     }
 
-    .indoforall_price_card spam {
+    .indoforall-price-card spam {
         margin-left: 0.5px;
     }
 
-    .indoforall_price_card h6 {
+    .indoforall-price-card h6 {
         padding: 5px 0;
     }
 
-    .indoforall_pay_results {
+    .indoforall-pay-results {
         margin: 5px 0;
     }
 
-    #indoforall_system_work_area div {
+    #indoforall-system-work-area div {
         width: 80vw;
         margin: 5px;
         padding: 5px;
     }
 
-    .indoforall_systemworknumber {
+    .indoforall-systemworknumber {
         font-size: 5.5vmin;
         padding: 0 5px;
     }
 
-    #indoforall_system_work_area ion-icon {
+    #indoforall-system-work-area ion-icon {
         font-size: 10vw;
     }
 
-    .indoforall_system_work_text {
+    .indoforall-system-work-text {
         font-size: 4vmin;
         padding: 3px 5px;
     }
 
-    #indoforall_question_area {
+    #indoforall-question-area {
         padding: 5px 0;
         margin: 0.5vmax 0;
     }
 
-    .indoforall_QuestionDiv {
+    .indoforall-1uestion-div {
         margin: 2vmax 3px;
     }
 
-    .indoforall_QuestionText {
+    .indoforall-question-text {
         font-size: 4vmin;
         padding: 3px 5px;
     }
 
-    .indoforall_AnswerText {
+    .indoforall-answer-text {
         font-size: 4vmin;
         padding: 3px 5px;
     }
 
-    #indoforall_worker_card_proof_card {
+    #indoforall-worker-card-proof-card {
         width: 45vmin;
         height: 80vmin;
     }
 
-    #indoforall_accounts_section a {
+    #indoforall-accounts-section a {
         width: 25vmin;
         font-size: 4vmin;
         margin: 5px;
         padding: 1px 0;
     }
 
-    #indoforall_accounts_section ion-icon {
+    #indoforall-accounts-section ion-icon {
         font-size: 8vmin;
         padding: 2px 0;
     }
 
-    .indoforall_rate_div {
+    .indoforall-rate-div {
         min-width: 65vw;
         margin: 0 8px;
         padding: 5px 2px;
     }
 
-    .indoforall_clint_rate_date_div h3 {
+    .indoforall-clint-rate-date-div h3 {
         font-size: 2.5vw;
     }
 
-    .indoforall_clint_rate_info_div img {
+    .indoforall-clint-rate-info-div img {
         width: 5.5vw;
     }
 
-    .indoforall_clint_rate_info_div h4 {
+    .indoforall-clint-rate-info-div h4 {
         font-size: 2.5vw;
     }
 
-    .indoforall_clint_rate_comment_div h5 {
+    .indoforall-clint-rate-comment-div h5 {
         font-size: 2.5vw;
     }
 
-    .indoforall_clint_rate_star_div {
+    .indoforall-clint-rate-star-div {
         margin-top: 8px;
         font-size: 3.5vw;
     }
 
-    #indoforall_filter_worker_type_div {
+    #indoforall-filter-worker-type-div {
         width: 100vw;
         height: 100vh;
     }
 
-    #indoforall_filter_worker_type_title h3 {
+    #indoforall-filter-worker-type-title h3 {
         font-size: 5vmin;
     }
 
-    #indoforall_filter_worker_work_type h3 {
-        font-size: 5vmin;
-        padding: 3px;
-    }
-
-    #indoforall_filter_worker_work_type h4 {
+    #indoforall-filter-worker-work-type h3 {
         font-size: 5vmin;
         padding: 3px;
     }
 
-    #indoforall_submit_filter_worker_type h5 {
+    #indoforall-filter-worker-work-type h4 {
+        font-size: 5vmin;
+        padding: 3px;
+    }
+
+    #indoforall-submit-filter-worker-type h5 {
         font-size: 5vmin;
     }
 
-    #indoforall_filter_worker_visa_type h3 {
+    #indoforall-filter-worker-visa-type h3 {
         font-size: 5vmin;
     }
 
-    #indoforall_filter_worker_visa_type h4 {
+    #indoforall-filter-worker-visa-type h4 {
         font-size: 5vmin;
         margin: 3px 0;
         padding: 5px 10px;
     }
 
-    #indoforall_filter_worker_city_type h3 {
+    #indoforall-filter-worker-city-type h3 {
         font-size: 5vmin;
     }
 
-    #indoforall_filter_worker_city_type textarea {
+    #indoforall-filter-worker-city-type textarea {
         font-size: 5vmin;
         padding: 5px;
     }
 
-    .indoforall_insert_comment_form_div h3 {
+    .indoforall-insert-comment-form-div h3 {
         font-size: 4vw;
     }
 
-    #indoforall_error_page_go_back_button {
+    #indoforall-error-page-go-back-button {
         margin: 3px 0;
         font-size: 4vmin;
         padding: 5px 10px;
@@ -1869,137 +1852,136 @@ footer img {
 
 /* 850px */
 @media (max-width: 850px) {
-    .indoforall_Proof_video_div {
+    .indoforall-Proof-video-div {
         width: 25vw;
     }
 
-    .indoforall_Proof_video_div h2 {
+    .indoforall-Proof-video-div h2 {
         font-size: 2.5vw;
     }
 }
 
 /* 650px */
 @media (max-width: 650px) {
-    #indoforall_close_nav {
+    #indoforall-close-nav {
         font-size: 3vw;
     }
 
-    .indoforall_worker_cards_div_class {
+    .indoforall-worker-cards-div-class {
         margin-bottom: 5px;
         padding: 10px 0 20px;
     }
 
-    .indoforall_worker_type_card {
+    .indoforall-worker-type-card {
         min-width: 30vw;
         width: 20vw;
         height: 37vw;
     }
 
-    .indoforall_worker_type_card h2 {
+    .indoforall-worker-type-card h2 {
         font-size: 2.5vw;
     }
 }
 
 /* 400px */
 @media (max-width: 400px) {
-    #indoforall_web_logo {
+    #indoforall-web-logo {
         width: 100%;
     }
 
-    #indoforall_nav_options a {
+    #indoforall-nav-options a {
         font-size: 4vmin;
     }
 
-    .indoforall_ads_only_videos_div {
+    .indoforall-ads-only-videos-div {
         margin: 5px;
         min-width: 95%;
     }
 
-    .indoforall_ads_only_img_div {
+    .indoforall-ads-only-img-div {
         min-width: 95%;
     }
 
-    .indoforall_insert_comment_form_div h3 {
+    .indoforall-insert-comment-form-div {
+        width: 100vw;
+        padding: 5px 10px;
+    }
+
+    .indoforall-insert-comment-form-div h3 {
         font-size: 5vw;
         margin-bottom: 5px;
     }
 
-    #indoforall_comment_form label {
+    #indoforall-comment-form label {
         font-size: 4vw;
     }
 
-    #indoforall_comment_form button {
+    #indoforall-comment-form button {
         font-size: 4vw;
     }
 
-    .indoforall_rate_div {
+    .indoforall-rate-div {
         min-width: 90vw;
         margin: 0 5px;
     }
 
-    .indoforall_clint_rate_date_div h3 {
+    .indoforall-clint-rate-date-div h3 {
         font-size: 3.5vw;
     }
 
-    .indoforall_clint_rate_info_div img {
+    .indoforall-clint-rate-info-div img {
         width: 8.5vw;
     }
 
-    .indoforall_clint_rate_info_div h4 {
+    .indoforall-clint-rate-info-div h4 {
         font-size: 3.5vw;
     }
 
-    .indoforall_clint_rate_comment_div h5 {
+    .indoforall-clint-rate-comment-div h5 {
         font-size: 3.5vw;
     }
 
-    .indoforall_clint_rate_star_div {
+    .indoforall-clint-rate-star-div {
         margin-top: 8px;
         font-size: 5vw;
     }
 
-    .indoforall_sections {
+    .indoforall-sections {
         padding: 20px 0;
     }
 
-    #indoforall_close_nav {
+    #indoforall-close-nav {
         font-size: 4vw;
     }
 
-    .indoforall_worker_cards_div_class {
+    .indoforall-worker-cards-div-class {
         margin-bottom: 3px;
         padding: 10px 0;
     }
 
-    .indoforall_worker_type_card {
+    .indoforall-worker-type-card {
         min-width: 40vw;
         width: 30vw;
         height: 47vw;
     }
 
-    .indoforall_worker_type_card h2 {
+    .indoforall-worker-type-card h2 {
         font-size: 3.5vw;
         margin-bottom: 2px;
     }
 
-    /* Styling the main container */
-    .indoforall_insert_comment_form_div {
-        width: 100vw;
-        padding: 5px 10px;
-    }
-
-    .indoforall_Proof_video_div {
+    .indoforall-Proof-video-div {
         width: 45vw;
     }
 
-    .indoforall_Proof_video_div h2 {
+    .indoforall-Proof-video-div h2 {
         font-size: 4.5vw;
     }
 }
 
 /* 320px */
 @media (max-width: 320px) {
-    .indoforall_Proof_video_div {
+    .indoforall-Proof-video-div {
         width: 55vw;
     }
 }
