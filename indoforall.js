@@ -344,31 +344,31 @@ indoforall_craeteRequestWorkerMessage = function () {
             workerTypeNameVariable = "عاملة منزلية";
             indoforall_filterWorkerCityType = `
             <h3>السعر</h3>
-                <h4>استقدام عاملة منزلية = 18,500 ريال سعودي</h4>
+                <h4>استقدام عاملة منزلية = 17,000 ريال سعودي</h4>
             `;
         } else if (workerTypeName === "driver") {
             workerTypeNameVariable = "سائق خاص";
             indoforall_filterWorkerCityType = `
                 <h3>السعر</h3>
-                <h4>استقدام سائق خاص = 7,000 ريال سعودي</h4>
+                <h4>استقدام سائق خاص = 10,000 ريال سعودي</h4>
             `;
         } else if (workerTypeName === "hair") {
             workerTypeNameVariable = "كوفيرة";
             indoforall_filterWorkerCityType = `
                 <h3>السعر</h3>
-                <h4>فيزة عمالة مهنية = 18,500 ريال سعودي</h4>
+                <h4>فيزة عمالة مهنية = 17,000 ريال سعودي</h4>
             `;
         } else if (workerTypeName === "sewing") {
             workerTypeNameVariable = "خياطة";
             indoforall_filterWorkerCityType = `
                 <h3>السعر</h3>
-                <h4>فيزة عمالة مهنية = 18,500 ريال سعودي</h4>
+                <h4>فيزة عمالة مهنية = 17,000 ريال سعودي</h4>
             `;
         } else if (workerTypeName === "nurse") {
             workerTypeNameVariable = "ممرضة";
             indoforall_filterWorkerCityType = `
                 <h3>السعر</h3>
-                <h4>فيزة عمالة مهنية = 18,500 ريال سعودي</h4>
+                <h4>فيزة عمالة مهنية = 17,000 ريال سعودي</h4>
             `;
         }
 
@@ -431,12 +431,12 @@ indoforall_craeteRequestWorkerMessage = function () {
 
                 /* Based on The Passed 'workerTypeName' Value Set The Name of Worker Type Data */
                 if (workerTypeNameVariable === "عاملة منزلية") {
-                    finalMessage += `السعر: 18,500 ريال سعودي\n`;
+                    finalMessage += `السعر: 17,000 ريال سعودي\n`;
                 } else if (workerTypeNameVariable === "سائق خاص") {
-                    finalMessage += `السعر: 7,000 ريال سعودي\n`;
+                    finalMessage += `السعر: 10,000 ريال سعودي\n`;
                 } else {
                     finalMessage += `نوع الفيزا: فيزة عمالة مهنية\n`;
-                    finalMessage += `السعر: 18,500 ريال سعودي\n`;
+                    finalMessage += `السعر: 17,000 ريال سعودي\n`;
                 }
 
                 finalMessage += `استقدام الى: ${cityName}\n\n`;
@@ -697,19 +697,19 @@ if (document.getElementById("indoforall-choose-worker-type-section")) {
             workerTypeNameVariable = "عاملة منزلية";
             indoforall_filterWorkerCityType = `
             <h3>السعر</h3>
-            <h4>استقدام عاملة منزلية = 18,500 ريال سعودي</h4>
+            <h4>استقدام عاملة منزلية = 17,000 ريال سعودي</h4>
         `;
         } else if (workerTypeName === "driver") {
             workerTypeNameVariable = "سائق خاص";
             indoforall_filterWorkerCityType = `
             <h3>السعر</h3>
-            <h4>استقدام سائق خاص = 7,000 ريال سعودي</h4>
+            <h4>استقدام سائق خاص = 10,000 ريال سعودي</h4>
         `;
         } else {
             workerTypeNameVariable = workerTypeName === "hair" ? "كوفيرة" : workerTypeName === "sewing" ? "خياطة" : "ممرضة";
             indoforall_filterWorkerCityType = `
             <h3>السعر</h3>
-            <h4>فيزة عمالة مهنية = 18,500 ريال سعودي</h4>
+            <h4>فيزة عمالة مهنية = 17,000 ريال سعودي</h4>
         `;
         }
 
@@ -782,12 +782,12 @@ if (document.getElementById("indoforall-choose-worker-type-section")) {
 
                 /* Based on The Passed 'workerTypeName' Value Set The Name of Worker Type Data */
                 if (workerTypeNameVariable === "عاملة منزلية") {
-                    finalMessage += `السعر: 18,500 ريال سعودي\n`;
+                    finalMessage += `السعر: 17,000 ريال سعودي\n`;
                 } else if (workerTypeNameVariable === "سائق خاص") {
-                    finalMessage += `السعر: 7,000 ريال سعودي\n`;
+                    finalMessage += `السعر: 10,000 ريال سعودي\n`;
                 } else {
                     finalMessage += `نوع الفيزا: فيزة عمالة مهنية\n`;
-                    finalMessage += `السعر: 18,500 ريال سعودي\n`;
+                    finalMessage += `السعر: 17,000 ريال سعودي\n`;
                 }
 
                 finalMessage += `استقدام الى: ${cityName}\n\n`;
@@ -820,18 +820,18 @@ if (document.getElementById("indoforall-price-section")) {
         let availableWorkerVisaTypeVariable;
 
         /* Based on The Passed 'clickedWorkerVisaTypeMessage' Value Create A Spicific Content */
-        if (clickedWorkerVisaTypeMessage === "استقدام عاملة منزلية = 18,500 ريال سعودي") {
+        if (clickedWorkerVisaTypeMessage === "استقدام عاملة منزلية = 78,000 ريال سعودي") {
             availableWorkerVisaTypeVariable = `
                 <h4 onclick="indoforall_filterWorkerTypeDataFunction('home', '${clickedWorkerVisaTypeMessage}')">عاملة منزلية</h4>
                 <h4 onclick="indoforall_filterWorkerTypeDataFunction('driver', 'استقدام سائق خاص = 7,000 ريال سعودي')">سائق خاص</h4>
                 <h4 onclick="indoforall_whatsApp()">خيارات اخرى؟ تواصل معنا على الواتس</h4>
             `;
-        } else if (clickedWorkerVisaTypeMessage === "استقدام سائق خاص = 7,000 ريال سعودي") {
+        } else if (clickedWorkerVisaTypeMessage === "استقدام سائق خاص = 10,000 ريال سعودي") {
             availableWorkerVisaTypeVariable = `
                 <h4 onclick="indoforall_filterWorkerTypeDataFunction('driver', '${clickedWorkerVisaTypeMessage}')">سائق خاص</h4>
                 <h4 onclick="indoforall_whatsApp()">خيارات اخرى؟ تواصل معنا على الواتس</h4>
             `;
-        } else if (clickedWorkerVisaTypeMessage === "فيزة عمالة مهنية = 18,500 ريال سعودي") {
+        } else if (clickedWorkerVisaTypeMessage === "فيزة عمالة مهنية = 78,000 ريال سعودي") {
             availableWorkerVisaTypeVariable = `
                 <h4 onclick="indoforall_filterWorkerTypeDataFunction('driver', '${clickedWorkerVisaTypeMessage}')">سائق خاص</h4>
                 <h4 onclick="indoforall_filterWorkerTypeDataFunction('hair', '${clickedWorkerVisaTypeMessage}')">كوفيرة</h4>
@@ -968,12 +968,12 @@ if (document.getElementById("indoforall-price-section")) {
 
                     /* Based on The 'workerTypeNameVariable' Value Create The WhatsApp Message*/
                     if (workerTypeNameVariable === "عاملة منزلية") {
-                        finalMessage += `السعر: 18,500 ريال سعودي\n`;
+                        finalMessage += `السعر: 17,000 ريال سعودي\n`;
                     } else if (workerTypeNameVariable === "سائق خاص") {
-                        finalMessage += `السعر: 7,000 ريال سعودي\n`;
+                        finalMessage += `السعر: 10,000 ريال سعودي\n`;
                     } else {
                         finalMessage += `نوع الفيزا: فيزة عمالة مهنية\n`;
-                        finalMessage += `السعر: 18,500 ريال سعودي\n`;
+                        finalMessage += `السعر: 17,000 ريال سعودي\n`;
                     }
 
                     finalMessage += `استقدام الى: ${cityName}\n\n`;
