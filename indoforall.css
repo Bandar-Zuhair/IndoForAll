@@ -118,12 +118,108 @@ body {
 }
 
 /* Header */
-header {
+#indoforall-header {
+    background: rgb(236, 247, 255);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+header.hidden {
+    transform: translateY(-100%);
+}
+
+.indoforall-header-container {
+    direction: ltr;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    position: relative;
+}
+
+.indoforall-header-logo {
+    width: 6rem;
+}
+
+/* Navigation Links (Desktop) */
+.indoforall-desktop-nav {
+    display: flex;
+}
+
+.indoforall-nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Centers the items */
+    gap: 5px;
+    /* Adds spacing between links */
+    list-style: none;
+    padding: 10px 0;
+    background: #f8f9fa;
+    /* Light background for better contrast */
+    border-radius: 8px;
+    /* Rounded corners */
+}
+
+.indoforall-nav-links li {
+    flex: 1 1 calc(25% - 20px);
+    /* 4 items per row on larger screens */
+    min-width: 150px;
+    /* Ensures proper width on smaller screens */
+    text-align: center;
+}
+
+.indoforall-nav-links a {
+    display: block;
+    font-size: 1rem;
+    padding: 5px 10px;
+    background: #e7f2ff;
+    /* Blue background */
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: 0.3s ease-in-out;
+}
+
+.indoforall-nav-links a:hover {
+    background: #0056b3;
+    /* Darker blue on hover */
+    color: white;
+    transform: translateY(-2px);
+    /* Slight lift effect */
+}
+
+/* Mobile Menu Icon */
+/* Move the menu icon to the right */
+.indoforall-mobile-menu-icon {
+    display: none;
+    background: rgb(236, 247, 255);
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: black;
+    transition: 0.3s ease-in-out;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 15px;
+    /* Ensures it's aligned to the right */
+}
+
+/* indoforall-intro-section */
+#indoforall-intro-section {
     background: rgb(236, 247, 255);
     width: 100%;
 }
 
-header div {
+#indoforall-intro-section div {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -263,19 +359,6 @@ nav {
     margin-top: 20px;
 }
 
-#indoforall-nav {
-    background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
-    width: fit-content;
-    padding: 5px;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    border-radius: 3px;
-    box-shadow: 0 0 1px 0.5px black;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-}
-
 nav h3 {
     color: white;
     font-size: 2rem;
@@ -286,11 +369,6 @@ nav h3 {
 
 nav h3:hover {
     color: rgb(0, 255, 0);
-}
-
-#indoforall-nav-icon {
-    width: 4vmax;
-    cursor: pointer;
 }
 
 body.nav-open #indoforall-nav-options * {
@@ -319,6 +397,7 @@ body.nav-open #indoforall-nav-options * {
     width: 6rem;
     margin: 10px 0;
     animation: floatAnimation 4s ease-in-out infinite;
+    align-self: center;
 }
 
 #indoforall-nav-options a {
@@ -1557,10 +1636,6 @@ footer img {
         font-size: 5vmin;
     }
 
-    #indoforall-nav-icon {
-        width: 8vmin;
-    }
-
     #indoforall-nav-logo {
         width: 15vmin;
     }
@@ -1852,6 +1927,16 @@ footer img {
 
 /* 850px */
 @media (max-width: 850px) {
+    .indoforall-desktop-nav {
+        display: none;
+        /* Hide desktop navigation */
+    }
+
+    .indoforall-mobile-menu-icon {
+        display: block;
+        /* Show mobile menu icon */
+    }
+
     .indoforall-Proof-video-div {
         width: 25vw;
     }
@@ -1863,6 +1948,10 @@ footer img {
 
 /* 650px */
 @media (max-width: 650px) {
+    .indoforall-header-logo {
+        width: 15vw;
+    }
+
     #indoforall-close-nav {
         font-size: 3vw;
     }
@@ -1885,6 +1974,10 @@ footer img {
 
 /* 400px */
 @media (max-width: 400px) {
+    .indoforall-header-logo {
+        width: 20vw;
+    }
+
     #indoforall-web-logo {
         width: 100%;
     }
