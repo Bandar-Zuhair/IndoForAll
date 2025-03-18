@@ -1,7 +1,27 @@
-/* Page Load Header Fade Animation */
+/* Page Load body Fade Animation */
 setTimeout(function () {
     document.getElementById("indoforall-body").style.opacity = "1";
 }, 100);
+
+// Scroll event handler
+function handleScroll() {
+    const currentScrollPosition = window.scrollY;
+    const header = document.getElementById("indoforall-header");
+
+    if (currentScrollPosition > lastScrollPosition) {
+        // Scrolling down
+        header.classList.add("hidden");
+    } else {
+        // Scrolling up
+        header.classList.remove("hidden");
+    }
+
+    lastScrollPosition = currentScrollPosition;
+}
+
+// Attach scroll event initially
+let lastScrollPosition = 0;
+window.addEventListener("scroll", handleScroll);
 
 /* Create An Array of Different Worker Types Cards Data */
 let indoforall_homeWorkerArray = [
@@ -820,7 +840,7 @@ if (document.getElementById("indoforall-price-section")) {
         let availableWorkerVisaTypeVariable;
 
         /* Based on The Passed 'clickedWorkerVisaTypeMessage' Value Create A Spicific Content */
-        if (clickedWorkerVisaTypeMessage === "استقدام عاملة منزلية = 78,000 ريال سعودي") {
+        if (clickedWorkerVisaTypeMessage === "استقدام عاملة منزلية = 17,000 ريال سعودي") {
             availableWorkerVisaTypeVariable = `
                 <h4 onclick="indoforall_filterWorkerTypeDataFunction('home', '${clickedWorkerVisaTypeMessage}')">عاملة منزلية</h4>
                 <h4 onclick="indoforall_filterWorkerTypeDataFunction('driver', 'استقدام سائق خاص = 7,000 ريال سعودي')">سائق خاص</h4>
@@ -831,7 +851,7 @@ if (document.getElementById("indoforall-price-section")) {
                 <h4 onclick="indoforall_filterWorkerTypeDataFunction('driver', '${clickedWorkerVisaTypeMessage}')">سائق خاص</h4>
                 <h4 onclick="indoforall_whatsApp()">خيارات اخرى؟ تواصل معنا على الواتس</h4>
             `;
-        } else if (clickedWorkerVisaTypeMessage === "فيزة عمالة مهنية = 78,000 ريال سعودي") {
+        } else if (clickedWorkerVisaTypeMessage === "فيزة عمالة مهنية = 17,000 ريال سعودي") {
             availableWorkerVisaTypeVariable = `
                 <h4 onclick="indoforall_filterWorkerTypeDataFunction('driver', '${clickedWorkerVisaTypeMessage}')">سائق خاص</h4>
                 <h4 onclick="indoforall_filterWorkerTypeDataFunction('hair', '${clickedWorkerVisaTypeMessage}')">كوفيرة</h4>
@@ -944,10 +964,15 @@ if (document.getElementById("indoforall-price-section")) {
 
             /* Re-enable Scrolling And Remove The 'filterWorkerTypeDataDivOverlay' Elemenet */
             indoforall_cancelFilterWorkerTypeData = function () {
-                // Re-enable Scrolling
-                document.documentElement.style.overflow = "auto";
+                // Remove 'show' class to trigger fade-out animation
+                filterWorkerTypeDataDiv.classList.remove("show");
+                filterWorkerTypeDataDivOverlay.classList.remove("show");
 
-                document.body.removeChild(filterWorkerTypeDataDivOverlay);
+                // Wait for animation to complete before removing the overlay
+                setTimeout(() => {
+                    document.documentElement.style.overflow = "auto";
+                    document.body.removeChild(filterWorkerTypeDataDivOverlay);
+                }, 500); // Matches the CSS transition duration
             };
 
             /* Function To Create Final WhatsApp Message Based on Worker Type Data Selected */
