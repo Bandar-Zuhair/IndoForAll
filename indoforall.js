@@ -1262,31 +1262,41 @@ document.addEventListener("click", (event) => {
 });
 
 /* Function to run a video in the background of a section */
-const video = document.createElement("video");
-Object.assign(video, {
-    src: `استقدام-من-اندونيسيا.mp4`,
-    autoplay: true,
-    loop: true,
-    muted: true,
-    playsInline: true,
-});
+function addBackgroundVideo(sectionId, videoSrc) {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
 
-Object.assign(video.style, {
-    position: "absolute",
-    top: "0",
-    left: "0",
-    width: "100%",
-    height: "100%",
-    objectFit: "cover",
-    zIndex: "-1",
-    opacity: "0.3",
-});
+    // Ensure the section does not already have a background video
+    if (section.querySelector("video")) return;
 
-const section = document.getElementById("indoforall-intro-section");
-if (section) {
-    section.style.position = "relative";
+    const video = document.createElement("video");
+    Object.assign(video, {
+        src: videoSrc,
+        autoplay: true,
+        loop: true,
+        muted: true,
+        playsInline: true,
+    });
+
+    Object.assign(video.style, {
+        position: "absolute",
+        top: "0",
+        left: "0",
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+        zIndex: "-1",
+        opacity: "0.3",
+        pointerEvents: "none", // Prevent video from interfering with clicks
+    });
+
+    section.style.position = "relative"; // Ensure section allows absolute positioning
     section.prepend(video);
 }
+
+// Add videos only to the intended sections
+addBackgroundVideo("indoforall-body", "استقدام-اندونيسيا.mp4");
+addBackgroundVideo("indoforall-intro-section", "استقدام-من-اندونيسيا.mp4");
 
 /* Insert new click data in the google sheet */
 function insertNewClick(columnName) {
