@@ -32,7 +32,6 @@
 
 /* Body */
 body {
-    background: rgb(236, 247, 255);
     color: white;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
@@ -215,6 +214,8 @@ header.hidden {
 
 /* indoforall-intro-section */
 #indoforall-intro-section {
+    z-index: 1; /* Higher than the body video */
+    background: white; /* Ensures a clean background */
     width: 100%;
 }
 
@@ -725,7 +726,6 @@ body.nav-open #indoforall-nav-options * {
 
 /* Worker Card Details Section */
 .indoforall-sections {
-    background: rgb(236, 247, 255);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1969,10 +1969,6 @@ footer img {
 
 /* 400px */
 @media (max-width: 400px) {
-    .indoforall-header-logo {
-        width: 20vw;
-    }
-
     #indoforall-web-logo {
         width: 100%;
     }
