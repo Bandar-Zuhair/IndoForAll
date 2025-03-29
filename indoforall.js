@@ -1261,6 +1261,33 @@ document.addEventListener("click", (event) => {
     }
 });
 
+/* Function to run a video in the background of a section */
+const video = document.createElement("video");
+Object.assign(video, {
+    src: `استقدام-من-اندونيسيا.mp4`,
+    autoplay: true,
+    loop: true,
+    muted: true,
+    playsInline: true,
+});
+
+Object.assign(video.style, {
+    position: "absolute",
+    top: "0",
+    left: "0",
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    zIndex: "-1",
+    opacity: "0.3",
+});
+
+const section = document.getElementById("indoforall-intro-section");
+if (section) {
+    section.style.position = "relative";
+    section.prepend(video);
+}
+
 /* Insert new click data in the google sheet */
 function insertNewClick(columnName) {
     const scriptURL = "https://script.google.com/macros/s/AKfycbyU-p7z3tHF0I1K0GCmjcRG3CaG0NPkGyMPTvhlGPISxwIYrt6ueD7O2iHSza9SPOP3/exec";
