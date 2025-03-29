@@ -215,7 +215,6 @@ header.hidden {
 
 /* indoforall-intro-section */
 #indoforall-intro-section {
-    background: rgb(236, 247, 255);
     width: 100%;
 }
 
@@ -1060,10 +1059,6 @@ body.nav-open #indoforall-nav-options * {
 }
 
 /* Main Page Section */
-#indoforall-main-page-section {
-    background: rgb(236, 247, 255);
-}
-
 .indoforall-main-page-text {
     background: black;
     font-size: 1.5rem;
