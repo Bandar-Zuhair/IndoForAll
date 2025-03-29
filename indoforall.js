@@ -1295,7 +1295,6 @@ function addBackgroundVideo(sectionId, videoSrc) {
 }
 
 // Add videos only to the intended sections
-addBackgroundVideo("indoforall-body", "استقدام-اندونيسيا.mp4");
 addBackgroundVideo("indoforall-intro-section", "استقدام-من-اندونيسيا.mp4");
 
 /* Insert new click data in the google sheet */
