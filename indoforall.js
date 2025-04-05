@@ -601,7 +601,7 @@ if (document.getElementById("indoforall-choose-worker-type-section")) {
         let indoforall_workerTypeMessageButton = document.createElement("a");
         indoforall_workerTypeMessageButton.id = "indoforall-worker-type-message-button";
         indoforall_workerTypeMessageButton.classList.add("indoforall-other-pages-link");
-        indoforall_workerTypeMessageButton.style.background = "linear-gradient(to right, rgb(5, 0, 91), rgb(13, 0, 255))";
+        indoforall_workerTypeMessageButton.style.background = "linear-gradient(to right, rgb(106, 75, 31), rgb(194, 156, 102))";
 
         /* Check Which Button Has Clicked And Based On That Set The InnerText For The 'indoforall_worker_details_text' */
         if (arrayName === indoforall_homeWorkerArray) {
@@ -1307,6 +1307,23 @@ function insertNewClick(columnName) {
         .then((data) => console.log("Response:", data))
         .catch((error) => console.error("Error:", error));
 }
+
+/* Hovering background text functionality */
+document.querySelectorAll(".indoforall-mouse-gradient").forEach((elem) => {
+    elem.addEventListener("mousemove", function (e) {
+        const rect = this.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+        // Move radial highlight to cursor
+        this.style.background = `radial-gradient(circle at ${x}% ${y}%, rgb(167, 133, 85) 0%, rgb(89, 62, 25) 40%, rgb(89, 62, 25) 100%)`;
+    });
+
+    elem.addEventListener("mouseleave", function () {
+        // Reset to center after leaving
+        this.style.background = `radial-gradient(circle at center, rgb(167, 133, 85) 0%, rgb(89, 62, 25) 40%, rgb(89, 62, 25) 100%)`;
+    });
+});
 
 /* Open WhatsApp Chat */
 function indoforall_whatsApp() {
