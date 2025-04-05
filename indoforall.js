@@ -509,7 +509,7 @@ if (document.getElementById("indoforall-clint-rate-section") || document.getElem
 
     // Function to Fetch and Display Reviews
     function fetchReviews() {
-        fetch("https://script.google.com/macros/s/AKfycbyg5u7aYubTF4tj0Ca8dSX-GXY8txqVT3-ogI3rRgw3ROxerw-qWg2WphnlcceiY5lWGg/exec")
+        fetch("https://script.google.com/macros/s/AKfycbyazPhUrY6I1fxpzL_U2PMsleKqvHV-y7EcKK29g9EVvgN7jA7xENhNzTR6YN0UCSUHvw/exec")
             .then((response) => response.json())
             .then((data) => {
                 let indoforall_clint_rate_area = document.getElementById("indoforall-clint-rate-area");
