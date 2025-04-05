@@ -30,6 +30,13 @@
     direction: rtl;
 }
 
+:root {
+    --first-bg-color: rgb(194, 156, 102);
+    --second-bg-color: rgba(255, 232, 200, 0.642);
+    --title-text-color: rgb(192, 145, 79);
+    --text-color: black;
+}
+
 /* Body */
 body {
     color: white;
@@ -37,10 +44,11 @@ body {
     transition: opacity 0.5s ease-in-out;
 }
 
+/* Special styling */
 .indoforall-full-screen-overlay-exit-button {
     z-index: 998;
     text-decoration: none;
-    background: black;
+    background: var(--title-text-color);
     color: white;
     width: fit-content;
     font-size: 1.5rem;
@@ -67,7 +75,7 @@ body {
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgb(236, 247, 255);
+    background: white;
     width: 100%;
     height: 100%;
     padding: 20px 0;
@@ -93,7 +101,7 @@ body {
 }
 
 .indoforall-full-screen-guidance-overlay {
-    background: rgb(236, 247, 255);
+    background: white;
     width: 100%;
     height: 100%;
     padding: 20px 0;
@@ -116,9 +124,26 @@ body {
     visibility: visible;
 }
 
+/* Hovering background text effect */
+.indoforall-mouse-gradient {
+    position: relative;
+    background: radial-gradient(circle at center, rgb(167, 133, 85) 0%, rgb(89, 62, 25) 40%, rgb(89, 62, 25) 100%);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: background-position 0.05s ease;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 3px;
+    line-height: 1.5;
+    width: fit-content;
+    text-align: center;
+    cursor: default;
+}
+
 /* Header */
 #indoforall-header {
-    background: rgb(236, 247, 255);
+    background: var(--first-bg-color);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     position: sticky;
     top: 0;
@@ -158,7 +183,6 @@ header.hidden {
     /* Adds spacing between links */
     list-style: none;
     padding: 10px 0;
-    background: #f8f9fa;
     /* Light background for better contrast */
     border-radius: 8px;
     /* Rounded corners */
@@ -176,28 +200,25 @@ header.hidden {
     display: block;
     font-size: 1rem;
     padding: 5px 10px;
-    background: #e7f2ff;
     /* Blue background */
     color: black;
     text-decoration: none;
     font-weight: bold;
     border-radius: 6px;
-    transition: 0.3s ease-in-out;
+    transition: 0.2s ease-in-out;
 }
 
 .indoforall-nav-links a:hover {
-    background: #0056b3;
+    background: rgb(153, 104, 35);
     /* Darker blue on hover */
     color: white;
-    transform: translateY(-2px);
-    /* Slight lift effect */
 }
 
 /* Mobile Menu Icon */
 /* Move the menu icon to the right */
 .indoforall-mobile-menu-icon {
     display: none;
-    background: rgb(236, 247, 255);
+    background: transparent;
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
@@ -214,9 +235,10 @@ header.hidden {
 
 /* indoforall-intro-section */
 #indoforall-intro-section {
-    z-index: 1; /* Higher than the body video */
-    background: white; /* Ensures a clean background */
+    z-index: 1;
+    background: white;
     width: 100%;
+    height: 100vh;
 }
 
 #indoforall-intro-section div {
@@ -235,7 +257,7 @@ header.hidden {
 }
 
 .indoforall-web-intro {
-    color: rgb(0, 162, 255);
+    color: var(--title-text-color);
     display: flex;
     width: fit-content;
     justify-content: center;
@@ -261,7 +283,7 @@ header.hidden {
 }
 
 .indoforall-web-intro-contact-us {
-    background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
+    background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
     margin: 1vmax 0;
     font-size: 1.5rem;
     text-decoration: none;
@@ -269,28 +291,26 @@ header.hidden {
     padding: 5px;
     border-radius: 3px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.5s ease;
 }
 
 .indoforall-web-intro-contact-us:hover {
     color: rgb(0, 255, 0);
-    transform: scale(1.015);
 }
 
 #indoforall-website-guidance-text {
-    background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
+    background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
     font-size: 1.5rem;
     text-decoration: none;
     text-align: center;
     padding: 5px;
     border-radius: 3px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.5s ease;
 }
 
 #indoforall-website-guidance-text:hover {
     color: rgb(0, 255, 0);
-    transform: scale(1.015);
 }
 
 .web-guidance-div {
@@ -299,7 +319,7 @@ header.hidden {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgb(220, 240, 255);
+    background: var(--second-bg-color);
     width: 90%;
     padding: 50px 10px;
     display: flex;
@@ -321,7 +341,7 @@ header.hidden {
 
 .web-guidance-div a {
     text-decoration: none;
-    background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
+    background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
     color: white;
     font-size: 1.5rem;
     margin: 5px;
@@ -329,30 +349,27 @@ header.hidden {
     padding: 5px;
     border-radius: 3px;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 
 .web-guidance-div a:hover {
-    transform: scale(1.015);
+    color: rgb(0, 255, 0);
 }
 
 #indoforall-request-worker-now-button {
-    background: linear-gradient(to right, rgb(5, 0, 91), rgb(13, 0, 255));
+    background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
     margin: 1vmax 0;
     font-size: 2rem;
     text-decoration: none;
     text-align: center;
     padding: 5px;
-    box-shadow: 0 0 1px 0.5px black;
     border-radius: 3px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.5s ease;
 }
 
 #indoforall-request-worker-now-button:hover {
     color: rgb(0, 255, 0);
-    transform: scale(1.015);
-    box-shadow: 0 0 10px 1px white;
 }
 
 nav {
@@ -376,7 +393,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 #indoforall-nav-options {
-    background: rgb(220, 240, 255);
+    background: white;
     padding: 10px;
     z-index: 999;
     position: fixed;
@@ -402,7 +419,7 @@ body.nav-open #indoforall-nav-options * {
 
 #indoforall-nav-options a {
     text-decoration: none;
-    background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
+    background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
     color: white;
     margin: 0.5vmax 0;
     width: 100%;
@@ -420,7 +437,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 #indoforall-close-nav {
-    background: linear-gradient(to right, #471d58, #21596b) !important;
+    background: linear-gradient(to right, rgb(194, 155, 101), rgb(39, 24, 4), rgb(194, 155, 101)) !important;
 }
 
 #indoforall-whatsapp-icon {
@@ -435,7 +452,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 #indoforall-whatsapp-icon h4 {
-    background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
+    background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
     color: white;
     font-size: 1.5rem;
     text-align: center;
@@ -460,7 +477,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 #indoforall-error-page-go-back-button {
-    background: black;
+    background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
     color: white;
     margin: 5px 0;
     font-size: 1.5rem;
@@ -470,12 +487,11 @@ body.nav-open #indoforall-nav-options * {
     border: 1px solid white;
     border-radius: 3px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.5s ease;
 }
 
 #indoforall-error-page-go-back-button:hover {
     color: rgb(0, 255, 0);
-    transform: scale(1.015);
 }
 
 /* Clint Rate Section */
@@ -486,7 +502,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 #indoforall-clint-rate-area {
-    background: rgb(201, 232, 255);
+    background: var(--second-bg-color);
     width: 100%;
     max-width: 100%;
     padding: 10px 0;
@@ -507,7 +523,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-rate-div {
-    background: rgb(46, 46, 46);
+    background: linear-gradient(to top, rgb(44, 31, 11), rgb(138, 111, 73));
     min-width: 35rem;
     margin: 0 10px;
     padding: 8px;
@@ -515,7 +531,6 @@ body.nav-open #indoforall-nav-options * {
     flex-direction: column;
     justify-content: space-between;
     border-radius: 3px;
-    box-shadow: 0 0 3px 0.5px rgb(0, 162, 255);
     transition: all 0.5s ease-in-out;
     scroll-snap-align: center;
 }
@@ -635,7 +650,7 @@ body.nav-open #indoforall-nav-options * {
 
 /* Submit button styling */
 #indoforall-comment-form button {
-    background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
+    background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
     color: white;
     font-size: 1rem;
     padding: 5px 0;
@@ -669,7 +684,7 @@ body.nav-open #indoforall-nav-options * {
 
 /* Choose Worker Type Section */
 #indoforall-worker-type-area {
-    background: rgb(220, 240, 255);
+    background: var(--second-bg-color);
     width: 100%;
     padding: 30px 10px;
     display: flex;
@@ -689,7 +704,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 #indoforall-worker-type-div h3 {
-    background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
+    background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
     color: white;
     font-size: 1.5rem;
     text-align: center;
@@ -707,7 +722,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 #indoforall-quick-info-div {
-    background: rgb(220, 240, 255);
+    background: var(--second-bg-color);
     color: black;
     width: 100%;
     padding: 10px;
@@ -734,7 +749,6 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-worker-details-text-h1 {
-    background: black;
     font-size: 1.5rem;
     padding: 5px;
     width: fit-content;
@@ -744,7 +758,6 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-section-intro-text {
-    background: black;
     font-size: 1.5rem;
     padding: 5px;
     width: fit-content;
@@ -754,7 +767,6 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-section-intro-bigger-text {
-    background: black;
     font-size: 2rem;
     padding: 5px;
     width: fit-content;
@@ -777,7 +789,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 #indoforall-worker-details-area {
-    background: rgb(236, 247, 255);
+    background: var(--second-bg-color);
     width: 100%;
     padding: 30px 0;
     display: flex;
@@ -787,7 +799,6 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-worker-cards-div-class {
-    background: rgb(220, 240, 255);
     width: 100%;
     max-width: 100%;
     margin-bottom: 7px;
@@ -796,7 +807,6 @@ body.nav-open #indoforall-nav-options * {
     overflow-x: auto;
     overflow-y: hidden;
     border-radius: 3px;
-    box-shadow: 0 0 1px 0.5px black;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
 }
@@ -807,7 +817,7 @@ body.nav-open #indoforall-nav-options * {
 
 .indoforall-worker-type-card {
     user-select: none;
-    background: rgb(0, 97, 154);
+    background: var(--title-text-color);
     min-width: 15rem;
     width: 5rem;
     height: 27rem;
@@ -851,7 +861,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-other-pages-link {
-    background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
+    background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
     color: white;
     text-decoration: none;
     font-size: 1.5rem;
@@ -861,11 +871,10 @@ body.nav-open #indoforall-nav-options * {
     box-shadow: 0 0 1px 0.5px black;
     border-radius: 3px;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 
 .indoforall-other-pages-link:hover {
-    transform: scale(1.015);
     color: rgb(0, 255, 0);
 }
 
@@ -915,7 +924,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 #indoforall-filter-worker-type-title {
-    background: linear-gradient(to right, rgb(0, 52, 82), rgb(0, 127, 200));
+    background: linear-gradient(to right, rgb(106, 75, 31), rgb(194, 156, 102));
     width: 100%;
     display: flex;
     justify-content: center;
@@ -959,7 +968,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 #indoforall-filter-worker-work-type h4 {
-    background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
+    background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
     font-size: 1.5rem;
     margin: 1vmax;
     padding: 5px;
@@ -994,7 +1003,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 #indoforall-filter-worker-visa-type h4 {
-    background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
+    background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
     font-size: 1.5rem;
     margin: 5px 0;
     padding: 10px 20px;
@@ -1060,7 +1069,6 @@ body.nav-open #indoforall-nav-options * {
 
 /* Main Page Section */
 .indoforall-main-page-text {
-    background: black;
     font-size: 1.5rem;
     margin-bottom: 1vmax;
     padding: 5px;
@@ -1071,7 +1079,6 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-main-page-text-2 {
-    background: black;
     font-size: 1.5rem;
     padding: 5px;
     width: fit-content;
@@ -1081,7 +1088,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 #indoforall-our-features-area {
-    background: rgb(220, 240, 255);
+    background: var(--second-bg-color);
     width: 100%;
     height: fit-content;
     margin-bottom: 5vmax;
@@ -1117,7 +1124,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 #indoforall-indonesia-info {
-    background: rgb(220, 240, 255);
+    background: var(--second-bg-color);
     width: 100%;
     height: fit-content;
     margin-bottom: 30px;
@@ -1146,7 +1153,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 #indoforall-our-contact-info div {
-    background: linear-gradient(to right, #a64ac9, #4db7d8);
+    background: linear-gradient(to right, rgb(60, 43, 18), rgb(138, 111, 73));
     display: flex;
     width: 20rem;
     margin: 10px;
@@ -1200,7 +1207,7 @@ body.nav-open #indoforall-nav-options * {
 
 /* Prices Section */
 #indoforall-price-area {
-    background: rgb(220, 240, 255);
+    background: var(--second-bg-color);
     padding: 20px 0;
     width: 100%;
 
@@ -1214,16 +1221,59 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-price-card {
-    background: linear-gradient(to right, #a64ac9, #4db7d8);
+    position: relative;
+    background: linear-gradient(to right, rgb(60, 43, 18), rgb(138, 111, 73));
     width: 30rem;
     margin: 15px 5px;
     padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 3px;
+    border-radius: 6px;
     box-shadow: 0 0 1px 0.5px black;
-    transition: all 0.2s ease-in-out;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Animated border effect */
+.indoforall-price-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 4px;
+    /* ⬅️ Increase this to make the border thicker */
+    background: linear-gradient(130deg, #00ffff, #ff00ff, #00ffff, #ff00ff);
+    background-size: 300% 300%;
+    border-radius: 6px;
+    z-index: 0;
+    animation: borderAnimation 2s linear infinite;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+/* Make sure all children appear above the border layer */
+.indoforall-price-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes borderAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .indoforall-price-card h3 {
@@ -1247,17 +1297,17 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-price-card h6 {
-    background: linear-gradient(to right, rgb(5, 0, 91), rgb(13, 0, 255));
+    background: var(--title-text-color);
     width: 100%;
     margin-top: auto;
     padding: 10px 0;
     cursor: pointer;
     box-shadow: 0 0 1px 0.5px black;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 
 .indoforall-price-card h6:hover {
-    box-shadow: 0 0 5px 0.5px white;
+    color: rgb(0, 255, 0);
 }
 
 .indoforall-pay-results {
@@ -1307,7 +1357,7 @@ body.nav-open #indoforall-nav-options * {
 
 /* System Work Section */
 #indoforall-system-work-area {
-    background: rgb(220, 240, 255);
+    background: var(--second-bg-color);
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -1318,7 +1368,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 #indoforall-system-work-area div {
-    background: linear-gradient(to right, #3b82f6, #f59e0b);
+    background: linear-gradient(to right, rgb(60, 43, 18), rgb(138, 111, 73));
     width: 40rem;
     display: flex;
     flex-direction: column;
@@ -1341,7 +1391,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 #indoforall-system-work-area ion-icon {
-    background: linear-gradient(#3b82f6, #d946ef);
+    background: linear-gradient(to left, rgb(60, 43, 18), rgb(235, 190, 126));
     font-size: 7rem;
     margin: 5px 0;
     padding: 15px;
@@ -1350,7 +1400,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-system-work-text {
-    background: linear-gradient(to top, #1e3a8a, #3b82f6);
+    background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
     font-size: 1.5rem;
     padding: 5px;
     border-radius: 3px;
@@ -1359,7 +1409,7 @@ body.nav-open #indoforall-nav-options * {
 
 /* Proof Section */
 #indoforall-proof-area {
-    background: rgb(208, 235, 255);
+    background: var(--second-bg-color);
     width: 100%;
     display: flex;
     overflow-x: auto;
@@ -1459,7 +1509,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 #indoforall-accounts-section a {
-    background: rgb(0, 162, 255);
+    background: linear-gradient(to right, rgb(60, 43, 18), rgb(138, 111, 73));
     color: white;
     width: 15rem;
     font-size: 1.5rem;
@@ -1469,12 +1519,11 @@ body.nav-open #indoforall-nav-options * {
     text-align: center;
     box-shadow: 0 0 1px 0.5px black;
     border-radius: 3px;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 
 #indoforall-accounts-section a:hover {
-    background: rgb(188, 188, 188);
-    color: black;
+    color: rgb(0, 255, 0);
 }
 
 #indoforall-accounts-section ion-icon {
@@ -1542,10 +1591,10 @@ body.nav-open #indoforall-nav-options * {
 
 /* Footer Section */
 footer {
-    background: linear-gradient(to top, rgb(34, 43, 69), rgb(85, 92, 125));
+    background: linear-gradient(to top, rgb(39, 24, 4), rgb(194, 155, 101));
     display: flex;
     width: 100%;
-    padding: 5px 0;
+    padding: 50px 0;
     box-shadow: 0 0 1px 0.5px black;
 }
 
@@ -1907,7 +1956,7 @@ footer img {
     }
 
     footer {
-        padding: 0;
+        padding: 25px 0;
     }
 
     footer h1,
@@ -2052,6 +2101,12 @@ footer img {
     .indoforall-worker-type-card h2 {
         font-size: 3.5vw;
         margin-bottom: 2px;
+    }
+
+    /* Prices Page */
+    /* Animated border effect */
+    .indoforall-price-card::before {
+        padding: 2px;
     }
 
     .indoforall-Proof-video-div {
