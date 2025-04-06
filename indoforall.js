@@ -490,36 +490,43 @@ if (document.getElementById("indoforall-clint-rate-section") || document.getElem
     document.getElementById("indoforall-comment-form").addEventListener("submit", async function (event) {
         event.preventDefault(); // Prevent page refresh
 
-        let name = document.getElementById("indoforall-comment-username").value.trim();
-        let comment = document.getElementById("indoforall-comment-text").value.trim();
-        let stars = document.getElementById("indoforall-comment-stars").value;
+        if (document.getElementById("indoforall-comment-submit-button-id").style.userSelect !== "none") {
+            /* Disbale the button clicked to avoid double comments */
+            document.getElementById("indoforall-comment-submit-button-id").style.userSelect = "none";
+            document.getElementById("indoforall-comment-submit-button-id").style.background = "gray";
+            document.getElementById("indoforall-comment-submit-button-id").innerText = "جاري النشر";
 
-        let formData = new URLSearchParams();
-        formData.append("name", name); // Match Google Apps Script keys
-        formData.append("comment", comment);
-        formData.append("stars", stars);
+            let name = document.getElementById("indoforall-comment-username").value.trim();
+            let comment = document.getElementById("indoforall-comment-text").value.trim();
+            let stars = document.getElementById("indoforall-comment-stars").value;
 
-        try {
-            let response = await fetch("https://script.google.com/macros/s/AKfycbyg5u7aYubTF4tj0Ca8dSX-GXY8txqVT3-ogI3rRgw3ROxerw-qWg2WphnlcceiY5lWGg/exec", {
-                method: "POST",
-                body: formData,
-            });
+            let formData = new URLSearchParams();
+            formData.append("name", name); // Match Google Apps Script keys
+            formData.append("comment", comment);
+            formData.append("stars", stars);
 
-            let data = await response.text();
+            try {
+                let response = await fetch("https://script.google.com/macros/s/AKfycby6XNKNx3VSt46Wuvn1OguMAQRELm0wQCPLbY1rFSiHVa6ESBUTdX8yCoLgN7lcoUmSCA/exec", {
+                    method: "POST",
+                    body: formData,
+                });
 
-            if (data === "Success") {
-                document.getElementById("indoforall-comment-form").reset();
+                let data = await response.text();
 
-                await fetchReviews(); // Wait until fetchReviews() is fully executed
+                if (data === "Success") {
+                    document.getElementById("indoforall-comment-form").reset();
 
-                showSuccessNotification(); // Now run the notification function
-            }
-        } catch (error) {}
+                    await fetchReviews(); // Wait until fetchReviews() is fully executed
+
+                    showSuccessNotification(); // Now run the notification function
+                }
+            } catch (error) {}
+        }
     });
 
     // Function to Fetch and Display Reviews
     function fetchReviews() {
-        fetch("https://script.google.com/macros/s/AKfycbyazPhUrY6I1fxpzL_U2PMsleKqvHV-y7EcKK29g9EVvgN7jA7xENhNzTR6YN0UCSUHvw/exec")
+        fetch("https://script.google.com/macros/s/AKfycby6XNKNx3VSt46Wuvn1OguMAQRELm0wQCPLbY1rFSiHVa6ESBUTdX8yCoLgN7lcoUmSCA/exec")
             .then((response) => response.json())
             .then((data) => {
                 let indoforall_clint_rate_area = document.getElementById("indoforall-clint-rate-area");
@@ -536,26 +543,31 @@ if (document.getElementById("indoforall-clint-rate-section") || document.getElem
                     clintRateDiv.classList.add("indoforall-rate-div");
 
                     clintRateDiv.innerHTML = `
-                <div class="indoforall-clint-rate-date-div">
-                    <h3>${date}</h3>
-                </div>
+                        <div class="indoforall-clint-rate-date-div">
+                            <h3>${date}</h3>
+                        </div>
 
-                <div class="indoforall-clint-rate-info-div">
-                    <img src="استقدام-من-اندونيسيا.webp" alt="استقدام من اندونيسيا - اندو للجميع" title="استقدام من اندونيسيا - اندو للجميع">
-                    <h4>${name}</h4>
-                </div>
+                        <div class="indoforall-clint-rate-info-div">
+                            <img src="استقدام-من-اندونيسيا.webp" alt="استقدام من اندونيسيا - اندو للجميع" title="استقدام من اندونيسيا - اندو للجميع">
+                            <h4>${name}</h4>
+                        </div>
 
-                <div class="indoforall-clint-rate-comment-div">
-                    <h5>${comment}</h5>
-                </div>
+                        <div class="indoforall-clint-rate-comment-div">
+                            <h5>${comment}</h5>
+                        </div>
 
-                <div class="indoforall-clint-rate-star-div">
-                    ${"★".repeat(starAmount)}
-                </div>
-            `;
+                        <div class="indoforall-clint-rate-star-div">
+                            ${"★".repeat(starAmount)}
+                        </div>
+                    `;
 
                     indoforall_clint_rate_area.appendChild(clintRateDiv);
                 });
+
+                /* Disbale the button clicked to avoid double comments */
+                document.getElementById("indoforall-comment-submit-button-id").style.userSelect = "auto";
+                document.getElementById("indoforall-comment-submit-button-id").style.background = "linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102))";
+                document.getElementById("indoforall-comment-submit-button-id").innerText = "Share";
 
                 // Smooth appearance with delay
                 setTimeout(() => {
