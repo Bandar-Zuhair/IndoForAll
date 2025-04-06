@@ -1222,7 +1222,7 @@ body.nav-open #indoforall-nav-options * {
 
 .indoforall-price-card {
     position: relative;
-    background: linear-gradient(to right, rgb(60, 43, 18), rgb(138, 111, 73));
+    background: linear-gradient(to top, rgb(60, 43, 18), rgb(138, 111, 73));
     width: 30rem;
     margin: 15px 5px;
     padding: 10px;
@@ -1244,8 +1244,7 @@ body.nav-open #indoforall-nav-options * {
     right: 0;
     bottom: 0;
     padding: 4px;
-    /* ⬅️ Increase this to make the border thicker */
-    background: linear-gradient(130deg, #00ffff, #ff00ff, #00ffff, #ff00ff);
+    background: linear-gradient(130deg, rgb(255, 192, 104), white, rgb(255, 192, 104), white);
     background-size: 300% 300%;
     border-radius: 6px;
     z-index: 0;
@@ -1284,7 +1283,7 @@ body.nav-open #indoforall-nav-options * {
 .indoforall-price-card h4,
 .indoforall-price-card h5,
 .indoforall-price-card h6 {
-    background: black;
+    background: linear-gradient(to left, rgb(46, 32, 12), rgb(168, 136, 90));
     width: fit-content;
     font-size: 1.5rem;
     text-align: center;
@@ -1317,7 +1316,7 @@ body.nav-open #indoforall-nav-options * {
 
 /* Questions And Answeres Section */
 #indoforall-question-area {
-    background: rgb(220, 240, 255);
+    background: var(--second-bg-color);
     width: 100%;
     display: flex;
     justify-content: center;
@@ -1338,7 +1337,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-question-text {
-    background: black;
+    background: linear-gradient(to top, rgb(46, 32, 12), rgb(168, 136, 90));
     font-size: 1.5rem;
     text-align: center;
     padding: 5px;
@@ -1347,7 +1346,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-answer-text {
-    background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
+    background: var(--title-text-color);
     font-size: 1.5rem;
     text-align: center;
     padding: 5px;
