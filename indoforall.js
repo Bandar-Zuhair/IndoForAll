@@ -232,6 +232,10 @@ let indoforall_proofVideosArray = [
 /* Array For Ads Videos/Images Use Only (imgSrc - videoSrc - videoThumbnailSrc) Words */
 let indoforall_adsVideosArray = [
     {
+        imgSrc: "استقدام-من-اندونيسيا/استقدام-عمالة-اندونيسية.webp",
+    },
+
+    {
         videoSrc: "استقدام-اندونيسيا/استقدام-من-اندونيسيا.mp4",
         videoThumbnailSrc: "استقدام-اندونيسيا/استقدام-من-اندونيسيا.webp",
     },
@@ -308,7 +312,7 @@ indoforall_craeteRequestWorkerMessage = function () {
 
     let filterWorkerTypeDataContent = document.createElement("div");
     filterWorkerTypeDataContent.innerHTML = `
-        <div id='indoforall-filter-worker-type-title'>
+        <div id='indoforall-filter-worker-type-title' class='indoforall-mouse-gradient'>
             <h3>طلب استقدام</h3>
         </div>
         <div id="indoforall-filter-worker-work-type">
@@ -337,6 +341,9 @@ indoforall_craeteRequestWorkerMessage = function () {
         filterWorkerTypeDataDivOverlay.classList.add("show");
         filterWorkerTypeDataDiv.classList.add("show");
     }, 10);
+
+    /* Call a function to apply the hovering background text functionality */
+    enableMouseGradient();
 
     // Close overlay on cancel button click
     document.querySelector("#indoforall-cancel-worker-data-message-button").onclick = function () {
@@ -394,28 +401,31 @@ indoforall_craeteRequestWorkerMessage = function () {
 
         /* Create Filter Worker Type Data Content */
         filterWorkerTypeDataContent.innerHTML = `
-        <div id='indoforall-filter-worker-type-title'>
-            <h3>طلب استقدام ${workerTypeNameVariable}</h3>
-        </div>
+            <div id='indoforall-filter-worker-type-title' class='indoforall-mouse-gradient'>
+                <h3>طلب استقدام ${workerTypeNameVariable}</h3>
+            </div>
 
-        <div id="indoforall-filter-worker-visa-type"></div>
+            <div id="indoforall-filter-worker-visa-type"></div>
 
-        <div id="indoforall-filter-worker-city-type">
-            <h3>طلب إستقدام الى</h3>
-            <textarea placeholder="إسم المدينة" maxlength="30"></textarea>
-        </div>
+            <div id="indoforall-filter-worker-city-type">
+                <h3>طلب إستقدام الى</h3>
+                <textarea placeholder="إسم المدينة" maxlength="30"></textarea>
+            </div>
 
-        <div id="indoforall-submit-filter-worker-type">
-            <h5 onclick="indoforall_workerTypeWhatsAppMessageFunction()">إرسال</h5>
-            <h5 id="indoforall-cancel-worker-data-message-button">إلغاء</h5>
-        </div>
-    `;
+            <div id="indoforall-submit-filter-worker-type">
+                <h5 onclick="indoforall_workerTypeWhatsAppMessageFunction()">إرسال</h5>
+                <h5 id="indoforall-cancel-worker-data-message-button">إلغاء</h5>
+            </div>
+        `;
 
         /* Append The Elements in Each Other */
         filterWorkerTypeDataDiv.appendChild(filterWorkerTypeDataContent);
         filterWorkerTypeDataDivOverlay.appendChild(filterWorkerTypeDataDiv);
         document.body.appendChild(filterWorkerTypeDataDivOverlay);
         document.getElementById("indoforall-filter-worker-visa-type").innerHTML = indoforall_filterWorkerCityType; // Update this line
+
+        /* Call a function to apply the hovering background text functionality */
+        enableMouseGradient();
 
         /* Re-enable Scrolling And Remove The 'filterWorkerTypeDataDivOverlay' Element */
         document.getElementById("indoforall-cancel-worker-data-message-button").onclick = function () {
@@ -870,7 +880,7 @@ if (document.getElementById("indoforall-price-section")) {
 
         let filterWorkerTypeDataContent = document.createElement("div");
         filterWorkerTypeDataContent.innerHTML = `
-            <div id='indoforall-filter-worker-type-title'>
+            <div id='indoforall-filter-worker-type-title' class='indoforall-mouse-gradient'>
                 <h3>${clickedWorkerVisaTypeVariable}</h3>
             </div>
 
@@ -897,6 +907,9 @@ if (document.getElementById("indoforall-price-section")) {
             filterWorkerTypeDataDivOverlay.classList.add("show");
             filterWorkerTypeDataDiv.classList.add("show");
         }, 10);
+
+        /* Call a function to apply the hovering background text functionality */
+        enableMouseGradient();
 
         // Close overlay on cancel button click
         document.querySelector("#indoforall-cancel-worker-data-message-button").onclick = function () {
@@ -937,7 +950,7 @@ if (document.getElementById("indoforall-price-section")) {
             /* Create The Content For The Worker Type Data Content */
             let filterWorkerTypeDataContent = document.createElement("div");
             filterWorkerTypeDataContent.innerHTML = `
-                <div id='indoforall-filter-worker-type-title'>
+                <div id='indoforall-filter-worker-type-title' class='indoforall-mouse-gradient'>
                     <h3>طلب استقدام ${workerTypeNameVariable}</h3>
                 </div>
 
@@ -1309,21 +1322,28 @@ function insertNewClick(columnName) {
 }
 
 /* Hovering background text functionality */
-document.querySelectorAll(".indoforall-mouse-gradient").forEach((elem) => {
-    elem.addEventListener("mousemove", function (e) {
-        const rect = this.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        const y = ((e.clientY - rect.top) / rect.height) * 100;
+function enableMouseGradient(
+    selector = ".indoforall-mouse-gradient",
+    colors = {
+        start: "rgb(167, 133, 85)",
+        mid: "rgb(89, 62, 25)",
+        end: "rgb(89, 62, 25)",
+    }
+) {
+    document.querySelectorAll(selector).forEach((elem) => {
+        elem.addEventListener("mousemove", function (e) {
+            const rect = this.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
 
-        // Move radial highlight to cursor
-        this.style.background = `radial-gradient(circle at ${x}% ${y}%, rgb(167, 133, 85) 0%, rgb(89, 62, 25) 40%, rgb(89, 62, 25) 100%)`;
-    });
+            this.style.background = `radial-gradient(circle at ${x}% ${y}%, ${colors.start} 0%, ${colors.mid} 40%, ${colors.end} 100%)`;
+        });
 
-    elem.addEventListener("mouseleave", function () {
-        // Reset to center after leaving
-        this.style.background = `radial-gradient(circle at center, rgb(167, 133, 85) 0%, rgb(89, 62, 25) 40%, rgb(89, 62, 25) 100%)`;
+        elem.addEventListener("mouseleave", function () {
+            this.style.background = `radial-gradient(circle at center, ${colors.start} 0%, ${colors.mid} 40%, ${colors.end} 100%)`;
+        });
     });
-});
+}
 
 /* Open WhatsApp Chat */
 function indoforall_whatsApp() {
