@@ -181,9 +181,14 @@
         <!-- Header Section -->
         <header id="indoforall-header">
             <div class="indoforall-header-container">
-                <img src="استقدام-من-اندونيسيا/استقدام-من-اندونيسيا.webp" alt="استقدام اندو للجميع - اندو للجميع" class="indoforall-header-logo" />
+                <div class="indoforall-header-logo-title-class">
+                    <p>شركة اندو للجميع</p>
+                    <img src="استقدام-من-اندونيسيا/استقدام-من-اندونيسيا.webp" alt="استقدام اندو للجميع - اندو للجميع" class="indoforall-header-logo" />
+                </div>
 
                 <nav class="indoforall-desktop-nav">
+                    <a class="indoforall-header-whatsapp-link-class" onclick="indoforall_whatsApp()">966509465975+ <ion-icon name="logo-whatsapp"></ion-icon></a>
+
                     <ul class="indoforall-nav-links">
                         <li><a itemprop="url" href="https://indoforall.com" title="استقدام من اندونيسيا - اندو للجميع">الصفحة الرئيسية</a></li>
                         <li>
@@ -234,7 +239,6 @@
                                 حساباتنا
                             </a>
                         </li>
-                        <li><a onclick="indoforall_whatsApp()">تواصل معنا</a></li>
                     </ul>
                 </nav>
 
@@ -274,7 +278,6 @@
                         >
                             اثبات المصداقية
                         </a>
-                        <a onclick="indoforall_whatsApp()">تواصل معنا</a>
                         <a itemprop="url" href="https://indoforall.com/%D8%A7%D8%B3%D8%AA%D9%82%D8%AF%D8%A7%D9%85-%D8%A7%D9%86%D8%AF%D9%88-%D9%84%D9%84%D8%AC%D9%85%D9%8A%D8%B9" title="استقدام اندو للجميع - اندو للجميع">عن شركتنا</a>
                         <a
                             itemprop="url"
@@ -290,19 +293,22 @@
         </header>
 
         <section id="indoforall-intro-section">
-            <div>
-                <img src="استقدام-من-اندونيسيا/استقدام-عمالة-اندونيسية.webp" alt="استقدام اندو للجميع - اندو للجميع" title="استقدام اندو للجميع - اندو للجميع" id="indoforall-web-logo" onclick="indoforall_show_full_screen_image(this.src)" />
-            </div>
-
-            <div>
+            <div class="indoforall-intro-section-all-text-div-class">
                 <h1 title="استقدام اندو للجميع - اندو للجميع" id="indoforall-web-intro-2" class="indoforall-web-intro">
                     استقدام اندو للجميع - استقدام العمالة الاندونيسية - استقدام اندونيسيا
                 </h1>
                 <h2 title="استقدام اندو للجميع - اندو للجميع" id="indoforall-web-intro-1" class="indoforall-web-intro">اندو للجميع</h2>
                 <h3 id="indoforall-web-intro-3" class="indoforall-web-intro">روح التطور والتحسين المستمر في مجال الاستقدام من اندونيسيا هي جزء أساسي من هويتنا، ونسعى للبقاء في القمة</h3>
-                <a class="indoforall-web-intro-contact-us" onclick="indoforall_whatsApp()">تواصل معنا على الواتس للحصول على معلومات أكثر</a>
-                <h4 id="indoforall-website-guidance-text" onclick="indoforall_websiteGuidance()">كيف أستخدم موقع اندو للجميع؟</h4>
-                <a id="indoforall-request-worker-now-button" onclick="indoforall_craeteRequestWorkerMessage()">طلب استقدام</a>
+
+                <div class="indoforall-intro-section-buttons-div-class">
+                    <a class="indoforall-web-intro-contact-us" onclick="indoforall_whatsApp()">تواصل معنا على الواتس للحصول على معلومات أكثر</a>
+                    <h4 id="indoforall-website-guidance-text" onclick="indoforall_websiteGuidance()">كيف أستخدم موقع اندو للجميع؟</h4>
+                    <a id="indoforall-request-worker-now-button" class="indoforall-mouse-gradient" onclick="indoforall_craeteRequestWorkerMessage()">طلب استقدام</a>
+                </div>
+            </div>
+
+            <div class="indoforall-orbit-container" id="indoforall-orbit-container-id">
+                <img src="وزارة-الخارجية-للاستقدام.png" class="indoforall-center-image" alt="Center Image" />
             </div>
 
             <div id="indoforall-whatsapp-icon">
@@ -318,63 +324,18 @@
             </div>
 
             <div id="indoforall-company-description">
-                <h2>استقدام اندو للجميع هي شركة اون لاين من الشركات المتصدرة في مجال استقدام العمالة الاندونيسية ويديرها فريق ذو خبرة طويلة في مجال استقدام العمالة الاندونيسية الى السعودية وجميع دول الخليج</h2>
-                <h2>استقدام اندو للجميع هي شركة تمتلك فريق عمل متخصص ومدرب يقوم بتقديم خدمات استشارات ودعم للعملاء من أجل التأكد من وجود خطة متكاملة لإنجاز الخدمة بشكل كامل وبأقل اخطاء ممكنة</h2>
+                <h2>
+                    شركة اندو للجميع للإستقدام هي شركة متخصصة في تلبية احتياجات العملاء من العمالة المنزلية والمهنية المحترفة في المملكة العربية السعودية ودول الخليج . نتميز بسمعة مرموقة في مجال الكوادر العاملة المؤهلة والمدربة من
+                    إندونيسيا. نلتزم بتقديم خدمات العمالة من مختلف المهن بما يلبي احتياجات الأفراد وقطاع الأعمال. ويديرها فريق ذو خبرة طويلة في مجال استقدام العمالة الاندونيسية الى السعودية وجميع دول الخليج
+                </h2>
+                <h2>شركة استقدام اندو للجميع تمتلك فريق عمل متخصص ومدرب يقوم بتقديم خدمات استشارات ودعم للعملاء من أجل التأكد من وجود خطة متكاملة لإنجاز الخدمة بشكل كامل وبأقل اخطاء ممكنة</h2>
                 <h2>تتميز شركة اندو للجميع بدعم العملاء على مدار الساعة وبالتركيز على تقديم خدمة استقدام عمالة اندونيسية باسرع وقت وبكفائة عالية</h2>
 
                 <img src="استقدام-من-اندونيسيا/استقدام-من-اندونيسيا.webp" alt="استقدام اندو للجميع - اندو للجميع" title="استقدام اندو للجميع - اندو للجميع" />
             </div>
-        </section>
 
-        <!-- Clint Rate Section -->
-        <section id="indoforall-clint-rate-section" class="indoforall-sections">
-            <div>
-                <h1 title="استقدام اندو للجميع - اندو للجميع" class="indoforall-section-intro-bigger-text indoforall-mouse-gradient">تقييم عملائنا</h1>
-            </div>
-
-            <div>
-                <h2 class="indoforall-section-intro-text-2">إسعاد العملاء وتقديم افضل خدمة لهم هي من واجباتنا</h2>
-            </div>
-
-            <div id="indoforall-clint-rate-area">
-                <!-- JavaScript Dynamic Code -->
-            </div>
-
-            <div class="indoforall-insert-comment-form-div">
-                <h3>شارك تجربتك مع اندو الجميع</h3>
-                <form id="indoforall-comment-form">
-                    <label for="indoforall-comment-username">إسمك:</label>
-                    <input type="text" id="indoforall-comment-username" required maxlength="30" />
-
-                    <label for="indoforall-comment-text">رأيك:</label>
-                    <textarea id="indoforall-comment-text" required maxlength="200"></textarea>
-
-                    <label for="indoforall-comment-stars">تقييمك:</label>
-                    <select id="indoforall-comment-stars" required>
-                        <option value="5">★★★★★ (5)</option>
-                        <option value="4">★★★★☆ (4)</option>
-                        <option value="3">★★★☆☆ (3)</option>
-                        <option value="2">★★☆☆☆ (2)</option>
-                        <option value="1">★☆☆☆☆ (1)</option>
-                    </select>
-
-                    <button type="submit" id="indoforall-comment-submit-button-id">إرسال</button>
-                </form>
-            </div>
-
-            <div id="indoforall-success-notification">تمت إضافة تعليقك بنجاح</div>
-
-            <a
-                itemprop="url"
-                href="https://indoforall.com/%D9%85%D8%B5%D8%AF%D8%A7%D9%82%D9%8A%D8%A9-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%82%D8%AF%D8%A7%D9%85-%D9%85%D9%86-%D8%A7%D9%86%D8%AF%D9%88%D9%86%D9%8A%D8%B3%D9%8A%D8%A7"
-                title="مصداقية الاستقدام من اندونيسيا - اندو للجميع"
-                class="indoforall-other-pages-link"
-            >
-                صفحة اثبات المصداقية
-            </a>
-
-            <div id="indoforall-quick-info-div">
-                <h4 class="indoforall-quick-info">معلومات سريعة:</h4>
+            <div id="indoforall-quick-info-div" style="background: var(--second-bg-color);">
+                <h4 class="indoforall-quick-info" style="color: rgb(0, 106, 141); font-weight: 700;">معلومات سريعة:</h4>
                 <h5 class="indoforall-quick-info">1- يتم إنجاز الاستقدام لفيزة زيارة او فيزة سائق خاص في مدة تتراوح من 12 الى 14 يوم</h5>
                 <h5 class="indoforall-quick-info">2- يتم إنجاز الاستقدام لفيزة عمالة مهنية في مدة تتراوح بين 15 يوم</h5>
                 <br />
@@ -403,7 +364,7 @@
                     <span><ion-icon name="checkmark-outline"></ion-icon> 3- </span>أكثر من 18 سنة خبرة في المجال
                 </h2>
                 <h2>
-                    <span><ion-icon name="checkmark-outline"></ion-icon> 4- </span>خدمة العملاء الدائمة وتقديم الدعم لهم
+                    <span><ion-icon name="checkmark-outline"></ion-icon> 4- </span>خدمة العملاء الدائمة قبل وبعد الإنجاز وتقديم الدعم لهم
                 </h2>
                 <h2>
                     <span><ion-icon name="checkmark-outline"></ion-icon> 5- </span>علاقاتنا الجيدة والواسعة مع القطاعات
@@ -461,6 +422,54 @@
                     <h2>إندونيسيا - Bogor</h2>
                 </div>
             </div>
+        </section>
+
+        <!-- Clint Rate Section -->
+        <section id="indoforall-clint-rate-section" class="indoforall-sections">
+            <div>
+                <h1 title="استقدام اندو للجميع - اندو للجميع" class="indoforall-section-intro-bigger-text indoforall-mouse-gradient">تقييم عملائنا</h1>
+            </div>
+
+            <div>
+                <h2 class="indoforall-section-intro-text-2">إسعاد العملاء وتقديم افضل خدمة لهم هي من واجباتنا</h2>
+            </div>
+
+            <div id="indoforall-clint-rate-area">
+                <!-- JavaScript Dynamic Code -->
+            </div>
+
+            <div class="indoforall-insert-comment-form-div">
+                <h3>شارك تجربتك مع اندو الجميع</h3>
+                <form id="indoforall-comment-form">
+                    <label for="indoforall-comment-username">إسمك:</label>
+                    <input type="text" id="indoforall-comment-username" required maxlength="30" />
+
+                    <label for="indoforall-comment-text">رأيك:</label>
+                    <textarea id="indoforall-comment-text" required maxlength="200"></textarea>
+
+                    <label for="indoforall-comment-stars">تقييمك:</label>
+                    <select id="indoforall-comment-stars" required>
+                        <option value="5">★★★★★ (5)</option>
+                        <option value="4">★★★★☆ (4)</option>
+                        <option value="3">★★★☆☆ (3)</option>
+                        <option value="2">★★☆☆☆ (2)</option>
+                        <option value="1">★☆☆☆☆ (1)</option>
+                    </select>
+
+                    <button type="submit" id="indoforall-comment-submit-button-id">إرسال</button>
+                </form>
+            </div>
+
+            <div id="indoforall-success-notification">تمت إضافة تعليقك بنجاح</div>
+
+            <a
+                itemprop="url"
+                href="https://indoforall.com/%D9%85%D8%B5%D8%AF%D8%A7%D9%82%D9%8A%D8%A9-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%82%D8%AF%D8%A7%D9%85-%D9%85%D9%86-%D8%A7%D9%86%D8%AF%D9%88%D9%86%D9%8A%D8%B3%D9%8A%D8%A7"
+                title="مصداقية الاستقدام من اندونيسيا - اندو للجميع"
+                class="indoforall-other-pages-link"
+            >
+                صفحة اثبات المصداقية
+            </a>
         </section>
 
         <footer id="indoforall-footer">
