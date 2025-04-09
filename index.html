@@ -190,9 +190,14 @@
         <!-- Header Section -->
         <header id="indoforall-header">
             <div class="indoforall-header-container">
-                <img src="استقدام-من-اندونيسيا/استقدام-من-اندونيسيا.webp" alt="استقدام من اندونيسيا - اندو للجميع" class="indoforall-header-logo" />
+                <div class="indoforall-header-logo-title-class">
+                    <p>شركة اندو للجميع</p>
+                    <img src="استقدام-من-اندونيسيا/استقدام-من-اندونيسيا.webp" alt="استقدام من اندونيسيا - اندو للجميع" class="indoforall-header-logo" />
+                </div>
 
                 <nav class="indoforall-desktop-nav">
+                    <a class="indoforall-header-whatsapp-link-class" onclick="indoforall_whatsApp()">966509465975+ <ion-icon name="logo-whatsapp"></ion-icon></a>
+
                     <ul class="indoforall-nav-links">
                         <li><a itemprop="url" href="https://indoforall.com" title="استقدام من اندونيسيا - اندو للجميع">الصفحة الرئيسية</a></li>
                         <li>
@@ -243,7 +248,6 @@
                                 حساباتنا
                             </a>
                         </li>
-                        <li><a onclick="indoforall_whatsApp()">تواصل معنا</a></li>
                     </ul>
                 </nav>
 
@@ -283,7 +287,6 @@
                         >
                             اثبات المصداقية
                         </a>
-                        <a onclick="indoforall_whatsApp()">تواصل معنا</a>
                         <a itemprop="url" href="https://indoforall.com/%D8%A7%D8%B3%D8%AA%D9%82%D8%AF%D8%A7%D9%85-%D8%A7%D9%86%D8%AF%D9%88-%D9%84%D9%84%D8%AC%D9%85%D9%8A%D8%B9" title="استقدام اندو للجميع - اندو للجميع">عن شركتنا</a>
                         <a
                             itemprop="url"
@@ -299,37 +302,31 @@
         </header>
 
         <section id="indoforall-intro-section">
-            <div>
-                <img
-                    src="استقدام-من-اندونيسيا/استقدام-عمالة-اندونيسية.webp"
-                    alt="استقدام من اندونيسيا - اندو للجميع"
-                    title="استقدام من اندونيسيا - اندو للجميع"
-                    id="indoforall-web-logo"
-                    onclick="indoforall_show_full_screen_image(this.src)"
-                />
-            </div>
-
-            <div>
+            <div class="indoforall-intro-section-all-text-div-class">
                 <h1 title="استقدام من اندونيسيا - اندو للجميع" id="indoforall-web-intro-2" class="indoforall-web-intro">
                     استقدام من اندونيسيا - استقدام العمالة الاندونيسية - استقدام اندونيسيا
                 </h1>
                 <h2 title="استقدام من اندونيسيا - اندو للجميع" id="indoforall-web-intro-1" class="indoforall-web-intro">اندو للجميع</h2>
                 <h3 id="indoforall-web-intro-3" class="indoforall-web-intro">روح التطور والتحسين المستمر في مجال الاستقدام من اندونيسيا هي جزء أساسي من هويتنا، ونسعى للبقاء في القمة</h3>
-                <a class="indoforall-web-intro-contact-us" onclick="indoforall_whatsApp()">تواصل معنا على الواتس للحصول على معلومات أكثر</a>
-                <h4 id="indoforall-website-guidance-text" onclick="indoforall_websiteGuidance()">كيف أستخدم موقع اندو للجميع؟</h4>
-                <a id="indoforall-request-worker-now-button" onclick="indoforall_craeteRequestWorkerMessage()">طلب استقدام</a>
+
+                <div class="indoforall-intro-section-buttons-div-class">
+                    <a class="indoforall-web-intro-contact-us" onclick="indoforall_whatsApp()">تواصل معنا على الواتس للحصول على معلومات أكثر</a>
+                    <h4 id="indoforall-website-guidance-text" onclick="indoforall_websiteGuidance()">كيف أستخدم موقع اندو للجميع؟</h4>
+                    <a id="indoforall-request-worker-now-button" class="indoforall-mouse-gradient" onclick="indoforall_craeteRequestWorkerMessage()">طلب استقدام</a>
+                </div>
             </div>
 
-            <div id="indoforall-whatsapp-icon">
-                <img src="استقدام-من-اندونيسيا/استقدام-اندونيسيا.webp" alt="استقدام من اندونيسيا - اندو للجميع" title="استقدام من اندونيسيا - اندو للجميع" onclick="indoforall_whatsApp()" />
-                <h4 onclick="indoforall_whatsApp()">تواصل معنا</h4>
+            <div class="indoforall-orbit-container" id="indoforall-orbit-container-id">
+                <img src="وزارة-الخارجية-للاستقدام.png" class="indoforall-center-image" alt="Center Image" />
             </div>
         </section>
 
         <!-- Choose Worker Type Section -->
         <section id="indoforall-choose-worker-type-section" class="indoforall-sections">
             <div>
-                <h1 class="indoforall-section-intro-text indoforall-mouse-gradient" title="استقدام من اندونيسيا - اندو للجميع">استقدام من اندونيسيا عمالة في مجالات متعددة</h1>
+                <h1 class="indoforall-section-intro-text indoforall-mouse-gradient" title="استقدام من اندونيسيا - اندو للجميع">
+                    استقدام من اندونيسيا عمالة في مجالات متعددة
+                </h1>
             </div>
 
             <div>
@@ -338,13 +335,53 @@
 
             <div id="indoforall-worker-type-area">
                 <div id="indoforall-worker-type-div">
-                    <h3 onclick="indoforall_createWorkerTypeDetalis(indoforall_homeWorkerArray)">عاملة منزلية</h3>
-                    <h3 onclick="indoforall_createWorkerTypeDetalis(indoforall_driveWorkerArray)">سائق خاص</h3>
-                    <h3 onclick="indoforall_createWorkerTypeDetalis(indoforall_hairWorkerArray)">كوفيرة</h3>
-                    <h3 onclick="indoforall_createWorkerTypeDetalis(indoforall_sewingWorkerArray)">خياطة</h3>
-                    <h3 onclick="indoforall_createWorkerTypeDetalis(indoforall_doctorWorkerArray)">ممرضة</h3>
-                    <h3 onclick="indoforall_whatsApp">خيارات اخرى؟ تواصل معنا على الواتس</h3>
+                    <div class="indoforall-worker-card" onclick="indoforall_createWorkerTypeDetalis(indoforall_homeWorkerArray)">
+                        <img src="نوع-العمالة-الاندونيسية/عاملة-منزلية.png" alt="عاملة منزلية" />
+                        <span>عاملة منزلية</span>
+                    </div>
+
+                    <div class="indoforall-worker-card" onclick="indoforall_createWorkerTypeDetalis(indoforall_driveWorkerArray)">
+                        <img src="نوع-العمالة-الاندونيسية/سائق-خاص.png" alt="سائق خاص" />
+                        <span>سائق خاص</span>
+                    </div>
+
+                    <div class="indoforall-worker-card" onclick="indoforall_createWorkerTypeDetalis(indoforall_hairWorkerArray)">
+                        <img src="نوع-العمالة-الاندونيسية/كوفيرة.png" alt="كوفيرة" />
+                        <span>كوفيرة</span>
+                    </div>
+
+                    <div class="indoforall-worker-card" onclick="indoforall_createWorkerTypeDetalis(indoforall_sewingWorkerArray)">
+                        <img src="نوع-العمالة-الاندونيسية/خياطة.png" alt="خياطة" />
+                        <span>خياطة</span>
+                    </div>
+
+                    <div class="indoforall-worker-card" onclick="indoforall_createWorkerTypeDetalis(indoforall_doctorWorkerArray)">
+                        <img src="نوع-العمالة-الاندونيسية/ممرضة.png" alt="ممرضة" />
+                        <span>ممرضة</span>
+                    </div>
+
+                    <div class="indoforall-worker-card" onclick="indoforall_whatsApp()">
+                        <img src="نوع-العمالة-الاندونيسية/خيارات-اخرى.png" alt="تواصل واتس" />
+                        <span>خيارات اخرى؟</span>
+                    </div>
                 </div>
+
+                <div id="indoforall-quick-info-div">
+                    <h4 class="indoforall-quick-info" style="color: rgb(0, 106, 141); font-weight: 700;">معلومات سريعة:</h4>
+                    <h5 class="indoforall-quick-info">1- يتم إنجاز الاستقدام لفيزة زيارة او فيزة سائق خاص في مدة تتراوح من 12 الى 14 يوم</h5>
+                    <h5 class="indoforall-quick-info">2- يتم إنجاز الاستقدام لفيزة عمالة مهنية في مدة تتراوح بين 15 يوم</h5>
+                    <br />
+                    <h5 class="indoforall-quick-info">3- يتم تعويض العميل بإستبدال العمالة في مدة الضمان التي تمتد لثلاث شهور على الحالات التالية:</h5>
+                    <h5 class="indoforall-quick-info">1- رفض العمل</h5>
+                    <h5 class="indoforall-quick-info">2- الهروب</h5>
+                    <h5 class="indoforall-quick-info">3- الحمل</h5>
+                    <h5 class="indoforall-quick-info">4- في حال كانت العمالة مريضة بمرض خبيث (لاسمح الله)</h5>
+                </div>
+            </div>
+
+            <div id="indoforall-whatsapp-icon">
+                <img src="استقدام-من-اندونيسيا/استقدام-اندونيسيا.webp" alt="استقدام من اندونيسيا - اندو للجميع" title="استقدام من اندونيسيا - اندو للجميع" onclick="indoforall_whatsApp()" />
+                <h4 onclick="indoforall_whatsApp()">تواصل معنا</h4>
             </div>
         </section>
 
@@ -380,6 +417,115 @@
                     >
                         طريقة الاستقدام
                     </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section For Who Are We -->
+        <section class="indoforall-sections">
+            <div class="indoforall-who-are-we-all-content-div">
+                <div class="indoforall-who-are-we-all-text-div">
+                    <div>
+                        <h1 title="استقدام من اندونيسيا - اندو للجميع" class="indoforall-mouse-gradient">من نحن !</h1>
+                    </div>
+
+                    <div>
+                        <h2>
+                            شركة اندو للجميع للإستقدام هي شركة متخصصة في تلبية احتياجات العملاء من العمالة المنزلية والمهنية المحترفة في المملكة العربية السعودية ودول الخليج . نتميز بسمعة مرموقة في مجال الكوادر العاملة المؤهلة والمدربة من
+                            إندونيسيا. نلتزم بتقديم خدمات العمالة من مختلف المهن بما يلبي احتياجات الأفراد وقطاع الأعمال.
+                        </h2>
+                    </div>
+
+                    <div>
+                        <a itemprop="url" href="https://indoforall.com/%D8%A7%D8%B3%D8%AA%D9%82%D8%AF%D8%A7%D9%85-%D8%A7%D9%86%D8%AF%D9%88-%D9%84%D9%84%D8%AC%D9%85%D9%8A%D8%B9" title="استقدام اندو للجميع - اندو للجميع">
+                            <ion-icon name="arrow-forward-outline"></ion-icon> مزيد
+                        </a>
+                    </div>
+                </div>
+
+                <div class="indoforall-who-are-we-image-div">
+                    <img src="استقدام-من-اندونيسيا/استقدام-الى-الرياض.png" alt="استقدام من اندونيسيا - اندو للجميع" />
+                </div>
+            </div>
+        </section>
+
+        <!-- ًMain Page Info Section -->
+        <section id="indoforall-main-page-section" class="indoforall-sections">
+            <div>
+                <h1 title="استقدام من اندونيسيا - اندو للجميع" class="indoforall-main-page-text indoforall-mouse-gradient">
+                    الاستقدام من اندونيسيا هو مجال كبير تتصدره شركة استقدام اندو للجميع للأسباب التالية:
+                </h1>
+            </div>
+
+            <div id="indoforall-our-features-area">
+                <h2>
+                    <spam><ion-icon name="checkmark-outline"></ion-icon> 1- </spam>سرعة الإنجاز
+                </h2>
+                <h2>
+                    <spam><ion-icon name="checkmark-outline"></ion-icon> 2- </spam>العناية الشديدة في إختيار العمالة المناسبة
+                </h2>
+                <h2>
+                    <spam><ion-icon name="checkmark-outline"></ion-icon> 3- </spam>أكثر من 18 سنة خبرة في المجال
+                </h2>
+                <h2>
+                    <spam><ion-icon name="checkmark-outline"></ion-icon> 4- </spam>خدمة العملاء الدائمة قبل وبعد الإنجاز وتقديم الدعم لهم
+                </h2>
+                <h2>
+                    <spam><ion-icon name="checkmark-outline"></ion-icon> 5- </spam>علاقاتنا الجيدة والواسعه مع القطاعات
+                </h2>
+                <h2>
+                    <spam><ion-icon name="checkmark-outline"></ion-icon> 6- </spam>وكلائنا في الخارج
+                </h2>
+                <h2>
+                    <spam><ion-icon name="checkmark-outline"></ion-icon> 7- </spam>الثقة الكبيرة المتبادلة مع عملائنا
+                </h2>
+
+                <img src="استقدام-من-اندونيسيا/استقدام-من-اندونيسيا.webp" alt="استقدام من اندونيسيا - اندو للجميع" title="استقدام من اندونيسيا - اندو للجميع" class="indoforall-indonesia-info-image" />
+            </div>
+
+            <div>
+                <h1 title="استقدام من اندونيسيا - اندو للجميع" class="indoforall-main-page-text indoforall-mouse-gradient">
+                    استقدام العمالة المنزلية هي ماتتميز به اندونيسيا للأسباب التالية:
+                </h1>
+            </div>
+
+            <div id="indoforall-indonesia-info">
+                <h2>
+                    إندونيسيا هي دولة تتألف من 17508 جزيرة وتضم حوالي 275 مليون شخص، مما يجعلها رابع أكبر دولة في العالم من حيث عدد السكان. تتميز البلاد بأنها أكبر دولة ذات غالبية سكانية مسلمة. مثلا جاوة التي يعيش فيها أكثر من نصف سكان
+                    البلاد، تعد أكبر جزيرة مملوئة بالسكان على وجه الأرض.<br />
+                    يعود الفضل في قوة سوق العمل في إندونيسيا إلى التزام العمالة الاندونيسية وتدريبهم الجيد. لذا، يُنصح دائمًا باستقدام عمالة اندونيسية بشكل فوري لتلبية احتياجات الأسر التي تبحث عن إضافة جديدة للعائلة للمساعدة في أعمال
+                    المنزل.
+                </h2>
+                <h2>تشكل العمالة الاندونيسية من الإناث الجزء الأكبر من الجالية الإندونيسية في السعودية، بالإضافة إلى العمال المهاجرين والعمال المغتربين.</h2>
+                <h2>
+                    العمالة الإندونيسية كونها عمالة منزلية ماهرة وأثبتت تأقلمها مع الأسر السعودية والتزامها بالعقود والقوانين، بل إن كثيراً من هذه العمالة الاندونيسية تستمر للعمل في السعودية لسنوات طويلة، وتتميز العمالة الإندونيسية بقلة
+                    مشاكلها واحترامها لعادات الأسر السعودية وتقاليدها لكون العمالة الإندونيسية غالبيتها مسلمة.
+                </h2>
+
+                <img src="استقدام-من-اندونيسيا/استقدام-من-اندونيسيا.webp" alt="استقدام من اندونيسيا - اندو للجميع" title="استقدام من اندونيسيا - اندو للجميع" class="indoforall-indonesia-info-image" />
+            </div>
+
+            <div>
+                <h1 title="استقدام من اندونيسيا - اندو للجميع" class="indoforall-main-page-text-2 indoforall-mouse-gradient">فريق شركة استقدام اندو للجميع في خدمتك 7/24</h1>
+            </div>
+
+            <div id="indoforall-our-contact-info">
+                <div onclick="indoforall_whatsApp()">
+                    <ion-icon name="logo-whatsapp"></ion-icon>
+                    <h1>واتساب :</h1>
+                    <h2>966509465975+</h2>
+                </div>
+
+                <div onclick="indoforall_gmail()">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <h1>البريد الإلكتروني :</h1>
+                    <h2>indoforall.office@gmail.com</h2>
+                </div>
+
+                <div onclick="indoforall_location()">
+                    <ion-icon name="location-outline"></ion-icon>
+                    <h1>العنوان :</h1>
+                    <h2>اندونيسيا - Bogor</h2>
                 </div>
             </div>
         </section>
@@ -430,95 +576,6 @@
             >
                 صفحة اثبات المصداقية
             </a>
-
-            <div id="indoforall-quick-info-div">
-                <h4 class="indoforall-quick-info">معلومات سريعة:</h4>
-                <h5 class="indoforall-quick-info">1- يتم إنجاز الاستقدام لفيزة زيارة او فيزة سائق خاص في مدة تتراوح من 12 الى 14 يوم</h5>
-                <h5 class="indoforall-quick-info">2- يتم إنجاز الاستقدام لفيزة عمالة مهنية في مدة تتراوح بين 15 يوم</h5>
-                <br />
-                <h5 class="indoforall-quick-info">3- يتم تعويض العميل بإستبدال العمالة في مدة الضمان التي تمتد لثلاث شهور على الحالات التالية:</h5>
-                <h5 class="indoforall-quick-info">1- رفض العمل</h5>
-                <h5 class="indoforall-quick-info">2- الهروب</h5>
-                <h5 class="indoforall-quick-info">3- الحمل</h5>
-                <h5 class="indoforall-quick-info">4- في حال كانت العمالة مريضة بمرض خبيث (لاسمح الله)</h5>
-            </div>
-        </section>
-
-        <!-- ًMain Page Info Section -->
-        <section id="indoforall-main-page-section" class="indoforall-sections">
-            <div>
-                <h1 title="استقدام من اندونيسيا - اندو للجميع" class="indoforall-main-page-text indoforall-mouse-gradient">الاستقدام من اندونيسيا هو مجال كبير تتصدره شركة استقدام اندو للجميع للأسباب التالية:</h1>
-            </div>
-
-            <div id="indoforall-our-features-area">
-                <h2>
-                    <spam><ion-icon name="checkmark-outline"></ion-icon> 1- </spam>سرعة الإنجاز
-                </h2>
-                <h2>
-                    <spam><ion-icon name="checkmark-outline"></ion-icon> 2- </spam>العناية الشديدة في إختيار العمالة المناسبة
-                </h2>
-                <h2>
-                    <spam><ion-icon name="checkmark-outline"></ion-icon> 3- </spam>أكثر من 18 سنة خبرة في المجال
-                </h2>
-                <h2>
-                    <spam><ion-icon name="checkmark-outline"></ion-icon> 4- </spam>خدمة العملاء الدائمة وتقديم الدعم لهم
-                </h2>
-                <h2>
-                    <spam><ion-icon name="checkmark-outline"></ion-icon> 5- </spam>علاقاتنا الجيدة والواسعه مع القطاعات
-                </h2>
-                <h2>
-                    <spam><ion-icon name="checkmark-outline"></ion-icon> 6- </spam>وكلائنا في الخارج
-                </h2>
-                <h2>
-                    <spam><ion-icon name="checkmark-outline"></ion-icon> 7- </spam>الثقة الكبيرة المتبادلة مع عملائنا
-                </h2>
-
-                <img src="استقدام-من-اندونيسيا/استقدام-من-اندونيسيا.webp" alt="استقدام من اندونيسيا - اندو للجميع" title="استقدام من اندونيسيا - اندو للجميع" class="indoforall-indonesia-info-image" />
-            </div>
-
-            <div>
-                <h1 title="استقدام من اندونيسيا - اندو للجميع" class="indoforall-main-page-text indoforall-mouse-gradient">استقدام العمالة المنزلية هي ماتتميز به اندونيسيا للأسباب التالية:</h1>
-            </div>
-
-            <div id="indoforall-indonesia-info">
-                <h2>
-                    إندونيسيا هي دولة تتألف من 17508 جزيرة وتضم حوالي 275 مليون شخص، مما يجعلها رابع أكبر دولة في العالم من حيث عدد السكان. تتميز البلاد بأنها أكبر دولة ذات غالبية سكانية مسلمة. مثلا جاوة التي يعيش فيها أكثر من نصف سكان
-                    البلاد، تعد أكبر جزيرة مملوئة بالسكان على وجه الأرض.<br />
-                    يعود الفضل في قوة سوق العمل في إندونيسيا إلى التزام العمالة الاندونيسية وتدريبهم الجيد. لذا، يُنصح دائمًا باستقدام عمالة اندونيسية بشكل فوري لتلبية احتياجات الأسر التي تبحث عن إضافة جديدة للعائلة للمساعدة في أعمال
-                    المنزل.
-                </h2>
-                <h2>تشكل العمالة الاندونيسية من الإناث الجزء الأكبر من الجالية الإندونيسية في السعودية، بالإضافة إلى العمال المهاجرين والعمال المغتربين.</h2>
-                <h2>
-                    العمالة الإندونيسية كونها عمالة منزلية ماهرة وأثبتت تأقلمها مع الأسر السعودية والتزامها بالعقود والقوانين، بل إن كثيراً من هذه العمالة الاندونيسية تستمر للعمل في السعودية لسنوات طويلة، وتتميز العمالة الإندونيسية بقلة
-                    مشاكلها واحترامها لعادات الأسر السعودية وتقاليدها لكون العمالة الإندونيسية غالبيتها مسلمة.
-                </h2>
-
-                <img src="استقدام-من-اندونيسيا/استقدام-من-اندونيسيا.webp" alt="استقدام من اندونيسيا - اندو للجميع" title="استقدام من اندونيسيا - اندو للجميع" class="indoforall-indonesia-info-image" />
-            </div>
-
-            <div>
-                <h1 title="استقدام من اندونيسيا - اندو للجميع" class="indoforall-main-page-text-2 indoforall-mouse-gradient">فريق شركة استقدام اندو للجميع في خدمتك 7/24</h1>
-            </div>
-
-            <div id="indoforall-our-contact-info">
-                <div onclick="indoforall_whatsApp">
-                    <ion-icon name="logo-whatsapp"></ion-icon>
-                    <h1>واتساب :</h1>
-                    <h2>966509465975+</h2>
-                </div>
-
-                <div onclick="indoforall_gmail()">
-                    <ion-icon name="mail-outline"></ion-icon>
-                    <h1>البريد الإلكتروني :</h1>
-                    <h2>indoforall.office@gmail.com</h2>
-                </div>
-
-                <div onclick="indoforall_location()">
-                    <ion-icon name="location-outline"></ion-icon>
-                    <h1>العنوان :</h1>
-                    <h2>اندونيسيا - Bogor</h2>
-                </div>
-            </div>
         </section>
 
         <footer id="indoforall-footer">
