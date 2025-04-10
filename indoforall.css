@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap");
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap'); */
 
 /* Simple Animation SetUp For Later Use */
 @keyframes floatAnimation {
@@ -20,7 +20,8 @@
 
 /* All */
 * {
-    font-family: "Noto Kufi Arabic", sans-serif;
+    /* font-family: "Noto Kufi Arabic", sans-serif; */
+    font-family: "Cairo", sans-serif;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -1198,7 +1199,6 @@ body.nav-open #indoforall-nav-options * {
 
 .indoforall-who-are-we-all-content-div * {
     color: #333;
-    font-family: "Cairo", sans-serif;
 }
 
 .indoforall-who-are-we-all-text-div {
