@@ -129,7 +129,7 @@ body {
     display: inline-block;
     padding: 20px 30px;
     border-radius: 6px;
-    color: white !important;
+    color: white;
     font-size: 24px;
     background-color: rgb(89, 62, 25);
     background-image: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.25) 0%, transparent 40%);
@@ -268,7 +268,7 @@ header.hidden {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     padding-right: 2vw;
 }
 
@@ -295,20 +295,20 @@ header.hidden {
 #indoforall-web-intro-3 {
     color: black;
     font-size: 1.4rem;
-    padding: 0.1vmax 0;
 }
 
 .indoforall-intro-section-buttons-div-class {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     flex-direction: column;
     width: 100%;
 }
 
 .indoforall-web-intro-contact-us {
-    background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
-    margin: 1vmax 0;
+    background: rgba(255, 230, 194, 0.609);
+    color: black;
+    width: clamp(80%, 40%, 40%);
     font-size: 1.5rem;
     text-decoration: none;
     text-align: center;
@@ -323,11 +323,12 @@ header.hidden {
 }
 
 #indoforall-website-guidance-text {
-    background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
+    background: rgba(255, 230, 194, 0.609);
+    color: black;
     font-size: 1.5rem;
+    width: clamp(80%, 40%, 40%);
     text-decoration: none;
     text-align: center;
-    padding: 5px;
     border-radius: 3px;
     cursor: pointer;
     transition: all 0.5s ease;
@@ -381,11 +382,11 @@ header.hidden {
 }
 
 #indoforall-request-worker-now-button {
-    margin: 1vmax 0;
     font-size: 2rem;
+    width: clamp(80%, 40%, 40%);
     text-decoration: none;
     text-align: center;
-    padding: 5px;
+    padding: 0;
     border-radius: 3px;
     cursor: pointer;
     transition: all 0.5s ease;
@@ -518,9 +519,9 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-orbit-container {
+    width: 100%;
     position: relative;
-    width: min(80vw, 300px);
-    height: min(100vw, 400px);
+    height: min(80vw, 400px);
     overflow: hidden;
 }
 
@@ -2245,10 +2246,6 @@ footer img {
 
     #indoforall-close-nav {
         font-size: 3vw;
-    }
-
-    .indoforall-orbit-container {
-        width: 100%;
     }
 
     .indoforall-worker-cards-div-class {
