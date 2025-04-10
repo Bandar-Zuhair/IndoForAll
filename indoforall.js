@@ -1334,7 +1334,13 @@ function insertNewClick(columnName) {
 }
 
 // Array of flag image URLs (replace or add your own)
-const flags = ["https://flagcdn.com/w40/sa.png", "https://flagcdn.com/w40/bh.png", "https://flagcdn.com/w40/om.png", "https://flagcdn.com/w40/qa.png", "https://flagcdn.com/w40/ae.png", "https://flagcdn.com/w40/eg.png"];
+const flags = [
+    "استقدام-الى-دول-الخليج/استقدام-الى-السعودية.webp",
+    "استقدام-الى-دول-الخليج/استقدام-الى-قطر.webp",
+    "استقدام-الى-دول-الخليج/استقدام-الى-عمان.webp",
+    "استقدام-الى-دول-الخليج/استقدام-الى-البحرين.webp",
+    "استقدام-الى-دول-الخليج/استقدام-الى-الامارات.webp",
+];
 
 const container = document.getElementById("indoforall-orbit-container-id");
 const total = flags.length;
