@@ -1333,29 +1333,72 @@ function insertNewClick(columnName) {
         .catch((error) => console.error("Error:", error));
 }
 
-/* Hovering background text functionality */
-function enableMouseGradient(
-    selector = ".indoforall-mouse-gradient",
-    colors = {
-        start: "rgb(167, 133, 85)",
-        mid: "rgb(89, 62, 25)",
-        end: "rgb(89, 62, 25)",
-    }
-) {
-    document.querySelectorAll(selector).forEach((elem) => {
-        elem.addEventListener("mousemove", function (e) {
-            const rect = this.getBoundingClientRect();
-            const x = ((e.clientX - rect.left) / rect.width) * 100;
-            const y = ((e.clientY - rect.top) / rect.height) * 100;
+// Array of flag image URLs (replace or add your own)
+const flags = ["https://flagcdn.com/w40/sa.png", "https://flagcdn.com/w40/bh.png", "https://flagcdn.com/w40/om.png", "https://flagcdn.com/w40/qa.png", "https://flagcdn.com/w40/ae.png", "https://flagcdn.com/w40/eg.png"];
 
-            this.style.background = `radial-gradient(circle at ${x}% ${y}%, ${colors.start} 0%, ${colors.mid} 40%, ${colors.end} 100%)`;
+const container = document.getElementById("indoforall-orbit-container-id");
+const total = flags.length;
+
+flags.forEach((src, i) => {
+    const angle = (360 / total) * i;
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "indoforall-orbit-flag";
+    wrapper.style.animationDelay = `-${(20 / total) * i}s`; // stagger start
+
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = `Flag ${i}`;
+
+    // Add image to wrapper, wrapper to container
+    wrapper.appendChild(img);
+    wrapper.style.transform = `rotate(${angle}deg)`;
+    container.appendChild(wrapper);
+});
+
+/* Hovering background text functionality */
+function enableMouseGradient(selector = ".indoforall-mouse-gradient") {
+    document.querySelectorAll(selector).forEach((elem) => {
+        let currentX = 50;
+        let currentY = 50;
+        let targetX = 50;
+        let targetY = 50;
+        let animationFrame;
+
+        elem.style.boxShadow = `${(targetX - 50) * 0.5}px ${(targetY - 50) * 0.5}px 25px rgba(255,255,255,0.2)`;
+        elem.style.backgroundPosition = `${currentX}% ${currentY}%`;
+        elem.style.backgroundSize = `${120 + (targetX - 50) * 0.3}% ${120 + (targetY - 50) * 0.3}%`;
+
+        const update = () => {
+            currentX += (targetX - currentX) * 0.2;
+            currentY += (targetY - currentY) * 0.2;
+
+            elem.style.backgroundImage = `radial-gradient(circle at ${currentX}% ${currentY}%, rgba(255,255,255,0.25) 0%, transparent 40%)`;
+
+            animationFrame = requestAnimationFrame(update);
+        };
+
+        elem.addEventListener("mousemove", (e) => {
+            const rect = elem.getBoundingClientRect();
+            targetX = ((e.clientX - rect.left) / rect.width) * 100;
+            targetY = ((e.clientY - rect.top) / rect.height) * 100;
+
+            if (!animationFrame) {
+                animationFrame = requestAnimationFrame(update);
+            }
         });
 
-        elem.addEventListener("mouseleave", function () {
-            this.style.background = `radial-gradient(circle at center, ${colors.start} 0%, ${colors.mid} 40%, ${colors.end} 100%)`;
+        elem.addEventListener("mouseleave", () => {
+            targetX = 50;
+            targetY = 50;
         });
     });
 }
+
+// Call the function after DOM is loaded
+document.addEventListener("DOMContentLoaded", () => {
+    enableMouseGradient();
+});
 
 /* Open WhatsApp Chat */
 function indoforall_whatsApp() {
