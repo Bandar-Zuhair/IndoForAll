@@ -260,9 +260,7 @@ header.hidden {
 /* indoforall-intro-section */
 #indoforall-intro-section {
     z-index: 1;
-    background: white;
     width: 100%;
-    height: 100vh;
 }
 
 .indoforall-intro-section-all-text-div-class {
@@ -529,8 +527,8 @@ body.nav-open #indoforall-nav-options * {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: min(20vw, 80px);
-    height: min(20vw, 80px);
+    width: min(30vw, 100px);
+    height: min(30vw, 100px);
     transform: translate(-50%, -50%);
     border-radius: 50%;
     object-fit: cover;
@@ -542,8 +540,6 @@ body.nav-open #indoforall-nav-options * {
     position: absolute;
     width: 100%;
     height: 100%;
-    animation: orbit 20s linear infinite;
-    transform-origin: center center;
 }
 
 .indoforall-orbit-flag img {
@@ -556,16 +552,6 @@ body.nav-open #indoforall-nav-options * {
     border-radius: 4px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     transform: translate(-50%, -320%);
-}
-
-@keyframes orbit {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
 }
 
 /* Clint Rate Section */
@@ -2016,7 +2002,7 @@ footer img {
     }
 
     #indoforall-company-description h2 {
-        font-size: 5vmin;
+        font-size: 3vw;
         padding: 1px;
     }
 
@@ -2260,6 +2246,10 @@ footer img {
         font-size: 3vw;
     }
 
+    .indoforall-orbit-container {
+        width: 100%;
+    }
+
     .indoforall-worker-cards-div-class {
         margin-bottom: 5px;
         padding: 10px 0 20px;
@@ -2376,6 +2366,10 @@ footer img {
 
     .indoforall-who-are-we-all-text-div a {
         font-size: 4.5vw;
+    }
+
+    #indoforall-company-description h2 {
+        font-size: 4vw;
     }
 
     .indoforall-sections {
