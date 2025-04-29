@@ -571,9 +571,7 @@ body.nav-open #indoforall-nav-options * {
     overflow-x: auto;
     overflow-y: hidden;
     box-shadow: 0 0 1px 0.5px black;
-    opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
 }
@@ -825,9 +823,7 @@ body.nav-open #indoforall-nav-options * {
     border-bottom-left-radius: 50%;
     border-bottom-right-radius: 50%;
     z-index: 3;
-    /* 👈 this brings it above image and background */
     pointer-events: none;
-    /* optional: avoids interfering with clicks */
 }
 
 #indoforall-quick-info-div {
