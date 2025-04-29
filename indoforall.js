@@ -1,3 +1,8 @@
+// Your Supabase credentials
+const supabaseUrl = "https://cllgjavgsxkabrketovz.supabase.co";
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNsbGdqYXZnc3hrYWJya2V0b3Z6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU3ODIzOTgsImV4cCI6MjA2MTM1ODM5OH0.ViOOjIVagA9Ezk4tPhoC60g8-yJQmyz3gnC0c_OrrL4"; // use public key
+const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
 /* Page Load body Fade Animation */
 setTimeout(function () {
     document.getElementById("indoforall-body").style.opacity = "1";
@@ -488,93 +493,105 @@ indoforall_craeteRequestWorkerMessage = function () {
 /* Function for import all comments from google sheet */
 if (document.getElementById("indoforall-clint-rate-section") || document.getElementById("indoforall-proof-section")) {
     document.getElementById("indoforall-comment-form").addEventListener("submit", async function (event) {
-        event.preventDefault(); // Prevent page refresh
+        event.preventDefault();
 
-        if (document.getElementById("indoforall-comment-submit-button-id").style.userSelect !== "none") {
-            /* Disbale the button clicked to avoid double comments */
-            document.getElementById("indoforall-comment-submit-button-id").style.userSelect = "none";
-            document.getElementById("indoforall-comment-submit-button-id").style.background = "gray";
-            document.getElementById("indoforall-comment-submit-button-id").innerText = "جاري النشر";
+        const button = document.getElementById("indoforall-comment-submit-button-id");
 
-            let name = document.getElementById("indoforall-comment-username").value.trim();
+        if (button.style.userSelect !== "none") {
+            // Disable button to prevent multiple submissions
+            button.style.userSelect = "none";
+            button.style.background = "gray";
+            button.innerText = "جاري النشر";
+
+            // Get input values
+            let reviewer_name = document.getElementById("indoforall-comment-username").value.trim();
             let comment = document.getElementById("indoforall-comment-text").value.trim();
-            let stars = document.getElementById("indoforall-comment-stars").value;
+            let stars = parseInt(document.getElementById("indoforall-comment-stars").value);
+            let review_date = new Date().toISOString().split("T")[0]; // format: YYYY-MM-DD
 
-            let formData = new URLSearchParams();
-            formData.append("name", name); // Match Google Apps Script keys
-            formData.append("comment", comment);
-            formData.append("stars", stars);
+            // Get the current highest ID
+            let { data: existingReviews, error: selectError } = await supabase.from("indoforall_comments").select("id").order("id", { ascending: false }).limit(1);
 
-            try {
-                let response = await fetch("https://script.google.com/macros/s/AKfycby6XNKNx3VSt46Wuvn1OguMAQRELm0wQCPLbY1rFSiHVa6ESBUTdX8yCoLgN7lcoUmSCA/exec", {
-                    method: "POST",
-                    body: formData,
-                });
+            if (selectError) {
+                console.error("Error getting max ID:", selectError.message);
+                button.style.userSelect = "auto";
+                button.style.background = "linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102))";
+                button.innerText = "إرسال";
+                return;
+            }
 
-                let data = await response.text();
+            let nextId = existingReviews.length ? existingReviews[0].id + 1 : 1;
 
-                if (data === "Success") {
-                    document.getElementById("indoforall-comment-form").reset();
+            // Insert new review manually with the next ID
+            const { error: insertError } = await supabase.from("indoforall_comments").insert([
+                {
+                    id: nextId,
+                    review_date,
+                    reviewer_name,
+                    comment,
+                    stars,
+                },
+            ]);
 
-                    await fetchReviews(); // Wait until fetchReviews() is fully executed
+            if (!insertError) {
+                document.getElementById("indoforall-comment-form").reset();
+                await fetchReviews(); // Refresh UI
+                showSuccessNotification();
+            } else {
+                console.error("Error submitting comment:", insertError.message);
+            }
 
-                    showSuccessNotification(); // Now run the notification function
-                }
-            } catch (error) {}
+            // Re-enable button
+            button.style.userSelect = "auto";
+            button.style.background = "linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102))";
+            button.innerText = "إرسال";
         }
     });
 
     // Function to Fetch and Display Reviews
-    function fetchReviews() {
-        fetch("https://script.google.com/macros/s/AKfycby6XNKNx3VSt46Wuvn1OguMAQRELm0wQCPLbY1rFSiHVa6ESBUTdX8yCoLgN7lcoUmSCA/exec")
-            .then((response) => response.json())
-            .then((data) => {
-                let indoforall_clint_rate_area = document.getElementById("indoforall-clint-rate-area");
-                indoforall_clint_rate_area.innerHTML = ""; // Clear old reviews
+    async function fetchReviews() {
+        try {
+            const { data, error } = await supabase.from("indoforall_comments").select("*").order("review_date", { ascending: false });
 
-                data.reverse().forEach((item) => {
-                    // Reverse to show newest first
-                    let { date, name, comment, starAmount } = item;
+            if (error) throw error;
 
-                    // Skip any row where the comment is empty
-                    if (!comment.trim()) return;
+            let indoforall_clint_rate_area = document.getElementById("indoforall-clint-rate-area");
+            indoforall_clint_rate_area.innerHTML = ""; // Clear old reviews
 
-                    let clintRateDiv = document.createElement("div");
-                    clintRateDiv.classList.add("indoforall-rate-div");
+            data.forEach((item) => {
+                const { review_date, reviewer_name, comment, stars } = item;
 
-                    clintRateDiv.innerHTML = `
-                        <div class="indoforall-clint-rate-date-div">
-                            <h3>${date}</h3>
-                        </div>
+                if (!comment.trim()) return;
 
-                        <div class="indoforall-clint-rate-info-div">
-                            <img src="استقدام-من-اندونيسيا.webp" alt="استقدام من اندونيسيا - اندو للجميع" title="استقدام من اندونيسيا - اندو للجميع">
-                            <h4>${name}</h4>
-                        </div>
+                let clintRateDiv = document.createElement("div");
+                clintRateDiv.classList.add("indoforall-rate-div");
 
-                        <div class="indoforall-clint-rate-comment-div">
-                            <h5>${comment}</h5>
-                        </div>
+                clintRateDiv.innerHTML = `
+                    <div class="indoforall-clint-rate-date-div">
+                        <h3>${review_date}</h3>
+                    </div>
+                    <div class="indoforall-clint-rate-info-div">
+                        <img src="استقدام-من-اندونيسيا.webp" alt="استقدام من اندونيسيا - اندو للجميع" title="استقدام من اندونيسيا - اندو للجميع">
+                        <h4>${reviewer_name}</h4>
+                    </div>
+                    <div class="indoforall-clint-rate-comment-div">
+                        <h5>${comment}</h5>
+                    </div>
+                    <div class="indoforall-clint-rate-star-div">
+                        ${"★".repeat(stars)}
+                    </div>
+                `;
 
-                        <div class="indoforall-clint-rate-star-div">
-                            ${"★".repeat(starAmount)}
-                        </div>
-                    `;
+                indoforall_clint_rate_area.appendChild(clintRateDiv);
+            });
 
-                    indoforall_clint_rate_area.appendChild(clintRateDiv);
-                });
-
-                /* Disbale the button clicked to avoid double comments */
-                document.getElementById("indoforall-comment-submit-button-id").style.userSelect = "auto";
-                document.getElementById("indoforall-comment-submit-button-id").style.background = "linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102))";
-                document.getElementById("indoforall-comment-submit-button-id").innerText = "Share";
-
-                // Smooth appearance with delay
-                setTimeout(() => {
-                    indoforall_clint_rate_area.classList.add("show");
-                }, 100);
-            })
-            .catch((error) => console.error("Error fetching reviews:", error));
+            // Restore button state
+            document.getElementById("indoforall-comment-submit-button-id").style.userSelect = "auto";
+            document.getElementById("indoforall-comment-submit-button-id").style.background = "linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102))";
+            document.getElementById("indoforall-comment-submit-button-id").innerText = "Share";
+        } catch (error) {
+            console.error("Error fetching reviews:", error.message);
+        }
     }
 
     // Function to Show Floating Success Notification
@@ -1322,15 +1339,42 @@ function addBackgroundVideo(sectionId, videoSrc) {
 // Add videos only to the intended sections
 addBackgroundVideo("indoforall-intro-section", "استقدام-من-اندونيسيا.mp4");
 
-/* Insert new click data in the google sheet */
-function insertNewClick(columnName) {
-    const scriptURL = "https://script.google.com/macros/s/AKfycbyU-p7z3tHF0I1K0GCmjcRG3CaG0NPkGyMPTvhlGPISxwIYrt6ueD7O2iHSza9SPOP3/exec";
+/* Insert new click data in the Supabase */
+async function insertNewClick(website) {
+    // Step 1: Get current month name
+    const monthNames = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
+    const currentMonth = monthNames[new Date().getMonth()];
 
-    // Trim the column name before passing it
-    fetch(`${scriptURL}?columnName=${encodeURIComponent(columnName.trim())}`)
-        .then((response) => response.text())
-        .then((data) => console.log("Response:", data))
-        .catch((error) => console.error("Error:", error));
+    // Step 2: Fetch the current row for the website
+    const { data, error } = await supabase.from("click_counter").select("*").eq("website", website).single();
+
+    if (error) {
+        console.error("Error fetching data:", error.message);
+        return;
+    }
+
+    // Step 3: Parse the current value (e.g., "Clicks 4")
+    let rawValue = data[currentMonth];
+    let currentCount = 0;
+
+    if (rawValue && typeof rawValue === "string" && rawValue.startsWith("Clicks ")) {
+        currentCount = parseInt(rawValue.replace("Clicks ", ""), 10) || 0;
+    }
+
+    // Step 4: Increment the value
+    let newCount = currentCount + 1;
+    let newValue = `Clicks ${newCount}`;
+
+    // Step 5: Update the table
+    const { error: updateError } = await supabase
+        .from("click_counter")
+        .update({ [currentMonth]: newValue })
+        .eq("website", website);
+
+    if (updateError) {
+        console.error("Error updating value:", updateError.message);
+        return;
+    }
 }
 
 // Array of flag image URLs (replace or add your own)
