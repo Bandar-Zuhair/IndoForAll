@@ -1,6 +1,6 @@
 // Your Supabase credentials
-const supabaseUrl = "https://cllgjavgsxkabrketovz.supabase.co";
-const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNsbGdqYXZnc3hrYWJya2V0b3Z6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU3ODIzOTgsImV4cCI6MjA2MTM1ODM5OH0.ViOOjIVagA9Ezk4tPhoC60g8-yJQmyz3gnC0c_OrrL4"; // use public key
+const supabaseUrl = "https://dkerfetnaquggtlpicul.supabase.co";
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRrZXJmZXRuYXF1Z2d0bHBpY3VsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY3ODY5MDUsImV4cCI6MjA2MjM2MjkwNX0.GMEkAcx_SWTjV_TdlhQNXzIzh9mDM_L2h8SaLXllQsw"; // use public key
 const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 /* Page Load body Fade Animation */
