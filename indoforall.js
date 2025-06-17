@@ -498,47 +498,48 @@ if (document.getElementById("indoforall-clint-rate-section") || document.getElem
         const button = document.getElementById("indoforall-comment-submit-button-id");
 
         if (button.style.userSelect !== "none") {
-            // Disable button to prevent multiple submissions
+            // Disable button
             button.style.userSelect = "none";
             button.style.background = "gray";
             button.innerText = "جاري النشر";
 
-            // Get input values
+            // Gather input
             let reviewer_name = document.getElementById("indoforall-comment-username").value.trim();
             let comment = document.getElementById("indoforall-comment-text").value.trim();
             let stars = parseInt(document.getElementById("indoforall-comment-stars").value);
-            let review_date = new Date().toISOString().split("T")[0]; // format: YYYY-MM-DD
+            let review_date = new Date().toISOString().split("T")[0];
 
-            // Get the current highest ID
-            let { data: existingReviews, error: selectError } = await supabase.from("indoforall_comments").select("id").order("id", { ascending: false }).limit(1);
+            const newComment = {
+                review_date,
+                reviewer_name,
+                comment,
+                stars,
+            };
 
-            if (selectError) {
-                console.error("Error getting max ID:", selectError.message);
-                button.style.userSelect = "auto";
-                button.style.background = "linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102))";
-                button.innerText = "إرسال";
-                return;
-            }
+            try {
+                const column = "indoforall";
 
-            let nextId = existingReviews.length ? existingReviews[0].id + 1 : 1;
+                // Fetch existing array
+                const { data, error: fetchError } = await supabase.from("all_customers_comments").select(column).eq("id", 1).single();
 
-            // Insert new review manually with the next ID
-            const { error: insertError } = await supabase.from("indoforall_comments").insert([
-                {
-                    id: nextId,
-                    review_date,
-                    reviewer_name,
-                    comment,
-                    stars,
-                },
-            ]);
+                if (fetchError) throw fetchError;
 
-            if (!insertError) {
+                const existingArray = data[column] || [];
+                const updatedArray = [newComment, ...existingArray]; // Add new comment on top
+
+                // Update table
+                const { error: updateError } = await supabase
+                    .from("all_customers_comments")
+                    .update({ [column]: updatedArray })
+                    .eq("id", 1);
+
+                if (updateError) throw updateError;
+
                 document.getElementById("indoforall-comment-form").reset();
-                await fetchReviews(); // Refresh UI
+                await fetchReviews(); // Reload reviews
                 showSuccessNotification();
-            } else {
-                console.error("Error submitting comment:", insertError.message);
+            } catch (error) {
+                console.error("Error submitting comment:", error.message);
             }
 
             // Re-enable button
@@ -551,14 +552,18 @@ if (document.getElementById("indoforall-clint-rate-section") || document.getElem
     // Function to Fetch and Display Reviews
     async function fetchReviews() {
         try {
-            const { data, error } = await supabase.from("indoforall_comments").select("*").order("review_date", { ascending: false });
+            const column = "indoforall";
+
+            const { data, error } = await supabase.from("all_customers_comments").select(column).eq("id", 1).single();
 
             if (error) throw error;
 
-            let indoforall_clint_rate_area = document.getElementById("indoforall-clint-rate-area");
-            indoforall_clint_rate_area.innerHTML = ""; // Clear old reviews
+            const reviews = data[column] || [];
 
-            data.forEach((item) => {
+            let user_clint_rate_area = document.getElementById("indoforall-clint-rate-area");
+            user_clint_rate_area.innerHTML = "";
+
+            reviews.forEach((item) => {
                 const { review_date, reviewer_name, comment, stars } = item;
 
                 if (!comment.trim()) return;
@@ -567,28 +572,29 @@ if (document.getElementById("indoforall-clint-rate-section") || document.getElem
                 clintRateDiv.classList.add("indoforall-rate-div");
 
                 clintRateDiv.innerHTML = `
-                    <div class="indoforall-clint-rate-date-div">
-                        <h3>${review_date}</h3>
-                    </div>
-                    <div class="indoforall-clint-rate-info-div">
-                        <img src="استقدام-من-اندونيسيا.webp" alt="استقدام من اندونيسيا - اندو للجميع" title="استقدام من اندونيسيا - اندو للجميع">
-                        <h4>${reviewer_name}</h4>
-                    </div>
-                    <div class="indoforall-clint-rate-comment-div">
-                        <h5>${comment}</h5>
-                    </div>
-                    <div class="indoforall-clint-rate-star-div">
-                        ${"★".repeat(stars)}
-                    </div>
+                <div class="indoforall-clint-rate-date-div">
+                    <h3>${review_date}</h3>
+                </div>
+                <div class="indoforall-clint-rate-info-div">
+                    <img src="استقدام-من-اندونيسيا.webp" alt="استقدام من اندونيسيا - اندو للجميع" title="استقدام من اندونيسيا - اندو للجميع">
+                    <h4>${reviewer_name}</h4>
+                </div>
+                <div class="indoforall-clint-rate-comment-div">
+                    <h5>${comment}</h5>
+                </div>
+                <div class="indoforall-clint-rate-star-div">
+                    ${"★".repeat(stars)}
+                </div>
                 `;
 
-                indoforall_clint_rate_area.appendChild(clintRateDiv);
+                user_clint_rate_area.appendChild(clintRateDiv);
             });
 
-            // Restore button state
-            document.getElementById("indoforall-comment-submit-button-id").style.userSelect = "auto";
-            document.getElementById("indoforall-comment-submit-button-id").style.background = "linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102))";
-            document.getElementById("indoforall-comment-submit-button-id").innerText = "Share";
+            // Restore button
+            const button = document.getElementById("indoforall-comment-submit-button-id");
+            button.style.userSelect = "auto";
+            button.style.background = "linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102))";
+            button.innerText = "Share";
         } catch (error) {
             console.error("Error fetching reviews:", error.message);
         }
@@ -601,19 +607,19 @@ if (document.getElementById("indoforall-clint-rate-section") || document.getElem
 
         setTimeout(() => {
             notification.style.opacity = "1";
-            notification.style.transform = "translateX(-50%) translateY(0px)"; // Move slightly up
+            notification.style.transform = "translateX(-50%) translateY(0px)";
         }, 10);
 
         setTimeout(() => {
             notification.style.opacity = "0";
-            notification.style.transform = "translateX(-50%) translateY(10px)"; // Move down slightly while fading out
+            notification.style.transform = "translateX(-50%) translateY(10px)";
             setTimeout(() => {
                 notification.style.display = "none";
             }, 400);
         }, 3000);
     }
 
-    // Fetch Reviews on Page Load
+    // Fetch on load
     fetchReviews();
 }
 
