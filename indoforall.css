@@ -50,7 +50,7 @@ body {
     background: var(--title-text-color);
     color: white;
     width: fit-content;
-    font-size: clamp(1rem, 1vw, 1.5rem);
+    font-size: clamp(1.2rem, 1vw, 1.5rem);
     padding: 0 5px;
     position: fixed;
     top: 5px;
@@ -172,7 +172,7 @@ header.hidden {
 }
 
 .indoforall-header-logo-title-class p {
-    font-size: clamp(0.7rem, 2.5vw, 1.3rem);
+    font-size: clamp(0.9rem, 2.5vw, 1.3rem);
     font-weight: 700;
     white-space: nowrap;
     overflow: hidden;
@@ -181,7 +181,7 @@ header.hidden {
 }
 
 .indoforall-header-logo-title-class img {
-    width: clamp(2.5rem, 9vw, 4rem);
+    width: clamp(2.7rem, 9vw, 4rem);
 }
 
 /* Navigation Links (Desktop) */
@@ -193,7 +193,7 @@ header.hidden {
 
 .indoforall-header-whatsapp-link-class {
     background: linear-gradient(to top, rgb(60, 43, 18), rgb(138, 111, 73));
-    font-size: 0.8rem;
+    font-size: clamp(0.9rem, 1vw, 1.1rem);
     padding: 0.5rem;
     border-radius: 2rem;
     cursor: pointer;
@@ -226,7 +226,7 @@ header.hidden {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: clamp(0.75rem, 1.1vw, 1rem);
+    font-size: clamp(0.95rem, 1.1vw, 1rem);
     padding: 8px 16px;
     color: rgba(255, 255, 255, 0.95);
     text-decoration: none;
@@ -253,7 +253,7 @@ header.hidden {
     display: none;
     background: transparent;
     border: none;
-    font-size: clamp(1.5rem, 2vw, 1.5rem);
+    font-size: clamp(1.7rem, 2vw, 1.5rem);
     cursor: pointer;
     color: black;
     transition: 0.3s ease-in-out;
@@ -291,18 +291,18 @@ header.hidden {
 }
 
 #indoforall-web-intro-1 {
-    font-size: clamp(1.5rem, 2vw, 2.5rem);
+    font-size: clamp(1.7rem, 2vw, 2.5rem);
     font-weight: bolder;
 }
 
 #indoforall-web-intro-2 {
     color: transparent;
-    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-size: clamp(1.2rem, 2vw, 1.3rem);
 }
 
 #indoforall-web-intro-3 {
     color: black;
-    font-size: clamp(0.7rem, 2vw, 1.4rem);
+    font-size: clamp(0.9rem, 2vw, 1.4rem);
 }
 
 .indoforall-intro-section-buttons-div-class {
@@ -316,8 +316,8 @@ header.hidden {
 .indoforall-web-intro-contact-us {
     background: rgba(255, 230, 194, 0.609);
     color: black;
-    width: clamp(7rem, 75vw, 35rem);
-    font-size: clamp(0.7rem, 2vw, 1.5rem);
+    width: clamp(9rem, 75vw, 35rem);
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
     padding: 5px 0;
     text-decoration: none;
     text-align: center;
@@ -332,9 +332,9 @@ header.hidden {
 #indoforall-website-guidance-text {
     background: rgba(255, 230, 194, 0.609);
     color: black;
-    font-size: clamp(0.7rem, 2vw, 1.5rem);
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
     padding: 5px 0;
-    width: clamp(7rem, 75vw, 35rem);
+    width: clamp(9rem, 75vw, 35rem);
     text-decoration: none;
     text-align: center;
     cursor: pointer;
@@ -376,7 +376,7 @@ header.hidden {
     text-decoration: none;
     background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
     color: white;
-    font-size: clamp(0.7rem, 2vw, 1.5rem);
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
     margin: 5px;
     text-align: center;
     padding: 5px;
@@ -396,8 +396,8 @@ header.hidden {
 }
 
 #indoforall-request-worker-now-button {
-    font-size: clamp(0.9rem, 2vw, 1.5rem);
-    width: clamp(7rem, 75vw, 35rem);
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    width: clamp(9rem, 75vw, 35rem);
     text-decoration: none;
     text-align: center;
     padding: 0;
@@ -449,7 +449,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 #indoforall-nav-logo {
-    width: clamp(4rem, 2vw, 6rem);
+    width: clamp(6rem, 2vw, 6rem);
     margin: 10px 0;
     animation: floatAnimation 4s ease-in-out infinite;
     align-self: center;
@@ -461,7 +461,7 @@ body.nav-open #indoforall-nav-options * {
     color: white;
     margin: 0.5vmax 0;
     width: 100%;
-    font-size: clamp(0.7rem, 2vw, 1.5rem);
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
     border: 1px solid black;
     border-radius: 3px;
     text-align: center;
@@ -476,6 +476,7 @@ body.nav-open #indoforall-nav-options * {
 
 #indoforall-close-nav {
     background: linear-gradient(to right, rgb(194, 155, 101), rgb(39, 24, 4), rgb(194, 155, 101)) !important;
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
 }
 
 #indoforall-whatsapp-icon {
@@ -492,7 +493,7 @@ body.nav-open #indoforall-nav-options * {
 #indoforall-whatsapp-icon h4 {
     background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
     color: white;
-    font-size: clamp(0.7rem, 2vw, 1.5rem);
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
     text-align: center;
     padding: 2px;
     width: fit-content;
@@ -503,7 +504,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 #indoforall-whatsapp-icon img {
-    width: clamp(3rem, 5.5vw, 6.5rem);
+    width: clamp(5rem, 5.5vw, 6.5rem);
     padding-bottom: 5px;
     cursor: pointer;
     align-self: left;
@@ -619,7 +620,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-clint-rate-date-div h3 {
-    font-size: clamp(0.8rem, 2vw, 1rem);
+    font-size: clamp(1rem, 2vw, 1rem);
     font-weight: 200;
 }
 
@@ -630,11 +631,11 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-clint-rate-info-div img {
-    width: clamp(2rem, 2vw, 3.5rem);
+    width: clamp(2.2rem, 2vw, 3.5rem);
 }
 
 .indoforall-clint-rate-info-div h4 {
-    font-size: clamp(0.7rem, 2vw, 1rem);
+    font-size: clamp(0.9rem, 2vw, 1rem);
     margin-right: 10px;
 }
 
@@ -645,7 +646,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-clint-rate-comment-div h5 {
-    font-size: clamp(0.7rem, 2vw, 1.3rem);
+    font-size: clamp(0.9rem, 2vw, 1.3rem);
     font-weight: 300;
     margin-top: 10px;
     text-align: center;
@@ -783,9 +784,8 @@ body.nav-open #indoforall-nav-options * {
 
 .indoforall-worker-card {
     position: relative;
-    width: clamp(4rem, 20vw, 12rem);
-    /* Scales from small to medium screens */
-    height: clamp(4rem, 20vw, 12rem);
+    width: clamp(6rem, 20vw, 12rem);
+    height: clamp(6rem, 20vw, 12rem);
     border-radius: 50%;
     overflow: hidden;
     cursor: pointer;
@@ -826,7 +826,7 @@ body.nav-open #indoforall-nav-options * {
     object-fit: cover;
     display: block;
     border-radius: 50%;
-    border: clamp(2px, 0.5vw, 4px) solid transparent;
+    border: clamp(4px, 0.5vw, 4px) solid transparent;
     /* Responsive border */
     box-sizing: border-box;
     z-index: 2;
@@ -841,7 +841,7 @@ body.nav-open #indoforall-nav-options * {
     background: rgba(0, 0, 0, 0.6);
     color: white;
     text-align: center;
-    font-size: clamp(0.6rem, 2vw, 1.2rem);
+    font-size: clamp(0.8rem, 2vw, 1.2rem);
     /* Responsive font */
     font-weight: bold;
     border-bottom-left-radius: 50%;
@@ -861,7 +861,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-quick-info {
-    font-size: clamp(0.6rem, 2vw, 1.5rem);
+    font-size: clamp(0.8rem, 2vw, 1.5rem);
     line-height: 1.5;
     margin: 0.5vmax;
 }
@@ -876,7 +876,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-worker-details-text-h1 {
-    font-size: 1.5rem;
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
     padding: 5px;
     width: fit-content;
     text-align: center;
@@ -885,7 +885,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-section-intro-text {
-    font-size: clamp(0.7rem, 2vw, 1.5rem);
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
     padding: 5px;
     width: fit-content;
     text-align: center;
@@ -894,7 +894,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-section-intro-bigger-text {
-    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
     padding: 5px;
     width: fit-content;
     text-align: center;
@@ -906,7 +906,7 @@ body.nav-open #indoforall-nav-options * {
 .indoforall-section-intro-text-2 {
     color: rgb(0, 106, 141);
     font-weight: 700;
-    font-size: clamp(0.65rem, 2vw, 1.5rem);
+    font-size: clamp(0.85rem, 2vw, 1.5rem);
     margin: 1vmax 0;
     text-align: center;
     line-height: 1.5;
@@ -968,7 +968,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-worker-type-card h2 {
-    font-size: 1.5vw;
+    font-size: clamp(1rem, 2vw, 1.5rem);
     margin-bottom: 5px;
     padding: 5px 0;
 }
@@ -977,7 +977,6 @@ body.nav-open #indoforall-nav-options * {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Ensure the image covers the entire container */
     border-radius: 3px;
 }
 
@@ -992,7 +991,7 @@ body.nav-open #indoforall-nav-options * {
     background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
     color: white;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
     text-align: center;
     margin: 0.5vmax 0;
     padding: 5px;
@@ -1062,7 +1061,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 #indoforall-filter-worker-type-title h3 {
-    font-size: clamp(0.9rem, 2vw, 1.5rem);
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
     text-align: center;
     line-height: 1.5;
 }
@@ -1080,7 +1079,7 @@ body.nav-open #indoforall-nav-options * {
 
 #indoforall-filter-worker-work-type h3 {
     background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
-    font-size: clamp(0.9rem, 2vw, 1.5rem);
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
     padding: 5px;
     border-radius: 3px;
     text-align: center;
@@ -1096,7 +1095,7 @@ body.nav-open #indoforall-nav-options * {
 
 #indoforall-filter-worker-work-type h4 {
     background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
-    font-size: clamp(0.9rem, 2vw, 1.5rem);
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
     margin: 1vmax;
     padding: 5px;
     text-align: center;
@@ -1123,7 +1122,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 #indoforall-filter-worker-visa-type h3 {
-    font-size: clamp(0.9rem, 2vw, 1.5rem);
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
     margin: 0 0 20px;
     text-align: center;
     line-height: 1.5;
@@ -1131,7 +1130,7 @@ body.nav-open #indoforall-nav-options * {
 
 #indoforall-filter-worker-visa-type h4 {
     background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
-    font-size: clamp(0.9rem, 2vw, 1.5rem);
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
     margin: 5px 0;
     padding: 10px 20px;
     text-align: center;
@@ -1152,14 +1151,14 @@ body.nav-open #indoforall-nav-options * {
 }
 
 #indoforall-filter-worker-city-type h3 {
-    font-size: clamp(0.9rem, 2vw, 1.5rem);
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
     margin: 0 0 10px;
     text-align: center;
 }
 
 #indoforall-filter-worker-city-type textarea {
     width: clamp(90%, 90vw, 90%);
-    font-size: clamp(0.9rem, 2vw, 1.5rem);
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
     padding: 10px;
     outline: none;
     resize: none;
@@ -1181,7 +1180,7 @@ body.nav-open #indoforall-nav-options * {
 
 #indoforall-submit-filter-worker-type h5 {
     background: linear-gradient(to right, rgb(194, 155, 101), rgb(39, 24, 4), rgb(194, 155, 101));
-    font-size: clamp(0.9rem, 2vw, 1.5rem);
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
     margin: 0 15px;
     padding: clamp(5px, 1vw, 10px) clamp(10px, 2vw, 20px);
     border-radius: 3px;
@@ -1213,14 +1212,14 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-who-are-we-all-text-div h1 {
-    font-size: clamp(1rem, 2vw, 2.5rem);
+    font-size: clamp(1.1rem, 2vw, 2.5rem);
     margin-bottom: 1rem;
     padding: 0.2vw 0.7vw;
     font-weight: 700;
 }
 
 .indoforall-who-are-we-all-text-div h2 {
-    font-size: clamp(0.7rem, 1vw, 2.5rem);
+    font-size: clamp(0.9rem, 1vw, 2.5rem);
     line-height: 2;
     margin-bottom: 2rem;
     padding-right: clamp(0.5rem, 2vw, 2.5rem);
@@ -1230,7 +1229,7 @@ body.nav-open #indoforall-nav-options * {
 .indoforall-who-are-we-all-text-div a {
     text-decoration: none;
     width: fit-content;
-    font-size: clamp(1rem, 1vw, 2.5rem);
+    font-size: clamp(1.1rem, 1vw, 2.5rem);
     background: var(--title-text-color);
     color: white;
     cursor: pointer;
@@ -1267,7 +1266,7 @@ body.nav-open #indoforall-nav-options * {
 
 /* Main Page Section */
 .indoforall-main-page-text {
-    font-size: clamp(0.7rem, 1vw, 2.5rem);
+    font-size: clamp(0.9rem, 1vw, 2.5rem);
     margin-bottom: 1vmax;
     padding: 5px;
     width: fit-content;
@@ -1277,7 +1276,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-main-page-text-2 {
-    font-size: clamp(0.7rem, 1vw, 2.5rem);
+    font-size: clamp(0.9rem, 1vw, 2.5rem);
     padding: 5px;
     width: fit-content;
     text-align: center;
@@ -1301,7 +1300,7 @@ body.nav-open #indoforall-nav-options * {
 
 #indoforall-our-features-area h2 {
     color: black;
-    font-size: clamp(0.7rem, 1vw, 2.5rem);
+    font-size: clamp(0.9rem, 1vw, 2.5rem);
     padding: 5px;
     border-radius: 3px;
     text-align: start;
@@ -1332,7 +1331,7 @@ body.nav-open #indoforall-nav-options * {
 
 #indoforall-indonesia-info h2 {
     color: black;
-    font-size: 1.2rem;
+    font-size: clamp(0.9rem, 1vw, 2.5rem);
     line-height: 1.5;
     padding: 1vmax 1vmax 0 1vmax;
 }
@@ -1349,7 +1348,7 @@ body.nav-open #indoforall-nav-options * {
 #indoforall-our-contact-info div {
     background: linear-gradient(to right, rgb(60, 43, 18), rgb(138, 111, 73));
     display: flex;
-    width: clamp(10rem, 15vw, 20rem);
+    width: clamp(15rem, 20vw, 30rem);
     margin: 10px;
     flex-direction: column;
     align-items: center;
@@ -1386,7 +1385,7 @@ body.nav-open #indoforall-nav-options * {
 #indoforall-our-contact-info h2 {
     background: linear-gradient(to top, rgb(60, 43, 18), rgb(138, 111, 73));
     color: #ffffff;
-    font-size: clamp(0.7rem, 1vw, 1.2rem);
+    font-size: clamp(0.9rem, 1vw, 1.2rem);
     text-align: center;
     align-items: center;
     margin: 0.3vmax 0;
@@ -1468,7 +1467,7 @@ body.nav-open #indoforall-nav-options * {
 /* Card content styling */
 .indoforall-price-card h3 {
     color: #fff;
-    font-size: clamp(0.8rem, 1vw, 1.5rem);
+    font-size: clamp(1rem, 1vw, 1.5rem);
     margin-bottom: 20px;
     padding: clamp(0.5rem, 1vw, 1.5rem) clamp(0.5rem, 1vw, 1.5rem);
     background: rgba(0, 0, 0, 0.2);
@@ -1480,7 +1479,7 @@ body.nav-open #indoforall-nav-options * {
 
 .indoforall-price-card h4 {
     color: #fff;
-    font-size: clamp(0.8rem, 1vw, 1.2rem);
+    font-size: clamp(1rem, 1vw, 1.2rem);
     margin: clamp(0.2rem, 0.5vw, 1.5rem) 0;
     text-align: center;
     width: 100%;
@@ -1488,7 +1487,7 @@ body.nav-open #indoforall-nav-options * {
 
 .indoforall-price-card h4[style*="color: rgb(0, 255, 0)"] {
     font-weight: bold;
-    font-size: clamp(0.8rem, 1vw, 1.4rem);
+    font-size: clamp(1rem, 1vw, 1.4rem);
 }
 
 .indoforall-pay-results {
@@ -1501,7 +1500,7 @@ body.nav-open #indoforall-nav-options * {
 
 .indoforall-price-card h5 {
     color: #fff;
-    font-size: clamp(0.8rem, 1vw, 0.95rem);
+    font-size: clamp(1rem, 1vw, 0.95rem);
     margin: clamp(0.5rem, 1vw, 1.5rem) 0;
     display: flex;
     align-items: center;
@@ -1528,7 +1527,7 @@ body.nav-open #indoforall-nav-options * {
     border-radius: 6px;
     text-align: center;
     cursor: pointer;
-    font-size: clamp(0.8rem, 1vw, 1.1rem);
+    font-size: clamp(1rem, 1vw, 1.1rem);
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border: none;
@@ -1574,7 +1573,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-question-text {
-    font-size: clamp(0.8rem, 2.5vw, 1.5rem);
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
     color: #003366;
     margin-bottom: 10px;
     font-weight: 600;
@@ -1582,7 +1581,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-answer-text {
-    font-size: clamp(0.7rem, 2vw, 1.125rem);
+    font-size: clamp(0.9rem, 2vw, 1.125rem);
     color: #444;
     line-height: 1.7;
     font-weight: 400;
@@ -1631,7 +1630,7 @@ body.nav-open #indoforall-nav-options * {
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 1vw, 1.2rem);
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
 }
 
@@ -1652,7 +1651,7 @@ body.nav-open #indoforall-nav-options * {
 
 .indoforall-system-work-text {
     color: #fff;
-    font-size: clamp(0.9rem, 1vw, 1.1rem);
+    font-size: clamp(1.1rem, 1vw, 1.1rem);
     line-height: 1.5;
     padding: 15px;
     background: rgba(0, 0, 0, 0.1);
@@ -1701,7 +1700,7 @@ body.nav-open #indoforall-nav-options * {
 
 #indoforall-proof-area h2 {
     color: black;
-    font-size: clamp(0.9rem, 1vw, 1.1rem);
+    font-size: clamp(1.1rem, 1vw, 1.1rem);
 }
 
 /* Images */
@@ -1734,7 +1733,7 @@ body.nav-open #indoforall-nav-options * {
 
 #indoforall-company-description h2 {
     color: black;
-    font-size: 1.5rem;
+    font-size: clamp(1.1rem, 1vw, 1.5rem);
     line-height: 1.5;
     text-align: center;
     padding: 5px;
@@ -1781,7 +1780,7 @@ body.nav-open #indoforall-nav-options * {
     background: linear-gradient(to right, rgb(60, 43, 18), rgb(138, 111, 73));
     color: white;
     width: clamp(5rem, 20vw, 15rem);
-    font-size: clamp(0.7rem, 1vw, 1.1rem);
+    font-size: clamp(0.9rem, 1vw, 1.1rem);
     margin: clamp(0.1rem, 1vw, 1.5rem);
     padding: clamp(0.1rem, 1vw, 1.5rem) 0;
     text-decoration: none;
@@ -1886,7 +1885,7 @@ footer div {
 
 footer h1,
 footer h2 {
-    font-size: clamp(0.7rem, 2vw, 1.5rem);
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
     cursor: pointer;
     text-align: center;
     border-radius: 3px;
@@ -1900,17 +1899,8 @@ footer img {
 /* Media Queries */
 /* 1250px */
 @media (max-width: 1250px) {
-    /* ########## Header Nav ######### */
-    .indoforall-header-whatsapp-link-class {
-        font-size: 1.3vw;
-    }
-
     #indoforall-intro-section {
         background-size: 100% auto;
-    }
-
-    #indoforall-close-nav {
-        font-size: 2vw;
     }
 
     /* About Us Section */
@@ -1938,26 +1928,9 @@ footer img {
         font-size: 4vmin;
     }
 
-    .indoforall-worker-details-text-h1 {
-        font-size: 4vmin;
-    }
-
-    .indoforall-other-pages-link {
-        font-size: 4vmin;
-    }
-
-    #indoforall-indonesia-info h2 {
-        font-size: 3vmin;
-    }
-
     #indoforall-company-description {
         margin-top: 5px;
         padding: 5px;
-    }
-
-    #indoforall-company-description h2 {
-        font-size: 3vw;
-        padding: 1px;
     }
 
     #indoforall-company-description img {
@@ -2020,26 +1993,14 @@ footer img {
     .indoforall-Proof-video-div {
         width: 25vw;
     }
-
-    .indoforall-Proof-video-div h2 {
-        font-size: 2.5vw;
-    }
 }
 
 /* 650px */
 @media (max-width: 650px) {
-    #indoforall-close-nav {
-        font-size: 3vw;
-    }
-
     .indoforall-worker-type-card {
         min-width: 30vw;
         width: 20vw;
         height: 37vw;
-    }
-
-    .indoforall-worker-type-card h2 {
-        font-size: 2.5vw;
     }
 }
 
@@ -2058,7 +2019,7 @@ footer img {
     }
 
     .indoforall-rate-div {
-        min-width: 80vw;
+        min-width: 85vw;
         margin: 0 5px;
     }
 
@@ -2076,27 +2037,14 @@ footer img {
         flex: 1 1 55%;
     }
 
-    #indoforall-close-nav {
-        font-size: 4vw;
-    }
-
     .indoforall-worker-type-card {
         min-width: 40vw;
         width: 30vw;
         height: 47vw;
     }
 
-    .indoforall-worker-type-card h2 {
-        font-size: 3.5vw;
-        margin-bottom: 2px;
-    }
-
     .indoforall-Proof-video-div {
         width: 45vw;
-    }
-
-    .indoforall-Proof-video-div h2 {
-        font-size: 4.5vw;
     }
 }
 
