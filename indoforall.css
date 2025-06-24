@@ -50,7 +50,7 @@ body {
     background: var(--title-text-color);
     color: white;
     width: fit-content;
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 1vw, 1.5rem);
     padding: 0 5px;
     position: fixed;
     top: 5px;
@@ -157,7 +157,6 @@ header.hidden {
 .indoforall-header-container {
     direction: ltr;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 0 15px;
     position: relative;
@@ -173,7 +172,7 @@ header.hidden {
 }
 
 .indoforall-header-logo-title-class p {
-    font-size: 1rem;
+    font-size: clamp(0.7rem, 2.5vw, 1.3rem);
     font-weight: 700;
     white-space: nowrap;
     overflow: hidden;
@@ -182,7 +181,7 @@ header.hidden {
 }
 
 .indoforall-header-logo-title-class img {
-    width: 4rem;
+    width: clamp(2.5rem, 9vw, 4rem);
 }
 
 /* Navigation Links (Desktop) */
@@ -190,11 +189,10 @@ header.hidden {
     width: 90vw;
     display: flex;
     align-items: center;
-    justify-content: space-around;
 }
 
 .indoforall-header-whatsapp-link-class {
-    background: black;
+    background: linear-gradient(to top, rgb(60, 43, 18), rgb(138, 111, 73));
     font-size: 0.8rem;
     padding: 0.5rem;
     border-radius: 2rem;
@@ -209,30 +207,40 @@ header.hidden {
 }
 
 .indoforall-nav-links {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 5px;
     list-style: none;
     padding: 10px 0;
     border-radius: 8px;
+    gap: 5px;
+    margin: 0 20px;
 }
 
 .indoforall-nav-links li {
-    flex: 1 1 calc(25% - 20px);
     text-align: center;
 }
 
 .indoforall-nav-links a {
-    width: fit-content;
-    display: block;
-    font-size: 0.9rem;
-    padding: 5px 10px;
-    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(0.75rem, 1.1vw, 1rem);
+    padding: 8px 16px;
+    color: rgba(255, 255, 255, 0.95);
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
     border-radius: 6px;
-    transition: 0.2s ease-in-out;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .indoforall-nav-links a:hover {
@@ -245,7 +253,7 @@ header.hidden {
     display: none;
     background: transparent;
     border: none;
-    font-size: 1.5rem;
+    font-size: clamp(1.5rem, 2vw, 1.5rem);
     cursor: pointer;
     color: black;
     transition: 0.3s ease-in-out;
@@ -283,18 +291,18 @@ header.hidden {
 }
 
 #indoforall-web-intro-1 {
-    font-size: 3rem;
+    font-size: clamp(1.5rem, 2vw, 2.5rem);
     font-weight: bolder;
 }
 
 #indoforall-web-intro-2 {
     color: transparent;
-    font-size: 1.3rem;
+    font-size: clamp(1rem, 2vw, 1.3rem);
 }
 
 #indoforall-web-intro-3 {
     color: black;
-    font-size: 1.4rem;
+    font-size: clamp(0.7rem, 2vw, 1.4rem);
 }
 
 .indoforall-intro-section-buttons-div-class {
@@ -308,8 +316,8 @@ header.hidden {
 .indoforall-web-intro-contact-us {
     background: rgba(255, 230, 194, 0.609);
     color: black;
-    width: clamp(80%, 40%, 40%);
-    font-size: 1.5rem;
+    width: clamp(7rem, 75vw, 35rem);
+    font-size: clamp(0.7rem, 2vw, 1.5rem);
     padding: 5px 0;
     text-decoration: none;
     text-align: center;
@@ -324,9 +332,9 @@ header.hidden {
 #indoforall-website-guidance-text {
     background: rgba(255, 230, 194, 0.609);
     color: black;
-    font-size: 1.5rem;
+    font-size: clamp(0.7rem, 2vw, 1.5rem);
     padding: 5px 0;
-    width: clamp(80%, 40%, 40%);
+    width: clamp(7rem, 75vw, 35rem);
     text-decoration: none;
     text-align: center;
     cursor: pointer;
@@ -344,7 +352,7 @@ header.hidden {
     left: 50%;
     transform: translate(-50%, -50%);
     background: var(--second-bg-color);
-    width: 90%;
+    width: 100%;
     padding: 50px 10px;
     display: flex;
     flex-direction: column;
@@ -364,10 +372,11 @@ header.hidden {
 }
 
 .web-guidance-div a {
+    width: 70%;
     text-decoration: none;
     background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
     color: white;
-    font-size: 1.5rem;
+    font-size: clamp(0.7rem, 2vw, 1.5rem);
     margin: 5px;
     text-align: center;
     padding: 5px;
@@ -376,13 +385,19 @@ header.hidden {
     transition: all 0.5s ease-in-out;
 }
 
+@media (max-width: 768px) {
+    .web-guidance-div a {
+        width: 100%;
+    }
+}
+
 .web-guidance-div a:hover {
     color: rgb(0, 255, 0);
 }
 
 #indoforall-request-worker-now-button {
-    font-size: 2rem;
-    width: clamp(80%, 40%, 40%);
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
+    width: clamp(7rem, 75vw, 35rem);
     text-decoration: none;
     text-align: center;
     padding: 0;
@@ -434,7 +449,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 #indoforall-nav-logo {
-    width: 6rem;
+    width: clamp(4rem, 2vw, 6rem);
     margin: 10px 0;
     animation: floatAnimation 4s ease-in-out infinite;
     align-self: center;
@@ -446,7 +461,7 @@ body.nav-open #indoforall-nav-options * {
     color: white;
     margin: 0.5vmax 0;
     width: 100%;
-    font-size: 1.5rem;
+    font-size: clamp(0.7rem, 2vw, 1.5rem);
     border: 1px solid black;
     border-radius: 3px;
     text-align: center;
@@ -470,14 +485,14 @@ body.nav-open #indoforall-nav-options * {
     align-items: flex-end;
     position: fixed;
     bottom: 60px;
-    right: 0;
+    left: 0;
     animation: floatAnimation 4s ease-in-out infinite;
 }
 
 #indoforall-whatsapp-icon h4 {
     background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
     color: white;
-    font-size: 1.5rem;
+    font-size: clamp(0.7rem, 2vw, 1.5rem);
     text-align: center;
     padding: 2px;
     width: fit-content;
@@ -488,10 +503,10 @@ body.nav-open #indoforall-nav-options * {
 }
 
 #indoforall-whatsapp-icon img {
-    width: 6rem;
+    width: clamp(3rem, 5.5vw, 6.5rem);
     padding-bottom: 5px;
     cursor: pointer;
-    align-self: center;
+    align-self: left;
 }
 
 #indoforall-whatsapp-icon h4:hover,
@@ -604,7 +619,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-clint-rate-date-div h3 {
-    font-size: 1rem;
+    font-size: clamp(0.8rem, 2vw, 1rem);
     font-weight: 200;
 }
 
@@ -615,11 +630,11 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-clint-rate-info-div img {
-    width: 3.5rem;
+    width: clamp(2rem, 2vw, 3.5rem);
 }
 
 .indoforall-clint-rate-info-div h4 {
-    font-size: 1rem;
+    font-size: clamp(0.7rem, 2vw, 1rem);
     margin-right: 10px;
 }
 
@@ -630,7 +645,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-clint-rate-comment-div h5 {
-    font-size: 1.3rem;
+    font-size: clamp(0.7rem, 2vw, 1.3rem);
     font-weight: 300;
     margin-top: 10px;
     text-align: center;
@@ -653,13 +668,19 @@ body.nav-open #indoforall-nav-options * {
 
 /* Styling the main container */
 .indoforall-insert-comment-form-div {
-    width: 55vw;
+    width: 50vw;
     margin: 10px auto;
     padding: 20px;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+}
+
+@media (max-width: 768px) {
+    .indoforall-insert-comment-form-div {
+        width: 100%;
+    }
 }
 
 /* Styling the heading */
@@ -762,8 +783,9 @@ body.nav-open #indoforall-nav-options * {
 
 .indoforall-worker-card {
     position: relative;
-    width: 10rem;
-    height: 10rem;
+    width: clamp(4rem, 20vw, 12rem);
+    /* Scales from small to medium screens */
+    height: clamp(4rem, 20vw, 12rem);
     border-radius: 50%;
     overflow: hidden;
     cursor: pointer;
@@ -804,7 +826,8 @@ body.nav-open #indoforall-nav-options * {
     object-fit: cover;
     display: block;
     border-radius: 50%;
-    border: 4px solid transparent;
+    border: clamp(2px, 0.5vw, 4px) solid transparent;
+    /* Responsive border */
     box-sizing: border-box;
     z-index: 2;
     position: relative;
@@ -814,11 +837,12 @@ body.nav-open #indoforall-nav-options * {
     position: absolute;
     bottom: 0;
     width: 100%;
-    padding: 10px 5px;
+    padding: clamp(4px, 1vw, 10px) 0 clamp(10px, 1vw, 10px);
     background: rgba(0, 0, 0, 0.6);
     color: white;
     text-align: center;
-    font-size: 0.9rem;
+    font-size: clamp(0.6rem, 2vw, 1.2rem);
+    /* Responsive font */
     font-weight: bold;
     border-bottom-left-radius: 50%;
     border-bottom-right-radius: 50%;
@@ -837,7 +861,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-quick-info {
-    font-size: 1.5rem;
+    font-size: clamp(0.6rem, 2vw, 1.5rem);
     line-height: 1.5;
     margin: 0.5vmax;
 }
@@ -848,7 +872,7 @@ body.nav-open #indoforall-nav-options * {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 50px 0;
+    padding: clamp(20px, 10vw, 50px) 0;
 }
 
 .indoforall-worker-details-text-h1 {
@@ -861,7 +885,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-section-intro-text {
-    font-size: 1.5rem;
+    font-size: clamp(0.7rem, 2vw, 1.5rem);
     padding: 5px;
     width: fit-content;
     text-align: center;
@@ -870,7 +894,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-section-intro-bigger-text {
-    font-size: 2rem;
+    font-size: clamp(1rem, 2vw, 1.5rem);
     padding: 5px;
     width: fit-content;
     text-align: center;
@@ -882,7 +906,7 @@ body.nav-open #indoforall-nav-options * {
 .indoforall-section-intro-text-2 {
     color: rgb(0, 106, 141);
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: clamp(0.65rem, 2vw, 1.5rem);
     margin: 1vmax 0;
     text-align: center;
     line-height: 1.5;
@@ -1038,7 +1062,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 #indoforall-filter-worker-type-title h3 {
-    font-size: 1.5rem;
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
     text-align: center;
     line-height: 1.5;
 }
@@ -1056,7 +1080,7 @@ body.nav-open #indoforall-nav-options * {
 
 #indoforall-filter-worker-work-type h3 {
     background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
-    font-size: 1.5rem;
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
     padding: 5px;
     border-radius: 3px;
     text-align: center;
@@ -1072,7 +1096,7 @@ body.nav-open #indoforall-nav-options * {
 
 #indoforall-filter-worker-work-type h4 {
     background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
-    font-size: 1.5rem;
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
     margin: 1vmax;
     padding: 5px;
     text-align: center;
@@ -1099,7 +1123,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 #indoforall-filter-worker-visa-type h3 {
-    font-size: 1.5rem;
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
     margin: 0 0 20px;
     text-align: center;
     line-height: 1.5;
@@ -1107,7 +1131,7 @@ body.nav-open #indoforall-nav-options * {
 
 #indoforall-filter-worker-visa-type h4 {
     background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
-    font-size: 1.5rem;
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
     margin: 5px 0;
     padding: 10px 20px;
     text-align: center;
@@ -1128,14 +1152,14 @@ body.nav-open #indoforall-nav-options * {
 }
 
 #indoforall-filter-worker-city-type h3 {
-    font-size: 1.5rem;
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
     margin: 0 0 10px;
     text-align: center;
 }
 
 #indoforall-filter-worker-city-type textarea {
-    width: 100%;
-    font-size: 1.5rem;
+    width: clamp(90%, 90vw, 90%);
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
     padding: 10px;
     outline: none;
     resize: none;
@@ -1157,9 +1181,9 @@ body.nav-open #indoforall-nav-options * {
 
 #indoforall-submit-filter-worker-type h5 {
     background: linear-gradient(to right, rgb(194, 155, 101), rgb(39, 24, 4), rgb(194, 155, 101));
-    font-size: 1.5rem;
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
     margin: 0 15px;
-    padding: 8px 16px;
+    padding: clamp(5px, 1vw, 10px) clamp(10px, 2vw, 20px);
     border-radius: 3px;
     cursor: pointer;
     box-shadow: 0 0 1px 0.5px black;
@@ -1189,30 +1213,30 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-who-are-we-all-text-div h1 {
-    font-size: 2.5rem;
+    font-size: clamp(1rem, 2vw, 2.5rem);
     margin-bottom: 1rem;
     padding: 0.2vw 0.7vw;
     font-weight: 700;
 }
 
 .indoforall-who-are-we-all-text-div h2 {
-    font-size: 1.2rem;
+    font-size: clamp(0.7rem, 1vw, 2.5rem);
     line-height: 2;
     margin-bottom: 2rem;
-    padding-right: 4rem;
+    padding-right: clamp(0.5rem, 2vw, 2.5rem);
     color: black;
 }
 
 .indoforall-who-are-we-all-text-div a {
     text-decoration: none;
     width: fit-content;
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 1vw, 2.5rem);
     background: var(--title-text-color);
     color: white;
     cursor: pointer;
     transition: color 0.3s;
     padding: 0 0.9vw;
-    margin-right: 2rem;
+    margin-right: clamp(0.5rem, 2vw, 2.5rem);
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -1229,7 +1253,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-who-are-we-image-div img {
-    max-width: 90%;
+    max-width: clamp(90%, 90vw, 90%);
     height: auto;
     border-radius: 1rem;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
@@ -1243,7 +1267,7 @@ body.nav-open #indoforall-nav-options * {
 
 /* Main Page Section */
 .indoforall-main-page-text {
-    font-size: 1.5rem;
+    font-size: clamp(0.7rem, 1vw, 2.5rem);
     margin-bottom: 1vmax;
     padding: 5px;
     width: fit-content;
@@ -1253,7 +1277,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-main-page-text-2 {
-    font-size: 1.5rem;
+    font-size: clamp(0.7rem, 1vw, 2.5rem);
     padding: 5px;
     width: fit-content;
     text-align: center;
@@ -1277,14 +1301,10 @@ body.nav-open #indoforall-nav-options * {
 
 #indoforall-our-features-area h2 {
     color: black;
-    font-size: 1.5rem;
+    font-size: clamp(0.7rem, 1vw, 2.5rem);
     padding: 5px;
     border-radius: 3px;
     text-align: start;
-}
-
-#indoforall-our-features-area spam {
-    margin-left: 5px;
 }
 
 #indoforall-main-page-section img {
@@ -1292,7 +1312,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-indonesia-info-image {
-    width: 5rem;
+    width: clamp(2.5rem, 10vw, 7rem);
     cursor: pointer;
     align-self: center;
 }
@@ -1329,7 +1349,7 @@ body.nav-open #indoforall-nav-options * {
 #indoforall-our-contact-info div {
     background: linear-gradient(to right, rgb(60, 43, 18), rgb(138, 111, 73));
     display: flex;
-    width: 20rem;
+    width: clamp(10rem, 15vw, 20rem);
     margin: 10px;
     flex-direction: column;
     align-items: center;
@@ -1347,30 +1367,26 @@ body.nav-open #indoforall-nav-options * {
 
 #indoforall-our-contact-info ion-icon {
     background: linear-gradient(135deg, #ffd700, #ff4500);
-    /* Gold to Orange gradient for strong pop */
-    font-size: 4rem;
+    font-size: clamp(2rem, 10vw, 4rem);
     text-align: center;
     margin: 10px 0;
     padding: 0.5vmax;
     border-radius: 50%;
-    /* Circular shape to enhance focus */
     color: #ffffff;
     box-shadow: 0 0 15px rgba(255, 69, 0, 0.6);
-    /* Orange glow effect */
     transition: all 0.3s ease-in-out;
 }
 
 #indoforall-our-contact-info ion-icon:hover {
     transform: scale(1.05);
     box-shadow: 0 0 25px rgba(255, 69, 0, 0.8);
-    /* Enhanced glow on hover */
 }
 
 #indoforall-our-contact-info h1,
 #indoforall-our-contact-info h2 {
-    background: rgba(0, 0, 0, 0.8);
+    background: linear-gradient(to top, rgb(60, 43, 18), rgb(138, 111, 73));
     color: #ffffff;
-    font-size: 1.2rem;
+    font-size: clamp(0.7rem, 1vw, 1.2rem);
     text-align: center;
     align-items: center;
     margin: 0.3vmax 0;
@@ -1381,32 +1397,38 @@ body.nav-open #indoforall-nav-options * {
 
 /* Prices Section */
 #indoforall-price-area {
-    background: var(--second-bg-color);
-    padding: 20px 0;
+    padding: clamp(1rem, 4vw, 3rem) clamp(0.1rem, 3vw, 2rem);
     width: 100%;
-
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     justify-content: center;
-    align-items: stretch;
-    /* Ensures all items have the same height */
-    gap: 15px;
-    /* Adds spacing between cards */
+    gap: clamp(0.5rem, 3vw, 3rem);
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .indoforall-price-card {
+    width: 100%;
     position: relative;
-    background: linear-gradient(to top, rgb(60, 43, 18), rgb(138, 111, 73));
-    width: 30rem;
-    margin: 15px 5px;
-    padding: 10px;
+    background: linear-gradient(135deg, #3c2b12 0%, #8a6f49 100%);
+    border-radius: 1rem;
+    padding: clamp(1rem, 4vw, 2rem);
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 6px;
-    box-shadow: 0 0 1px 0.5px black;
+    box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.2);
+    /* 10px 30px */
     overflow: hidden;
     z-index: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.indoforall-price-card:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 0.9375rem 2.1875rem rgba(0, 0, 0, 0.3);
+    /* 15px 35px */
 }
 
 /* Animated border effect */
@@ -1417,22 +1439,16 @@ body.nav-open #indoforall-nav-options * {
     left: 0;
     right: 0;
     bottom: 0;
-    padding: 4px;
-    background: linear-gradient(130deg, rgb(255, 192, 104), white, rgb(255, 192, 104), white);
-    background-size: 300% 300%;
-    border-radius: 6px;
-    z-index: 0;
-    animation: borderAnimation 2s linear infinite;
+    padding: 2px;
+    background: linear-gradient(135deg, rgba(255, 192, 104, 0.8), rgba(255, 255, 255, 0.5), rgba(255, 192, 104, 0.8));
+    background-size: 200% 200%;
+    border-radius: 1rem;
+    z-index: -1;
+    animation: borderAnimation 4s ease infinite;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
-}
-
-/* Make sure all children appear above the border layer */
-.indoforall-price-card > * {
-    position: relative;
-    z-index: 1;
 }
 
 @keyframes borderAnimation {
@@ -1449,135 +1465,212 @@ body.nav-open #indoforall-nav-options * {
     }
 }
 
+/* Card content styling */
 .indoforall-price-card h3 {
-    box-shadow: 0 0 1px 0.5px black;
-}
-
-.indoforall-price-card h3,
-.indoforall-price-card h4,
-.indoforall-price-card h5,
-.indoforall-price-card h6 {
-    background: linear-gradient(to left, rgb(46, 32, 12), rgb(168, 136, 90));
-    width: fit-content;
-    font-size: 1.5rem;
-    text-align: center;
-    border-radius: 3px;
-    padding: 8px 14px;
-}
-
-.indoforall-price-card spam {
-    margin-left: 1px;
-}
-
-.indoforall-price-card h6 {
-    background: var(--title-text-color);
+    color: #fff;
+    font-size: clamp(0.8rem, 1vw, 1.5rem);
+    margin-bottom: 20px;
+    padding: clamp(0.5rem, 1vw, 1.5rem) clamp(0.5rem, 1vw, 1.5rem);
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
     width: 100%;
-    margin-top: auto;
-    padding: 10px 0;
-    cursor: pointer;
-    box-shadow: 0 0 1px 0.5px black;
-    transition: all 0.5s ease-in-out;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.indoforall-price-card h6:hover {
-    color: rgb(0, 255, 0);
+.indoforall-price-card h4 {
+    color: #fff;
+    font-size: clamp(0.8rem, 1vw, 1.2rem);
+    margin: clamp(0.2rem, 0.5vw, 1.5rem) 0;
+    text-align: center;
+    width: 100%;
+}
+
+.indoforall-price-card h4[style*="color: rgb(0, 255, 0)"] {
+    font-weight: bold;
+    font-size: clamp(0.8rem, 1vw, 1.4rem);
 }
 
 .indoforall-pay-results {
     width: 100%;
-    margin: 20px 0;
+    margin: clamp(0.5rem, 1vw, 1.5rem) 0;
+    padding: clamp(0.5rem, 1vw, 1.5rem);
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
 }
 
-/* Questions And Answeres Section */
-#indoforall-question-area {
-    background: var(--second-bg-color);
+.indoforall-price-card h5 {
+    color: #fff;
+    font-size: clamp(0.8rem, 1vw, 0.95rem);
+    margin: clamp(0.5rem, 1vw, 1.5rem) 0;
+    display: flex;
+    align-items: center;
+}
+
+.indoforall-price-card h5 span {
+    margin-left: clamp(0.5rem, 1vw, 1.5rem);
+    display: inline-flex;
+}
+
+.indoforall-price-card h5[style*="color: rgb(0, 255, 0)"] {
+    font-weight: bold;
+    text-align: center;
+    justify-content: center;
+    margin-top: clamp(0.5rem, 1vw, 1.5rem);
+}
+
+.indoforall-price-card h6 {
+    background: var(--title-text-color);
+    color: #fff;
     width: 100%;
+    padding: clamp(0.5rem, 1vw, 1.5rem);
+    margin-top: auto;
+    border-radius: 6px;
+    text-align: center;
+    cursor: pointer;
+    font-size: clamp(0.8rem, 1vw, 1.1rem);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+.indoforall-price-card h6:hover {
+    background: #2a7a2f;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+#indoforall-question-area {
+    width: 100%;
+    margin: 40px auto;
+    padding: clamp(1rem, 4vw, 2rem);
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    padding: 10px 0;
-    margin: 1vmax 0;
-    border-radius: 3px;
-    box-shadow: 0 0 1px 0.5px black;
+    gap: clamp(1rem, 4vw, 2rem);
 }
 
 .indoforall-question-div {
-    margin: 2vmax;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    width: clamp(20rem, 25vw, 30rem);
+    height: 100%;
+    min-height: clamp(20px, 15vw, 30rem);
+    margin-bottom: clamp(1rem, 4vw, 2rem);
+    padding: clamp(1rem, 2.5vw, 1.5rem);
+    background: #f9fbff;
+    border-left: 5px solid rgb(60, 43, 18);
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 123, 255, 0.08);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.indoforall-question-div:hover {
+    background-color: #f1f7ff;
+    box-shadow: 0 4px 16px rgba(0, 123, 255, 0.12);
 }
 
 .indoforall-question-text {
-    background: linear-gradient(to top, rgb(46, 32, 12), rgb(168, 136, 90));
-    font-size: 1.5rem;
-    text-align: center;
-    padding: 5px;
-    border-radius: 3px;
-    box-shadow: 0 0 1px 0.5px black;
+    font-size: clamp(0.8rem, 2.5vw, 1.5rem);
+    color: #003366;
+    margin-bottom: 10px;
+    font-weight: 600;
+    line-height: 1.4;
 }
 
 .indoforall-answer-text {
-    background: var(--title-text-color);
-    font-size: 1.5rem;
-    text-align: center;
-    padding: 5px;
-    box-shadow: 0 0 1px 0.5px black;
-    border-radius: 3px;
+    font-size: clamp(0.7rem, 2vw, 1.125rem);
+    color: #444;
+    line-height: 1.7;
+    font-weight: 400;
 }
 
-/* System Work Section */
+/* Professional Workflow Section */
 #indoforall-system-work-area {
-    background: var(--second-bg-color);
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border-radius: 3px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: clamp(1rem, 1vw, 30px);
+    padding: clamp(1rem, 1vw, 40px) clamp(1rem, 1vw, 20px);
+    counter-reset: workflow-step;
 }
 
-#indoforall-system-work-area div {
-    background: linear-gradient(to right, rgb(60, 43, 18), rgb(138, 111, 73));
-    width: 40rem;
+#indoforall-system-work-area > div {
+    position: relative;
+    background: linear-gradient(145deg, #3a2a11 0%, #6d5728 100%);
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     text-align: center;
-    margin: 15px;
-    padding: 15px;
-    border-radius: 3px;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    padding: clamp(1rem, 1vw, 30px) clamp(1rem, 1vw, 20px);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+    border: 1px solid rgba(255, 215, 140, 0.2);
 }
 
-.indoforall-system-work-number {
-    background: #ffffff;
-    color: #111827;
-    font-size: 1.5rem;
-    padding: 0 10px;
-    border-radius: 3px;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+#indoforall-system-work-area > div::before {
+    counter-increment: workflow-step;
+    content: counter(workflow-step);
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(145deg, #e6b45c, #f8d78a);
+    color: #3a2a11;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+#indoforall-system-work-area > div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 #indoforall-system-work-area ion-icon {
-    background: linear-gradient(to left, rgb(60, 43, 18), rgb(235, 190, 126));
-    font-size: 7rem;
-    margin: 5px 0;
-    padding: 15px;
-    border-radius: 3px;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+    color: #f8d78a;
+    font-size: clamp(2rem, 3vw, 3.5rem);
+    margin: clamp(1rem, 1vw, 15px) 0;
+    padding: clamp(1rem, 1vw, 15px);
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    border: 2px solid rgba(248, 215, 138, 0.3);
 }
 
 .indoforall-system-work-text {
-    background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
-    font-size: 1.5rem;
-    padding: 5px;
-    border-radius: 3px;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    font-size: clamp(0.9rem, 1vw, 1.1rem);
+    line-height: 1.5;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    border-left: 3px solid #f8d78a;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #indoforall-system-work-area {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    #indoforall-system-work-area {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Proof Section */
@@ -1594,7 +1687,7 @@ body.nav-open #indoforall-nav-options * {
 
 /* Worker Card Proof Card */
 #indoforall-worker-card-proof-card {
-    width: 20rem;
+    width: clamp(8rem, 20vw, 30rem);
     flex: 0 0 auto;
     display: flex;
     flex-direction: column;
@@ -1603,18 +1696,17 @@ body.nav-open #indoforall-nav-options * {
     margin: 10px 0;
     border-radius: 3px;
     overflow: hidden;
-    height: 25rem;
     scroll-snap-align: center;
 }
 
 #indoforall-proof-area h2 {
     color: black;
+    font-size: clamp(0.9rem, 1vw, 1.1rem);
 }
 
 /* Images */
 #indoforall-worker-card-proof-card img {
     width: 100%;
-    height: 90%;
     object-fit: cover;
     border-radius: 5px;
 }
@@ -1673,6 +1765,10 @@ body.nav-open #indoforall-nav-options * {
     align-items: center;
 }
 
+#indoforall-accounts-area h1 {
+    margin: 20px 0 10px;
+}
+
 #indoforall-accounts-div {
     width: 100%;
     display: flex;
@@ -1684,10 +1780,10 @@ body.nav-open #indoforall-nav-options * {
 #indoforall-accounts-section a {
     background: linear-gradient(to right, rgb(60, 43, 18), rgb(138, 111, 73));
     color: white;
-    width: 15rem;
-    font-size: 1.5rem;
-    margin: 10px;
-    padding: 10px 0;
+    width: clamp(5rem, 20vw, 15rem);
+    font-size: clamp(0.7rem, 1vw, 1.1rem);
+    margin: clamp(0.1rem, 1vw, 1.5rem);
+    padding: clamp(0.1rem, 1vw, 1.5rem) 0;
     text-decoration: none;
     text-align: center;
     box-shadow: 0 0 1px 0.5px black;
@@ -1701,43 +1797,52 @@ body.nav-open #indoforall-nav-options * {
 
 #indoforall-accounts-section ion-icon {
     width: 100%;
-    font-size: 3rem;
+    font-size: clamp(1.5rem, 3vw, 3.5rem);
     padding: 5px 0;
     text-decoration: none;
     text-align: center;
 }
 
 #indoforall-ads-videos-and-img-div {
-    background: rgb(220, 240, 255);
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding: 20px 0;
+    margin: clamp(1rem, 1vw, 2rem) 0;
     border-radius: 3px;
 }
 
 .indoforall-ads-only-videos-div {
-    width: 30rem;
+    width: clamp(35%, 20vw, 30rem);
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 15px;
+    margin: clamp(0.1rem, 1vw, 1.5rem);
     overflow: hidden;
     border-radius: 3px;
     box-shadow: 0 0 1px 0.5px black;
 }
 
 .indoforall-ads-only-img-div {
-    width: 30rem;
+    width: clamp(30%, 20vw, 30rem);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 15px;
+}
+
+@media (max-width: 599px) {
+    .indoforall-ads-only-videos-div {
+        width: 100%;
+    }
+
+    .indoforall-ads-only-img-div {
+        width: 100%;
+    }
 }
 
 .indoforall-ads-only-videos-div video {
@@ -1767,7 +1872,7 @@ footer {
     background: linear-gradient(to top, rgb(39, 24, 4), rgb(194, 155, 101));
     display: flex;
     width: 100%;
-    padding: 50px 0;
+    padding: clamp(20px, 2vw, 50px) 0;
     box-shadow: 0 0 1px 0.5px black;
 }
 
@@ -1776,19 +1881,19 @@ footer div {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 0;
+    padding: clamp(5px, 2vw, 10px) 0;
 }
 
 footer h1,
 footer h2 {
-    font-size: 1.5rem;
+    font-size: clamp(0.7rem, 2vw, 1.5rem);
     cursor: pointer;
     text-align: center;
     border-radius: 3px;
 }
 
 footer img {
-    width: 4rem;
+    width: clamp(2rem, 2vw, 4rem);
     cursor: pointer;
 }
 
@@ -1798,11 +1903,6 @@ footer img {
     /* ########## Header Nav ######### */
     .indoforall-header-whatsapp-link-class {
         font-size: 1.3vw;
-    }
-
-    .indoforall-nav-links a {
-        font-size: 1.3vw;
-        padding: 0.5vw 0.2vw;
     }
 
     #indoforall-intro-section {
@@ -1818,104 +1918,16 @@ footer img {
         padding: 2vw 3vw;
     }
 
-    .indoforall-who-are-we-all-text-div h1 {
-        font-size: 2.5vw;
-    }
-
-    .indoforall-who-are-we-all-text-div h2 {
-        font-size: 1.6vw;
-    }
-
-    .indoforall-who-are-we-all-text-div a {
-        font-size: 1.5vw;
-    }
-
-    /* Styling the main container */
-    .indoforall-insert-comment-form-div {
-        width: 80vw;
-    }
-
     /* Form styling */
     #indoforall-comment-form {
         gap: 5px 0;
-    }
-
-    /* ########## Indonesia worker type ######### */
-    .indoforall-worker-card {
-        width: 20vw;
-        height: 20vw;
-    }
-
-    .indoforall-worker-card span {
-        font-size: 1.7vw;
     }
 }
 
 /* 950px */
 @media (max-width: 950px) {
-    /* ########## Header Nav ######### */
-    .indoforall-header-logo-title-class p {
-        font-size: 1.9vw;
-        margin-left: 0.5vw;
-    }
-
-    .indoforall-header-logo-title-class img {
-        width: 8vw;
-    }
-
-    #indoforall-web-intro-2 {
-        font-size: 3.5vmin;
-    }
-
-    #indoforall-web-intro-1 {
-        font-size: 8vmin;
-    }
-
-    #indoforall-web-intro-3 {
-        font-size: 3.5vmin;
-    }
-
-    .indoforall-web-intro-contact-us {
-        font-size: 4vmin;
-    }
-
-    .web-guidance-div {
-        width: 95%;
-        padding: 10px 5px;
-    }
-
-    .web-guidance-div a {
-        font-size: 4vmin;
-    }
-
-    #indoforall-website-guidance-text {
-        font-size: 4vmin;
-    }
-
-    #indoforall-request-worker-now-button {
-        font-size: 4.5vmin;
-    }
-
     nav h3 {
         font-size: 5vmin;
-    }
-
-    #indoforall-nav-logo {
-        width: 15vmin;
-    }
-
-    #indoforall-nav-options a {
-        font-size: 3vmin;
-    }
-
-    .indoforall-section-intro-text {
-        font-size: 4vmin;
-        margin-top: 10px;
-    }
-
-    .indoforall-section-intro-text-2 {
-        font-size: 4vmin;
-        margin-top: 10px;
     }
 
     #indoforall-worker-type-area {
@@ -1934,63 +1946,8 @@ footer img {
         font-size: 4vmin;
     }
 
-    .indoforall-quick-info {
-        font-size: 4vmin;
-    }
-
-    .indoforall-main-page-text {
-        font-size: 4vmin;
-    }
-
-    .indoforall-main-page-text-2 {
-        font-size: 4vmin;
-    }
-
-    #indoforall-our-features-area h2 {
-        font-size: 4vmin;
-    }
-
-    #indoforall-our-features-area spam {
-        margin-left: 3px;
-    }
-
-    .indoforall-indonesia-info-image {
-        width: 14vmin;
-    }
-
     #indoforall-indonesia-info h2 {
         font-size: 3vmin;
-    }
-
-    #indoforall-our-contact-info div {
-        width: 65vmin;
-        margin: 5px;
-    }
-
-    #indoforall-our-contact-info ion-icon {
-        font-size: 13vmin;
-    }
-
-    #indoforall-our-contact-info h1,
-    #indoforall-our-contact-info h2 {
-        font-size: 4vmin;
-        padding: 0.4vmax;
-    }
-
-    .indoforall-full-screen-overlay-exit-button {
-        font-size: 5vmin;
-    }
-
-    #indoforall-whatsapp-icon h4 {
-        font-size: 4vmin;
-    }
-
-    #indoforall-whatsapp-icon img {
-        width: 14vmin;
-    }
-
-    .indoforall-section-intro-bigger-text {
-        font-size: 6vmin;
     }
 
     #indoforall-company-description {
@@ -2008,42 +1965,8 @@ footer img {
         margin-top: 5px;
     }
 
-    #indoforall-price-area {
-        padding: 10px 0;
-        gap: 10px;
-    }
-
-    .indoforall-price-card {
-        min-width: 95%;
-        margin: 10px 5px;
-        padding: 5px;
-    }
-
-    .indoforall-price-card h3,
-    .indoforall-price-card h4,
-    .indoforall-price-card h5,
-    .indoforall-price-card h6 {
-        font-size: 4vmin;
-        margin: 1px 0;
-        padding: 5px 10px;
-    }
-
-    .indoforall-price-card spam {
-        margin-left: 0.5px;
-    }
-
-    .indoforall-price-card h6 {
-        padding: 5px 0;
-    }
-
     .indoforall-pay-results {
         margin: 5px 0;
-    }
-
-    #indoforall-system-work-area div {
-        width: 80vw;
-        margin: 5px;
-        padding: 5px;
     }
 
     .indoforall-systemworknumber {
@@ -2051,71 +1974,14 @@ footer img {
         padding: 0 5px;
     }
 
-    #indoforall-system-work-area ion-icon {
-        font-size: 10vw;
-    }
-
-    .indoforall-system-work-text {
-        font-size: 4vmin;
-        padding: 3px 5px;
-    }
-
-    #indoforall-question-area {
-        padding: 5px 0;
-        margin: 0.5vmax 0;
-    }
-
     .indoforall-1uestion-div {
         margin: 2vmax 3px;
-    }
-
-    .indoforall-question-text {
-        font-size: 4vmin;
-        padding: 3px 5px;
-    }
-
-    .indoforall-answer-text {
-        font-size: 4vmin;
-        padding: 3px 5px;
-    }
-
-    #indoforall-worker-card-proof-card {
-        width: 45vmin;
-        height: 80vmin;
-    }
-
-    #indoforall-accounts-section a {
-        width: 25vmin;
-        font-size: 4vmin;
-        margin: 5px;
-        padding: 1px 0;
-    }
-
-    #indoforall-accounts-section ion-icon {
-        font-size: 8vmin;
-        padding: 2px 0;
     }
 
     .indoforall-rate-div {
         min-width: 65vw;
         margin: 0 8px;
         padding: 5px 2px;
-    }
-
-    .indoforall-clint-rate-date-div h3 {
-        font-size: 2.5vw;
-    }
-
-    .indoforall-clint-rate-info-div img {
-        width: 5.5vw;
-    }
-
-    .indoforall-clint-rate-info-div h4 {
-        font-size: 2.5vw;
-    }
-
-    .indoforall-clint-rate-comment-div h5 {
-        font-size: 2.5vw;
     }
 
     .indoforall-clint-rate-star-div {
@@ -2128,82 +1994,15 @@ footer img {
         padding: 1vw 2vw;
     }
 
-    .indoforall-who-are-we-all-text-div h1 {
-        font-size: 4vw;
-    }
-
-    .indoforall-who-are-we-all-text-div h2 {
-        font-size: 2.2vw;
-        padding-right: 2rem;
-    }
-
-    .indoforall-who-are-we-all-text-div a {
-        font-size: 3vw;
-    }
-
     #indoforall-filter-worker-type-div {
         width: 100vw;
         height: 100vh;
-    }
-
-    #indoforall-filter-worker-type-title h3 {
-        font-size: 5vmin;
-    }
-
-    #indoforall-filter-worker-work-type h3 {
-        font-size: 5vmin;
-        padding: 3px;
-    }
-
-    #indoforall-filter-worker-work-type h4 {
-        font-size: 5vmin;
-        padding: 3px;
-    }
-
-    #indoforall-submit-filter-worker-type h5 {
-        font-size: 5vmin;
-    }
-
-    #indoforall-filter-worker-visa-type h3 {
-        font-size: 5vmin;
-    }
-
-    #indoforall-filter-worker-visa-type h4 {
-        font-size: 5vmin;
-        margin: 3px 0;
-        padding: 5px 10px;
-    }
-
-    #indoforall-filter-worker-city-type h3 {
-        font-size: 5vmin;
-    }
-
-    #indoforall-filter-worker-city-type textarea {
-        font-size: 5vmin;
-        padding: 5px;
-    }
-
-    .indoforall-insert-comment-form-div h3 {
-        font-size: 4vw;
     }
 
     #indoforall-error-page-go-back-button {
         margin: 3px 0;
         font-size: 4vmin;
         padding: 5px 10px;
-    }
-
-    footer {
-        padding: 25px 0;
-    }
-
-    footer h1,
-    footer h2 {
-        font-size: 4vmin;
-    }
-
-    footer img {
-        width: 11vmin;
     }
 }
 
@@ -2216,7 +2015,6 @@ footer img {
 
     .indoforall-mobile-menu-icon {
         display: block;
-        /* Show mobile menu icon */
     }
 
     .indoforall-Proof-video-div {
@@ -2230,22 +2028,8 @@ footer img {
 
 /* 650px */
 @media (max-width: 650px) {
-    /* ########## Header Nav ######### */
-    .indoforall-header-logo-title-class p {
-        font-size: 3vw;
-    }
-
-    .indoforall-header-logo-title-class img {
-        width: 10vw;
-    }
-
     #indoforall-close-nav {
         font-size: 3vw;
-    }
-
-    .indoforall-worker-cards-div-class {
-        margin-bottom: 5px;
-        padding: 10px 0 20px;
     }
 
     .indoforall-worker-type-card {
@@ -2257,49 +2041,12 @@ footer img {
     .indoforall-worker-type-card h2 {
         font-size: 2.5vw;
     }
-
-    /* ########## Indonesia worker type ######### */
-    .indoforall-worker-card {
-        width: 25vw;
-        height: 25vw;
-    }
-
-    .indoforall-worker-card span {
-        font-size: 2.8vw;
-    }
 }
 
 /* 400px */
 @media (max-width: 400px) {
-    /* ########## Header Nav ######### */
-    .indoforall-header-logo-title-class p {
-        font-size: 4vw;
-    }
-
-    .indoforall-header-logo-title-class img {
-        width: 15vw;
-    }
-
-    #indoforall-nav-options a {
-        font-size: 4vmin;
-    }
-
-    .indoforall-ads-only-videos-div {
-        margin: 5px;
-        min-width: 95%;
-    }
-
     .indoforall-ads-only-img-div {
         min-width: 95%;
-    }
-
-    .indoforall-insert-comment-form-div {
-        width: 100vw;
-    }
-
-    .indoforall-insert-comment-form-div h3 {
-        font-size: 5vw;
-        margin-bottom: 5px;
     }
 
     #indoforall-comment-form label {
@@ -2311,24 +2058,8 @@ footer img {
     }
 
     .indoforall-rate-div {
-        min-width: 90vw;
+        min-width: 80vw;
         margin: 0 5px;
-    }
-
-    .indoforall-clint-rate-date-div h3 {
-        font-size: 3.5vw;
-    }
-
-    .indoforall-clint-rate-info-div img {
-        width: 8.5vw;
-    }
-
-    .indoforall-clint-rate-info-div h4 {
-        font-size: 3.5vw;
-    }
-
-    .indoforall-clint-rate-comment-div h5 {
-        font-size: 3.5vw;
     }
 
     .indoforall-clint-rate-star-div {
@@ -2345,36 +2076,8 @@ footer img {
         flex: 1 1 55%;
     }
 
-    .indoforall-who-are-we-all-text-div h1 {
-        font-size: 5vw;
-        padding: 1vw 3vw;
-    }
-
-    .indoforall-who-are-we-all-text-div h2 {
-        font-size: 3.8vw;
-        margin-bottom: 1rem;
-        padding-right: 0.5rem;
-    }
-
-    .indoforall-who-are-we-all-text-div a {
-        font-size: 4.5vw;
-    }
-
-    #indoforall-company-description h2 {
-        font-size: 4vw;
-    }
-
-    .indoforall-sections {
-        padding: 20px 0;
-    }
-
     #indoforall-close-nav {
         font-size: 4vw;
-    }
-
-    .indoforall-worker-cards-div-class {
-        margin-bottom: 3px;
-        padding: 10px 0;
     }
 
     .indoforall-worker-type-card {
@@ -2386,12 +2089,6 @@ footer img {
     .indoforall-worker-type-card h2 {
         font-size: 3.5vw;
         margin-bottom: 2px;
-    }
-
-    /* Prices Page */
-    /* Animated border effect */
-    .indoforall-price-card::before {
-        padding: 2px;
     }
 
     .indoforall-Proof-video-div {
