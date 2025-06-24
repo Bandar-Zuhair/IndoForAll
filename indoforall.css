@@ -148,6 +148,7 @@ body {
     z-index: 997;
     transition: transform 0.3s ease-in-out;
     overflow: hidden;
+    padding: 5px 0;
 }
 
 header.hidden {
@@ -504,7 +505,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 #indoforall-whatsapp-icon img {
-    width: clamp(5rem, 5.5vw, 6.5rem);
+    width: clamp(3rem, 5.5vw, 6.5rem);
     padding-bottom: 5px;
     cursor: pointer;
     align-self: left;
