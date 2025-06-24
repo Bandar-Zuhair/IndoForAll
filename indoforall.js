@@ -1068,22 +1068,23 @@ if (document.getElementById("indoforall-price-section")) {
 
 // in Case If The Element With The Id Name 'indoforall_common_question_section' Exsist Then Go through each item in the 'data' value array 'indoforall_questionAndAnswerArray'
 if (document.getElementById("indoforall-common-question-section")) {
-    indoforall_questionAndAnswerArray.forEach((item) => {
-        // Get all the properties from each item in the object from the array
-        let { questionText, answerText } = item;
+    const container = document.getElementById("indoforall-question-area");
 
-        // Create a new div element for the Questions And Answers
-        let indoforall_question_div = document.createElement("div");
-        indoforall_question_div.classList.add("indoforall-question-div");
+    indoforall_questionAndAnswerArray.forEach(({ questionText, answerText }) => {
+        const div = document.createElement("div");
+        div.className = "indoforall-question-div";
 
-        // Create the HTML content for the Questions And Answers Elements
-        indoforall_question_div.innerHTML = `
-            <h2 class="indoforall-question-text">${questionText}</h2>
-            <h3 class="indoforall-answer-text">${answerText}</h3>
-    `;
+        const questionEl = document.createElement("h2");
+        questionEl.className = "indoforall-question-text";
+        questionEl.textContent = questionText;
 
-        // Append the 'indoforall_QuestionDiv' element inside the 'indoforall_question_area'
-        document.getElementById("indoforall-question-area").appendChild(indoforall_question_div);
+        const answerEl = document.createElement("p"); // Use <p> for better semantic HTML
+        answerEl.className = "indoforall-answer-text";
+        answerEl.textContent = answerText;
+
+        div.appendChild(questionEl);
+        div.appendChild(answerEl);
+        container.appendChild(div);
     });
 }
 
