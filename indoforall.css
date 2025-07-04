@@ -269,8 +269,15 @@ header.hidden {
 
 /* indoforall-intro-section */
 #indoforall-intro-section {
-    z-index: 1;
+    position: relative;
     width: 100%;
+    height: calc(100vh - var(--header-height, 80px));
+    min-height: calc(100vh - var(--header-height, 80px));
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .indoforall-intro-section-all-text-div-class {
@@ -688,7 +695,7 @@ body.nav-open #indoforall-nav-options * {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    font-size: 2rem;
+    font-size: clamp(1.2rem, 2vw, 2rem);
     color: gold;
 }
 
@@ -716,7 +723,7 @@ body.nav-open #indoforall-nav-options * {
 
 /* Styling the heading */
 .indoforall-insert-comment-form-div h3 {
-    font-size: 1.5rem;
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
     color: #333;
     margin-bottom: 15px;
 }
@@ -730,7 +737,7 @@ body.nav-open #indoforall-nav-options * {
 
 /* Label styling */
 #indoforall-comment-form label {
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 2vw, 1rem);
     font-weight: bold;
     color: #000000;
     text-align: right;
@@ -744,7 +751,7 @@ body.nav-open #indoforall-nav-options * {
     padding: 10px 0;
     border: 1px solid #000000;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: clamp(0.9rem, 2vw, 14px);
 }
 
 /* Textarea specific styling */
@@ -763,7 +770,7 @@ body.nav-open #indoforall-nav-options * {
 #indoforall-comment-form button {
     background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
     color: white;
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 2vw, 1rem);
     padding: 5px 0;
     border: none;
     border-radius: 5px;
@@ -780,7 +787,7 @@ body.nav-open #indoforall-nav-options * {
     color: white;
     padding: 12px 18px;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: clamp(0.9rem, 2vw, 16px);
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     display: none;
     opacity: 0;
@@ -903,6 +910,7 @@ body.nav-open #indoforall-nav-options * {
     align-items: center;
     flex-direction: column;
     padding: clamp(20px, 10vw, 50px) 0;
+    overflow: hidden;
 }
 
 .indoforall-worker-details-text-h1 {
@@ -1263,7 +1271,6 @@ body.nav-open #indoforall-nav-options * {
     background: var(--title-text-color);
     color: white;
     cursor: pointer;
-    transition: color 0.3s;
     padding: 0 0.9vw;
     margin-right: clamp(0.5rem, 2vw, 2.5rem);
     border-radius: 5px;
@@ -1386,7 +1393,6 @@ body.nav-open #indoforall-nav-options * {
     border-radius: 5px;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease-in-out;
 }
 
 #indoforall-our-contact-info div:hover {
@@ -1474,7 +1480,6 @@ body.nav-open #indoforall-nav-options * {
     border-radius: 1rem;
     z-index: -1;
     animation: borderAnimation 4s ease infinite;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
@@ -1926,13 +1931,121 @@ footer img {
     cursor: pointer;
 }
 
+/* Base state for all animated elements */
+.animate-on-scroll {
+    opacity: 0;
+    filter: blur(5px) grayscale(100%);
+    transition: all 1s ease;
+}
+
+/* Triggered when in view */
+.animate-on-scroll.in-view {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* Directions */
+.animate-on-scroll.from-left {
+    transform: translateX(-40px);
+}
+
+.animate-on-scroll.from-right {
+    transform: translateX(40px);
+}
+
+.animate-on-scroll.from-bottom {
+    transform: translateY(40px);
+}
+
+/* Optional: override transform only when visible */
+.animate-on-scroll.from-left.in-view,
+.animate-on-scroll.from-right.in-view,
+.animate-on-scroll.from-bottom.in-view {
+    transform: translate(0, 0);
+    filter: blur(0) grayscale(0);
+}
+
+#indoforall-web-intro-1 {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+#indoforall-web-intro-1.active {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+#indoforall-web-intro-3 {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+#indoforall-web-intro-3.active {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+.indoforall-web-intro-contact-us {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.indoforall-web-intro-contact-us.active {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+#indoforall-website-guidance-text {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+#indoforall-website-guidance-text.active {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+#indoforall-request-worker-now-button {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+#indoforall-request-worker-now-button.active {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+#indoforall-orbit-container-id {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+#indoforall-orbit-container-id.active {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
 /* Media Queries */
 /* 1250px */
 @media (max-width: 1250px) {
-    #indoforall-intro-section {
-        background-size: 100% auto;
-    }
-
     /* About Us Section */
     .indoforall-who-are-we-all-content-div {
         padding: 2vw 3vw;
@@ -1987,11 +2100,6 @@ footer img {
         padding: 5px 2px;
     }
 
-    .indoforall-clint-rate-star-div {
-        margin-top: 8px;
-        font-size: 3.5vw;
-    }
-
     /* About Us Section */
     .indoforall-who-are-we-all-content-div {
         padding: 1vw 2vw;
@@ -2040,22 +2148,9 @@ footer img {
         min-width: 95%;
     }
 
-    #indoforall-comment-form label {
-        font-size: 4vw;
-    }
-
-    #indoforall-comment-form button {
-        font-size: 4vw;
-    }
-
     .indoforall-rate-div {
         min-width: 85vw;
         margin: 0 5px;
-    }
-
-    .indoforall-clint-rate-star-div {
-        margin-top: 8px;
-        font-size: 5vw;
     }
 
     /* About Us Section */
