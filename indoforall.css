@@ -480,40 +480,69 @@ body.nav-open #indoforall-nav-options * {
     font-size: clamp(0.9rem, 2vw, 1.5rem);
 }
 
-#indoforall-whatsapp-icon {
-    z-index: 998;
+/* WhatsApp Icon */
+.whatsapp-button {
+    position: fixed;
+    bottom: clamp(40px, 4vw, 40px);
+    left: clamp(10px, 2vw, 20px);
+    z-index: 99;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    position: fixed;
-    bottom: 60px;
-    left: 0;
-    animation: floatAnimation 4s ease-in-out infinite;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
-#indoforall-whatsapp-icon h4 {
-    background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
-    color: white;
-    font-size: clamp(0.9rem, 2vw, 1.5rem);
-    text-align: center;
-    padding: 2px;
-    width: fit-content;
-    cursor: pointer;
+.whatsapp-button:hover {
+    transform: scale(1.05);
+}
+
+.whatsapp-icon {
+    width: clamp(50px, 5vw, 50px);
+    height: clamp(50px, 5vw, 50px);
+    background-color: #25d366;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-icon svg {
+    width: 32px;
+    height: 32px;
+    fill: white;
+}
+
+.whatsapp-text {
+    margin-top: 5px;
+    background: white;
+    padding: 2px 5px;
+    color: #075e54;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    font-size: clamp(12px, 2vw, 15px);
     border-radius: 3px;
-    box-shadow: 0 0 1px 0.5px black;
-    transition: all 0.2s ease-in-out;
+    text-align: center;
 }
 
-#indoforall-whatsapp-icon img {
-    width: clamp(3rem, 5.5vw, 6.5rem);
-    padding-bottom: 5px;
-    cursor: pointer;
-    align-self: left;
+/* Animation for pulse effect */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
 }
 
-#indoforall-whatsapp-icon h4:hover,
-#indoforall-whatsapp-icon img:hover {
-    opacity: 0.5;
+.whatsapp-icon.pulse {
+    animation: pulse 1.5s infinite;
 }
 
 #indoforall-error-page-go-back-button {
