@@ -878,8 +878,7 @@ body.nav-open #indoforall-nav-options * {
     background: rgba(0, 0, 0, 0.6);
     color: white;
     text-align: center;
-    font-size: clamp(0.8rem, 2vw, 1.2rem);
-    /* Responsive font */
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
     font-weight: bold;
     border-bottom-left-radius: 50%;
     border-bottom-right-radius: 50%;
@@ -898,7 +897,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-quick-info {
-    font-size: clamp(0.8rem, 2vw, 1.5rem);
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
     line-height: 1.5;
     margin: 0.5vmax;
 }
@@ -1430,7 +1429,7 @@ body.nav-open #indoforall-nav-options * {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Prices Section */
+/* Prices Section - Vibrant Modern Theme */
 #indoforall-price-area {
     padding: clamp(1rem, 4vw, 3rem) clamp(0.1rem, 3vw, 2rem);
     width: 100%;
@@ -1445,47 +1444,22 @@ body.nav-open #indoforall-nav-options * {
 .indoforall-price-card {
     width: 100%;
     position: relative;
-    background: linear-gradient(135deg, #3c2b12 0%, #8a6f49 100%);
+    background: linear-gradient(145deg, #7a6c29 0%, #2a2a66 100%);
     border-radius: 1rem;
     padding: clamp(1rem, 4vw, 2rem);
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.2);
-    /* 10px 30px */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     overflow: hidden;
     z-index: 1;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: 100%;
     box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.indoforall-price-card:hover {
-    transform: translateY(-0.5rem);
-    box-shadow: 0 0.9375rem 2.1875rem rgba(0, 0, 0, 0.3);
-    /* 15px 35px */
-}
-
-/* Animated border effect */
-.indoforall-price-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 2px;
-    background: linear-gradient(135deg, rgba(255, 192, 104, 0.8), rgba(255, 255, 255, 0.5), rgba(255, 192, 104, 0.8));
-    background-size: 200% 200%;
-    border-radius: 1rem;
-    z-index: -1;
-    animation: borderAnimation 4s ease infinite;
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-}
-
-@keyframes borderAnimation {
+@keyframes borderGlow {
     0% {
         background-position: 0% 50%;
     }
@@ -1501,77 +1475,110 @@ body.nav-open #indoforall-nav-options * {
 
 /* Card content styling */
 .indoforall-price-card h3 {
-    color: #fff;
-    font-size: clamp(1rem, 1vw, 1.5rem);
-    margin-bottom: 20px;
-    padding: clamp(0.5rem, 1vw, 1.5rem) clamp(0.5rem, 1vw, 1.5rem);
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
+    color: #ffffff;
+    font-size: clamp(0.9rem, 1.2vw, 1.6rem);
+    margin-bottom: clamp(0.8rem, 1.2vw, 1.6rem);
+    padding: clamp(0.5rem, 1.2vw, 1.6rem) clamp(0.5rem, 1.2vw, 1.6rem);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
     width: 100%;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    text-transform: uppercase;
 }
 
 .indoforall-price-card h4 {
-    color: #fff;
-    font-size: clamp(1rem, 1vw, 1.2rem);
-    margin: clamp(0.2rem, 0.5vw, 1.5rem) 0;
+    color: #f8f9fa;
+    font-size: clamp(0.9rem, 1.1vw, 1.3rem);
+    margin: clamp(0.3rem, 0.6vw, 1.6rem) 0;
     text-align: center;
     width: 100%;
+    font-weight: 600;
 }
 
 .indoforall-price-card h4[style*="color: rgb(0, 255, 0)"] {
-    font-weight: bold;
-    font-size: clamp(1rem, 1vw, 1.4rem);
+    color: #6bff6b !important;
+    font-weight: 700;
+    font-size: clamp(0.9rem, 1.3vw, 1.5rem);
+    text-shadow: 0 0 10px rgba(107, 255, 107, 0.3);
 }
 
 .indoforall-pay-results {
     width: 100%;
-    margin: clamp(0.5rem, 1vw, 1.5rem) 0;
-    padding: clamp(0.5rem, 1vw, 1.5rem);
-    background: rgba(0, 0, 0, 0.15);
-    border-radius: 8px;
+    margin: clamp(0.8rem, 1vw, 1rem) 0;
+    padding: clamp(0.5rem, 0.6vw, 1rem) clamp(0.5rem, 1.1vw, 1.6rem);
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
 }
 
 .indoforall-price-card h5 {
-    color: #fff;
-    font-size: clamp(1rem, 1vw, 0.95rem);
-    margin: clamp(0.5rem, 1vw, 1.5rem) 0;
+    color: #e9ecef;
+    font-size: clamp(0.9rem, 1vw, 1.05rem);
+    margin: clamp(0.6rem, 0.5vw, 1.6rem) 0;
     display: flex;
     align-items: center;
+    font-weight: 500;
 }
 
 .indoforall-price-card h5 span {
-    margin-left: clamp(0.5rem, 1vw, 1.5rem);
+    margin-left: clamp(0.6rem, 1vw, 1.6rem);
     display: inline-flex;
 }
 
 .indoforall-price-card h5[style*="color: rgb(0, 255, 0)"] {
-    font-weight: bold;
+    color: #6bff6b !important;
+    font-weight: 700;
     text-align: center;
     justify-content: center;
-    margin-top: clamp(0.5rem, 1vw, 1.5rem);
+    margin-top: clamp(0.8rem, 1.2vw, 1.6rem);
 }
 
 .indoforall-price-card h6 {
-    background: var(--title-text-color);
-    color: #fff;
+    background: linear-gradient(45deg, #fad65e, #48dbfb);
+    color: #1a1a2e;
     width: 100%;
-    padding: clamp(0.5rem, 1vw, 1.5rem);
+    padding: clamp(0.4rem, 1.1vw, 1.4rem) clamp(0.5rem, 1.1vw, 1.4rem);
     margin-top: auto;
-    border-radius: 6px;
+    border-radius: 8px;
     text-align: center;
     cursor: pointer;
-    font-size: clamp(1rem, 1vw, 1.1rem);
+    font-size: clamp(0.9rem, 1.1vw, 1.2rem);
     transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     border: none;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.indoforall-price-card h6::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #48dbfb, #6bff6b);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
 }
 
 .indoforall-price-card h6:hover {
-    background: #2a7a2f;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    color: #1a1a2e;
+}
+
+.indoforall-price-card h6:hover::before {
+    opacity: 1;
 }
 
 #indoforall-question-area {
@@ -1768,7 +1775,7 @@ body.nav-open #indoforall-nav-options * {
 
 #indoforall-company-description h2 {
     color: black;
-    font-size: clamp(1.1rem, 1vw, 1.5rem);
+    font-size: clamp(0.9rem, 1vw, 1.5rem);
     line-height: 1.5;
     text-align: center;
     padding: 5px;
@@ -2079,10 +2086,6 @@ footer img {
     #indoforall-company-description img {
         width: 15vmin;
         margin-top: 5px;
-    }
-
-    .indoforall-pay-results {
-        margin: 5px 0;
     }
 
     .indoforall-systemworknumber {
