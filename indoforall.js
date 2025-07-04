@@ -250,6 +250,64 @@ let indoforall_adsVideosArray = [
     },
 ];
 
+// Function to update header height CSS custom property and intro section height
+function updateHeaderHeight() {
+    const header = document.querySelector("header");
+    const introSection = document.querySelector(".intro-section");
+
+    if (header) {
+        const headerHeight = header.offsetHeight;
+        document.documentElement.style.setProperty("--header-height", `${headerHeight}px`);
+
+        // Also directly set the intro section height as a fallback
+        if (introSection) {
+            const windowHeight = window.innerHeight;
+            const newHeight = windowHeight - headerHeight;
+            introSection.style.height = `${newHeight}px`;
+            introSection.style.minHeight = `${newHeight}px`;
+        }
+    }
+}
+
+updateHeaderHeight();
+
+// Function to initialize intro section with images from JSON data
+function initializeIntroSection() {
+    const headlines = document.querySelectorAll("#indoforall-web-intro-1, #indoforall-web-intro-3, .indoforall-web-intro-contact-us, #indoforall-website-guidance-text, #indoforall-request-worker-now-button, #indoforall-orbit-container-id");
+    const scrollHint = document.getElementById("scrollHint");
+
+    setTimeout(() => {
+        let delay = 0;
+        const duration = 600; // ms, should match your CSS transition duration
+
+        headlines.forEach((headline, idx) => {
+            setTimeout(() => {
+                headline.classList.add("active", "in-view");
+            }, delay);
+            delay += duration;
+        });
+
+        // Animate scrollHint after all headlines
+        setTimeout(() => {
+            if (scrollHint) scrollHint.classList.add("active");
+            // Animate scroll-note-btn after all
+            const scrollNoteBtn = document.getElementById("scroll-note-btn");
+            if (scrollNoteBtn) {
+                setTimeout(() => {
+                    scrollNoteBtn.classList.add("active", "in-view");
+                }, duration);
+            }
+        }, delay);
+    }, 600);
+
+    // Return cleanup function
+    return () => {
+        // No interval to clear, so nothing needed here
+    };
+}
+
+initializeIntroSection();
+
 /* Function For Showing Full Screen Images */
 function indoforall_show_full_screen_image(src) {
     // Disable scrolling
@@ -1456,6 +1514,26 @@ function enableMouseGradient(selector = ".indoforall-mouse-gradient") {
 document.addEventListener("DOMContentLoaded", () => {
     enableMouseGradient();
 });
+
+/* Elements Animation On Scroll */
+const animatedElements = document.querySelectorAll(".animate-on-scroll");
+
+function animateOnScroll() {
+    const triggerPoint = window.innerHeight * 0.9;
+
+    animatedElements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const midpoint = rect.top + rect.height / 2;
+
+        if (midpoint < triggerPoint) {
+            el.classList.add("in-view");
+        }
+    });
+}
+
+window.addEventListener("scroll", animateOnScroll);
+window.addEventListener("resize", animateOnScroll);
+document.addEventListener("DOMContentLoaded", animateOnScroll); // safer than immediate call
 
 /* Open WhatsApp Chat */
 function indoforall_whatsApp() {
