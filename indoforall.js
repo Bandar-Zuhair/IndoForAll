@@ -1130,14 +1130,14 @@ if (document.getElementById("indoforall-common-question-section")) {
 
     indoforall_questionAndAnswerArray.forEach(({ questionText, answerText }) => {
         const div = document.createElement("div");
-        div.className = "indoforall-question-div";
+        div.className = "indoforall-question-div animate-on-scroll from-bottom";
 
         const questionEl = document.createElement("h2");
-        questionEl.className = "indoforall-question-text";
+        questionEl.className = "indoforall-question-text animate-on-scroll from-right";
         questionEl.textContent = questionText;
 
         const answerEl = document.createElement("p"); // Use <p> for better semantic HTML
-        answerEl.className = "indoforall-answer-text";
+        answerEl.className = "indoforall-answer-text animate-on-scroll from-left";
         answerEl.textContent = answerText;
 
         div.appendChild(questionEl);
@@ -1161,7 +1161,7 @@ if (document.getElementById("indoforall-proof-section")) {
         // Create the card container div
         const ProofVideoDiv = document.createElement("div");
         ProofVideoDiv.id = "indoforall-worker-card-proof-card";
-        ProofVideoDiv.className = "indoforall-worker-proof-card";
+        ProofVideoDiv.className = "indoforall-worker-proof-card animate-on-scroll from-bottom";
 
         // Generate the content dynamically based on 'imgSrc' or 'videoSrc'
         let content = `<h2>${cardCounter}</h2>`;
