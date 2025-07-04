@@ -922,7 +922,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-section-intro-text {
-    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-size: clamp(1rem, 2vw, 1.5rem);
     padding: 5px;
     width: fit-content;
     text-align: center;
@@ -931,7 +931,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-section-intro-bigger-text {
-    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    font-size: clamp(1rem, 2vw, 1.5rem);
     padding: 5px;
     width: fit-content;
     text-align: center;
@@ -1651,7 +1651,6 @@ body.nav-open #indoforall-nav-options * {
     padding: clamp(1rem, 1vw, 30px) clamp(1rem, 1vw, 20px);
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
     height: 100%;
     border: 1px solid rgba(255, 215, 140, 0.2);
 }
@@ -1674,11 +1673,6 @@ body.nav-open #indoforall-nav-options * {
     font-weight: bold;
     font-size: clamp(1rem, 1vw, 1.2rem);
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
-}
-
-#indoforall-system-work-area > div:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 #indoforall-system-work-area ion-icon {
