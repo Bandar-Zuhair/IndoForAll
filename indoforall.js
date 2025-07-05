@@ -1393,12 +1393,18 @@ function addBackgroundVideo(sectionId, videoSrc) {
         height: "100%",
         objectFit: "cover",
         zIndex: "-1",
-        opacity: "0.3",
+        opacity: "0", // Start with opacity 0
         pointerEvents: "none", // Prevent video from interfering with clicks
+        transition: "opacity 2s ease-in-out", // Add smooth transition
     });
 
     section.style.position = "relative"; // Ensure section allows absolute positioning
     section.prepend(video);
+
+    // Add fade-in animation after a short delay
+    setTimeout(() => {
+        video.style.opacity = "0.3"; // Fade to final opacity
+    }, 500); // Start fade after 500ms
 }
 
 // Add videos only to the intended sections
