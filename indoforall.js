@@ -539,7 +539,7 @@ indoforall_craeteRequestWorkerMessage = function () {
                 let encodedMessage = encodeURIComponent(finalMessage);
 
                 // Create the WhatsApp URL
-                let whatsappURL = `https://wa.me/966509465975?text=${encodedMessage}`;
+                let whatsappURL = `https://wa.me/966544386245?text=${encodedMessage}`;
 
                 // Open WhatsApp in a new window
                 window.open(whatsappURL, "_blank");
@@ -920,7 +920,7 @@ if (document.getElementById("indoforall-choose-worker-type-section")) {
                 let encodedMessage = encodeURIComponent(finalMessage);
 
                 // Create the WhatsApp URL
-                let whatsappURL = `https://wa.me/966509465975?text=${encodedMessage}`;
+                let whatsappURL = `https://wa.me/966544386245?text=${encodedMessage}`;
 
                 // Open WhatsApp in a new window
                 window.open(whatsappURL, "_blank");
@@ -1114,7 +1114,7 @@ if (document.getElementById("indoforall-price-section")) {
                     let encodedMessage = encodeURIComponent(finalMessage);
 
                     // Create the WhatsApp URL
-                    let whatsappURL = `https://wa.me/966509465975?text=${encodedMessage}`;
+                    let whatsappURL = `https://wa.me/966544386245?text=${encodedMessage}`;
 
                     // Open WhatsApp in a new window
                     window.open(whatsappURL, "_blank");
@@ -1546,7 +1546,7 @@ function indoforall_whatsApp() {
     insertNewClick("indoforall.com");
 
     // Create the WhatsApp URL with the phone number.
-    let whatsappURL = "https://wa.me/+966509465975";
+    let whatsappURL = "https://wa.me/+966544386245";
 
     // Open the WhatsApp chat window in a new tab.
     window.open(whatsappURL, "_blank");
