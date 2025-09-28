@@ -1425,8 +1425,9 @@ async function insertNewClick(website) {
         return [];
     }
 
-    // 2. Ensure we have array for this month
+    // 2. Ensure we have an array for this month
     let monthData = data[currentMonth] || [];
+
     if (typeof monthData === "string") {
         try {
             monthData = JSON.parse(monthData);
@@ -1434,6 +1435,14 @@ async function insertNewClick(website) {
             monthData = [];
         }
     }
+
+    // Convert any old object format into strings
+    monthData = monthData.map((entry) => {
+        if (typeof entry === "object" && entry !== null) {
+            return `Clicks ${entry.clicks} - ${entry.year}`;
+        }
+        return entry; // already a string
+    });
 
     // 3. Check if an entry for the current year exists
     let yearIndex = monthData.findIndex((entry) => entry.includes(`- ${currentYear}`));
