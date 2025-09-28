@@ -1410,13 +1410,14 @@ function addBackgroundVideo(sectionId, videoSrc) {
 // Add videos only to the intended sections
 addBackgroundVideo("indoforall-intro-section", "استقدام-من-اندونيسيا.mp4");
 
-/* Insert new click data in the Supabase */
+/* Insert new click data in Supabase */
 async function insertNewClick(website) {
-    // Step 1: Get current month name
     const monthNames = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
-    const currentMonth = monthNames[new Date().getMonth()];
+    const now = new Date();
+    const currentMonth = monthNames[now.getMonth()];
+    const currentYear = now.getFullYear();
 
-    // Step 2: Fetch the current row for the website
+    // Fetch row
     const { data, error } = await supabase.from("click_counter").select("*").eq("website", website).single();
 
     if (error) {
@@ -1424,27 +1425,36 @@ async function insertNewClick(website) {
         return;
     }
 
-    // Step 3: Parse the current value (e.g., "Clicks 4")
-    let rawValue = data[currentMonth];
-    let currentCount = 0;
-
-    if (rawValue && typeof rawValue === "string" && rawValue.startsWith("Clicks ")) {
-        currentCount = parseInt(rawValue.replace("Clicks ", ""), 10) || 0;
+    let monthData = data[currentMonth] || [];
+    if (typeof monthData === "string") {
+        try {
+            monthData = JSON.parse(monthData);
+        } catch {
+            monthData = [];
+        }
     }
 
-    // Step 4: Increment the value
-    let newCount = currentCount + 1;
-    let newValue = `Clicks ${newCount}`;
+    // Find year object
+    let yearObj = monthData.find((item) => item.year === currentYear);
 
-    // Step 5: Update the table
+    if (yearObj) {
+        yearObj.clicks = (yearObj.clicks || 0) + 1;
+    } else {
+        monthData.push({
+            month: currentMonth,
+            clicks: 1,
+            year: currentYear,
+        });
+    }
+
+    // Update table
     const { error: updateError } = await supabase
         .from("click_counter")
-        .update({ [currentMonth]: newValue })
+        .update({ [currentMonth]: monthData })
         .eq("website", website);
 
     if (updateError) {
         console.error("Error updating value:", updateError.message);
-        return;
     }
 }
 
