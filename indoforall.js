@@ -1441,7 +1441,6 @@ async function insertNewClick(website) {
         yearObj.clicks = (yearObj.clicks || 0) + 1;
     } else {
         monthData.push({
-            month: currentMonth,
             clicks: 1,
             year: currentYear,
         });
