@@ -1410,21 +1410,22 @@ function addBackgroundVideo(sectionId, videoSrc) {
 // Add videos only to the intended sections
 addBackgroundVideo("indoforall-intro-section", "استقدام-من-اندونيسيا.mp4");
 
-/* Insert new click data in Supabase */
+/* Insert new click & return formatted array */
 async function insertNewClick(website) {
     const monthNames = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
     const now = new Date();
     const currentMonth = monthNames[now.getMonth()];
     const currentYear = now.getFullYear();
 
-    // Fetch row
+    // 1. Fetch row
     const { data, error } = await supabase.from("click_counter").select("*").eq("website", website).single();
 
     if (error) {
         console.error("Error fetching data:", error.message);
-        return;
+        return [];
     }
 
+    // 2. Ensure we have array for this month
     let monthData = data[currentMonth] || [];
     if (typeof monthData === "string") {
         try {
@@ -1434,9 +1435,8 @@ async function insertNewClick(website) {
         }
     }
 
-    // Find year object
+    // 3. Find or create year entry
     let yearObj = monthData.find((item) => item.year === currentYear);
-
     if (yearObj) {
         yearObj.clicks = (yearObj.clicks || 0) + 1;
     } else {
@@ -1446,7 +1446,7 @@ async function insertNewClick(website) {
         });
     }
 
-    // Update table
+    // 4. Update Supabase
     const { error: updateError } = await supabase
         .from("click_counter")
         .update({ [currentMonth]: monthData })
@@ -1454,7 +1454,13 @@ async function insertNewClick(website) {
 
     if (updateError) {
         console.error("Error updating value:", updateError.message);
+        return [];
     }
+
+    // 5. Format data for return
+    const formatted = monthData.map((item) => `Clicks ${item.clicks} - ${item.year}`);
+
+    return formatted;
 }
 
 // Array of flag image URLs (replace or add your own)
@@ -1551,8 +1557,8 @@ window.addEventListener("resize", animateOnScroll);
 document.addEventListener("DOMContentLoaded", animateOnScroll); // safer than immediate call
 
 /* Open WhatsApp Chat */
-function indoforall_whatsApp() {
-    insertNewClick("indoforall.com");
+async function indoforall_whatsApp() {
+    await insertNewClick("indoforall.com");
 
     // Create the WhatsApp URL with the phone number.
     let whatsappURL = "https://wa.me/+966544386245";
