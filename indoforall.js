@@ -1435,18 +1435,23 @@ async function insertNewClick(website) {
         }
     }
 
-    // 3. Find or create year entry
-    let yearObj = monthData.find((item) => item.year === currentYear);
-    if (yearObj) {
-        yearObj.clicks = (yearObj.clicks || 0) + 1;
+    // 3. Check if an entry for the current year exists
+    let yearIndex = monthData.findIndex((entry) => entry.includes(`- ${currentYear}`));
+
+    if (yearIndex !== -1) {
+        // Extract current clicks
+        let parts = monthData[yearIndex].match(/Clicks (\d+) - (\d+)/);
+        let currentClicks = parts ? parseInt(parts[1], 10) : 0;
+        let updatedClicks = currentClicks + 1;
+
+        // Update the string
+        monthData[yearIndex] = `Clicks ${updatedClicks} - ${currentYear}`;
     } else {
-        monthData.push({
-            clicks: 1,
-            year: currentYear,
-        });
+        // Add new entry for this year
+        monthData.push(`Clicks 1 - ${currentYear}`);
     }
 
-    // 4. Update Supabase
+    // 4. Update Supabase (store as array of strings)
     const { error: updateError } = await supabase
         .from("click_counter")
         .update({ [currentMonth]: monthData })
@@ -1457,10 +1462,8 @@ async function insertNewClick(website) {
         return [];
     }
 
-    // 5. Format data for return
-    const formatted = monthData.map((item) => `Clicks ${item.clicks} - ${item.year}`);
-
-    return formatted;
+    // 5. Return the updated formatted array
+    return monthData;
 }
 
 // Array of flag image URLs (replace or add your own)
