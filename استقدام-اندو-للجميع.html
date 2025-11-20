@@ -582,23 +582,37 @@
 
             <div class="indoforall-insert-comment-form-div">
                 <h3 class="animate-on-scroll from-right">شارك تجربتك مع اندو الجميع</h3>
+                <p class="indoforall-form-subtitle">نعتمد على تعليقاتكم لتحسين خدماتنا</p>
                 <form id="indoforall-comment-form" class="animate-on-scroll from-bottom">
-                    <label for="indoforall-comment-username">إسمك:</label>
-                    <input type="text" id="indoforall-comment-username" required maxlength="30" />
+                    <div class="indoforall-form-group">
+                        <label for="indoforall-comment-username">إسمك</label>
+                        <input type="text" id="indoforall-comment-username" required maxlength="30" />
+                    </div>
 
-                    <label for="indoforall-comment-text">رأيك:</label>
-                    <textarea id="indoforall-comment-text" required maxlength="200"></textarea>
+                    <div class="indoforall-form-group">
+                        <label for="indoforall-comment-stars">تقييمك</label>
+                        <select id="indoforall-comment-stars" required>
+                            <option value="5">★★★★★ (5)</option>
+                            <option value="4">★★★★☆ (4)</option>
+                            <option value="3">★★★☆☆ (3)</option>
+                            <option value="2">★★☆☆☆ (2)</option>
+                            <option value="1">★☆☆☆☆ (1)</option>
+                        </select>
+                    </div>
 
-                    <label for="indoforall-comment-stars">تقييمك:</label>
-                    <select id="indoforall-comment-stars" required>
-                        <option value="5">★★★★★ (5)</option>
-                        <option value="4">★★★★☆ (4)</option>
-                        <option value="3">★★★☆☆ (3)</option>
-                        <option value="2">★★☆☆☆ (2)</option>
-                        <option value="1">★☆☆☆☆ (1)</option>
-                    </select>
+                    <div class="indoforall-form-group indoforall-form-group--full">
+                        <label for="indoforall-comment-text">رأيك</label>
+                        <textarea id="indoforall-comment-text" required maxlength="200"></textarea>
+                    </div>
 
-                    <button type="submit" id="indoforall-comment-submit-button-id">إرسال</button>
+                    <div class="indoforall-form-group">
+                        <label for="indoforall-comment-whatsapp">واتساب (اختياري للتواصل لاحقًا)</label>
+                        <input type="tel" id="indoforall-comment-whatsapp" maxlength="20" />
+                    </div>
+
+                    <div class="indoforall-form-group indoforall-form-group--full">
+                        <button type="submit" id="indoforall-comment-submit-button-id">إرسال</button>
+                    </div>
                 </form>
             </div>
 
