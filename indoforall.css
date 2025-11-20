@@ -49,19 +49,24 @@ body {
     text-decoration: none;
     background: var(--title-text-color);
     color: white;
-    width: fit-content;
-    font-size: clamp(1.2rem, 1vw, 1.5rem);
-    padding: 0 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    padding: 0;
     position: fixed;
     top: 5px;
-    right: 5px;
+    left: 5px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    border-radius: 3px;
+    justify-content: center;
+    border-radius: 50%;
     cursor: pointer;
-    border: 1px solid white;
-    transition: all 0.2s ease-in-out;
+    transition: transform 0.2s ease;
+}
+
+.indoforall-full-screen-overlay-exit-button::before {
+    content: "×";
+    font-weight: bold;
 }
 
 .indoforall-full-screen-overlay-exit-button:hover {
@@ -70,24 +75,19 @@ body {
 
 .indoforall-full-screen-img-overlay {
     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: white;
-    width: 100%;
-    height: 100%;
-    padding: 20px 0;
-    z-index: 999;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(4px);
+    z-index: 997;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    visibility: hidden;
+    padding: clamp(1rem, 4vw, 2.5rem);
     opacity: 0;
+    visibility: hidden;
     transition:
-        opacity 0.5s ease,
-        visibility 0.5s ease;
+        opacity 0.4s ease,
+        visibility 0.4s ease;
 }
 
 .indoforall-full-screen-img-overlay.show {
@@ -101,25 +101,36 @@ body {
     transition: transform 0.5s ease;
 }
 
+/* Container to allow label-style X over the full-screen image */
+.indoforall-full-screen-img-container {
+    position: relative;
+    display: inline-block;
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+/* Place the X as a label on the image (overrides base fixed positioning) */
+.indoforall-full-screen-img-container .indoforall-full-screen-overlay-exit-button {
+    position: absolute;
+    inset-inline-end: 8px;
+    inset-block-start: 8px;
+}
+
 .indoforall-full-screen-guidance-overlay {
-    background: white;
-    width: 100%;
-    height: 100%;
-    padding: 20px 0;
-    z-index: 997;
     position: fixed;
-    top: 0;
-    left: 0;
-    overflow: hidden;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(4px);
+    z-index: 997;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    padding: clamp(1rem, 4vw, 2.5rem);
     opacity: 0;
     visibility: hidden;
     transition:
-        opacity 0.5s ease,
-        visibility 0.5s ease;
+        opacity 0.4s ease,
+        visibility 0.4s ease;
 }
 
 .indoforall-full-screen-guidance-overlay.active {
@@ -149,7 +160,8 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     position: sticky;
     top: 0;
-    z-index: 997;
+    z-index: 995;
+    /* Lower z-index so nav-overlay (997) can appear above it */
     transition: transform 0.3s ease-in-out;
     overflow: hidden;
     padding: 5px 0;
@@ -194,21 +206,6 @@ header.hidden {
     width: 90vw;
     display: flex;
     align-items: center;
-}
-
-.indoforall-header-whatsapp-link-class {
-    background: linear-gradient(to top, rgb(60, 43, 18), rgb(138, 111, 73));
-    font-size: clamp(0.9rem, 1vw, 1.1rem);
-    padding: 0.5rem;
-    border-radius: 2rem;
-    cursor: pointer;
-    transition: all 0.2s ease-in;
-    display: flex;
-    align-items: center;
-}
-
-.indoforall-header-whatsapp-link-class:hover {
-    color: rgb(0, 255, 0);
 }
 
 .indoforall-nav-links {
@@ -358,55 +355,124 @@ header.hidden {
 }
 
 .web-guidance-div {
-    z-index: 999;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: var(--second-bg-color);
-    width: 100%;
-    padding: 50px 10px;
+    position: relative;
+    width: min(800px, 90vw);
+    max-height: 80vh;
+    overflow-y: auto;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(248, 248, 248, 0.98));
+    padding: clamp(0.5rem, 2vw, 1.5rem);
+    border-radius: 18px;
+    box-shadow: 0 40px 90px rgba(0, 0, 0, 0.25);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    border-radius: 3px;
-    box-shadow: 0 0 1px 0.5px black;
+    gap: clamp(1rem, 2vw, 1.5rem);
     opacity: 0;
-    visibility: hidden;
+    transform: translateY(20px) scale(0.98);
     transition:
-        opacity 0.5s ease,
-        visibility 0.5s ease;
+        opacity 0.4s ease,
+        transform 0.4s ease;
 }
 
 .web-guidance-div.active {
     opacity: 1;
-    visibility: visible;
+    transform: translateY(0) scale(1);
 }
 
-.web-guidance-div a {
-    width: 70%;
-    text-decoration: none;
-    background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
+.web-guidance-div h4 {
+    margin: 0;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color: #111827;
+}
+
+.web-guidance-div .indoforall-full-screen-overlay-exit-button {
+    position: absolute;
+    inset-inline-end: 8px;
+    inset-block-start: 8px;
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+    line-height: 1;
+    z-index: 2;
+}
+
+.web-guidance-steps {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.8rem, 1.5vw, 1.1rem);
+}
+
+.web-guidance-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: clamp(0.8rem, 1.5vw, 1rem);
+    border-radius: 12px;
+    border: 1px solid rgba(229, 231, 235, 0.9);
+    background: #ffffff;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+.web-guidance-step-number {
+    width: 32px;
+    height: 32px;
+    min-width: 22px;
+    min-height: 22px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgb(106, 75, 31), rgb(194, 156, 102));
     color: white;
-    font-size: clamp(0.9rem, 2vw, 1.5rem);
-    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.web-guidance-step p {
+    margin: 0;
+    color: #374151;
+    line-height: 1.6;
+    font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+}
+
+.web-guidance-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.web-guidance-actions a,
+.web-guidance-actions button {
+    flex: 1;
+    min-width: 180px;
+    text-decoration: none;
     text-align: center;
-    padding: 5px;
-    border-radius: 3px;
+    padding: 0.65rem;
+    border-radius: 10px;
+    font-weight: 600;
+    border: none;
     cursor: pointer;
-    transition: all 0.5s ease-in-out;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
-@media (max-width: 768px) {
-    .web-guidance-div a {
-        width: 100%;
-    }
+.web-guidance-actions a {
+    background: #f3f4f6;
+    color: #111827;
 }
 
-.web-guidance-div a:hover {
-    color: rgb(0, 255, 0);
+.web-guidance-actions button {
+    background: linear-gradient(135deg, rgb(106, 75, 31), rgb(194, 156, 102));
+    color: white;
+}
+
+.web-guidance-actions a:hover,
+.web-guidance-actions button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 20px rgba(15, 23, 42, 0.12);
 }
 
 #indoforall-request-worker-now-button {
@@ -445,55 +511,252 @@ body.nav-open #indoforall-nav-options * {
 }
 
 #indoforall-nav-options {
-    background: white;
-    padding: 10px;
-    z-index: 999;
+    background: linear-gradient(135deg, #e9e9e9 0%, #f1f8ff 100%);
+    padding: 0;
+    z-index: 1000;
+    /* Above all elements including nav-overlay (996) and other modals (999) - highest z-index */
     position: fixed;
-    right: -75%;
-    top: 50%;
-    width: 75%;
-    transform: translateY(-50%);
+    /* Create a new stacking context */
+    isolation: isolate;
+    right: -85%;
+    top: 0;
+    width: min(85%, 400px);
+    height: 100vh;
+    max-height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: stretch;
     opacity: 0;
-    height: 100%;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
     transition:
-        opacity 0.3s ease-in-out,
-        height 0.3s ease-in-out,
-        right 0.3s ease-in-out;
+        right 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.4s ease-in-out;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.2);
+    transform: translateX(0);
+    box-sizing: border-box;
+    /* Ensure content fits within viewport */
+    -webkit-overflow-scrolling: touch;
+    /* Smooth scrolling on iOS */
+}
+
+#indoforall-nav-options.show {
+    right: 0;
+    opacity: 1;
+}
+
+/* Custom scrollbar for nav options */
+#indoforall-nav-options::-webkit-scrollbar {
+    width: 6px;
+}
+
+#indoforall-nav-options::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+#indoforall-nav-options::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, rgb(106, 75, 31), rgb(194, 156, 102));
+    border-radius: 10px;
+}
+
+#indoforall-nav-options::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, rgb(89, 62, 25), rgb(153, 123, 82));
 }
 
 #indoforall-nav-logo {
-    width: clamp(6rem, 2vw, 6rem);
-    margin: 10px 0;
+    width: clamp(5rem, 15vw, 7rem);
+    height: auto;
+    margin: 24px auto 20px;
     animation: floatAnimation 4s ease-in-out infinite;
     align-self: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 8px;
+    background: white;
+    flex-shrink: 0;
+    /* Prevent logo from shrinking */
 }
 
-#indoforall-nav-options a {
+/* Navigation Links Container - Scrollable Area */
+/* The nav-options container uses flexbox with overflow-y: auto for scrolling */
+
+/* Navigation Links Container */
+#indoforall-nav-options > a:not(#indoforall-close-nav) {
     text-decoration: none;
-    background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
-    color: white;
-    margin: 0.5vmax 0;
-    width: 100%;
-    font-size: clamp(0.9rem, 2vw, 1.5rem);
-    border: 1px solid black;
-    border-radius: 3px;
-    text-align: center;
-    padding: 2px 0;
+    background: linear-gradient(135deg, #e9e9e9 0%, #f1f8ff 100%);
+    color: #2c3e50;
+    margin: 0;
+    width: calc(100% - 32px);
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    border: none;
+    border-radius: 0;
+    text-align: right;
+    padding: 16px 20px;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 500;
+    border-bottom: 1px solid #e9ecef;
+    border-top: 1px solid transparent;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 16px;
+    margin-right: 16px;
+    letter-spacing: 0.3px;
+    opacity: 0;
+    transform: translateX(20px);
+    flex-shrink: 0;
+    /* Prevent links from shrinking */
+    min-height: 56px;
+    /* Minimum touch target size */
+    box-sizing: border-box;
 }
 
-#indoforall-nav-options a:hover {
-    color: rgb(0, 255, 0);
+/* Animate links when nav is shown */
+#indoforall-nav-options.show > a:not(#indoforall-close-nav) {
+    animation: slideInNavLink 0.4s ease forwards;
 }
 
+/* Stagger animation for nav links */
+#indoforall-nav-options.show > a:not(#indoforall-close-nav):nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+#indoforall-nav-options.show > a:not(#indoforall-close-nav):nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+#indoforall-nav-options.show > a:not(#indoforall-close-nav):nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+#indoforall-nav-options.show > a:not(#indoforall-close-nav):nth-child(4) {
+    animation-delay: 0.25s;
+}
+
+#indoforall-nav-options.show > a:not(#indoforall-close-nav):nth-child(5) {
+    animation-delay: 0.3s;
+}
+
+#indoforall-nav-options.show > a:not(#indoforall-close-nav):nth-child(6) {
+    animation-delay: 0.35s;
+}
+
+#indoforall-nav-options.show > a:not(#indoforall-close-nav):nth-child(7) {
+    animation-delay: 0.4s;
+}
+
+#indoforall-nav-options.show > a:not(#indoforall-close-nav):nth-child(8) {
+    animation-delay: 0.45s;
+}
+
+@keyframes slideInNavLink {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Add arrow icon effect */
+#indoforall-nav-options > a:not(#indoforall-close-nav)::after {
+    content: "←";
+    font-size: 1.2em;
+    color: rgb(194, 156, 102);
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+#indoforall-nav-options > a:not(#indoforall-close-nav):hover::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Hover effect with gradient background */
+#indoforall-nav-options > a:not(#indoforall-close-nav)::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(135deg, rgb(106, 75, 31) 0%, rgb(194, 156, 102) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 0 0 0 4px;
+}
+
+#indoforall-nav-options > a:not(#indoforall-close-nav):hover::before {
+    opacity: 1;
+}
+
+#indoforall-nav-options > a:not(#indoforall-close-nav):hover {
+    color: rgb(106, 75, 31);
+    background: linear-gradient(90deg, rgba(194, 156, 102, 0.08) 0%, rgba(194, 156, 102, 0.03) 100%);
+    padding-right: 28px;
+    transform: translateX(-4px);
+    font-weight: 600;
+}
+
+#indoforall-nav-options > a:not(#indoforall-close-nav):active {
+    transform: translateX(-2px);
+}
+
+/* Close Button - Professional Style */
 #indoforall-close-nav {
-    background: linear-gradient(to right, rgb(194, 155, 101), rgb(39, 24, 4), rgb(194, 155, 101)) !important;
-    font-size: clamp(0.9rem, 2vw, 1.5rem);
+    background: linear-gradient(135deg, rgb(106, 75, 31) 0%, rgb(194, 156, 102) 100%) !important;
+    color: white !important;
+    font-size: clamp(1rem, 2vw, 1.15rem) !important;
+    font-weight: 600 !important;
+    margin: 20px 16px 24px !important;
+    padding: 14px 20px !important;
+    border-radius: 10px !important;
+    text-align: center !important;
+    cursor: pointer !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 4px 12px rgba(106, 75, 31, 0.3) !important;
+    border: none !important;
+    position: relative !important;
+    overflow: hidden !important;
+    letter-spacing: 0.3px !important;
+    order: 999;
+    flex-shrink: 0;
+    /* Keep close button at bottom, don't shrink */
+    width: calc(100% - 32px) !important;
+    box-sizing: border-box !important;
+}
+
+#indoforall-close-nav::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition:
+        width 0.6s,
+        height 0.6s;
+}
+
+#indoforall-close-nav:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+#indoforall-close-nav:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(106, 75, 31, 0.4) !important;
+}
+
+#indoforall-close-nav:active {
+    transform: translateY(0);
 }
 
 /* WhatsApp Icon */
@@ -715,76 +978,116 @@ body.nav-open #indoforall-nav-options * {
 
 /* Styling the main container */
 .indoforall-insert-comment-form-div {
-    width: 50vw;
-    margin: 10px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: min(720px, 90vw);
+    margin: 20px auto;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 30px 70px rgba(15, 23, 42, 0.12);
+    border: 1px solid rgba(226, 232, 240, 0.9);
     text-align: center;
 }
 
-@media (max-width: 768px) {
-    .indoforall-insert-comment-form-div {
-        width: 100%;
-    }
-}
-
-/* Styling the heading */
 .indoforall-insert-comment-form-div h3 {
-    font-size: clamp(0.9rem, 2vw, 1.5rem);
-    color: #333;
-    margin-bottom: 15px;
+    font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+    color: #111827;
+    margin-bottom: 10px;
 }
 
-/* Form styling */
+.indoforall-form-subtitle {
+    margin: 0 auto 1.5rem;
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    color: #6b7280;
+}
+
 #indoforall-comment-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px 0;
-}
-
-/* Label styling */
-#indoforall-comment-form label {
-    font-size: clamp(0.9rem, 2vw, 1rem);
-    font-weight: bold;
-    color: #000000;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: clamp(0.8rem, 1.5vw, 1.3rem);
     text-align: right;
 }
 
-/* Input and textarea styling */
+.indoforall-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.indoforall-form-group--full {
+    grid-column: 1 / -1;
+}
+
+#indoforall-comment-form label {
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    font-weight: 600;
+    color: #374151;
+}
+
 #indoforall-comment-username,
+#indoforall-comment-whatsapp,
 #indoforall-comment-text,
 #indoforall-comment-stars {
     width: 100%;
-    padding: 10px 0;
-    border: 1px solid #000000;
-    border-radius: 5px;
-    font-size: clamp(0.9rem, 2vw, 14px);
+    padding: clamp(0.6rem, 1vw, 0.75rem);
+    border: 1px solid rgba(148, 163, 184, 0.8);
+    border-radius: 10px;
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    background: #f9fafb;
+    transition:
+        border 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
 }
 
-/* Textarea specific styling */
+#indoforall-comment-username:focus,
+#indoforall-comment-whatsapp:focus,
+#indoforall-comment-text:focus,
+#indoforall-comment-stars:focus {
+    border-color: rgb(106, 75, 31);
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(194, 156, 102, 0.15);
+    outline: none;
+}
+
 #indoforall-comment-text {
-    min-height: 80px;
+    min-height: 120px;
     resize: vertical;
 }
 
-/* Select dropdown styling */
-#indoforall-comment-stars {
+#indoforall-comment-form button {
+    background: linear-gradient(135deg, rgb(106, 75, 31), rgb(194, 156, 102));
+    color: white;
+    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+    padding: 0.8rem 1.4rem;
+    border: none;
+    border-radius: 999px;
     cursor: pointer;
-    background-color: #fff;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    align-self: flex-start;
 }
 
-/* Submit button styling */
-#indoforall-comment-form button {
-    background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
-    color: white;
-    font-size: clamp(0.9rem, 2vw, 1rem);
-    padding: 5px 0;
+#indoforall-comment-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 25px rgba(106, 75, 31, 0.35);
+}
+
+#indoforall-comment-submit-button-id {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    min-width: 5px;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
+    padding: 3px 15px !important;
+}
+
+#indoforall-comment-submit-button-id::after {
+    content: "➜";
+    font-size: 0.8rem;
 }
 
 #indoforall-success-notification {
@@ -891,7 +1194,7 @@ body.nav-open #indoforall-nav-options * {
     background: rgba(0, 0, 0, 0.6);
     color: white;
     text-align: center;
-    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    font-size: clamp(0.7rem, 2vw, 1.2rem);
     font-weight: bold;
     border-bottom-left-radius: 50%;
     border-bottom-right-radius: 50%;
@@ -936,6 +1239,7 @@ body.nav-open #indoforall-nav-options * {
 
 .indoforall-section-intro-text {
     font-size: clamp(1rem, 2vw, 1.5rem);
+    margin: 0 5px;
     padding: 5px;
     width: fit-content;
     text-align: center;
@@ -998,7 +1302,7 @@ body.nav-open #indoforall-nav-options * {
     background: var(--title-text-color);
     min-width: 15rem;
     width: 5rem;
-    height: 27rem;
+    height: 15rem;
     margin: 0 10px;
     display: flex;
     overflow: hidden;
@@ -1012,15 +1316,36 @@ body.nav-open #indoforall-nav-options * {
     scroll-snap-align: center;
 }
 
+/* Make inner container fill the card so the image can fit exactly */
+.indoforall-worker-type-card > div {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
 .indoforall-worker-type-card:hover {
     transform: scale(1.015);
     opacity: 0.9;
 }
 
 .indoforall-worker-type-card h2 {
-    font-size: clamp(1rem, 2vw, 1.5rem);
-    margin-bottom: 5px;
-    padding: 5px 0;
+    position: absolute;
+    inset-inline-start: 8px;
+    inset-block-start: 8px;
+    margin: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+    line-height: 1;
+    z-index: 1;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
 }
 
 .indoforall-worker-type-card img {
@@ -1038,6 +1363,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 .indoforall-other-pages-link {
+    width: 100%;
     background: linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102));
     color: white;
     text-decoration: none;
@@ -1427,26 +1753,26 @@ body.nav-open #indoforall-nav-options * {
 }
 
 /* Cancel button specific styling */
-#indoforall-send-worker-data-message-button {
+.indoforall-send-worker-data-message-button {
     color: white !important;
     width: fit-content !important;
     text-align: center;
 }
 
-#indoforall-send-worker-data-message-button:hover {
+.indoforall-send-worker-data-message-button:hover {
     background: #5a6268 !important;
     box-shadow: 0 6px 20px rgba(108, 117, 125, 0.3) !important;
 }
 
 /* Cancel button specific styling */
-#indoforall-cancel-worker-data-message-button {
+.indoforall-cancel-worker-data-message-button {
     background: #6c757d !important;
     color: white !important;
     width: fit-content !important;
     text-align: center;
 }
 
-#indoforall-cancel-worker-data-message-button:hover {
+.indoforall-cancel-worker-data-message-button:hover {
     background: #5a6268 !important;
     box-shadow: 0 6px 20px rgba(108, 117, 125, 0.3) !important;
 }
@@ -1550,6 +1876,7 @@ body.nav-open #indoforall-nav-options * {
 .indoforall-main-page-text {
     font-size: clamp(0.9rem, 1vw, 2.5rem);
     margin-bottom: 1vmax;
+    margin: 0 5px;
     padding: 5px;
     width: fit-content;
     text-align: center;
@@ -1559,6 +1886,7 @@ body.nav-open #indoforall-nav-options * {
 
 .indoforall-main-page-text-2 {
     font-size: clamp(0.9rem, 1vw, 2.5rem);
+    margin: 0 5px;
     padding: 5px;
     width: fit-content;
     text-align: center;
@@ -1623,56 +1951,63 @@ body.nav-open #indoforall-nav-options * {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    margin-top: 1vmax;
+    align-items: stretch;
+    margin-top: clamp(1rem, 2vw, 2rem);
+    gap: clamp(0.75rem, 2vw, 1.25rem);
 }
 
-#indoforall-our-contact-info div {
-    background: linear-gradient(to right, rgb(60, 43, 18), rgb(138, 111, 73));
+.indoforall-contact-card {
+    width: clamp(14rem, 20vw, 24rem);
     display: flex;
-    width: clamp(15rem, 20vw, 30rem);
-    margin: 10px;
-    flex-direction: column;
     align-items: center;
-    padding: 5px;
-    border-radius: 5px;
+    gap: clamp(0.75rem, 1.5vw, 1rem);
+    padding: clamp(0.85rem, 1.5vw, 1.15rem);
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
-#indoforall-our-contact-info div:hover {
-    transform: scale(1.02);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
+.indoforall-contact-card:hover {
+    border-color: rgba(106, 75, 31, 0.45);
+    box-shadow: 0 16px 26px rgba(15, 23, 42, 0.12);
 }
 
-#indoforall-our-contact-info ion-icon {
-    background: linear-gradient(135deg, #ffd700, #ff4500);
-    font-size: clamp(2rem, 10vw, 4rem);
-    text-align: center;
-    margin: 10px 0;
-    padding: 0.5vmax;
-    border-radius: 50%;
-    color: #ffffff;
-    box-shadow: 0 0 15px rgba(255, 69, 0, 0.6);
-    transition: all 0.3s ease-in-out;
+.indoforall-contact-card ion-icon {
+    font-size: clamp(1.8rem, 5vw, 2.4rem);
+    color: rgb(106, 75, 31);
+    padding: 0.4rem;
+    border-radius: 10px;
+    background: rgba(106, 75, 31, 0.08);
 }
 
-#indoforall-our-contact-info ion-icon:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(255, 69, 0, 0.8);
+.indoforall-contact-card div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
 }
 
-#indoforall-our-contact-info h1,
-#indoforall-our-contact-info h2 {
-    background: linear-gradient(to top, rgb(60, 43, 18), rgb(138, 111, 73));
-    color: #ffffff;
-    font-size: clamp(0.9rem, 1vw, 1.2rem);
-    text-align: center;
-    align-items: center;
-    margin: 0.3vmax 0;
-    padding: 0.2vmax;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+.indoforall-contact-card div p {
+    margin: 0;
+    font-size: clamp(0.85rem, 1vw, 1rem);
+    color: #6b7280;
+}
+
+.indoforall-contact-card div h3 {
+    margin: 0;
+    font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+    color: #111827;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .indoforall-contact-card {
+        width: 100%;
+    }
 }
 
 /* Prices Section - Vibrant Modern Theme */
@@ -2150,34 +2485,132 @@ body.nav-open #indoforall-nav-options * {
     box-shadow: 0 0 1px 0.5px black;
 }
 
-/* Footer Section */
-footer {
-    background: linear-gradient(to top, rgb(39, 24, 4), rgb(194, 155, 101));
-    display: flex;
-    width: 100%;
-    padding: clamp(20px, 2vw, 50px) 0;
-    box-shadow: 0 0 1px 0.5px black;
+/* Footer */
+/* =========================================
+   GLOBAL FOOTER STYLING
+========================================= */
+#indoforall-footer {
+    background: linear-gradient(160deg, #0a2a43, #092238 60%, #02111f);
+    color: #fff;
+    padding: 35px 20px;
+    font-family: "Tajawal", sans-serif;
+    direction: rtl;
 }
 
-footer div {
-    width: 100%;
+.indoforall-footer-container {
+    max-width: 1200px;
+    margin: auto;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: clamp(5px, 2vw, 10px) 0;
-}
-
-footer h1,
-footer h2 {
-    font-size: clamp(0.9rem, 2vw, 1.5rem);
-    cursor: pointer;
+    flex-direction: column;
+    align-items: center; /* Center all items on mobile */
     text-align: center;
-    border-radius: 3px;
+    gap: 35px;
 }
 
-footer img {
-    width: clamp(2rem, 2vw, 4rem);
-    cursor: pointer;
+/* =========================================
+   BRAND SECTION
+========================================= */
+.indoforall-footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center brand on small screens */
+}
+
+.indoforall-footer-brand img {
+    width: 5rem;
+    border-radius: 6px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.indoforall-footer-brand p {
+    font-size: clamp(15px, 3vw, 19px);
+    font-weight: 600;
+    margin: 0;
+}
+
+/* =========================================
+   LINKS SECTION
+========================================= */
+.indoforall-footer-links h4 {
+    font-size: clamp(17px, 3.3vw, 22px);
+    margin-bottom: 14px;
+    font-weight: 700;
+}
+
+.indoforall-footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.indoforall-footer-links li {
+    margin: 8px 0;
+}
+
+.indoforall-footer-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: clamp(14px, 2.5vw, 17px);
+    padding: 4px 0;
+    display: inline-block;
+    transition: opacity 0.25s ease;
+}
+
+.indoforall-footer-links a:hover {
+    opacity: 0.6;
+}
+
+/* =========================================
+   BOTTOM SECTION
+========================================= */
+.indoforall-footer-bottom {
+    text-align: center;
+    border-top: 1px solid #2a2a2a;
+    padding-top: 18px;
+    width: 100%;
+    font-size: clamp(13px, 2.5vw, 15px);
+}
+
+.indoforall-footer-copyright {
+    font-size: 0.7rem;
+}
+
+.indoforall-footer-trust {
+    margin-top: 6px;
+    font-weight: 600;
+    color: #4caf50;
+}
+
+/* =========================================
+   DESKTOP LAYOUT
+========================================= */
+@media (min-width: 800px) {
+    .indoforall-footer-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        text-align: start;
+        align-items: start;
+        justify-items: center;
+    }
+
+    /* Align brand box on the right in desktop */
+    .indoforall-footer-brand {
+        align-items: flex-start;
+        text-align: right;
+    }
+
+    /* Links centered in the middle column */
+    .indoforall-footer-links {
+        text-align: center;
+    }
+
+    /* Full-width bottom section */
+    .indoforall-footer-bottom {
+        grid-column: 1 / 4;
+        text-align: center;
+        margin-top: 25px;
+    }
 }
 
 /* Base state for all animated elements */
@@ -2228,6 +2661,7 @@ footer img {
 }
 
 #indoforall-web-intro-3 {
+    margin: 0 5px;
     opacity: 0;
     filter: blur(5px);
     transform: translateY(30px);
@@ -2377,6 +2811,23 @@ footer img {
     .indoforall-Proof-video-div {
         width: 25vw;
     }
+
+    /* Ensure nav-options fits all screen heights */
+    #indoforall-nav-options {
+        height: 100vh;
+        max-height: 100vh;
+        min-height: 100vh;
+    }
+
+    #indoforall-nav-options > a:not(#indoforall-close-nav) {
+        padding: 14px 18px;
+        min-height: 52px;
+    }
+
+    #indoforall-close-nav {
+        margin: 16px 16px 20px !important;
+        padding: 5px 18px !important;
+    }
 }
 
 /* 650px */
@@ -2392,6 +2843,32 @@ footer img {
 @media (max-width: 400px) {
     .indoforall-ads-only-img-div {
         min-width: 95%;
+    }
+
+    /* Extra small screens - ensure nav fits */
+    #indoforall-nav-options {
+        width: 90%;
+        right: -90%;
+    }
+
+    #indoforall-nav-options.show {
+        right: 0;
+    }
+
+    #indoforall-nav-logo {
+        width: clamp(4rem, 12vw, 6rem);
+        margin: 20px auto 16px;
+    }
+
+    #indoforall-nav-options > a:not(#indoforall-close-nav) {
+        padding: 12px 16px;
+        font-size: clamp(0.9rem, 1.8vw, 1rem);
+        min-height: 48px;
+    }
+
+    #indoforall-close-nav {
+        margin: 12px 12px 16px !important;
+        font-size: clamp(0.95rem, 1.8vw, 1.05rem) !important;
     }
 
     .indoforall-rate-div {
