@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Noto+Kufi+Arabic:wght@100..900&family=Noto+Sans+Arabic:wght@100..900&family=Rubik+Wet+Paint&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Noto+Kufi+Arabic:wght@100..900&family=Noto+Sans+Arabic:wght@100..900&family=Rubik+Wet+Paint&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
 
 /* Simple Animation SetUp For Later Use */
 @keyframes floatAnimation {
@@ -1264,6 +1264,7 @@ body.nav-open #indoforall-nav-options * {
     margin: 1vmax 0;
     text-align: center;
     line-height: 1.5;
+    padding: 0 5px;
 }
 
 #indoforall-worker-detalis-section {
