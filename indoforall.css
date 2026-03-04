@@ -2,7 +2,6 @@
 
 /* Simple Animation SetUp For Later Use */
 @keyframes floatAnimation {
-
     0%,
     100% {
         transform: translateY(0);
@@ -568,7 +567,7 @@ body.nav-open #indoforall-nav-options * {
 /* The nav-options container uses flexbox with overflow-y: auto for scrolling */
 
 /* Navigation Links Container */
-#indoforall-nav-options>a:not(#indoforall-close-nav) {
+#indoforall-nav-options > a:not(#indoforall-close-nav) {
     text-decoration: none;
     background: linear-gradient(135deg, #e9e9e9 0%, #f1f8ff 100%);
     color: #2c3e50;
@@ -601,40 +600,40 @@ body.nav-open #indoforall-nav-options * {
 }
 
 /* Animate links when nav is shown */
-#indoforall-nav-options.show>a:not(#indoforall-close-nav) {
+#indoforall-nav-options.show > a:not(#indoforall-close-nav) {
     animation: slideInNavLink 0.4s ease forwards;
 }
 
 /* Stagger animation for nav links */
-#indoforall-nav-options.show>a:not(#indoforall-close-nav):nth-child(1) {
+#indoforall-nav-options.show > a:not(#indoforall-close-nav):nth-child(1) {
     animation-delay: 0.1s;
 }
 
-#indoforall-nav-options.show>a:not(#indoforall-close-nav):nth-child(2) {
+#indoforall-nav-options.show > a:not(#indoforall-close-nav):nth-child(2) {
     animation-delay: 0.15s;
 }
 
-#indoforall-nav-options.show>a:not(#indoforall-close-nav):nth-child(3) {
+#indoforall-nav-options.show > a:not(#indoforall-close-nav):nth-child(3) {
     animation-delay: 0.2s;
 }
 
-#indoforall-nav-options.show>a:not(#indoforall-close-nav):nth-child(4) {
+#indoforall-nav-options.show > a:not(#indoforall-close-nav):nth-child(4) {
     animation-delay: 0.25s;
 }
 
-#indoforall-nav-options.show>a:not(#indoforall-close-nav):nth-child(5) {
+#indoforall-nav-options.show > a:not(#indoforall-close-nav):nth-child(5) {
     animation-delay: 0.3s;
 }
 
-#indoforall-nav-options.show>a:not(#indoforall-close-nav):nth-child(6) {
+#indoforall-nav-options.show > a:not(#indoforall-close-nav):nth-child(6) {
     animation-delay: 0.35s;
 }
 
-#indoforall-nav-options.show>a:not(#indoforall-close-nav):nth-child(7) {
+#indoforall-nav-options.show > a:not(#indoforall-close-nav):nth-child(7) {
     animation-delay: 0.4s;
 }
 
-#indoforall-nav-options.show>a:not(#indoforall-close-nav):nth-child(8) {
+#indoforall-nav-options.show > a:not(#indoforall-close-nav):nth-child(8) {
     animation-delay: 0.45s;
 }
 
@@ -646,7 +645,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 /* Add arrow icon effect */
-#indoforall-nav-options>a:not(#indoforall-close-nav)::after {
+#indoforall-nav-options > a:not(#indoforall-close-nav)::after {
     content: "←";
     font-size: 1.2em;
     color: rgb(194, 156, 102);
@@ -656,13 +655,13 @@ body.nav-open #indoforall-nav-options * {
     font-weight: bold;
 }
 
-#indoforall-nav-options>a:not(#indoforall-close-nav):hover::after {
+#indoforall-nav-options > a:not(#indoforall-close-nav):hover::after {
     opacity: 1;
     transform: translateX(0);
 }
 
 /* Hover effect with gradient background */
-#indoforall-nav-options>a:not(#indoforall-close-nav)::before {
+#indoforall-nav-options > a:not(#indoforall-close-nav)::before {
     content: "";
     position: absolute;
     right: 0;
@@ -675,11 +674,11 @@ body.nav-open #indoforall-nav-options * {
     border-radius: 0 0 0 4px;
 }
 
-#indoforall-nav-options>a:not(#indoforall-close-nav):hover::before {
+#indoforall-nav-options > a:not(#indoforall-close-nav):hover::before {
     opacity: 1;
 }
 
-#indoforall-nav-options>a:not(#indoforall-close-nav):hover {
+#indoforall-nav-options > a:not(#indoforall-close-nav):hover {
     color: rgb(106, 75, 31);
     background: linear-gradient(90deg, rgba(194, 156, 102, 0.08) 0%, rgba(194, 156, 102, 0.03) 100%);
     padding-right: 28px;
@@ -687,7 +686,7 @@ body.nav-open #indoforall-nav-options * {
     font-weight: 600;
 }
 
-#indoforall-nav-options>a:not(#indoforall-close-nav):active {
+#indoforall-nav-options > a:not(#indoforall-close-nav):active {
     transform: translateX(-2px);
 }
 
@@ -1280,7 +1279,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 /* Make inner container fill the card so the image can fit exactly */
-.indoforall-worker-type-card>div {
+.indoforall-worker-type-card > div {
     position: relative;
     width: 100%;
     height: 100%;
@@ -1427,7 +1426,7 @@ body.nav-open #indoforall-nav-options * {
     background: linear-gradient(to bottom, rgb(89, 62, 25), rgb(153, 123, 82));
 }
 
-#indoforall-filter-worker-type-div>div {
+#indoforall-filter-worker-type-div > div {
     margin: 0;
     padding: 0;
 }
@@ -1763,17 +1762,13 @@ body.nav-open #indoforall-nav-options * {
     padding: 0 0.9vw;
     margin-right: clamp(0.5rem, 2vw, 2.5rem);
     border-radius: 5px;
-    display: inline-flex;
-    /* better than flex for inline elements */
-    align-items: center;
-    /* vertical alignment */
-    gap: 6px;
-    /* space between icon and text */
+    display: inline-flex; /* better than flex for inline elements */
+    align-items: center; /* vertical alignment */
+    gap: 6px; /* space between icon and text */
 }
 
 .indoforall-who-are-we-all-text-div a ion-icon {
-    font-size: 1.1em;
-    /* match text size */
+    font-size: 1.1em; /* match text size */
     vertical-align: middle;
     color: white;
 }
@@ -1880,12 +1875,12 @@ body.nav-open #indoforall-nav-options * {
     width: 100%;
 }
 
-#indoforall-indonesia-service-section>div:first-child .indoforall-section-intro-text {
+#indoforall-indonesia-service-section > div:first-child .indoforall-section-intro-text {
     max-width: 900px;
     text-align: center;
 }
 
-#indoforall-indonesia-service-section>div:nth-child(2) .indoforall-section-intro-text-2 {
+#indoforall-indonesia-service-section > div:nth-child(2) .indoforall-section-intro-text-2 {
     max-width: 900px;
     margin-inline: auto;
 }
@@ -2199,7 +2194,7 @@ body.nav-open #indoforall-nav-options * {
     counter-reset: workflow-step;
 }
 
-#indoforall-system-work-area>div {
+#indoforall-system-work-area > div {
     position: relative;
     background: linear-gradient(145deg, #3a2a11 0%, #6d5728 100%);
     display: flex;
@@ -2213,7 +2208,7 @@ body.nav-open #indoforall-nav-options * {
     border: 1px solid rgba(255, 215, 140, 0.2);
 }
 
-#indoforall-system-work-area>div::before {
+#indoforall-system-work-area > div::before {
     counter-increment: workflow-step;
     content: counter(workflow-step);
     position: absolute;
@@ -2300,7 +2295,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 /* Fill card with inner container so media can fit */
-#indoforall-worker-card-proof-card>div {
+#indoforall-worker-card-proof-card > div {
     position: relative;
     width: 100%;
     height: 100%;
@@ -2748,7 +2743,6 @@ body.nav-open #indoforall-nav-options * {
 /* Media Queries */
 /* 1250px */
 @media (max-width: 1250px) {
-
     /* About Us Section */
     .indoforall-who-are-we-all-content-div {
         padding: 2vw 3vw;
@@ -2839,7 +2833,7 @@ body.nav-open #indoforall-nav-options * {
         min-height: 100vh;
     }
 
-    #indoforall-nav-options>a:not(#indoforall-close-nav) {
+    #indoforall-nav-options > a:not(#indoforall-close-nav) {
         padding: 14px 18px;
         min-height: 52px;
     }
@@ -2884,7 +2878,7 @@ body.nav-open #indoforall-nav-options * {
         margin: 20px auto 16px;
     }
 
-    #indoforall-nav-options>a:not(#indoforall-close-nav) {
+    #indoforall-nav-options > a:not(#indoforall-close-nav) {
         padding: 12px 16px;
         font-size: clamp(0.9rem, 1.8vw, 1rem);
         min-height: 48px;
@@ -2979,4 +2973,12 @@ body.nav-open #indoforall-nav-options * {
     cursor: pointer;
     padding: 0 2px;
     line-height: 1;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.indoforall-toast__close:focus {
+    outline: none;
 }
