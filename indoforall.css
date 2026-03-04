@@ -2,6 +2,7 @@
 
 /* Simple Animation SetUp For Later Use */
 @keyframes floatAnimation {
+
     0%,
     100% {
         transform: translateY(0);
@@ -189,8 +190,8 @@ header.hidden {
 }
 
 .indoforall-header-logo-title-class p {
-    font-size: clamp(0.9rem, 2.5vw, 1.3rem);
-    font-weight: 700;
+    font-size: clamp(0.8rem, 2.5vw, 1.3rem);
+    font-weight: 600;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -250,7 +251,7 @@ header.hidden {
 }
 
 .indoforall-mobile-menu-icon {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     cursor: pointer;
@@ -265,6 +266,8 @@ header.hidden {
     height: 40px;
     position: absolute;
     right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 /* indoforall-intro-section */
@@ -299,7 +302,7 @@ header.hidden {
 }
 
 #indoforall-web-intro-1 {
-    font-size: clamp(1.7rem, 2vw, 2.5rem);
+    font-size: clamp(1.1rem, 2vw, 2.5rem);
     font-weight: bolder;
 }
 
@@ -334,7 +337,7 @@ header.hidden {
 }
 
 .indoforall-web-intro-contact-us:hover {
-    color: rgb(0, 255, 0);
+    background: rgb(255, 249, 241);
 }
 
 #indoforall-website-guidance-text {
@@ -350,7 +353,7 @@ header.hidden {
 }
 
 #indoforall-website-guidance-text:hover {
-    color: rgb(0, 255, 0);
+    background: rgb(255, 249, 241);
 }
 
 .web-guidance-div {
@@ -441,6 +444,7 @@ header.hidden {
     gap: 0.75rem;
     margin-top: 0.5rem;
 }
+
 .web-guidance-actions button {
     flex: 1;
     background: linear-gradient(135deg, rgb(106, 75, 31), rgb(194, 156, 102));
@@ -497,13 +501,11 @@ body.nav-open #indoforall-nav-options * {
     background: linear-gradient(135deg, #e9e9e9 0%, #f1f8ff 100%);
     padding: 0;
     z-index: 1000;
-    /* Above all elements including nav-overlay (996) and other modals (999) - highest z-index */
     position: fixed;
-    /* Create a new stacking context */
     isolation: isolate;
-    right: -85%;
+    right: -67%;
     top: 0;
-    width: min(85%, 400px);
+    width: min(67%, 400px);
     height: 100vh;
     max-height: 100vh;
     min-height: 100vh;
@@ -566,7 +568,7 @@ body.nav-open #indoforall-nav-options * {
 /* The nav-options container uses flexbox with overflow-y: auto for scrolling */
 
 /* Navigation Links Container */
-#indoforall-nav-options > a:not(#indoforall-close-nav) {
+#indoforall-nav-options>a:not(#indoforall-close-nav) {
     text-decoration: none;
     background: linear-gradient(135deg, #e9e9e9 0%, #f1f8ff 100%);
     color: #2c3e50;
@@ -599,40 +601,40 @@ body.nav-open #indoforall-nav-options * {
 }
 
 /* Animate links when nav is shown */
-#indoforall-nav-options.show > a:not(#indoforall-close-nav) {
+#indoforall-nav-options.show>a:not(#indoforall-close-nav) {
     animation: slideInNavLink 0.4s ease forwards;
 }
 
 /* Stagger animation for nav links */
-#indoforall-nav-options.show > a:not(#indoforall-close-nav):nth-child(1) {
+#indoforall-nav-options.show>a:not(#indoforall-close-nav):nth-child(1) {
     animation-delay: 0.1s;
 }
 
-#indoforall-nav-options.show > a:not(#indoforall-close-nav):nth-child(2) {
+#indoforall-nav-options.show>a:not(#indoforall-close-nav):nth-child(2) {
     animation-delay: 0.15s;
 }
 
-#indoforall-nav-options.show > a:not(#indoforall-close-nav):nth-child(3) {
+#indoforall-nav-options.show>a:not(#indoforall-close-nav):nth-child(3) {
     animation-delay: 0.2s;
 }
 
-#indoforall-nav-options.show > a:not(#indoforall-close-nav):nth-child(4) {
+#indoforall-nav-options.show>a:not(#indoforall-close-nav):nth-child(4) {
     animation-delay: 0.25s;
 }
 
-#indoforall-nav-options.show > a:not(#indoforall-close-nav):nth-child(5) {
+#indoforall-nav-options.show>a:not(#indoforall-close-nav):nth-child(5) {
     animation-delay: 0.3s;
 }
 
-#indoforall-nav-options.show > a:not(#indoforall-close-nav):nth-child(6) {
+#indoforall-nav-options.show>a:not(#indoforall-close-nav):nth-child(6) {
     animation-delay: 0.35s;
 }
 
-#indoforall-nav-options.show > a:not(#indoforall-close-nav):nth-child(7) {
+#indoforall-nav-options.show>a:not(#indoforall-close-nav):nth-child(7) {
     animation-delay: 0.4s;
 }
 
-#indoforall-nav-options.show > a:not(#indoforall-close-nav):nth-child(8) {
+#indoforall-nav-options.show>a:not(#indoforall-close-nav):nth-child(8) {
     animation-delay: 0.45s;
 }
 
@@ -644,7 +646,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 /* Add arrow icon effect */
-#indoforall-nav-options > a:not(#indoforall-close-nav)::after {
+#indoforall-nav-options>a:not(#indoforall-close-nav)::after {
     content: "←";
     font-size: 1.2em;
     color: rgb(194, 156, 102);
@@ -654,13 +656,13 @@ body.nav-open #indoforall-nav-options * {
     font-weight: bold;
 }
 
-#indoforall-nav-options > a:not(#indoforall-close-nav):hover::after {
+#indoforall-nav-options>a:not(#indoforall-close-nav):hover::after {
     opacity: 1;
     transform: translateX(0);
 }
 
 /* Hover effect with gradient background */
-#indoforall-nav-options > a:not(#indoforall-close-nav)::before {
+#indoforall-nav-options>a:not(#indoforall-close-nav)::before {
     content: "";
     position: absolute;
     right: 0;
@@ -673,11 +675,11 @@ body.nav-open #indoforall-nav-options * {
     border-radius: 0 0 0 4px;
 }
 
-#indoforall-nav-options > a:not(#indoforall-close-nav):hover::before {
+#indoforall-nav-options>a:not(#indoforall-close-nav):hover::before {
     opacity: 1;
 }
 
-#indoforall-nav-options > a:not(#indoforall-close-nav):hover {
+#indoforall-nav-options>a:not(#indoforall-close-nav):hover {
     color: rgb(106, 75, 31);
     background: linear-gradient(90deg, rgba(194, 156, 102, 0.08) 0%, rgba(194, 156, 102, 0.03) 100%);
     padding-right: 28px;
@@ -685,7 +687,7 @@ body.nav-open #indoforall-nav-options * {
     font-weight: 600;
 }
 
-#indoforall-nav-options > a:not(#indoforall-close-nav):active {
+#indoforall-nav-options>a:not(#indoforall-close-nav):active {
     transform: translateX(-2px);
 }
 
@@ -1061,40 +1063,17 @@ body.nav-open #indoforall-nav-options * {
     align-items: center;
     justify-content: center;
     gap: 0.35rem;
-    font-weight: 600;
     letter-spacing: 0.5px;
     min-width: 5px;
     border: none;
     padding: 3px 15px !important;
+    margin-top: 10px;
+    border-radius: 5px !important;
 }
 
 #indoforall-comment-submit-button-id::after {
     content: "➜";
     font-size: 0.8rem;
-}
-
-#indoforall-success-notification {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    background-color: #4caf50;
-    color: white;
-    padding: 12px 18px;
-    border-radius: 8px;
-    font-size: clamp(0.9rem, 2vw, 16px);
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    display: none;
-    opacity: 0;
-    transition:
-        opacity 0.4s ease-in-out,
-        transform 0.4s ease-in-out;
-}
-
-/* Show animation */
-#indoforall-success-notification.show {
-    opacity: 1;
-    transform: translate(-50%, -50%);
 }
 
 /* Choose Worker Type Section */
@@ -1242,7 +1221,7 @@ body.nav-open #indoforall-nav-options * {
 
 .indoforall-section-intro-text-2 {
     color: rgb(0, 106, 141);
-    font-weight: 700;
+    font-weight: 600;
     font-size: clamp(0.85rem, 2vw, 1.5rem);
     margin: 1vmax 0;
     text-align: center;
@@ -1301,7 +1280,7 @@ body.nav-open #indoforall-nav-options * {
 }
 
 /* Make inner container fill the card so the image can fit exactly */
-.indoforall-worker-type-card > div {
+.indoforall-worker-type-card>div {
     position: relative;
     width: 100%;
     height: 100%;
@@ -1361,6 +1340,15 @@ body.nav-open #indoforall-nav-options * {
     transition: all 0.5s ease-in-out;
 }
 
+/* Smaller variant for prices CTA on home page */
+#indoforall-prices-cta {
+    font-size: clamp(0.8rem, 1.4vw, 1.1rem);
+    width: auto;
+    max-width: 95vw;
+    display: inline-block;
+    padding-inline: 12px;
+}
+
 .indoforall-other-pages-link:hover {
     color: rgb(0, 255, 0);
 }
@@ -1381,6 +1369,11 @@ body.nav-open #indoforall-nav-options * {
 /* Fade in the overlay */
 #indoforall-filter-worker-type-overlay.show {
     opacity: 1;
+}
+
+/* Smooth content fade for worker-type modal */
+#indoforall-filter-worker-type-content {
+    transition: opacity 0.3s ease;
 }
 
 #indoforall-filter-worker-type-div {
@@ -1434,7 +1427,7 @@ body.nav-open #indoforall-nav-options * {
     background: linear-gradient(to bottom, rgb(89, 62, 25), rgb(153, 123, 82));
 }
 
-#indoforall-filter-worker-type-div > div {
+#indoforall-filter-worker-type-div>div {
     margin: 0;
     padding: 0;
 }
@@ -1446,11 +1439,11 @@ body.nav-open #indoforall-nav-options * {
     justify-content: center;
     align-items: center;
     padding: 24px 20px;
-    border-radius: 16px 16px 0 0;
     background: linear-gradient(135deg, rgb(106, 75, 31) 0%, rgb(194, 156, 102) 100%);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
+    border-radius: 0;
 }
 
 #indoforall-filter-worker-type-title::before {
@@ -1523,7 +1516,8 @@ body.nav-open #indoforall-nav-options * {
 
 #indoforall-filter-worker-work-type-options {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 items per row */
     gap: 12px;
     margin-top: 16px;
     width: 100%;
@@ -1544,33 +1538,14 @@ body.nav-open #indoforall-nav-options * {
     font-weight: 500;
     position: relative;
     overflow: hidden;
-}
-
-#indoforall-filter-worker-work-type h4::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.5s;
+    transition: all 0.2s ease-in-out;
 }
 
 #indoforall-filter-worker-work-type h4:hover {
     color: white;
-    background: linear-gradient(135deg, rgb(106, 75, 31) 0%, rgb(194, 156, 102) 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(106, 75, 31, 0.3);
+    background: rgb(106, 75, 31);
+    box-shadow: 0 0 0 rgba(106, 75, 31, 0.3);
     border-color: transparent;
-}
-
-#indoforall-filter-worker-work-type h4:hover::before {
-    left: 100%;
-}
-
-#indoforall-filter-worker-work-type h4:active {
-    transform: translateY(0);
 }
 
 /* Visa Type Section - Info Card */
@@ -1680,6 +1655,7 @@ body.nav-open #indoforall-nav-options * {
 #indoforall-submit-filter-worker-type {
     width: 100%;
     display: flex;
+    flex-direction: row !important;
     justify-content: center;
     align-items: flex-start;
     gap: 12px;
@@ -1707,35 +1683,6 @@ body.nav-open #indoforall-nav-options * {
     min-width: 120px;
 }
 
-#indoforall-submit-filter-worker-type h5::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    transform: translate(-50%, -50%);
-    transition:
-        width 0.6s,
-        height 0.6s;
-}
-
-#indoforall-submit-filter-worker-type h5:hover::before {
-    width: 300px;
-    height: 300px;
-}
-
-#indoforall-submit-filter-worker-type h5:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(106, 75, 31, 0.4);
-}
-
-#indoforall-submit-filter-worker-type h5:active {
-    transform: translateY(0);
-}
-
 /* Cancel button specific styling */
 .indoforall-send-worker-data-message-button {
     color: white !important;
@@ -1743,22 +1690,13 @@ body.nav-open #indoforall-nav-options * {
     text-align: center;
 }
 
-.indoforall-send-worker-data-message-button:hover {
-    background: #5a6268 !important;
-    box-shadow: 0 6px 20px rgba(108, 117, 125, 0.3) !important;
-}
-
 /* Cancel button specific styling */
 .indoforall-cancel-worker-data-message-button {
-    background: #6c757d !important;
+    background: linear-gradient(135deg, rgb(106, 75, 31) 0%, rgb(194, 156, 102) 100%) !important;
     color: white !important;
     width: fit-content !important;
     text-align: center;
-}
-
-.indoforall-cancel-worker-data-message-button:hover {
-    background: #5a6268 !important;
-    box-shadow: 0 6px 20px rgba(108, 117, 125, 0.3) !important;
+    transition: all 0.2s ease-in-out;
 }
 
 /* Responsive adjustments */
@@ -1767,10 +1705,6 @@ body.nav-open #indoforall-nav-options * {
         width: 95vw;
         max-height: 95vh;
         border-radius: 12px;
-    }
-
-    #indoforall-filter-worker-work-type-options {
-        grid-template-columns: 1fr;
     }
 
     #indoforall-submit-filter-worker-type {
@@ -1823,18 +1757,29 @@ body.nav-open #indoforall-nav-options * {
     text-decoration: none;
     width: fit-content;
     font-size: clamp(1.1rem, 1vw, 2.5rem);
-    background: var(--title-text-color);
+    background: rgb(134, 92, 33);
     color: white;
     cursor: pointer;
     padding: 0 0.9vw;
     margin-right: clamp(0.5rem, 2vw, 2.5rem);
     border-radius: 5px;
-    display: flex;
+    display: inline-flex;
+    /* better than flex for inline elements */
     align-items: center;
+    /* vertical alignment */
+    gap: 6px;
+    /* space between icon and text */
+}
+
+.indoforall-who-are-we-all-text-div a ion-icon {
+    font-size: 1.1em;
+    /* match text size */
+    vertical-align: middle;
+    color: white;
 }
 
 .indoforall-who-are-we-all-text-div a:hover {
-    color: #0056b3;
+    background: rgb(222, 169, 99);
 }
 
 .indoforall-who-are-we-image-div {
@@ -1928,6 +1873,52 @@ body.nav-open #indoforall-nav-options * {
     font-size: clamp(0.9rem, 1vw, 2.5rem);
     line-height: 1.5;
     padding: 1vmax 1vmax 0 1vmax;
+}
+
+/* Indonesia service SEO section */
+#indoforall-indonesia-service-section {
+    width: 100%;
+}
+
+#indoforall-indonesia-service-section>div:first-child .indoforall-section-intro-text {
+    max-width: 900px;
+    text-align: center;
+}
+
+#indoforall-indonesia-service-section>div:nth-child(2) .indoforall-section-intro-text-2 {
+    max-width: 900px;
+    margin-inline: auto;
+}
+
+#indoforall-indonesia-service-content {
+    width: 100%;
+    max-width: 960px;
+    margin: 1.5rem auto 1rem;
+    padding: clamp(1rem, 2vw, 1.5rem);
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+#indoforall-indonesia-service-content h2 {
+    margin: 0;
+    text-align: right;
+}
+
+#indoforall-indonesia-service-section #indoforall-prices-cta {
+    margin-top: 0.75rem;
+}
+
+@media (max-width: 768px) {
+    #indoforall-indonesia-service-content {
+        margin-inline: 1rem;
+        padding: 0.9rem;
+        border-radius: 10px;
+    }
 }
 
 #indoforall-our-contact-info {
@@ -2208,7 +2199,7 @@ body.nav-open #indoforall-nav-options * {
     counter-reset: workflow-step;
 }
 
-#indoforall-system-work-area > div {
+#indoforall-system-work-area>div {
     position: relative;
     background: linear-gradient(145deg, #3a2a11 0%, #6d5728 100%);
     display: flex;
@@ -2222,7 +2213,7 @@ body.nav-open #indoforall-nav-options * {
     border: 1px solid rgba(255, 215, 140, 0.2);
 }
 
-#indoforall-system-work-area > div::before {
+#indoforall-system-work-area>div::before {
     counter-increment: workflow-step;
     content: counter(workflow-step);
     position: absolute;
@@ -2304,11 +2295,12 @@ body.nav-open #indoforall-nav-options * {
     box-shadow: 0 0 5px 0.5px black;
     transition: all 0.2s ease-in-out;
     scroll-snap-align: center;
-    position: relative; /* allow label positioning */
+    position: relative;
+    /* allow label positioning */
 }
 
 /* Fill card with inner container so media can fit */
-#indoforall-worker-card-proof-card > div {
+#indoforall-worker-card-proof-card>div {
     position: relative;
     width: 100%;
     height: 100%;
@@ -2527,7 +2519,8 @@ body.nav-open #indoforall-nav-options * {
     margin: auto;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center all items on mobile */
+    align-items: center;
+    /* Center all items on mobile */
     text-align: center;
     gap: 35px;
 }
@@ -2538,7 +2531,8 @@ body.nav-open #indoforall-nav-options * {
 .indoforall-footer-brand {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center brand on small screens */
+    align-items: center;
+    /* Center brand on small screens */
 }
 
 .indoforall-footer-brand img {
@@ -2754,6 +2748,7 @@ body.nav-open #indoforall-nav-options * {
 /* Media Queries */
 /* 1250px */
 @media (max-width: 1250px) {
+
     /* About Us Section */
     .indoforall-who-are-we-all-content-div {
         padding: 2vw 3vw;
@@ -2830,7 +2825,7 @@ body.nav-open #indoforall-nav-options * {
     }
 
     .indoforall-mobile-menu-icon {
-        display: block;
+        display: flex;
     }
 
     .indoforall-Proof-video-div {
@@ -2844,7 +2839,7 @@ body.nav-open #indoforall-nav-options * {
         min-height: 100vh;
     }
 
-    #indoforall-nav-options > a:not(#indoforall-close-nav) {
+    #indoforall-nav-options>a:not(#indoforall-close-nav) {
         padding: 14px 18px;
         min-height: 52px;
     }
@@ -2870,10 +2865,14 @@ body.nav-open #indoforall-nav-options * {
         min-width: 95%;
     }
 
+    .indoforall-who-are-we-all-text-div a {
+        padding: 0 2vw;
+    }
+
     /* Extra small screens - ensure nav fits */
     #indoforall-nav-options {
-        width: 90%;
-        right: -90%;
+        width: 67%;
+        right: -67%;
     }
 
     #indoforall-nav-options.show {
@@ -2885,7 +2884,7 @@ body.nav-open #indoforall-nav-options * {
         margin: 20px auto 16px;
     }
 
-    #indoforall-nav-options > a:not(#indoforall-close-nav) {
+    #indoforall-nav-options>a:not(#indoforall-close-nav) {
         padding: 12px 16px;
         font-size: clamp(0.9rem, 1.8vw, 1rem);
         min-height: 48px;
@@ -2926,4 +2925,58 @@ body.nav-open #indoforall-nav-options * {
     .indoforall-Proof-video-div {
         width: 55vw;
     }
+}
+
+/* Global floating toast notification */
+#indoforall-toast-container {
+    position: fixed;
+    inset-inline: 0;
+    inset-block-start: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.indoforall-toast {
+    pointer-events: auto;
+    max-width: min(90vw, 380px);
+    background: rgba(15, 23, 42, 0.96);
+    color: #f9fafb;
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.45);
+    border: 1px solid rgba(148, 163, 184, 0.5);
+    transform: translateY(-20px);
+    opacity: 0;
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+    font-size: 0.9rem;
+    direction: rtl;
+}
+
+.indoforall-toast--visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.indoforall-toast__text {
+    flex: 1;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.indoforall-toast__close {
+    border: none;
+    background: transparent;
+    color: inherit;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0 2px;
+    line-height: 1;
 }
