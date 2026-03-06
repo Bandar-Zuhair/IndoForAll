@@ -261,11 +261,6 @@
     };
 })();
 
-/* Page Load body Fade Animation */
-setTimeout(function () {
-    document.getElementById("indoforall-body").style.opacity = "1";
-}, 100);
-
 // Scroll event handler
 function handleScroll() {
     const currentScrollPosition = window.scrollY;
@@ -1785,6 +1780,14 @@ if (document.readyState === "loading") {
 function addBackgroundVideo(sectionId, videoSrc) {
     const section = document.getElementById(sectionId);
     if (!section) return;
+
+    // Avoid heavy background videos on small screens or when user saves data
+    const prefersReducedData = navigator.connection && navigator.connection.saveData;
+    const isMobileViewport = typeof window.matchMedia === "function" && window.matchMedia("(max-width: 768px)").matches;
+
+    if (prefersReducedData || isMobileViewport) {
+        return;
+    }
 
     // Ensure the section does not already have a background video
     if (section.querySelector("video")) return;
