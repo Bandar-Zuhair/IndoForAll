@@ -39,8 +39,6 @@
 /* Body */
 body {
     color: white;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
 }
 
 /* Special styling */
@@ -1762,13 +1760,17 @@ body.nav-open #indoforall-nav-options * {
     padding: 0 0.9vw;
     margin-right: clamp(0.5rem, 2vw, 2.5rem);
     border-radius: 5px;
-    display: inline-flex; /* better than flex for inline elements */
-    align-items: center; /* vertical alignment */
-    gap: 6px; /* space between icon and text */
+    display: inline-flex;
+    /* better than flex for inline elements */
+    align-items: center;
+    /* vertical alignment */
+    gap: 6px;
+    /* space between icon and text */
 }
 
 .indoforall-who-are-we-all-text-div a ion-icon {
-    font-size: 1.1em; /* match text size */
+    font-size: 1.1em;
+    /* match text size */
     vertical-align: middle;
     color: white;
 }
