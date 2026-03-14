@@ -48,12 +48,8 @@ async function sendBrevoCommentNotification(payload) {
             initSupabase();
         })
         .catch(function () {
-            // Fallback when not on Netlify (e.g. local file or function unavailable)
-            config = {
-                supabaseUrl: "https://dkerfetnaquggtlpicul.supabase.co",
-                supabaseAnonKey:
-                    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRrZXJmZXRuYXF1Z2d0bHBpY3VsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY3ODY5MDUsImV4cCI6MjA2MjM2MjkwNX0.GMEkAcx_SWTjV_TdlhQNXzIzh9mDM_L2h8SaLXllQsw",
-            };
+            // No fallback: Supabase config must come from Netlify (get-config). Local dev: use "netlify dev" with .env.
+            config = { supabaseUrl: "", supabaseAnonKey: "" };
             initSupabase();
         });
 })();
