@@ -21,32 +21,41 @@ async function sendBrevoCommentNotification(payload) {
     }
 }
 
-// Wait for Supabase library to load and initialize client
+// Supabase: URL and anon key come from Netlify env via /.netlify/functions/get-config
 (function () {
-    const supabaseUrl = "https://dkerfetnaquggtlpicul.supabase.co";
-    const supabaseKey =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRrZXJmZXRuYXF1Z2d0bHBpY3VsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY3ODY5MDUsImV4cCI6MjA2MjM2MjkwNX0.GMEkAcx_SWTjV_TdlhQNXzIzh9mDM_L2h8SaLXllQsw"; // truncated for safety
+    let config = null;
 
     function initSupabase() {
-        // The CDN exposes supabase library - access it from window
+        if (!config) {
+            setTimeout(initSupabase, 50);
+            return;
+        }
         if (window.supabase && typeof window.supabase.createClient === "function") {
-            // Create client and store it
-            const client = window.supabase.createClient(supabaseUrl, supabaseKey);
-
-            // Store client on window for backup access
+            const client = window.supabase.createClient(config.supabaseUrl, config.supabaseAnonKey);
             window.supabaseClient = client;
-
-            // Replace window.supabase with the client (the library is no longer needed)
-            // This makes 'supabase' available globally as the client
             window.supabase = client;
         } else {
-            // Retry if library not loaded yet
             setTimeout(initSupabase, 50);
         }
     }
 
-    // Start initialization
-    initSupabase();
+    fetch("/.netlify/functions/get-config")
+        .then(function (r) {
+            return r.ok ? r.json() : Promise.reject();
+        })
+        .then(function (data) {
+            config = { supabaseUrl: data.supabaseUrl, supabaseAnonKey: data.supabaseAnonKey };
+            initSupabase();
+        })
+        .catch(function () {
+            // Fallback when not on Netlify (e.g. local file or function unavailable)
+            config = {
+                supabaseUrl: "https://dkerfetnaquggtlpicul.supabase.co",
+                supabaseAnonKey:
+                    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRrZXJmZXRuYXF1Z2d0bHBpY3VsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY3ODY5MDUsImV4cCI6MjA2MjM2MjkwNX0.GMEkAcx_SWTjV_TdlhQNXzIzh9mDM_L2h8SaLXllQsw",
+            };
+            initSupabase();
+        });
 })();
 
 // Global floating toast notification
