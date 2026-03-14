@@ -142,8 +142,8 @@ exports.handler = async (event, context) => {
             body: JSON.stringify({
                 sender: { name: 'اندو للجميع', email: 'basmatunatv@gmail.com' },
                 to: [
-                    { email: 'bndoory300@gmail.com' }
-                    /* { email: 'abdulaziz13zuhair@gmail.com' } */
+                    { email: 'bndoory300@gmail.com' },
+                    { email: 'abdulaziz13zuhair@gmail.com' }
                 ],
                 subject: 'تعليق جديد - اندو للجميع',
                 htmlContent,
