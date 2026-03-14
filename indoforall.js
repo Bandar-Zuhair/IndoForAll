@@ -1,1 +1,2080 @@
-const BREVO_API_KEY="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",BREVO_NOTIFY_EMAIL="bndoory300@gmail.com";function escapeEmailHtml(e){return null==e?"":String(e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}const ENGLISH_MONTHS_SHORT=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];function getTodayDateEnglish(){const e=new Date;return`${e.getDate()} ${ENGLISH_MONTHS_SHORT[e.getMonth()]} ${e.getFullYear()}`}async function sendBrevoCommentNotification(e){const{userName:t,userCommentText:n,userStarRate:o,userWhatsAppNumber:i}=e,l=i&&i.trim()?i:"غير محدد رقم الهاتف",a=escapeEmailHtml(t),r=escapeEmailHtml(n),d=escapeEmailHtml(l),s=`\n<!DOCTYPE html>\n<html dir="rtl" lang="ar">\n<head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <title>تعليق جديد - اندو للجميع</title>\n</head>\n<body style="margin:0; padding:0; font-family: 'Segoe UI', Tahoma, Arial, sans-serif; background-color:#f4f4f4; -webkit-text-size-adjust:100%;">\n    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f4f4f4; padding:20px 10px;">\n        <tr>\n            <td align="center">\n                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px; background-color:#ffffff; border-radius:12px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.08);">\n                    <tr>\n                        <td style="background:linear-gradient(135deg, #6a4b1f 0%, #c29a66 100%); padding:24px 24px 20px; text-align:center;">\n                            <h1 style="margin:0; color:#ffffff; font-size:22px; font-weight:600; letter-spacing:0.3px;">تعليق جديد</h1>\n                            <p style="margin:8px 0 0; color:rgba(255,255,255,0.9); font-size:14px;">موقع اندو للجميع</p>\n                        </td>\n                    </tr>\n                    <tr>\n                        <td style="padding:28px 24px 24px;">\n                            <p style="margin:0 0 6px; color:#333333; font-size:15px; line-height:1.6;">تم استلام تعليق جديد من أحد الزوار</p>\n                            <p style="margin:0 0 20px; color:#666666; font-size:14px;">${getTodayDateEnglish()}</p>\n                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e8e8e8; border-radius:8px; background-color:#fafafa;">\n                                <tr>\n                                    <td style="padding:16px 20px; border-bottom:1px solid #e8e8e8;">\n                                        <span style="color:#888888; font-size:12px; display:block; margin-bottom:4px;">الاسم</span>\n                                        <span style="color:#1a1a1a; font-size:16px; font-weight:500;">${a}</span>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <td style="padding:16px 20px; border-bottom:1px solid #e8e8e8;">\n                                        <span style="color:#888888; font-size:12px; display:block; margin-bottom:4px;">التعليق</span>\n                                        <span style="color:#1a1a1a; font-size:15px; line-height:1.65; white-space:pre-wrap; word-break:break-word;">${r}</span>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <td style="padding:16px 20px; border-bottom:1px solid #e8e8e8;">\n                                        <span style="color:#888888; font-size:12px; display:block; margin-bottom:4px;">التقييم</span>\n                                        <span style="color:#1a1a1a; font-size:16px;">${"★".repeat(o)} <span style="color:#888888; font-size:14px;">(${o}/5)</span></span>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <td style="padding:16px 20px;">\n                                        <span style="color:#888888; font-size:12px; display:block; margin-bottom:4px;">رقم الواتساب</span>\n                                        <span style="color:#1a1a1a; font-size:16px; font-weight:500;">${d}</span>\n                                    </td>\n                                </tr>\n                            </table>\n                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:24px;">\n                                <tr>\n                                    <td style="padding:14px 18px; background-color:#f0f7ff; border-right:4px solid #2563eb; border-radius:6px;">\n                                        <p style="margin:0; color:#1e3a5f; font-size:14px; line-height:1.5;">إذا حاب إظهار هذا التعليق في الموقع اعطيني خبر</p>\n                                    </td>\n                                </tr>\n                            </table>\n                        </td>\n                    </tr>\n                    <tr>\n                        <td style="padding:16px 24px; background-color:#f9f9f9; border-top:1px solid #eeeeee; text-align:center;">\n                            <p style="margin:0; color:#888888; font-size:12px;">اندو للجميع — إشعار تعليقات</p>\n                        </td>\n                    </tr>\n                </table>\n            </td>\n        </tr>\n    </table>\n</body>\n</html>`,c=`تعليق جديد - اندو للجميع\n\nالاسم: ${t}\nالتعليق: ${n}\nالتقييم: ${o}/5\nرقم الواتساب: ${l}\n\nإذا أحببت إظهار هذا التعليق في الموقع، حدّث حالة التعليق في قاعدة البيانات إلى «معتمد».`;try{const e=await fetch("https://api.brevo.com/v3/smtp/email",{method:"POST",headers:{accept:"application/json","api-key":BREVO_API_KEY,"content-type":"application/json"},body:JSON.stringify({sender:{name:"اندو للجميع",email:"basmatunatv@gmail.com"},to:[{email:"bndoory300@gmail.com"},{email:"abdulaziz13zuhair@gmail.com"}],subject:"تعليق جديد - اندو للجميع",htmlContent:s,textContent:c})});if(!e.ok){const t=await e.json().catch(()=>({}));console.warn("Brevo email send failed:",e.status,t)}}catch(e){console.warn("Brevo email error:",e)}}function handleScroll(){const e=window.scrollY,t=document.getElementById("indoforall-header");e>lastScrollPosition?t.classList.add("hidden"):t.classList.remove("hidden"),lastScrollPosition=e}!function e(){if(window.supabase&&"function"==typeof window.supabase.createClient){const e=window.supabase.createClient("https://dkerfetnaquggtlpicul.supabase.co","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRrZXJmZXRuYXF1Z2d0bHBpY3VsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY3ODY5MDUsImV4cCI6MjA2MjM2MjkwNX0.GMEkAcx_SWTjV_TdlhQNXzIzh9mDM_L2h8SaLXllQsw");window.supabaseClient=e,window.supabase=e}else setTimeout(e,50)}(),function(){let e=null,t=null,n=null;function o(e){e&&(n&&(clearTimeout(n),n=null),e.style.transition="transform 0.2s ease-out, opacity 0.2s ease-out",e.style.transform="translateY(-20px)",e.style.opacity="0",setTimeout(()=>{e.parentElement&&e.parentElement.removeChild(e),t===e&&(t=null)},220))}function i(){t&&o(t)}window.showToastMessage=function(l,a){e||(e=document.createElement("div"),e.id="indoforall-toast-container",document.body.appendChild(e)),n&&(clearTimeout(n),n=null),t&&i();const r=document.createElement("div");r.className="indoforall-toast";const d=document.createElement("span");d.className="indoforall-toast__text",d.textContent=l;const s=document.createElement("button");s.className="indoforall-toast__close",s.setAttribute("aria-label","إغلاق التنبيه"),s.innerHTML="&times;",s.onclick=()=>{o(r)},r.appendChild(d),r.appendChild(s),e.appendChild(r),t=r,function(e){let o=0,i=0,l=!1,a=null;const r=(t,n)=>{o=t,i=n,l=!0,a=null,e.style.transition="none"},d=(t,n)=>{if(!l)return;let r=t-o,d=n-i;if(!a){const e=Math.abs(r),t=Math.abs(d);if(e>t)a="x";else{if(!(t>e&&d<0))return;a="y"}}"x"===a?d=0:"y"===a&&(r=0,d=Math.min(0,d)),e.style.transform=`translate(${r}px, ${d}px)`;const s=Math.sqrt(r*r+d*d),c=Math.max(0,1-s/200);e.style.opacity=String(c)},s=(r,d)=>{if(!l)return;l=!1;let s=r-o,c=d-i,m=!1;if("x"===a?(c=0,m=Math.abs(s)>80):"y"===a&&(s=0,c=Math.min(0,c),m=Math.abs(c)>30),m){n&&(clearTimeout(n),n=null),e.style.transition="transform 0.2s ease-out, opacity 0.2s ease-out";const o=1.5,i=s*o,l=c*o;e.style.transform=`translate(${i}px, ${l}px)`,e.style.opacity="0",setTimeout(()=>{e.parentElement&&e.parentElement.removeChild(e),t===e&&(t=null)},220)}else e.style.transition="",e.style.transform="",e.style.opacity="1"};e.addEventListener("mousedown",e=>{r(e.clientX,e.clientY)}),e.addEventListener("mousemove",e=>{l&&d(e.clientX,e.clientY)}),e.addEventListener("mouseup",e=>{s(e.clientX,e.clientY)}),e.addEventListener("mouseleave",e=>{l&&s(e.clientX,e.clientY)}),e.addEventListener("touchstart",e=>{const t=e.touches[0];r(t.clientX,t.clientY)},{passive:!0}),e.addEventListener("touchmove",e=>{if(!l)return;const t=e.touches[0];d(t.clientX,t.clientY)},{passive:!0}),e.addEventListener("touchend",e=>{const t=e.changedTouches[0];s(t.clientX,t.clientY)})}(r),r.offsetHeight,r.classList.add("indoforall-toast--visible"),"number"==typeof a&&a>0&&(n=setTimeout(()=>{i()},a))}}();let lastScrollPosition=0;window.addEventListener("scroll",handleScroll);let indoforall_homeWorkerArray=[{workerImg:"استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-1.webp"},{workerImg:"استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-2.webp"},{workerImg:"استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-3.webp"},{workerImg:"استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-4.webp"},{workerImg:"استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-5.webp"},{workerImg:"استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-6.webp"},{workerImg:"استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-7.webp"},{workerImg:"استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-8.webp"},{workerImg:"استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-9.webp"},{workerImg:"استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-10.webp"},{workerImg:"استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-11.webp"},{workerImg:"استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-12.webp"},{workerImg:"استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-13.webp"},{workerImg:"استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-14.webp"},{workerImg:"استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-15.webp"}],indoforall_driveWorkerArray=[],indoforall_hairWorkerArray=[{workerImg:"استقدام-كوفيرة/استقدام-كوفيرة-1.webp"},{workerImg:"استقدام-كوفيرة/استقدام-كوفيرة-2.webp"}],indoforall_sewingWorkerArray=[{workerImg:"استقدام-خياطة/استقدام-خياطة-1.webp"},{workerImg:"استقدام-خياطة/استقدام-خياطة-2.webp"},{workerImg:"استقدام-خياطة/استقدام-خياطة-3.webp"}],indoforall_doctorWorkerArray=[],indoforall_questionAndAnswerArray=[{questionText:"كيف يتم اختيار العمالة المناسبة؟",answerText:"يتم عن طريق الفيديوهات المرسلة ثم التواصل معنا أو عن طريق التواصل مع العمالة بشكل مباشر."},{questionText:"هل لابد من وجود تاشيرة لبدا اجراءات الاستقدام؟",answerText:"التاشيرة هي اساس عملية الاستقدام ولايمكن عمل اي اجراء قبل استخراج التاشيرة."},{questionText:"ماهي متطلبات استخراج التاشيرة؟",answerText:"ان يكون لديك رقم نفاذ وطني."},{questionText:"كيف يتم استخراج التاشيرة؟",answerText:"يتم استخراج تاشيرات العمالة بشكل الكتروني."},{questionText:"ماهي الحالات التي يتم فيها تعويض العميل خلال فترة الضمان؟",answerText:"رفض العمل - الهروب - الحمل."},{questionText:"ماهي التعويض الذي نقدمه للعميل؟",answerText:"التعويض يتم عن طريق استبدال العاملة فقط في خلال فترة الضمان (3 شهور)."},{questionText:"ماهي مدة وصول العاملة",answerText:"تختلف على حسب نوع الفيزا وغالبا تتراوح المدة من 12 الى 14 يوم."},{questionText:"كيف يتم اشعار العميل بوقت وصول العاملة؟",answerText:"يتم اشعار العميل عن طريق الواتس اب وإرسال له تذكرة السفر لموعد وصول العاملة."},{questionText:"كيف يمكننا ارسال المبلغ لكم؟",answerText:"عن طريق التحويل بالبنك."},{questionText:"ماهي طريقة تجديد الفيزا؟",answerText:"عن طريق موقع ابشر أو عن طريق الجوازات."},{questionText:"ماهو مبلغ تجديد الفيزا؟",answerText:"مية ريال سعودي شهريا."},{questionText:"هل استطيع تحويل فيزة الزيارة الى إقامة؟",answerText:"نعم، يتم عن طريق الوزارة الداخلية اونلاين."}],indoforall_proofVideosArray=[{imgSrc:"مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-1.webp"},{imgSrc:"مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-2.webp"},{imgSrc:"مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-3.webp"},{imgSrc:"مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-4.webp"},{imgSrc:"مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-5.webp"},{imgSrc:"مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-6.webp"},{imgSrc:"مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-7.webp"},{imgSrc:"مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-8.webp"},{imgSrc:"مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-9.webp"},{imgSrc:"مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-10.webp"},{imgSrc:"مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-11.webp"},{imgSrc:"مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-12.webp"},{imgSrc:"مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-13.webp"},{imgSrc:"مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-14.webp"}],indoforall_adsVideosArray=[{imgSrc:"استقدام-من-اندونيسيا/استقدام-عمالة-اندونيسية.webp"},{videoSrc:"استقدام-اندونيسيا/استقدام-من-اندونيسيا.mp4",videoThumbnailSrc:"استقدام-اندونيسيا/استقدام-من-اندونيسيا.webp"},{imgSrc:"استقدام-اندونيسيا/استقدام-من-اندونيسيا.webp"}];function updateHeaderHeight(){const e=document.querySelector("header"),t=document.querySelector(".intro-section");if(e){const n=e.offsetHeight;if(document.documentElement.style.setProperty("--header-height",`${n}px`),t){const e=window.innerHeight-n;t.style.height=`${e}px`,t.style.minHeight=`${e}px`}}}function initializeIntroSection(){const e=document.querySelectorAll("#indoforall-web-intro-1, #indoforall-web-intro-3, .indoforall-web-intro-contact-us, #indoforall-website-guidance-text, #indoforall-request-worker-now-button, #indoforall-orbit-container-id"),t=document.getElementById("scrollHint");return setTimeout(()=>{let n=0;e.forEach((e,t)=>{setTimeout(()=>{e.classList.add("active","in-view")},n),n+=600}),setTimeout(()=>{t&&t.classList.add("active");const e=document.getElementById("scroll-note-btn");e&&setTimeout(()=>{e.classList.add("active","in-view")},600)},n)},600),()=>{}}function indoforall_show_full_screen_image(e){document.documentElement.style.overflow="hidden";let t=document.createElement("div");t.classList.add("indoforall-full-screen-img-overlay");let n=document.createElement("a");n.classList.add("indoforall-full-screen-overlay-exit-button"),n.innerText="",n.style.zIndex="1000";let o=document.createElement("div");o.classList.add("indoforall-full-screen-img-container");let i=document.createElement("img");function l(){document.documentElement.style.overflow="auto",t.classList.remove("show"),setTimeout(()=>{document.body.contains(t)&&t.remove()},500)}i.src=e,i.srcset=`${e} 480w, ${e} 768w, ${e} 1200w`,i.sizes="(max-width: 768px) 100vw, 50vw",i.loading="lazy",i.alt="استقدام من اندونيسيا - اندو للجميع",i.title="استقدام من اندونيسيا - اندو للجميع",i.classList.add("indoforall-big-img"),o.appendChild(i),o.appendChild(n),t.appendChild(o),document.body.appendChild(t),setTimeout(()=>{t.classList.add("show")},10),n.onclick=function(e){e.stopPropagation(),l()},o.addEventListener("click",function(e){e.stopPropagation()}),t.addEventListener("click",function(e){e.target===t&&l()})}if(updateHeaderHeight(),initializeIntroSection(),indoforall_craeteRequestWorkerMessage=function(){document.documentElement.style.overflow="hidden";let e=document.createElement("div");e.id="indoforall-filter-worker-type-overlay";let t=document.createElement("div");t.id="indoforall-filter-worker-type-div";let n=document.createElement("div");n.id="indoforall-filter-worker-type-content",n.innerHTML='\n        <div id=\'indoforall-filter-worker-type-title\'>\n            <h3>طلب استقدام</h3>\n        </div>\n        <div id="indoforall-filter-worker-work-type">\n            <h3>اختار نوع العمالة</h3>\n            <div id="indoforall-filter-worker-work-type-options">\n                <h4 onclick="indoforall_chooseWorkerTypeDataFunction(\'home\')">عاملة منزلية</h4>\n                <h4 onclick="indoforall_chooseWorkerTypeDataFunction(\'driver\')">سائق خاص</h4>\n                <h4 onclick="indoforall_chooseWorkerTypeDataFunction(\'hair\')">كوفيرة</h4>\n                <h4 onclick="indoforall_chooseWorkerTypeDataFunction(\'sewing\')">خياطة</h4>\n                <h4 onclick="indoforall_chooseWorkerTypeDataFunction(\'nurse\')">ممرضة</h4>\n                <h4 onclick="indoforall_whatsApp()">خيارات اخرى؟ تواصل معنا</h4>\n            </div>\n        </div>\n        <div id="indoforall-submit-filter-worker-type">\n            <h5 class="indoforall-cancel-worker-data-message-button">إلغاء</h5>\n        </div>\n    ',t.appendChild(n),e.appendChild(t),document.body.appendChild(e),setTimeout(()=>{e.classList.add("show"),t.classList.add("show")},10),enableMouseGradient();const o=()=>{t.classList.remove("show"),e.classList.remove("show"),setTimeout(()=>{document.documentElement.style.overflow="auto",document.body.contains(e)&&document.body.removeChild(e)},500)};document.querySelectorAll(".indoforall-cancel-worker-data-message-button").forEach(e=>{e.onclick=o}),e.addEventListener("click",t=>{t.target===e&&o()}),indoforall_chooseWorkerTypeDataFunction=function(o){let i,l;"home"===o?(i="عاملة منزلية",l="\n            <h3>السعر</h3>\n                <h4>استقدام عاملة منزلية = 17,000 ريال سعودي</h4>\n            "):"driver"===o?(i="سائق خاص",l="\n                <h3>السعر</h3>\n                <h4>استقدام سائق خاص = 11,500 ريال سعودي</h4>\n            "):"hair"===o?(i="كوفيرة",l="\n                <h3>السعر</h3>\n                <h4>فيزة عمالة مهنية = 17,000 ريال سعودي</h4>\n            "):"sewing"===o?(i="خياطة",l="\n                <h3>السعر</h3>\n                <h4>فيزة عمالة مهنية = 17,000 ريال سعودي</h4>\n            "):"nurse"===o&&(i="ممرضة",l="\n                <h3>السعر</h3>\n                <h4>فيزة عمالة مهنية = 17,000 ريال سعودي</h4>\n            "),n.innerHTML=`\n            <div id='indoforall-filter-worker-type-title'>\n                <h3>طلب استقدام ${i}</h3>\n            </div>\n\n            <div id="indoforall-filter-worker-visa-type"></div>\n\n            <div id="indoforall-filter-worker-city-type">\n                <h3>طلب إستقدام الى</h3>\n                <textarea placeholder="إسم المدينة" maxlength="30"></textarea>\n            </div>\n\n            <div id="indoforall-submit-filter-worker-type">\n                <h5 class="indoforall-send-worker-data-message-button" class="indoforall-mouse-gradient" onclick="indoforall_workerTypeWhatsAppMessageFunction()">إرسال</h5>\n                <h5 class="indoforall-cancel-worker-data-message-button">إلغاء</h5>\n            </div>\n        `,n.style.opacity="0",setTimeout(()=>{n.style.opacity="1"},10),t.appendChild(n),e.appendChild(t),document.body.appendChild(e),document.getElementById("indoforall-filter-worker-visa-type").innerHTML=l,enableMouseGradient(),document.querySelectorAll(".indoforall-cancel-worker-data-message-button").forEach(n=>{n.onclick=function(){document.documentElement.style.overflow="auto",t.classList.remove("show"),e.classList.remove("show"),setTimeout(()=>{document.documentElement.style.overflow="auto",document.body.removeChild(e)},500)}}),indoforall_workerTypeWhatsAppMessageFunction=function(){let e=document.querySelector("#indoforall-filter-worker-city-type textarea").value;if(""===e)window.showToastMessage("يرجى التأكد من كتابة اسم المدينة",2e3);else{let t=new Date,n=`${t.getDate()}/${t.getMonth()+1}/${t.getFullYear()}`,o=`طلب جديد استقدام ${i} من اندونيسيا\n`;o+=`تاريخ إرسال الطلب: ${n}\n\n`,"عاملة منزلية"===i?o+="السعر: 17,000 ريال سعودي\n":"سائق خاص"===i?o+="السعر: 11,500 ريال سعودي\n":(o+="نوع الفيزا: فيزة عمالة مهنية\n",o+="السعر: 17,000 ريال سعودي\n"),o+=`استقدام الى: ${e}\n\n`,o+="شركة استقدام اندو للجميع";let l=`https://wa.me/966544386245?text=${encodeURIComponent(o)}`;window.open(l,"_blank")}}}},document.getElementById("indoforall-clint-rate-section")||document.getElementById("indoforall-proof-section")){async function fetchReviews(){try{const e="indoforall",{data:t,error:n}=await supabase.from("all_customers_comments").select(e).eq("id",1).single();if(n)throw n;const o=(t[e]||[]).filter(e=>{if(!e.comment||!e.comment.trim())return!1;const t=e.status;return null==t||(!0===t||"true"===t)});let i=document.getElementById("indoforall-clint-rate-area");i.innerHTML="",o.forEach(e=>{const{review_date:t,reviewer_name:n,comment:o,stars:l}=e;if(!o.trim())return;let a=document.createElement("div");a.classList.add("indoforall-rate-div"),a.innerHTML=`\n                <div class="indoforall-clint-rate-date-div">\n                    <h3>${t}</h3>\n                </div>\n                <div class="indoforall-clint-rate-info-div">\n                    <img src="استقدام-من-اندونيسيا.webp" alt="استقدام من اندونيسيا - اندو للجميع" title="استقدام من اندونيسيا - اندو للجميع">\n                    <h4>${n}</h4>\n                </div>\n                <div class="indoforall-clint-rate-comment-div">\n                    <h5>${o}</h5>\n                </div>\n                <div class="indoforall-clint-rate-star-div">\n                    ${"★".repeat(l)}\n                </div>\n                `,i.appendChild(a)});const l=document.getElementById("indoforall-comment-submit-button-id");l.style.userSelect="auto",l.style.background="linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102))",l.innerText="إرسال"}catch(e){console.error("Error fetching reviews:",e.message)}}document.getElementById("indoforall-comment-form").addEventListener("submit",async function(e){e.preventDefault();const t=document.getElementById("indoforall-comment-submit-button-id");if("none"!==t.style.userSelect){t.style.userSelect="none",t.style.background="gray",t.innerText="جاري النشر";let e=document.getElementById("indoforall-comment-username").value.trim(),n=document.getElementById("indoforall-comment-whatsapp").value.trim(),o=document.getElementById("indoforall-comment-text").value.trim(),i=parseInt(document.getElementById("indoforall-comment-stars").value);const l={review_date:(new Date).toISOString().split("T")[0],reviewer_name:e,comment:o,stars:i,whatsapp:n||null,status:"false"};try{const t="indoforall",{data:a,error:r}=await supabase.from("all_customers_comments").select(t).eq("id",1).single();if(r)throw r;const d=[l,...a[t]||[]],{error:s}=await supabase.from("all_customers_comments").update({[t]:d}).eq("id",1);if(s)throw s;await sendBrevoCommentNotification({userName:e,userCommentText:o,userStarRate:i,userWhatsAppNumber:n||""}),document.getElementById("indoforall-comment-form").reset(),await fetchReviews(),window.showToastMessage("تم إرسال تعليقك بنجاح! شكراً لك.",4e3)}catch(e){console.error("Error submitting comment:",e.message)}t.style.userSelect="auto",t.style.background="linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102))",t.innerText="إرسال"}}),fetchReviews()}if(document.getElementById("indoforall-choose-worker-type-section")){function indoforall_chooseWorkerTypeDataFunction(e){let t,n;document.documentElement.style.overflow="hidden","home"===e?(t="عاملة منزلية",n="\n            <h3>السعر</h3>\n            <h4>استقدام عاملة منزلية = 17,000 ريال سعودي</h4>\n        "):"driver"===e?(t="سائق خاص",n="\n            <h3>السعر</h3>\n            <h4>استقدام سائق خاص = 11,500 ريال سعودي</h4>\n        "):(t="hair"===e?"كوفيرة":"sewing"===e?"خياطة":"ممرضة",n="\n            <h3>السعر</h3>\n            <h4>فيزة عمالة مهنية = 17,000 ريال سعودي</h4>\n        ");let o=document.createElement("div");o.id="indoforall-filter-worker-type-overlay";let i=document.createElement("div");i.id="indoforall-filter-worker-type-div";let l=document.createElement("div");l.innerHTML=`\n            <div id='indoforall-filter-worker-type-title'>\n                <h3>طلب استقدام ${t}</h3>\n            </div>\n\n            <div id="indoforall-filter-worker-visa-type"></div>\n\n            <div id="indoforall-filter-worker-city-type">\n                <h3>استقدام الى</h3>\n                <textarea placeholder="اسم المدينة" maxlength="30"></textarea>\n            </div>\n\n            <div id="indoforall-submit-filter-worker-type">\n                <h5 class="indoforall-send-worker-data-message-button" onclick="indoforall-workerTypeWhatsAppMessageFunction()">إرسال</h5>\n                <h5 class="indoforall-cancel-worker-data-message-button">إلغاء</h5>\n            </div>\n        `,i.appendChild(l),o.appendChild(i),document.body.appendChild(o),document.getElementById("indoforall-filter-worker-visa-type").innerHTML=n,setTimeout(()=>{o.classList.add("show"),i.classList.add("show")},10),document.querySelectorAll(".indoforall-cancel-worker-data-message-button").forEach(e=>{e.onclick=function(){i.classList.remove("show"),o.classList.remove("show"),setTimeout(()=>{document.documentElement.style.overflow="auto",document.body.removeChild(o)},500)}}),indoforall_workerTypeWhatsAppMessageFunction=function(){let e=document.querySelector("#indoforall-filter-worker-city-type textarea").value;if(""===e)window.showToastMessage("يرجى التأكد من كتابة اسم المدينة",2e3);else{let n=new Date,o=`${n.getDate()}/${n.getMonth()+1}/${n.getFullYear()}`,i=`طلب جديد استقدام ${t} من اندونيسيا\n`;i+=`تاريخ إرسال الطلب: ${o}\n\n`,"عاملة منزلية"===t?i+="السعر: 17,000 ريال سعودي\n":"سائق خاص"===t?i+="السعر: 11,500 ريال سعودي\n":(i+="نوع الفيزا: فيزة عمالة مهنية\n",i+="السعر: 17,000 ريال سعودي\n"),i+=`استقدام الى: ${e}\n\n`,i+="شركة استقدام اندو للجميع";let l=`https://wa.me/966544386245?text=${encodeURIComponent(i)}`;window.open(l,"_blank")}}}indoforall_createWorkerTypeDetalis=function(e){let t=1;document.getElementById("indoforall-worker-cards-div").innerHTML="",document.getElementById("indoforall-worker-details-text").style.opacity="0",document.getElementById("indoforall-worker-details-text").style.transition="opacity 0.5s ease-in-out",document.getElementById("indoforall-worker-details-text").style.opacity="1",document.getElementById("indoforall-worker-type-message-button")&&document.getElementById("indoforall-worker-type-message-button").remove();let n=document.createElement("a");n.id="indoforall-worker-type-message-button",n.classList.add("indoforall-other-pages-link"),n.style.background="linear-gradient(to right, rgb(106, 75, 31), rgb(194, 156, 102))",e===indoforall_homeWorkerArray?(document.getElementById("indoforall-worker-details-text").innerText="استقدام عاملة منزلية من اندونيسيا",n.innerHTML="طلب استقدام عاملة منزلية",n.onclick=function(){indoforall_chooseWorkerTypeDataFunction("home")}):e===indoforall_driveWorkerArray?(document.getElementById("indoforall-worker-details-text").innerText="استقدام سائق الخاص من اندونيسيا",n.innerHTML="طلب استقدام سائق خاص",n.onclick=function(){indoforall_chooseWorkerTypeDataFunction("driver")}):e===indoforall_hairWorkerArray?(document.getElementById("indoforall-worker-details-text").innerText="استقدام كوفيرة من اندونيسيا",n.innerHTML="طلب استقدام كوفيرة",n.onclick=function(){indoforall_chooseWorkerTypeDataFunction("hair")}):e===indoforall_sewingWorkerArray?(document.getElementById("indoforall-worker-details-text").innerText="استقدام خياطة من اندونيسيا",n.innerHTML="طلب استقدام خياطة",n.onclick=function(){indoforall_chooseWorkerTypeDataFunction("sewing")}):e===indoforall_doctorWorkerArray&&(document.getElementById("indoforall-worker-details-text").innerText="استقدام ممرضة من اندونيسيا",n.innerHTML="طلب استقدام ممرضة",n.onclick=function(){indoforall_chooseWorkerTypeDataFunction("nurse")}),document.getElementById("indoforall-worker-details-text-div").appendChild(n),document.getElementById("indoforall-worker-detalis-section").style.opacity="0",document.getElementById("indoforall-worker-detalis-section").style.transition="opacity 0.5s ease-in-out",document.getElementById("indoforall-worker-detalis-section").style.display="flex",document.getElementById("indoforall-worker-detalis-section").offsetWidth,document.getElementById("indoforall-worker-detalis-section").style.opacity="1",e.forEach(e=>{let{workerImg:n}=e,o=document.createElement("div");o.classList.add("indoforall-worker-type-card"),o.innerHTML=`\n                <div onclick="indoforall_show_full_screen_image('${n}')">\n                    <h2>${t}</h2>\n                    <img src=${n} alt="استقدام من اندونيسيا - اندو للجميع" title="استقدام من اندونيسيا - اندو للجميع" srcset="${n} 480w, ${n} 768w, ${n} 1200w" sizes="(max-width: 768px) 100vw, 50vw" loading="lazy">\n                </div>\n            `,document.getElementById("indoforall-worker-cards-div").appendChild(o),t++}),document.getElementById("indoforall-worker-details-text").scrollIntoView({block:"center",inline:"center",behavior:"smooth"}),document.getElementById("indoforall-worker-cards-div").addEventListener("mousedown",function(e){if(0===e.button){this.classList.add("grabbing"),this.dataset.scrollX=this.scrollLeft,this.dataset.clientX=e.clientX;let t=function(e){let t=e.clientX-parseInt(this.dataset.clientX);this.scrollLeft=parseInt(this.dataset.scrollX)-t}.bind(this),n=function(){this.classList.remove("grabbing"),window.removeEventListener("mousemove",t),window.removeEventListener("mouseup",n)}.bind(this);window.addEventListener("mousemove",t),window.addEventListener("mouseup",n)}})}}if(document.getElementById("indoforall-price-section")&&(indoforall_filterWorkerTypeBasedOnVisaFunction=function(e,t){document.documentElement.style.overflow="hidden";let n,o=e.innerText;"استقدام عاملة منزلية = 17,000 ريال سعودي"===t?n=`\n                <h4 onclick="indoforall_filterWorkerTypeDataFunction('home', '${t}')">عاملة منزلية</h4>\n                <h4 onclick="indoforall_filterWorkerTypeDataFunction('driver', 'استقدام سائق خاص = 7,000 ريال سعودي')">سائق خاص</h4>\n                <h4 onclick="indoforall_whatsApp()">خيارات اخرى؟ تواصل معنا</h4>\n            `:"استقدام سائق خاص = 11,500 ريال سعودي"===t?n=`\n                <h4 onclick="indoforall_filterWorkerTypeDataFunction('driver', '${t}')">سائق خاص</h4>\n                <h4 onclick="indoforall_whatsApp()">خيارات اخرى؟ تواصل معنا</h4>\n            `:"فيزة عمالة مهنية = 17,000 ريال سعودي"===t&&(n=`\n                <h4 onclick="indoforall_filterWorkerTypeDataFunction('driver', '${t}')">سائق خاص</h4>\n                <h4 onclick="indoforall_filterWorkerTypeDataFunction('hair', '${t}')">كوفيرة</h4>\n                <h4 onclick="indoforall_filterWorkerTypeDataFunction('sewing', '${t}')">خياطة</h4>\n                <h4 onclick="indoforall_filterWorkerTypeDataFunction('nurse', '${t}')">ممرضة</h4>\n                <h4 onclick="indoforall_whatsApp()">خيارات اخرى؟ تواصل معنا</h4>\n            `);let i=document.createElement("div");i.id="indoforall-filter-worker-type-overlay";let l=document.createElement("div");l.id="indoforall-filter-worker-type-div";let a=document.createElement("div");a.innerHTML=`\n            <div id='indoforall-filter-worker-type-title' class='indoforall-mouse-gradient'>\n                <h3>${o}</h3>\n            </div>\n\n            <div id="indoforall-filter-worker-work-type">\n                <h3>اختار نوع العمالة</h3>\n\n                <div id="indoforall-filter-worker-work-type-options"></div>\n                \n            </div>\n\n            <div id="indoforall-submit-filter-worker-type">\n                <h5 class="indoforall-cancel-worker-data-message-button">إلغاء</h5>\n            </div>\n        `,l.appendChild(a),i.appendChild(l),document.body.appendChild(i),document.getElementById("indoforall-filter-worker-work-type-options").innerHTML=n,setTimeout(()=>{i.classList.add("show"),l.classList.add("show")},10),enableMouseGradient(),document.querySelectorAll(".indoforall-cancel-worker-data-message-button").forEach(e=>{e.onclick=function(){l.classList.remove("show"),i.classList.remove("show"),setTimeout(()=>{document.documentElement.style.overflow="auto",document.body.removeChild(i)},500)}}),indoforall_filterWorkerTypeDataFunction=function(e,t){let n;document.getElementById("indoforall-filter-worker-type-div").innerHTML="",document.getElementById("indoforall-filter-worker-type-overlay").removeChild(document.getElementById("indoforall-filter-worker-type-div")),document.body.removeChild(document.getElementById("indoforall-filter-worker-type-overlay")),"home"===e?n="عاملة منزلية":"driver"===e?n="سائق خاص":"hair"===e?n="كوفيرة":"sewing"===e?n="خياطة":"nurse"===e&&(n="ممرضة");let o=document.createElement("div");o.innerHTML=`\n                <div id='indoforall-filter-worker-type-title' class='indoforall-mouse-gradient'>\n                    <h3>طلب استقدام ${n}</h3>\n                </div>\n\n                <div id="indoforall-filter-worker-visa-type">\n                    <h3>السعر</h3>\n                    <h4>${t}</h4>\n                </div>\n\n                <div id="indoforall-filter-worker-city-type">\n                    <h3>استقدام الى</h3>\n                    <textarea placeholder="اسم المدينة" maxlength="30"></textarea>\n                </div>\n\n                <div id="indoforall-submit-filter-worker-type">\n                    <h5 class="indoforall-send-worker-data-message-button" onclick="indoforall_workerTypeWhatsAppMessageFunction()">إرسال</h5>\n                    <h5 class="indoforall-cancel-worker-data-message-button" onclick="indoforall_cancelFilterWorkerTypeData()">إلغاء</h5>\n                </div>\n            `,l.appendChild(o),i.appendChild(l),document.body.appendChild(i),indoforall_cancelFilterWorkerTypeData=function(){l.classList.remove("show"),i.classList.remove("show"),setTimeout(()=>{document.documentElement.style.overflow="auto",document.body.removeChild(i)},500)},indoforall_workerTypeWhatsAppMessageFunction=function(){let e=document.querySelector("#indoforall-filter-worker-city-type textarea").value;if(""===e)window.showToastMessage("يرجى التأكد من كتابة اسم المدينة",2e3);else{let t=new Date,o=`${t.getDate()}/${t.getMonth()+1}/${t.getFullYear()}`,i=`طلب جديد استقدام ${n} من اندونيسيا\n`;i+=`تاريخ إرسال الطلب: ${o}\n\n`,"عاملة منزلية"===n?i+="السعر: 17,000 ريال سعودي\n":"سائق خاص"===n?i+="السعر: 11,500 ريال سعودي\n":(i+="نوع الفيزا: فيزة عمالة مهنية\n",i+="السعر: 17,000 ريال سعودي\n"),i+=`استقدام الى: ${e}\n\n`,i+="شركة استقدام اندو للجميع";let l=`https://wa.me/966544386245?text=${encodeURIComponent(i)}`;window.open(l,"_blank")}}}}),document.getElementById("indoforall-common-question-section")){const e=document.getElementById("indoforall-question-area");indoforall_questionAndAnswerArray.forEach(({questionText:t,answerText:n})=>{const o=document.createElement("div");o.className="indoforall-question-div animate-on-scroll from-bottom";const i=document.createElement("h2");i.className="indoforall-question-text animate-on-scroll from-right",i.textContent=t;const l=document.createElement("p");l.className="indoforall-answer-text animate-on-scroll from-left",l.textContent=n,o.appendChild(i),o.appendChild(l),e.appendChild(o)})}let cardCounter=1,currentVideo=null;if(document.getElementById("indoforall-proof-section")){indoforall_proofVideosArray.forEach(e=>{const{imgSrc:t}=e,n=document.createElement("div");n.id="indoforall-worker-card-proof-card",n.className="indoforall-worker-proof-card animate-on-scroll from-bottom";let o=`<h2>${cardCounter}</h2>`;o+=`\n                <img \n                    src="${t}" \n                    srcset="${t} 480w, ${t} 768w, ${t} 1200w" \n                    sizes="(max-width: 768px) 100vw, 50vw" \n                    loading="lazy" \n                    alt="استقدام من اندونيسيا - اندو للجميع" \n                    title="استقدام من اندونيسيا - اندو للجميع" \n                    onclick="indoforall_show_full_screen_image(this.src)">\n            `,n.innerHTML=o,cardCounter++,document.getElementById("indoforall-proof-area").appendChild(n)});const t=document.getElementById("indoforall-proof-area");t.addEventListener("mousedown",e=>{if(0!==e.button)return;t.classList.add("grabbing");const n=t.scrollLeft,o=e.clientX,i=e=>{const i=e.clientX-o;t.scrollLeft=n-i},l=()=>{t.classList.remove("grabbing"),window.removeEventListener("mousemove",i),window.removeEventListener("mouseup",l)};window.addEventListener("mousemove",i),window.addEventListener("mouseup",l)})}function indoforall_websiteGuidance(){document.documentElement.style.overflow="hidden";let e=document.createElement("div");e.classList.add("indoforall-full-screen-guidance-overlay");let t=document.createElement("a");t.classList.add("indoforall-full-screen-overlay-exit-button"),t.innerText="";let n=document.createElement("div");n.classList.add("web-guidance-div");function o(){document.documentElement.style.overflow="auto",e.classList.remove("active"),n.classList.remove("active"),setTimeout(()=>{document.body.contains(e)&&document.body.removeChild(e)},500)}n.innerHTML='\n        <h4>خطة سريعة لبدء الرحلة:</h4>\n        <div class="web-guidance-steps">\n            <div class="web-guidance-step">\n                <div class="web-guidance-step-number">1</div>\n                <p>تصفح الصفحة الرئيسية وحدد نوع العمالة المناسبة لاحتياجك.</p>\n            </div>\n            <div class="web-guidance-step">\n                <div class="web-guidance-step-number">2</div>\n                <p>راجع الأسعار والمدة المتوقعة لإنجاز الطلب عبر صفحة أسعار الاستقدام.</p>\n            </div>\n            <div class="web-guidance-step">\n                <div class="web-guidance-step-number">3</div>\n                <p>تواصل معنا عبر الواتساب للمزيد من التوجيه والبدء في الإجراءات.</p>\n            </div>\n        </div>\n        <div class="web-guidance-actions">\n            <button type="button" onclick="indoforall_whatsApp()">تواصل معنا عبر الواتساب</button>\n        </div>\n    ',n.appendChild(t),e.appendChild(n),document.body.appendChild(e),setTimeout(()=>{e.classList.add("active"),n.classList.add("active")},50),t.onclick=function(e){e.stopPropagation(),o()},n.addEventListener("click",function(e){e.stopPropagation()}),e.addEventListener("click",function(t){t.target===e&&o()})}document.getElementById("indoforall-accounts-section")&&indoforall_adsVideosArray.forEach(e=>{let{imgSrc:t,videoSrc:n,videoThumbnailSrc:o}=e,i=document.createElement("div");i.classList.add("indoforall-ads-only-videos-div");let l,a,r=document.createElement("div");if(r.classList.add("indoforall-ads-only-img-div"),t)a=`\n            <img src=${t} alt="استقدام من اندونيسيا - اندو للجميع" title="استقدام من اندونيسيا - اندو للجميع" onclick="indoforall_show_full_screen_image(this.src)" srcset="${t} 480w, ${t} 768w, ${t} 1200w" sizes="(max-width: 768px) 100vw, 50vw" loading="lazy">\n        `,r.innerHTML=a,document.getElementById("indoforall-ads-videos-and-img-div").appendChild(r);else if(n){l=`\n                <img src=${o} alt="استقدام من اندونيسيا - اندو للجميع"  title="استقدام من اندونيسيا - اندو للجميع" class="indoforall-ads-thumbnail-img" srcset="${o} 480w, ${o} 768w, ${o} 1200w" sizes="(max-width: 768px) 100vw, 50vw" loading="lazy">\n                <video src=${n} controls title="استقدام من اندونيسيا - اندو للجميع" class="indoforall-ads-orignal-video" preload="metadata"></video>\n            `,i.innerHTML=l,document.getElementById("indoforall-ads-videos-and-img-div").appendChild(i);let e=document.getElementsByClassName("indoforall-ads-orignal-video"),t=document.getElementsByClassName("indoforall-ads-thumbnail-img");for(let n=0;n<e.length;n++)e[n].addEventListener("play",function(){for(let o=0;o<e.length;o++)o!==n&&(e[o].pause(),t[o].style.opacity=1);t[n].style.opacity=0})}});let scrollPosition=0,indoforall_showNavOptions=()=>{const e=document.getElementById("indoforall-nav-options");scrollPosition=window.pageYOffset||document.documentElement.scrollTop,e.style.display="flex",setTimeout(()=>{e.classList.add("show"),e.style.pointerEvents="auto"},10),document.body.classList.add("nav-open"),document.body.style.overflow="hidden",document.body.style.position="fixed",document.body.style.top=`-${scrollPosition}px`,document.body.style.width="100%"},indoforall_hideNavOptions=()=>{const e=document.getElementById("indoforall-nav-options");e.classList.remove("show"),setTimeout(()=>{e.style.display="none",e.style.pointerEvents="none",document.body.classList.remove("nav-open"),document.body.style.overflow="",document.body.style.position="",document.body.style.top="",document.body.style.width="",window.scrollTo(0,scrollPosition)},400)};function initializeNavFunctionality(){const e=document.getElementById("indoforall-nav"),t=document.getElementById("indoforall-close-nav"),n=document.getElementById("indoforall-nav-options");if(!e||!t||!n)return;e.addEventListener("click",e=>{e.stopPropagation(),indoforall_showNavOptions()}),t.addEventListener("click",e=>{e.stopPropagation(),indoforall_hideNavOptions()}),document.addEventListener("click",o=>{const i=document.body.classList.contains("nav-open"),l=n.contains(o.target),a=e.contains(o.target),r=t.contains(o.target);!i||l||a||r||indoforall_hideNavOptions()}),document.addEventListener("keydown",e=>{"Escape"===e.key&&document.body.classList.contains("nav-open")&&indoforall_hideNavOptions()}),n.addEventListener("click",e=>{e.target===n&&e.stopPropagation()});n.querySelectorAll("a:not(#indoforall-close-nav)").forEach(e=>{e.addEventListener("click",e=>{e.stopPropagation()})})}function addBackgroundVideo(e,t){const n=document.getElementById(e);if(!n)return;const o=navigator.connection&&navigator.connection.saveData,i="function"==typeof window.matchMedia&&window.matchMedia("(max-width: 768px)").matches;if(o||i)return;if(n.querySelector("video"))return;const l=document.createElement("video");Object.assign(l,{src:t,autoplay:!0,loop:!0,muted:!0,playsInline:!0}),Object.assign(l.style,{position:"absolute",top:"0",left:"0",width:"100%",height:"100%",objectFit:"cover",zIndex:"-1",opacity:"0",pointerEvents:"none",transition:"opacity 2s ease-in-out"}),n.style.position="relative",n.prepend(l),setTimeout(()=>{l.style.opacity="0.3"},500)}async function insertNewClick(e){const t=new Date,n=["january","february","march","april","may","june","july","august","september","october","november","december"][t.getMonth()],o=t.getFullYear(),{data:i,error:l}=await supabase.from("click_counter").select("*").eq("website",e).single();if(l)return console.error("Error fetching data:",l.message),[];let a=i[n]||[];if("string"==typeof a)try{a=JSON.parse(a)}catch{a=[]}a=a.map(e=>"object"==typeof e&&null!==e?`Clicks ${e.clicks} - ${e.year}`:e);let r=a.findIndex(e=>e.includes(`- ${o}`));if(-1!==r){let e=a[r].match(/Clicks (\d+) - (\d+)/),t=(e?parseInt(e[1],10):0)+1;a[r]=`Clicks ${t} - ${o}`}else a.push(`Clicks 1 - ${o}`);const{error:d}=await supabase.from("click_counter").update({[n]:a}).eq("website",e);return d?(console.error("Error updating value:",d.message),[]):a}"loading"===document.readyState?document.addEventListener("DOMContentLoaded",initializeNavFunctionality):initializeNavFunctionality(),addBackgroundVideo("indoforall-intro-section","استقدام-من-اندونيسيا.mp4");const flags=["استقدام-الى-دول-الخليج/استقدام-الى-السعودية.webp","استقدام-الى-دول-الخليج/استقدام-الى-قطر.webp","استقدام-الى-دول-الخليج/استقدام-الى-عمان.webp","استقدام-الى-دول-الخليج/استقدام-الى-البحرين.webp","استقدام-الى-دول-الخليج/استقدام-الى-الامارات.webp"],container=document.getElementById("indoforall-orbit-container-id"),total=flags.length;function enableMouseGradient(e=".indoforall-mouse-gradient"){document.querySelectorAll(e).forEach(e=>{let t,n=50,o=50,i=50,l=50;e.style.boxShadow=`${.5*(i-50)}px ${.5*(l-50)}px 25px rgba(255,255,255,0.2)`,e.style.backgroundPosition=`${n}% ${o}%`,e.style.backgroundSize=`${120+.3*(i-50)}% ${120+.3*(l-50)}%`;const a=()=>{n+=.2*(i-n),o+=.2*(l-o),e.style.backgroundImage=`radial-gradient(circle at ${n}% ${o}%, rgba(255,255,255,0.25) 0%, transparent 40%)`,t=requestAnimationFrame(a)};e.addEventListener("mousemove",n=>{const o=e.getBoundingClientRect();i=(n.clientX-o.left)/o.width*100,l=(n.clientY-o.top)/o.height*100,t||(t=requestAnimationFrame(a))}),e.addEventListener("mouseleave",()=>{i=50,l=50})})}flags.forEach((e,t)=>{const n=360/total*t,o=document.createElement("div");o.className="indoforall-orbit-flag",o.style.animationDelay=`-${20/total*t}s`;const i=document.createElement("img");i.src=e,i.alt=`Flag ${t}`,o.appendChild(i),o.style.transform=`rotate(${n}deg)`,container.appendChild(o)}),document.addEventListener("DOMContentLoaded",()=>{enableMouseGradient()});const animatedElements=document.querySelectorAll(".animate-on-scroll");function animateOnScroll(){const e=.9*window.innerHeight;animatedElements.forEach(t=>{const n=t.getBoundingClientRect();n.top+n.height/2<e&&t.classList.add("in-view")})}async function indoforall_whatsApp(){await insertNewClick("indoforall.com");let e="https://wa.me/+966544386245";/iPad|iPhone|iPod/.test(navigator.userAgent)||"MacIntel"===navigator.platform&&navigator.maxTouchPoints>1?window.location.href=e:window.open(e,"_blank")}function indoforall_gmail(){window.location.href="mailto:info@indoforall.com"}function indoforall_location(){let e="https://www.google.com/maps?q="+encodeURIComponent("Jl. Mandalawangi No.7, RT.04/RW.04, Babakan, Kecamatan Bogor Tengah, Kota Bogor, Jawa Barat 16128");window.open(e,"_blank")}window.addEventListener("scroll",animateOnScroll),window.addEventListener("resize",animateOnScroll),document.addEventListener("DOMContentLoaded",animateOnScroll);
+// Comment notification: email is sent via Netlify Function (/.netlify/functions/send-comment-email)
+// which uses BREVO_API_KEY from Netlify environment variables (never exposed to the client).
+async function sendBrevoCommentNotification(payload) {
+    try {
+        const res = await fetch("/.netlify/functions/send-comment-email", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                userName: payload.userName,
+                userCommentText: payload.userCommentText,
+                userStarRate: payload.userStarRate,
+                userWhatsAppNumber: payload.userWhatsAppNumber || "",
+            }),
+        });
+        if (!res.ok) {
+            const err = await res.json().catch(() => ({}));
+            console.warn("Comment email send failed:", res.status, err);
+        }
+    } catch (e) {
+        console.warn("Comment email error:", e);
+    }
+}
+
+// Wait for Supabase library to load and initialize client
+(function () {
+    const supabaseUrl = "https://dkerfetnaquggtlpicul.supabase.co";
+    const supabaseKey =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRrZXJmZXRuYXF1Z2d0bHBpY3VsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY3ODY5MDUsImV4cCI6MjA2MjM2MjkwNX0.GMEkAcx_SWTjV_TdlhQNXzIzh9mDM_L2h8SaLXllQsw"; // truncated for safety
+
+    function initSupabase() {
+        // The CDN exposes supabase library - access it from window
+        if (window.supabase && typeof window.supabase.createClient === "function") {
+            // Create client and store it
+            const client = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+            // Store client on window for backup access
+            window.supabaseClient = client;
+
+            // Replace window.supabase with the client (the library is no longer needed)
+            // This makes 'supabase' available globally as the client
+            window.supabase = client;
+        } else {
+            // Retry if library not loaded yet
+            setTimeout(initSupabase, 50);
+        }
+    }
+
+    // Start initialization
+    initSupabase();
+})();
+
+// Global floating toast notification
+(function () {
+    let toastContainer = null;
+    let activeToast = null;
+    let hideTimeoutId = null;
+
+    function createToastContainer() {
+        toastContainer = document.createElement("div");
+        toastContainer.id = "indoforall-toast-container";
+        document.body.appendChild(toastContainer);
+        return toastContainer;
+    }
+
+    function smoothHideToastInstance(toast) {
+        if (!toast) return;
+
+        // Cancel any auto-hide timeout
+        if (hideTimeoutId) {
+            clearTimeout(hideTimeoutId);
+            hideTimeoutId = null;
+        }
+
+        toast.style.transition = "transform 0.2s ease-out, opacity 0.2s ease-out";
+        toast.style.transform = "translateY(-20px)";
+        toast.style.opacity = "0";
+
+        setTimeout(() => {
+            if (toast.parentElement) {
+                toast.parentElement.removeChild(toast);
+            }
+            if (activeToast === toast) {
+                activeToast = null;
+            }
+        }, 220);
+    }
+
+    function hideActiveToast() {
+        if (!activeToast) return;
+        smoothHideToastInstance(activeToast);
+    }
+
+    function attachSwipeToDismiss(toast) {
+        let startX = 0;
+        let startY = 0;
+        let isDragging = false;
+        let dominantAxis = null; // 'x' for horizontal, 'y' for vertical (up only)
+
+        const onStart = (clientX, clientY) => {
+            startX = clientX;
+            startY = clientY;
+            isDragging = true;
+            dominantAxis = null;
+            toast.style.transition = "none";
+        };
+
+        const onMove = (clientX, clientY) => {
+            if (!isDragging) return;
+            let deltaX = clientX - startX;
+            let deltaY = clientY - startY;
+
+            // Determine dominant axis based on initial movement
+            if (!dominantAxis) {
+                const absX = Math.abs(deltaX);
+                const absY = Math.abs(deltaY);
+                if (absX > absY) {
+                    dominantAxis = "x";
+                } else if (absY > absX && deltaY < 0) {
+                    // Only allow vertical movement upwards
+                    dominantAxis = "y";
+                } else {
+                    // If first movement is downward, ignore until user moves horizontally or upwards
+                    return;
+                }
+            }
+
+            if (dominantAxis === "x") {
+                // Horizontal only
+                deltaY = 0;
+            } else if (dominantAxis === "y") {
+                // Vertical only, upwards; clamp to prevent dragging down
+                deltaX = 0;
+                deltaY = Math.min(0, deltaY);
+            }
+
+            toast.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+            const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+            const opacity = Math.max(0, 1 - distance / 200);
+            toast.style.opacity = String(opacity);
+        };
+
+        const onEnd = (clientX, clientY) => {
+            if (!isDragging) return;
+            isDragging = false;
+            let deltaX = clientX - startX;
+            let deltaY = clientY - startY;
+            let shouldDismiss = false;
+
+            if (dominantAxis === "x") {
+                deltaY = 0;
+                const distance = Math.abs(deltaX);
+                shouldDismiss = distance > 80;
+            } else if (dominantAxis === "y") {
+                deltaX = 0;
+                deltaY = Math.min(0, deltaY);
+                // Make vertical swipe-up easier to trigger: small upward swipe is enough
+                const distanceUp = Math.abs(deltaY);
+                shouldDismiss = distanceUp > 30;
+            }
+
+            // Smooth dismiss in swipe direction
+            if (shouldDismiss) {
+                // Cancel any auto-hide timeout
+                if (hideTimeoutId) {
+                    clearTimeout(hideTimeoutId);
+                    hideTimeoutId = null;
+                }
+
+                toast.style.transition = "transform 0.2s ease-out, opacity 0.2s ease-out";
+
+                // Push a bit further in the swipe direction
+                const factor = 1.5;
+                const targetX = deltaX * factor;
+                const targetY = deltaY * factor;
+
+                toast.style.transform = `translate(${targetX}px, ${targetY}px)`;
+                toast.style.opacity = "0";
+
+                setTimeout(() => {
+                    if (toast.parentElement) {
+                        toast.parentElement.removeChild(toast);
+                    }
+                    if (activeToast === toast) {
+                        activeToast = null;
+                    }
+                }, 220);
+            } else {
+                // Snap back smoothly
+                toast.style.transition = "";
+                toast.style.transform = "";
+                toast.style.opacity = "1";
+            }
+        };
+
+        toast.addEventListener("mousedown", (e) => {
+            onStart(e.clientX, e.clientY);
+        });
+
+        toast.addEventListener("mousemove", (e) => {
+            if (!isDragging) return;
+            onMove(e.clientX, e.clientY);
+        });
+
+        toast.addEventListener("mouseup", (e) => {
+            onEnd(e.clientX, e.clientY);
+        });
+
+        toast.addEventListener("mouseleave", (e) => {
+            if (!isDragging) return;
+            onEnd(e.clientX, e.clientY);
+        });
+
+        toast.addEventListener(
+            "touchstart",
+            (e) => {
+                const touch = e.touches[0];
+                onStart(touch.clientX, touch.clientY);
+            },
+            { passive: true }
+        );
+
+        toast.addEventListener(
+            "touchmove",
+            (e) => {
+                if (!isDragging) return;
+                const touch = e.touches[0];
+                onMove(touch.clientX, touch.clientY);
+            },
+            { passive: true }
+        );
+
+        toast.addEventListener("touchend", (e) => {
+            const touch = e.changedTouches[0];
+            onEnd(touch.clientX, touch.clientY);
+        });
+    }
+
+    window.showToastMessage = function (message, durationMs) {
+        if (!toastContainer) {
+            toastContainer = createToastContainer();
+        }
+
+        // Clear any existing timeout and toast
+        if (hideTimeoutId) {
+            clearTimeout(hideTimeoutId);
+            hideTimeoutId = null;
+        }
+        if (activeToast) {
+            hideActiveToast();
+        }
+
+        const toast = document.createElement("div");
+        toast.className = "indoforall-toast";
+
+        const textSpan = document.createElement("span");
+        textSpan.className = "indoforall-toast__text";
+        textSpan.textContent = message;
+
+        const closeBtn = document.createElement("button");
+        closeBtn.className = "indoforall-toast__close";
+        closeBtn.setAttribute("aria-label", "إغلاق التنبيه");
+        closeBtn.innerHTML = "&times;";
+        closeBtn.onclick = () => {
+            smoothHideToastInstance(toast);
+        };
+
+        toast.appendChild(textSpan);
+        toast.appendChild(closeBtn);
+
+        toastContainer.appendChild(toast);
+        activeToast = toast;
+
+        attachSwipeToDismiss(toast);
+
+        // Force reflow then show
+        void toast.offsetHeight;
+        toast.classList.add("indoforall-toast--visible");
+
+        if (typeof durationMs === "number" && durationMs > 0) {
+            hideTimeoutId = setTimeout(() => {
+                hideActiveToast();
+            }, durationMs);
+        }
+    };
+})();
+
+// Scroll event handler
+function handleScroll() {
+    const currentScrollPosition = window.scrollY;
+    const header = document.getElementById("indoforall-header");
+
+    if (currentScrollPosition > lastScrollPosition) {
+        // Scrolling down
+        header.classList.add("hidden");
+    } else {
+        // Scrolling up
+        header.classList.remove("hidden");
+    }
+
+    lastScrollPosition = currentScrollPosition;
+}
+
+// Attach scroll event initially
+let lastScrollPosition = 0;
+window.addEventListener("scroll", handleScroll);
+
+/* Create An Array of Different Worker Types Cards Data */
+let indoforall_homeWorkerArray = [
+    {
+        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-1.webp",
+    },
+
+    {
+        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-2.webp",
+    },
+
+    {
+        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-3.webp",
+    },
+
+    {
+        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-4.webp",
+    },
+
+    {
+        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-5.webp",
+    },
+
+    {
+        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-6.webp",
+    },
+
+    {
+        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-7.webp",
+    },
+
+    {
+        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-8.webp",
+    },
+
+    {
+        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-9.webp",
+    },
+
+    {
+        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-10.webp",
+    },
+
+    {
+        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-11.webp",
+    },
+
+    {
+        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-12.webp",
+    },
+
+    {
+        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-13.webp",
+    },
+
+    {
+        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-14.webp",
+    },
+
+    {
+        workerImg: "استقدام-عمالة-منزلية/استقدام-عمالة-منزلية-15.webp",
+    },
+];
+let indoforall_driveWorkerArray = [];
+let indoforall_hairWorkerArray = [
+    {
+        workerImg: "استقدام-كوفيرة/استقدام-كوفيرة-1.webp",
+    },
+
+    {
+        workerImg: "استقدام-كوفيرة/استقدام-كوفيرة-2.webp",
+    },
+];
+let indoforall_sewingWorkerArray = [
+    {
+        workerImg: "استقدام-خياطة/استقدام-خياطة-1.webp",
+    },
+
+    {
+        workerImg: "استقدام-خياطة/استقدام-خياطة-2.webp",
+    },
+
+    {
+        workerImg: "استقدام-خياطة/استقدام-خياطة-3.webp",
+    },
+];
+let indoforall_doctorWorkerArray = [];
+
+/* Create An Array of Questions With Their Answers Data */
+let indoforall_questionAndAnswerArray = [
+    {
+        questionText: "كيف يتم اختيار العمالة المناسبة؟",
+        answerText: "يتم عن طريق الفيديوهات المرسلة ثم التواصل معنا أو عن طريق التواصل مع العمالة بشكل مباشر.",
+    },
+
+    {
+        questionText: "هل لابد من وجود تاشيرة لبدا اجراءات الاستقدام؟",
+        answerText: "التاشيرة هي اساس عملية الاستقدام ولايمكن عمل اي اجراء قبل استخراج التاشيرة.",
+    },
+
+    {
+        questionText: "ماهي متطلبات استخراج التاشيرة؟",
+        answerText: "ان يكون لديك رقم نفاذ وطني.",
+    },
+
+    {
+        questionText: "كيف يتم استخراج التاشيرة؟",
+        answerText: "يتم استخراج تاشيرات العمالة بشكل الكتروني.",
+    },
+
+    {
+        questionText: "ماهي الحالات التي يتم فيها تعويض العميل خلال فترة الضمان؟",
+        answerText: "رفض العمل - الهروب - الحمل.",
+    },
+
+    {
+        questionText: "ماهي التعويض الذي نقدمه للعميل؟",
+        answerText: "التعويض يتم عن طريق استبدال العاملة فقط في خلال فترة الضمان (3 شهور).",
+    },
+
+    {
+        questionText: "ماهي مدة وصول العاملة",
+        answerText: "تختلف على حسب نوع الفيزا وغالبا تتراوح المدة من 12 الى 14 يوم.",
+    },
+
+    {
+        questionText: "كيف يتم اشعار العميل بوقت وصول العاملة؟",
+        answerText: "يتم اشعار العميل عن طريق الواتس اب وإرسال له تذكرة السفر لموعد وصول العاملة.",
+    },
+
+    {
+        questionText: "كيف يمكننا ارسال المبلغ لكم؟",
+        answerText: "عن طريق التحويل بالبنك.",
+    },
+    {
+        questionText: "ماهي طريقة تجديد الفيزا؟",
+        answerText: "عن طريق موقع ابشر أو عن طريق الجوازات.",
+    },
+    {
+        questionText: "ماهو مبلغ تجديد الفيزا؟",
+        answerText: "مية ريال سعودي شهريا.",
+    },
+    {
+        questionText: "هل استطيع تحويل فيزة الزيارة الى إقامة؟",
+        answerText: "نعم، يتم عن طريق الوزارة الداخلية اونلاين.",
+    },
+];
+
+/* Create An Array of Proof Videos Data */
+let indoforall_proofVideosArray = [
+    {
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-1.webp",
+    },
+
+    {
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-2.webp",
+    },
+
+    {
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-3.webp",
+    },
+
+    {
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-4.webp",
+    },
+
+    {
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-5.webp",
+    },
+
+    {
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-6.webp",
+    },
+
+    {
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-7.webp",
+    },
+
+    {
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-8.webp",
+    },
+
+    {
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-9.webp",
+    },
+
+    {
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-10.webp",
+    },
+
+    {
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-11.webp",
+    },
+
+    {
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-12.webp",
+    },
+
+    {
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-13.webp",
+    },
+
+    {
+        imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-14.webp",
+    },
+];
+
+/* Array For Ads Videos/Images Use Only (imgSrc - videoSrc - videoThumbnailSrc) Words */
+let indoforall_adsVideosArray = [
+    {
+        imgSrc: "استقدام-من-اندونيسيا/استقدام-عمالة-اندونيسية.webp",
+    },
+
+    {
+        videoSrc: "استقدام-اندونيسيا/استقدام-من-اندونيسيا.mp4",
+        videoThumbnailSrc: "استقدام-اندونيسيا/استقدام-من-اندونيسيا.webp",
+    },
+
+    {
+        imgSrc: "استقدام-اندونيسيا/استقدام-من-اندونيسيا.webp",
+    },
+];
+
+// Function to update header height CSS custom property and intro section height
+function updateHeaderHeight() {
+    const header = document.querySelector("header");
+    const introSection = document.querySelector(".intro-section");
+
+    if (header) {
+        const headerHeight = header.offsetHeight;
+        document.documentElement.style.setProperty("--header-height", `${headerHeight}px`);
+
+        // Also directly set the intro section height as a fallback
+        if (introSection) {
+            const windowHeight = window.innerHeight;
+            const newHeight = windowHeight - headerHeight;
+            introSection.style.height = `${newHeight}px`;
+            introSection.style.minHeight = `${newHeight}px`;
+        }
+    }
+}
+
+updateHeaderHeight();
+
+// Function to initialize intro section with images from JSON data
+function initializeIntroSection() {
+    const headlines = document.querySelectorAll(
+        "#indoforall-web-intro-1, #indoforall-web-intro-3, .indoforall-web-intro-contact-us, #indoforall-website-guidance-text, #indoforall-request-worker-now-button, #indoforall-orbit-container-id"
+    );
+    const scrollHint = document.getElementById("scrollHint");
+
+    setTimeout(() => {
+        let delay = 0;
+        const duration = 600; // ms, should match your CSS transition duration
+
+        headlines.forEach((headline, idx) => {
+            setTimeout(() => {
+                headline.classList.add("active", "in-view");
+            }, delay);
+            delay += duration;
+        });
+
+        // Animate scrollHint after all headlines
+        setTimeout(() => {
+            if (scrollHint) scrollHint.classList.add("active");
+            // Animate scroll-note-btn after all
+            const scrollNoteBtn = document.getElementById("scroll-note-btn");
+            if (scrollNoteBtn) {
+                setTimeout(() => {
+                    scrollNoteBtn.classList.add("active", "in-view");
+                }, duration);
+            }
+        }, delay);
+    }, 600);
+
+    // Return cleanup function
+    return () => {
+        // No interval to clear, so nothing needed here
+    };
+}
+
+initializeIntroSection();
+
+/* Function For Showing Full Screen Images */
+function indoforall_show_full_screen_image(src) {
+    // Disable scrolling
+    document.documentElement.style.overflow = "hidden";
+
+    /* Create A Div To Contain The Big Image or Video */
+    let FullScreenImgOverlay = document.createElement("div");
+    FullScreenImgOverlay.classList.add("indoforall-full-screen-img-overlay");
+
+    /* Create A Button To Exit The Big Image or Video Page */
+    let fullScreenOverlayExitButton = document.createElement("a");
+    fullScreenOverlayExitButton.classList.add("indoforall-full-screen-overlay-exit-button");
+    fullScreenOverlayExitButton.innerText = "";
+    fullScreenOverlayExitButton.style.zIndex = "1000"; // Ensure the exit button is above the overlay
+
+    /* Create a container to hold the image with a label-style exit button */
+    let FullScreenImgContainer = document.createElement("div");
+    FullScreenImgContainer.classList.add("indoforall-full-screen-img-container");
+
+    /* Create The Big Image Element Based on The 'src' Value */
+    let FullScreenImg = document.createElement("img");
+    FullScreenImg.src = src;
+    FullScreenImg.srcset = `${src} 480w, ${src} 768w, ${src} 1200w`;
+    FullScreenImg.sizes = "(max-width: 768px) 100vw, 50vw";
+    FullScreenImg.loading = "lazy";
+    FullScreenImg.alt = "استقدام من اندونيسيا - اندو للجميع";
+    FullScreenImg.title = "استقدام من اندونيسيا - اندو للجميع";
+    FullScreenImg.classList.add("indoforall-big-img");
+
+    /* Append Image and Exit Button into the container */
+    FullScreenImgContainer.appendChild(FullScreenImg);
+    FullScreenImgContainer.appendChild(fullScreenOverlayExitButton);
+
+    /* Append container to the overlay */
+    FullScreenImgOverlay.appendChild(FullScreenImgContainer);
+
+    /* Append FullScreenImgOverlay to the body */
+    document.body.appendChild(FullScreenImgOverlay);
+
+    // Add "show" class to trigger fade-in animation
+    setTimeout(() => {
+        FullScreenImgOverlay.classList.add("show");
+    }, 10);
+
+    // Unified close routine (fade-out then remove)
+    function closeFullScreenImage() {
+        // Re-enable scrolling
+        document.documentElement.style.overflow = "auto";
+
+        // Remove "show" class to trigger fade-out animation
+        FullScreenImgOverlay.classList.remove("show");
+
+        // Wait for the animation to complete before removing the element
+        setTimeout(() => {
+            if (document.body.contains(FullScreenImgOverlay)) {
+                FullScreenImgOverlay.remove();
+            }
+        }, 500); // Matches the CSS transition duration
+    }
+
+    // Close on X button (and don't bubble to overlay)
+    fullScreenOverlayExitButton.onclick = function (e) {
+        e.stopPropagation();
+        closeFullScreenImage();
+    };
+
+    // Prevent clicking inside the image/container from closing
+    FullScreenImgContainer.addEventListener("click", function (e) {
+        e.stopPropagation();
+    });
+
+    // Close when clicking the dark overlay background
+    FullScreenImgOverlay.addEventListener("click", function (e) {
+        if (e.target === FullScreenImgOverlay) {
+            closeFullScreenImage();
+        }
+    });
+}
+
+indoforall_craeteRequestWorkerMessage = function () {
+    // Disable scrolling
+    document.documentElement.style.overflow = "hidden";
+
+    // Create The Filter Worker Type Data Content
+    let filterWorkerTypeDataDivOverlay = document.createElement("div");
+    filterWorkerTypeDataDivOverlay.id = "indoforall-filter-worker-type-overlay";
+
+    let filterWorkerTypeDataDiv = document.createElement("div");
+    filterWorkerTypeDataDiv.id = "indoforall-filter-worker-type-div";
+
+    let filterWorkerTypeDataContent = document.createElement("div");
+    filterWorkerTypeDataContent.id = "indoforall-filter-worker-type-content";
+    filterWorkerTypeDataContent.innerHTML = `
+        <div id='indoforall-filter-worker-type-title'>
+            <h3>طلب استقدام</h3>
+        </div>
+        <div id="indoforall-filter-worker-work-type">
+            <h3>اختار نوع العمالة</h3>
+            <div id="indoforall-filter-worker-work-type-options">
+                <h4 onclick="indoforall_chooseWorkerTypeDataFunction('home')">عاملة منزلية</h4>
+                <h4 onclick="indoforall_chooseWorkerTypeDataFunction('driver')">سائق خاص</h4>
+                <h4 onclick="indoforall_chooseWorkerTypeDataFunction('hair')">كوفيرة</h4>
+                <h4 onclick="indoforall_chooseWorkerTypeDataFunction('sewing')">خياطة</h4>
+                <h4 onclick="indoforall_chooseWorkerTypeDataFunction('nurse')">ممرضة</h4>
+                <h4 onclick="indoforall_whatsApp()">خيارات اخرى؟ تواصل معنا</h4>
+            </div>
+        </div>
+        <div id="indoforall-submit-filter-worker-type">
+            <h5 class="indoforall-cancel-worker-data-message-button">إلغاء</h5>
+        </div>
+    `;
+
+    // Append the elements
+    filterWorkerTypeDataDiv.appendChild(filterWorkerTypeDataContent);
+    filterWorkerTypeDataDivOverlay.appendChild(filterWorkerTypeDataDiv);
+    document.body.appendChild(filterWorkerTypeDataDivOverlay);
+
+    // Show overlay and content with animation
+    setTimeout(() => {
+        filterWorkerTypeDataDivOverlay.classList.add("show");
+        filterWorkerTypeDataDiv.classList.add("show");
+    }, 10);
+
+    /* Call a function to apply the hovering background text functionality */
+    enableMouseGradient();
+
+    const closeFilterWorkerOverlaySmoothly = () => {
+        filterWorkerTypeDataDiv.classList.remove("show");
+        filterWorkerTypeDataDivOverlay.classList.remove("show");
+
+        // Wait for animation to complete before removing the overlay
+        setTimeout(() => {
+            document.documentElement.style.overflow = "auto";
+            if (document.body.contains(filterWorkerTypeDataDivOverlay)) {
+                document.body.removeChild(filterWorkerTypeDataDivOverlay);
+            }
+        }, 500); // Matches the CSS transition duration in CSS
+    };
+
+    // Close overlay on cancel button click
+    document.querySelectorAll(".indoforall-cancel-worker-data-message-button").forEach((button) => {
+        button.onclick = closeFilterWorkerOverlaySmoothly;
+    });
+
+    // Close overlay when clicking outside the modal content
+    filterWorkerTypeDataDivOverlay.addEventListener("click", (event) => {
+        if (event.target === filterWorkerTypeDataDivOverlay) {
+            closeFilterWorkerOverlaySmoothly();
+        }
+    });
+
+    /* Function To Filter And Create The Worker Type Data Content */
+    indoforall_chooseWorkerTypeDataFunction = function (workerTypeName) {
+        /* Save The Text Based on The workerType Value */
+        let workerTypeNameVariable;
+
+        /* Save The clicked City Type in This Variable */
+        let indoforall_filterWorkerCityType;
+
+        /* Based on The Passed 'workerTypeName' Value Set The Name of Worker Type Data */
+        if (workerTypeName === "home") {
+            workerTypeNameVariable = "عاملة منزلية";
+            indoforall_filterWorkerCityType = `
+            <h3>السعر</h3>
+                <h4>استقدام عاملة منزلية = 17,000 ريال سعودي</h4>
+            `;
+        } else if (workerTypeName === "driver") {
+            workerTypeNameVariable = "سائق خاص";
+            indoforall_filterWorkerCityType = `
+                <h3>السعر</h3>
+                <h4>استقدام سائق خاص = 11,500 ريال سعودي</h4>
+            `;
+        } else if (workerTypeName === "hair") {
+            workerTypeNameVariable = "كوفيرة";
+            indoforall_filterWorkerCityType = `
+                <h3>السعر</h3>
+                <h4>فيزة عمالة مهنية = 17,000 ريال سعودي</h4>
+            `;
+        } else if (workerTypeName === "sewing") {
+            workerTypeNameVariable = "خياطة";
+            indoforall_filterWorkerCityType = `
+                <h3>السعر</h3>
+                <h4>فيزة عمالة مهنية = 17,000 ريال سعودي</h4>
+            `;
+        } else if (workerTypeName === "nurse") {
+            workerTypeNameVariable = "ممرضة";
+            indoforall_filterWorkerCityType = `
+                <h3>السعر</h3>
+                <h4>فيزة عمالة مهنية = 17,000 ريال سعودي</h4>
+            `;
+        }
+
+        /* Create Filter Worker Type Data Content with smooth fade-in */
+        filterWorkerTypeDataContent.innerHTML = `
+            <div id='indoforall-filter-worker-type-title'>
+                <h3>طلب استقدام ${workerTypeNameVariable}</h3>
+            </div>
+
+            <div id="indoforall-filter-worker-visa-type"></div>
+
+            <div id="indoforall-filter-worker-city-type">
+                <h3>طلب إستقدام الى</h3>
+                <textarea placeholder="إسم المدينة" maxlength="30"></textarea>
+            </div>
+
+            <div id="indoforall-submit-filter-worker-type">
+                <h5 class="indoforall-send-worker-data-message-button" class="indoforall-mouse-gradient" onclick="indoforall_workerTypeWhatsAppMessageFunction()">إرسال</h5>
+                <h5 class="indoforall-cancel-worker-data-message-button">إلغاء</h5>
+            </div>
+        `;
+
+        // Trigger smooth fade-in for the updated content
+        filterWorkerTypeDataContent.style.opacity = "0";
+        setTimeout(() => {
+            filterWorkerTypeDataContent.style.opacity = "1";
+        }, 10);
+
+        /* Append The Elements in Each Other */
+        filterWorkerTypeDataDiv.appendChild(filterWorkerTypeDataContent);
+        filterWorkerTypeDataDivOverlay.appendChild(filterWorkerTypeDataDiv);
+        document.body.appendChild(filterWorkerTypeDataDivOverlay);
+        document.getElementById("indoforall-filter-worker-visa-type").innerHTML = indoforall_filterWorkerCityType; // Update this line
+
+        /* Call a function to apply the hovering background text functionality */
+        enableMouseGradient();
+
+        /* Re-enable Scrolling And Remove The 'filterWorkerTypeDataDivOverlay' Element */
+        document.querySelectorAll(".indoforall-cancel-worker-data-message-button").forEach((button) => {
+            button.onclick = function () {
+                // Re-enable Scrolling
+                document.documentElement.style.overflow = "auto";
+
+                // Remove 'show' class to trigger fade-out animation
+                filterWorkerTypeDataDiv.classList.remove("show");
+                filterWorkerTypeDataDivOverlay.classList.remove("show");
+
+                /// Wait for animation to complete before removing the overlay
+                setTimeout(() => {
+                    document.documentElement.style.overflow = "auto";
+                    document.body.removeChild(filterWorkerTypeDataDivOverlay);
+                }, 500); // Matches the CSS transition duration
+            };
+        });
+
+        /* Function To Create Final WhatsApp Message Based on Worker Type Data Selected */
+        indoforall_workerTypeWhatsAppMessageFunction = function () {
+            // Get the text from the textarea
+            let cityName = document.querySelector("#indoforall-filter-worker-city-type textarea").value;
+
+            if (cityName === "") {
+                window.showToastMessage("يرجى التأكد من كتابة اسم المدينة", 2000);
+            } else {
+                // Get today's date
+                let today = new Date();
+                let formattedDate = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`;
+
+                // Create the final message with all the details
+                let finalMessage = `طلب جديد استقدام ${workerTypeNameVariable} من اندونيسيا\n`;
+                finalMessage += `تاريخ إرسال الطلب: ${formattedDate}\n\n`; // Add today's date
+
+                /* Based on The Passed 'workerTypeName' Value Set The Name of Worker Type Data */
+                if (workerTypeNameVariable === "عاملة منزلية") {
+                    finalMessage += `السعر: 17,000 ريال سعودي\n`;
+                } else if (workerTypeNameVariable === "سائق خاص") {
+                    finalMessage += `السعر: 11,500 ريال سعودي\n`;
+                } else {
+                    finalMessage += `نوع الفيزا: فيزة عمالة مهنية\n`;
+                    finalMessage += `السعر: 17,000 ريال سعودي\n`;
+                }
+
+                finalMessage += `استقدام الى: ${cityName}\n\n`;
+                finalMessage += `شركة استقدام اندو للجميع`;
+
+                // Encode the message using encodeURIComponent
+                let encodedMessage = encodeURIComponent(finalMessage);
+
+                // Create the WhatsApp URL
+                let whatsappURL = `https://wa.me/966544386245?text=${encodedMessage}`;
+
+                // Open WhatsApp in a new window
+                window.open(whatsappURL, "_blank");
+            }
+        };
+    };
+};
+
+/* Function for import all comments from google sheet */
+if (document.getElementById("indoforall-clint-rate-section") || document.getElementById("indoforall-proof-section")) {
+    document.getElementById("indoforall-comment-form").addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const button = document.getElementById("indoforall-comment-submit-button-id");
+
+        if (button.style.userSelect !== "none") {
+            // Disable button
+            button.style.userSelect = "none";
+            button.style.background = "gray";
+            button.innerText = "جاري النشر";
+
+            // Gather input
+            let reviewer_name = document.getElementById("indoforall-comment-username").value.trim();
+            let whatsapp = document.getElementById("indoforall-comment-whatsapp").value.trim();
+            let comment = document.getElementById("indoforall-comment-text").value.trim();
+            let stars = parseInt(document.getElementById("indoforall-comment-stars").value);
+            let review_date = new Date().toISOString().split("T")[0];
+
+            const newComment = {
+                review_date,
+                reviewer_name,
+                comment,
+                stars,
+                whatsapp: whatsapp || null,
+                status: "false",
+            };
+
+            try {
+                const column = "indoforall";
+
+                // Fetch existing array
+                const { data, error: fetchError } = await supabase
+                    .from("all_customers_comments")
+                    .select(column)
+                    .eq("id", 1)
+                    .single();
+
+                if (fetchError) throw fetchError;
+
+                const existingArray = data[column] || [];
+                const updatedArray = [newComment, ...existingArray]; // Add new comment on top
+
+                // Update table
+                const { error: updateError } = await supabase
+                    .from("all_customers_comments")
+                    .update({ [column]: updatedArray })
+                    .eq("id", 1);
+
+                if (updateError) throw updateError;
+
+                // Send Brevo email notification
+                await sendBrevoCommentNotification({
+                    userName: reviewer_name,
+                    userCommentText: comment,
+                    userStarRate: stars,
+                    userWhatsAppNumber: whatsapp || "",
+                });
+
+                document.getElementById("indoforall-comment-form").reset();
+                await fetchReviews(); // Reload reviews
+                window.showToastMessage("تم إرسال تعليقك بنجاح! شكراً لك.", 4000);
+            } catch (error) {
+                console.error("Error submitting comment:", error.message);
+            }
+
+            // Re-enable button
+            button.style.userSelect = "auto";
+            button.style.background = "linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102))";
+            button.innerText = "إرسال";
+        }
+    });
+
+    // Function to Fetch and Display Reviews
+    async function fetchReviews() {
+        try {
+            const column = "indoforall";
+
+            const { data, error } = await supabase.from("all_customers_comments").select(column).eq("id", 1).single();
+
+            if (error) throw error;
+
+            const reviews = data[column] || [];
+            // Only show comments with status === true (or legacy items without status for backward compatibility)
+            const visibleReviews = reviews.filter((item) => {
+                if (!item.comment || !item.comment.trim()) return false;
+                const status = item.status;
+                if (status === undefined || status === null) return true; // legacy: show if no status
+                return status === true || status === "true";
+            });
+
+            let user_clint_rate_area = document.getElementById("indoforall-clint-rate-area");
+            user_clint_rate_area.innerHTML = "";
+
+            visibleReviews.forEach((item) => {
+                const { review_date, reviewer_name, comment, stars } = item;
+
+                if (!comment.trim()) return;
+
+                let clintRateDiv = document.createElement("div");
+                clintRateDiv.classList.add("indoforall-rate-div");
+
+                clintRateDiv.innerHTML = `
+                <div class="indoforall-clint-rate-date-div">
+                    <h3>${review_date}</h3>
+                </div>
+                <div class="indoforall-clint-rate-info-div">
+                    <img src="استقدام-من-اندونيسيا.webp" alt="استقدام من اندونيسيا - اندو للجميع" title="استقدام من اندونيسيا - اندو للجميع">
+                    <h4>${reviewer_name}</h4>
+                </div>
+                <div class="indoforall-clint-rate-comment-div">
+                    <h5>${comment}</h5>
+                </div>
+                <div class="indoforall-clint-rate-star-div">
+                    ${"★".repeat(stars)}
+                </div>
+                `;
+
+                user_clint_rate_area.appendChild(clintRateDiv);
+            });
+
+            // Restore button
+            const button = document.getElementById("indoforall-comment-submit-button-id");
+            button.style.userSelect = "auto";
+            button.style.background = "linear-gradient(to top, rgb(106, 75, 31), rgb(194, 156, 102))";
+            button.innerText = "إرسال";
+        } catch (error) {
+            console.error("Error fetching reviews:", error.message);
+        }
+    }
+
+    // Fetch on load
+    fetchReviews();
+}
+
+/* ArrayName is the name of the Array of The Worker Type Button Clicked */
+if (document.getElementById("indoforall-choose-worker-type-section")) {
+    indoforall_createWorkerTypeDetalis = function (arrayName) {
+        /* Uinque Number For Each Card */
+        let cardCounter = 1;
+
+        // Clear existing content
+        document.getElementById("indoforall-worker-cards-div").innerHTML = "";
+
+        /* Make A Smooth Fade In When The 'indoforall_worker_details_text' Apear */
+        document.getElementById("indoforall-worker-details-text").style.opacity = "0";
+        document.getElementById("indoforall-worker-details-text").style.transition = "opacity 0.5s ease-in-out";
+        document.getElementById("indoforall-worker-details-text").style.opacity = "1";
+
+        // Remove existing indoforall_workerTypeMessageButton element if it exists
+        if (document.getElementById("indoforall-worker-type-message-button")) {
+            document.getElementById("indoforall-worker-type-message-button").remove();
+        }
+
+        /* Create The Book Worker Now Button in The Worker Details Section */
+        let indoforall_workerTypeMessageButton = document.createElement("a");
+        indoforall_workerTypeMessageButton.id = "indoforall-worker-type-message-button";
+        indoforall_workerTypeMessageButton.classList.add("indoforall-other-pages-link");
+        indoforall_workerTypeMessageButton.style.background =
+            "linear-gradient(to right, rgb(106, 75, 31), rgb(194, 156, 102))";
+
+        /* Check Which Button Has Clicked And Based On That Set The InnerText For The 'indoforall_worker_details_text' */
+        if (arrayName === indoforall_homeWorkerArray) {
+            document.getElementById("indoforall-worker-details-text").innerText = "استقدام عاملة منزلية من اندونيسيا";
+            indoforall_workerTypeMessageButton.innerHTML = "طلب استقدام عاملة منزلية";
+            indoforall_workerTypeMessageButton.onclick = function () {
+                indoforall_chooseWorkerTypeDataFunction("home");
+            };
+        } else if (arrayName === indoforall_driveWorkerArray) {
+            document.getElementById("indoforall-worker-details-text").innerText = "استقدام سائق الخاص من اندونيسيا";
+            indoforall_workerTypeMessageButton.innerHTML = "طلب استقدام سائق خاص";
+            indoforall_workerTypeMessageButton.onclick = function () {
+                indoforall_chooseWorkerTypeDataFunction("driver");
+            };
+        } else if (arrayName === indoforall_hairWorkerArray) {
+            document.getElementById("indoforall-worker-details-text").innerText = "استقدام كوفيرة من اندونيسيا";
+            indoforall_workerTypeMessageButton.innerHTML = "طلب استقدام كوفيرة";
+            indoforall_workerTypeMessageButton.onclick = function () {
+                indoforall_chooseWorkerTypeDataFunction("hair");
+            };
+        } else if (arrayName === indoforall_sewingWorkerArray) {
+            document.getElementById("indoforall-worker-details-text").innerText = "استقدام خياطة من اندونيسيا";
+            indoforall_workerTypeMessageButton.innerHTML = "طلب استقدام خياطة";
+            indoforall_workerTypeMessageButton.onclick = function () {
+                indoforall_chooseWorkerTypeDataFunction("sewing");
+            };
+        } else if (arrayName === indoforall_doctorWorkerArray) {
+            document.getElementById("indoforall-worker-details-text").innerText = "استقدام ممرضة من اندونيسيا";
+            indoforall_workerTypeMessageButton.innerHTML = "طلب استقدام ممرضة";
+            indoforall_workerTypeMessageButton.onclick = function () {
+                indoforall_chooseWorkerTypeDataFunction("nurse");
+            };
+        }
+
+        /* Append The Content of The Worker Type Title Text */
+        document.getElementById("indoforall-worker-details-text-div").appendChild(indoforall_workerTypeMessageButton);
+
+        // Apply fade-in animation
+        document.getElementById("indoforall-worker-detalis-section").style.opacity = "0";
+        document.getElementById("indoforall-worker-detalis-section").style.transition = "opacity 0.5s ease-in-out";
+        document.getElementById("indoforall-worker-detalis-section").style.display = "flex";
+
+        // Trigger reflow to ensure transition is applied
+        void document.getElementById("indoforall-worker-detalis-section").offsetWidth;
+
+        // Fade in the section
+        document.getElementById("indoforall-worker-detalis-section").style.opacity = "1";
+
+        // Loop through the array to create worker cards
+        arrayName.forEach((item) => {
+            let { workerImg } = item;
+
+            let workerCard = document.createElement("div");
+            workerCard.classList.add("indoforall-worker-type-card");
+
+            workerCard.innerHTML = `
+                <div onclick="indoforall_show_full_screen_image('${workerImg}')">
+                    <h2>${cardCounter}</h2>
+                    <img src=${workerImg} alt="استقدام من اندونيسيا - اندو للجميع" title="استقدام من اندونيسيا - اندو للجميع" srcset="${workerImg} 480w, ${workerImg} 768w, ${workerImg} 1200w" sizes="(max-width: 768px) 100vw, 50vw" loading="lazy">
+                </div>
+            `;
+
+            /* Append The 'workerCard' To the 'indoforall_worker_cards_div' */
+            document.getElementById("indoforall-worker-cards-div").appendChild(workerCard);
+
+            cardCounter++;
+        });
+
+        document.getElementById("indoforall-worker-details-text").scrollIntoView({
+            block: "center",
+            inline: "center",
+            behavior: "smooth",
+        });
+
+        // Add horizontal scrolling functionality
+        document.getElementById("indoforall-worker-cards-div").addEventListener("mousedown", function (event) {
+            if (event.button === 0) {
+                // Check if left mouse button is clicked
+                this.classList.add("grabbing"); // Add grabbing cursor style
+                this.dataset.scrollX = this.scrollLeft; // Store initial scrollLeft position
+                this.dataset.clientX = event.clientX; // Store initial clientX position
+
+                let onMouseMove = function (event) {
+                    let deltaX = event.clientX - parseInt(this.dataset.clientX); // Calculate delta X
+                    this.scrollLeft = parseInt(this.dataset.scrollX) - deltaX; // Adjust scrollLeft position
+                }.bind(this);
+
+                let onMouseUp = function () {
+                    this.classList.remove("grabbing"); // Remove grabbing cursor style
+                    window.removeEventListener("mousemove", onMouseMove); // Remove event listeners
+                    window.removeEventListener("mouseup", onMouseUp);
+                }.bind(this);
+
+                window.addEventListener("mousemove", onMouseMove); // Listen for mouse movement
+                window.addEventListener("mouseup", onMouseUp); // Listen for mouse release
+            }
+        });
+    };
+
+    /* Function To Create Filter Worker Type Data Message From Worker Details Button */
+    function indoforall_chooseWorkerTypeDataFunction(workerTypeName) {
+        // Disable scrolling
+        document.documentElement.style.overflow = "hidden";
+
+        /* Save The Text Based on The 'workerTypeName' Value */
+        let workerTypeNameVariable;
+
+        /* Based on The 'workerTypeName' Value Save The Content Inside This Variable */
+        let indoforall_filterWorkerCityType;
+
+        /* Based on The Passed 'workerTypeName' Value Set The Name of Worker Type Data */
+        if (workerTypeName === "home") {
+            workerTypeNameVariable = "عاملة منزلية";
+            indoforall_filterWorkerCityType = `
+            <h3>السعر</h3>
+            <h4>استقدام عاملة منزلية = 17,000 ريال سعودي</h4>
+        `;
+        } else if (workerTypeName === "driver") {
+            workerTypeNameVariable = "سائق خاص";
+            indoforall_filterWorkerCityType = `
+            <h3>السعر</h3>
+            <h4>استقدام سائق خاص = 11,500 ريال سعودي</h4>
+        `;
+        } else {
+            workerTypeNameVariable =
+                workerTypeName === "hair" ? "كوفيرة" : workerTypeName === "sewing" ? "خياطة" : "ممرضة";
+            indoforall_filterWorkerCityType = `
+            <h3>السعر</h3>
+            <h4>فيزة عمالة مهنية = 17,000 ريال سعودي</h4>
+        `;
+        }
+
+        /* Create The Filter Worker Type Data Content */
+        let filterWorkerTypeDataDivOverlay = document.createElement("div");
+        filterWorkerTypeDataDivOverlay.id = "indoforall-filter-worker-type-overlay";
+
+        let filterWorkerTypeDataDiv = document.createElement("div");
+        filterWorkerTypeDataDiv.id = "indoforall-filter-worker-type-div";
+
+        let filterWorkerTypeDataContent = document.createElement("div");
+        filterWorkerTypeDataContent.innerHTML = `
+            <div id='indoforall-filter-worker-type-title'>
+                <h3>طلب استقدام ${workerTypeNameVariable}</h3>
+            </div>
+
+            <div id="indoforall-filter-worker-visa-type"></div>
+
+            <div id="indoforall-filter-worker-city-type">
+                <h3>استقدام الى</h3>
+                <textarea placeholder="اسم المدينة" maxlength="30"></textarea>
+            </div>
+
+            <div id="indoforall-submit-filter-worker-type">
+                <h5 class="indoforall-send-worker-data-message-button" onclick="indoforall-workerTypeWhatsAppMessageFunction()">إرسال</h5>
+                <h5 class="indoforall-cancel-worker-data-message-button">إلغاء</h5>
+            </div>
+        `;
+
+        // Append the elements
+        filterWorkerTypeDataDiv.appendChild(filterWorkerTypeDataContent);
+        filterWorkerTypeDataDivOverlay.appendChild(filterWorkerTypeDataDiv);
+        document.body.appendChild(filterWorkerTypeDataDivOverlay);
+        document.getElementById("indoforall-filter-worker-visa-type").innerHTML = indoforall_filterWorkerCityType; // Update this line
+
+        // Show overlay and content with animation
+        setTimeout(() => {
+            filterWorkerTypeDataDivOverlay.classList.add("show");
+            filterWorkerTypeDataDiv.classList.add("show");
+        }, 10);
+
+        /* Re-enable Scrolling And Remove The 'filterWorkerTypeDataDivOverlay' Element */
+        document.querySelectorAll(".indoforall-cancel-worker-data-message-button").forEach((button) => {
+            button.onclick = function () {
+                // Remove 'show' class to trigger fade-out animation
+                filterWorkerTypeDataDiv.classList.remove("show");
+                filterWorkerTypeDataDivOverlay.classList.remove("show");
+
+                // Wait for animation to complete before removing the overlay
+                setTimeout(() => {
+                    document.documentElement.style.overflow = "auto";
+                    document.body.removeChild(filterWorkerTypeDataDivOverlay);
+                }, 500); // Matches the CSS transition duration
+            };
+        });
+
+        /* Function To Create Final WhatsApp Message Based on Worker Type Data Selected */
+        indoforall_workerTypeWhatsAppMessageFunction = function () {
+            // Get the text from the textarea
+            let cityName = document.querySelector("#indoforall-filter-worker-city-type textarea").value;
+
+            if (cityName === "") {
+                window.showToastMessage("يرجى التأكد من كتابة اسم المدينة", 2000);
+            } else {
+                // Get today's date
+                let today = new Date();
+                let formattedDate = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`;
+
+                // Create the final message with all the details
+                let finalMessage = `طلب جديد استقدام ${workerTypeNameVariable} من اندونيسيا\n`;
+                finalMessage += `تاريخ إرسال الطلب: ${formattedDate}\n\n`; // Add today's date
+
+                /* Based on The Passed 'workerTypeName' Value Set The Name of Worker Type Data */
+                if (workerTypeNameVariable === "عاملة منزلية") {
+                    finalMessage += `السعر: 17,000 ريال سعودي\n`;
+                } else if (workerTypeNameVariable === "سائق خاص") {
+                    finalMessage += `السعر: 11,500 ريال سعودي\n`;
+                } else {
+                    finalMessage += `نوع الفيزا: فيزة عمالة مهنية\n`;
+                    finalMessage += `السعر: 17,000 ريال سعودي\n`;
+                }
+
+                finalMessage += `استقدام الى: ${cityName}\n\n`;
+                finalMessage += `شركة استقدام اندو للجميع`;
+
+                // Encode the message using encodeURIComponent
+                let encodedMessage = encodeURIComponent(finalMessage);
+
+                // Create the WhatsApp URL
+                let whatsappURL = `https://wa.me/966544386245?text=${encodedMessage}`;
+
+                // Open WhatsApp in a new window
+                window.open(whatsappURL, "_blank");
+            }
+        };
+    }
+}
+
+/* In Case if The 'indoforall_price_section' Elemenet Exist Then Create The Following Code */
+if (document.getElementById("indoforall-price-section")) {
+    /* Function To Filter Worker Type Data Content */
+    indoforall_filterWorkerTypeBasedOnVisaFunction = function (
+        clickedWorkerVisaTypeTitle,
+        clickedWorkerVisaTypeMessage
+    ) {
+        // Disable scrolling
+        document.documentElement.style.overflow = "hidden";
+
+        /* Store The Clicked Worker Visa Type */
+        let clickedWorkerVisaTypeVariable = clickedWorkerVisaTypeTitle.innerText;
+
+        /* Store The Clicked Worker Visa Type */
+        let availableWorkerVisaTypeVariable;
+
+        /* Based on The Passed 'clickedWorkerVisaTypeMessage' Value Create A Spicific Content */
+        if (clickedWorkerVisaTypeMessage === "استقدام عاملة منزلية = 17,000 ريال سعودي") {
+            availableWorkerVisaTypeVariable = `
+                <h4 onclick="indoforall_filterWorkerTypeDataFunction('home', '${clickedWorkerVisaTypeMessage}')">عاملة منزلية</h4>
+                <h4 onclick="indoforall_filterWorkerTypeDataFunction('driver', 'استقدام سائق خاص = 7,000 ريال سعودي')">سائق خاص</h4>
+                <h4 onclick="indoforall_whatsApp()">خيارات اخرى؟ تواصل معنا</h4>
+            `;
+        } else if (clickedWorkerVisaTypeMessage === "استقدام سائق خاص = 11,500 ريال سعودي") {
+            availableWorkerVisaTypeVariable = `
+                <h4 onclick="indoforall_filterWorkerTypeDataFunction('driver', '${clickedWorkerVisaTypeMessage}')">سائق خاص</h4>
+                <h4 onclick="indoforall_whatsApp()">خيارات اخرى؟ تواصل معنا</h4>
+            `;
+        } else if (clickedWorkerVisaTypeMessage === "فيزة عمالة مهنية = 17,000 ريال سعودي") {
+            availableWorkerVisaTypeVariable = `
+                <h4 onclick="indoforall_filterWorkerTypeDataFunction('driver', '${clickedWorkerVisaTypeMessage}')">سائق خاص</h4>
+                <h4 onclick="indoforall_filterWorkerTypeDataFunction('hair', '${clickedWorkerVisaTypeMessage}')">كوفيرة</h4>
+                <h4 onclick="indoforall_filterWorkerTypeDataFunction('sewing', '${clickedWorkerVisaTypeMessage}')">خياطة</h4>
+                <h4 onclick="indoforall_filterWorkerTypeDataFunction('nurse', '${clickedWorkerVisaTypeMessage}')">ممرضة</h4>
+                <h4 onclick="indoforall_whatsApp()">خيارات اخرى؟ تواصل معنا</h4>
+            `;
+        }
+
+        /* Create The Filter Worker Type Data Content */
+        let filterWorkerTypeDataDivOverlay = document.createElement("div");
+        filterWorkerTypeDataDivOverlay.id = "indoforall-filter-worker-type-overlay";
+
+        let filterWorkerTypeDataDiv = document.createElement("div");
+        filterWorkerTypeDataDiv.id = "indoforall-filter-worker-type-div";
+
+        let filterWorkerTypeDataContent = document.createElement("div");
+        filterWorkerTypeDataContent.innerHTML = `
+            <div id='indoforall-filter-worker-type-title' class='indoforall-mouse-gradient'>
+                <h3>${clickedWorkerVisaTypeVariable}</h3>
+            </div>
+
+            <div id="indoforall-filter-worker-work-type">
+                <h3>اختار نوع العمالة</h3>
+
+                <div id="indoforall-filter-worker-work-type-options"></div>
+                
+            </div>
+
+            <div id="indoforall-submit-filter-worker-type">
+                <h5 class="indoforall-cancel-worker-data-message-button">إلغاء</h5>
+            </div>
+        `;
+
+        /* Append The Elements in Each Other */
+        filterWorkerTypeDataDiv.appendChild(filterWorkerTypeDataContent);
+        filterWorkerTypeDataDivOverlay.appendChild(filterWorkerTypeDataDiv);
+        document.body.appendChild(filterWorkerTypeDataDivOverlay);
+        document.getElementById("indoforall-filter-worker-work-type-options").innerHTML =
+            availableWorkerVisaTypeVariable;
+
+        // Show overlay and content with animation
+        setTimeout(() => {
+            filterWorkerTypeDataDivOverlay.classList.add("show");
+            filterWorkerTypeDataDiv.classList.add("show");
+        }, 10);
+
+        /* Call a function to apply the hovering background text functionality */
+        enableMouseGradient();
+
+        // Close overlay on cancel button click
+        document.querySelectorAll(".indoforall-cancel-worker-data-message-button").forEach((button) => {
+            button.onclick = function () {
+                // Remove 'show' class to trigger fade-out animation
+                filterWorkerTypeDataDiv.classList.remove("show");
+                filterWorkerTypeDataDivOverlay.classList.remove("show");
+
+                // Wait for animation to complete before removing the overlay
+                setTimeout(() => {
+                    document.documentElement.style.overflow = "auto";
+                    document.body.removeChild(filterWorkerTypeDataDivOverlay);
+                }, 500); // Matches the CSS transition duration
+            };
+        });
+
+        /* Function To Filter Worker Type Data */
+        indoforall_filterWorkerTypeDataFunction = function (workerTypeName, workerVisaTypeMessage) {
+            /* Append The Elements in Each Other */
+            document.getElementById("indoforall-filter-worker-type-div").innerHTML = "";
+            document
+                .getElementById("indoforall-filter-worker-type-overlay")
+                .removeChild(document.getElementById("indoforall-filter-worker-type-div"));
+            document.body.removeChild(document.getElementById("indoforall-filter-worker-type-overlay"));
+
+            /* Save The Text Based on The workerType Value */
+            let workerTypeNameVariable;
+
+            /* Based on The Passed 'workerTypeName' Value Set The Name of Worker Type Data */
+            if (workerTypeName === "home") {
+                workerTypeNameVariable = "عاملة منزلية";
+            } else if (workerTypeName === "driver") {
+                workerTypeNameVariable = "سائق خاص";
+            } else if (workerTypeName === "hair") {
+                workerTypeNameVariable = "كوفيرة";
+            } else if (workerTypeName === "sewing") {
+                workerTypeNameVariable = "خياطة";
+            } else if (workerTypeName === "nurse") {
+                workerTypeNameVariable = "ممرضة";
+            }
+
+            /* Create The Content For The Worker Type Data Content */
+            let filterWorkerTypeDataContent = document.createElement("div");
+            filterWorkerTypeDataContent.innerHTML = `
+                <div id='indoforall-filter-worker-type-title' class='indoforall-mouse-gradient'>
+                    <h3>طلب استقدام ${workerTypeNameVariable}</h3>
+                </div>
+
+                <div id="indoforall-filter-worker-visa-type">
+                    <h3>السعر</h3>
+                    <h4>${workerVisaTypeMessage}</h4>
+                </div>
+
+                <div id="indoforall-filter-worker-city-type">
+                    <h3>استقدام الى</h3>
+                    <textarea placeholder="اسم المدينة" maxlength="30"></textarea>
+                </div>
+
+                <div id="indoforall-submit-filter-worker-type">
+                    <h5 class="indoforall-send-worker-data-message-button" onclick="indoforall_workerTypeWhatsAppMessageFunction()">إرسال</h5>
+                    <h5 class="indoforall-cancel-worker-data-message-button" onclick="indoforall_cancelFilterWorkerTypeData()">إلغاء</h5>
+                </div>
+            `;
+
+            /* Append The Elements in Each Other */
+            filterWorkerTypeDataDiv.appendChild(filterWorkerTypeDataContent);
+            filterWorkerTypeDataDivOverlay.appendChild(filterWorkerTypeDataDiv);
+            document.body.appendChild(filterWorkerTypeDataDivOverlay);
+
+            /* Re-enable Scrolling And Remove The 'filterWorkerTypeDataDivOverlay' Elemenet */
+            indoforall_cancelFilterWorkerTypeData = function () {
+                // Remove 'show' class to trigger fade-out animation
+                filterWorkerTypeDataDiv.classList.remove("show");
+                filterWorkerTypeDataDivOverlay.classList.remove("show");
+
+                // Wait for animation to complete before removing the overlay
+                setTimeout(() => {
+                    document.documentElement.style.overflow = "auto";
+                    document.body.removeChild(filterWorkerTypeDataDivOverlay);
+                }, 500); // Matches the CSS transition duration
+            };
+
+            /* Function To Create Final WhatsApp Message Based on Worker Type Data Selected */
+            indoforall_workerTypeWhatsAppMessageFunction = function () {
+                // Get the text from the textarea
+                let cityName = document.querySelector("#indoforall-filter-worker-city-type textarea").value;
+
+                if (cityName === "") {
+                    window.showToastMessage("يرجى التأكد من كتابة اسم المدينة", 2000);
+                } else {
+                    // Get today's date
+                    let today = new Date();
+                    let formattedDate = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`;
+
+                    // Create the final message with all the details
+                    let finalMessage = `طلب جديد استقدام ${workerTypeNameVariable} من اندونيسيا\n`;
+                    finalMessage += `تاريخ إرسال الطلب: ${formattedDate}\n\n`; // Add today's date
+
+                    /* Based on The 'workerTypeNameVariable' Value Create The WhatsApp Message*/
+                    if (workerTypeNameVariable === "عاملة منزلية") {
+                        finalMessage += `السعر: 17,000 ريال سعودي\n`;
+                    } else if (workerTypeNameVariable === "سائق خاص") {
+                        finalMessage += `السعر: 11,500 ريال سعودي\n`;
+                    } else {
+                        finalMessage += `نوع الفيزا: فيزة عمالة مهنية\n`;
+                        finalMessage += `السعر: 17,000 ريال سعودي\n`;
+                    }
+
+                    finalMessage += `استقدام الى: ${cityName}\n\n`;
+                    finalMessage += `شركة استقدام اندو للجميع`;
+
+                    // Encode the message using encodeURIComponent
+                    let encodedMessage = encodeURIComponent(finalMessage);
+
+                    // Create the WhatsApp URL
+                    let whatsappURL = `https://wa.me/966544386245?text=${encodedMessage}`;
+
+                    // Open WhatsApp in a new window
+                    window.open(whatsappURL, "_blank");
+                }
+            };
+        };
+    };
+}
+
+// in Case If The Element With The Id Name 'indoforall_common_question_section' Exsist Then Go through each item in the 'data' value array 'indoforall_questionAndAnswerArray'
+if (document.getElementById("indoforall-common-question-section")) {
+    const container = document.getElementById("indoforall-question-area");
+
+    indoforall_questionAndAnswerArray.forEach(({ questionText, answerText }) => {
+        const div = document.createElement("div");
+        div.className = "indoforall-question-div animate-on-scroll from-bottom";
+
+        const questionEl = document.createElement("h2");
+        questionEl.className = "indoforall-question-text animate-on-scroll from-right";
+        questionEl.textContent = questionText;
+
+        const answerEl = document.createElement("p"); // Use <p> for better semantic HTML
+        answerEl.className = "indoforall-answer-text animate-on-scroll from-left";
+        answerEl.textContent = answerText;
+
+        div.appendChild(questionEl);
+        div.appendChild(answerEl);
+        container.appendChild(div);
+    });
+}
+
+// Define cardCounter outside the loop
+/* Uniqe Number For Each Card */
+let cardCounter = 1;
+
+/* Keep Tracking The Playing Video So Then Other Videos Get Paused */
+let currentVideo = null;
+
+// in Case If The Element With The Id Name 'indoforall_proof_section' Exsist Then Go through each item in the 'data' value array 'indoforall_proofVideosArray'
+if (document.getElementById("indoforall-proof-section")) {
+    indoforall_proofVideosArray.forEach((item) => {
+        const { imgSrc } = item;
+
+        // Create the card container div
+        const ProofVideoDiv = document.createElement("div");
+        ProofVideoDiv.id = "indoforall-worker-card-proof-card";
+        ProofVideoDiv.className = "indoforall-worker-proof-card animate-on-scroll from-bottom";
+
+        // Generate the content dynamically based on 'imgSrc' or 'videoSrc'
+        let content = `<h2>${cardCounter}</h2>`;
+        content += `
+                <img 
+                    src="${imgSrc}" 
+                    srcset="${imgSrc} 480w, ${imgSrc} 768w, ${imgSrc} 1200w" 
+                    sizes="(max-width: 768px) 100vw, 50vw" 
+                    loading="lazy" 
+                    alt="استقدام من اندونيسيا - اندو للجميع" 
+                    title="استقدام من اندونيسيا - اندو للجميع" 
+                    onclick="indoforall_show_full_screen_image(this.src)">
+            `;
+
+        // Set the inner HTML of the div
+        ProofVideoDiv.innerHTML = content;
+
+        // Increment card counter
+        cardCounter++;
+
+        // Append the new card to the proof area
+        document.getElementById("indoforall-proof-area").appendChild(ProofVideoDiv);
+    });
+
+    // Horizontal scrolling functionality
+    const proofArea = document.getElementById("indoforall-proof-area");
+    proofArea.addEventListener("mousedown", (event) => {
+        if (event.button !== 0) return; // Only proceed for the left mouse button
+
+        proofArea.classList.add("grabbing");
+        const initialScrollX = proofArea.scrollLeft;
+        const initialClientX = event.clientX;
+
+        const onMouseMove = (moveEvent) => {
+            const deltaX = moveEvent.clientX - initialClientX;
+            proofArea.scrollLeft = initialScrollX - deltaX;
+        };
+
+        const onMouseUp = () => {
+            proofArea.classList.remove("grabbing");
+            window.removeEventListener("mousemove", onMouseMove);
+            window.removeEventListener("mouseup", onMouseUp);
+        };
+
+        window.addEventListener("mousemove", onMouseMove);
+        window.addEventListener("mouseup", onMouseUp);
+    });
+}
+
+/* in Case If The Element With The Id Name 'indoforall_accounts_section' Exsist Then Create Function For Creating Ads Videos & Images Content */
+if (document.getElementById("indoforall-accounts-section")) {
+    indoforall_adsVideosArray.forEach((item) => {
+        /* Get The Array Properties */
+        let { imgSrc, videoSrc, videoThumbnailSrc } = item;
+
+        /* Create The Card Container Div */
+        let AdsVideoDiv = document.createElement("div");
+        AdsVideoDiv.classList.add("indoforall-ads-only-videos-div");
+
+        let AdsImgDiv = document.createElement("div");
+        AdsImgDiv.classList.add("indoforall-ads-only-img-div");
+
+        /* Create A Variable To Store The Inner HTML Code */
+        let AdsVideoInfo;
+        let AdsImgInfo;
+
+        /* Check If The Object Has 'imgSrc' Or 'videoSrc' And Based On it, It Will Show Different Code */
+        if (imgSrc) {
+            /* Create The HTML Content For The Images */
+            AdsImgInfo = `
+            <img src=${imgSrc} alt="استقدام من اندونيسيا - اندو للجميع" title="استقدام من اندونيسيا - اندو للجميع" onclick="indoforall_show_full_screen_image(this.src)" srcset="${imgSrc} 480w, ${imgSrc} 768w, ${imgSrc} 1200w" sizes="(max-width: 768px) 100vw, 50vw" loading="lazy">
+        `;
+
+            /* Set The InnerHTML Code For the 'AdsVideoDiv' */
+            AdsImgDiv.innerHTML = AdsImgInfo;
+
+            /* Append The 'AdsVideoDiv' To the 'indoforall_ads_videos_and_img_div' */
+            document.getElementById("indoforall-ads-videos-and-img-div").appendChild(AdsImgDiv);
+        } else if (videoSrc) {
+            /* Create The HTML Content For The Videos */
+            AdsVideoInfo = `
+                <img src=${videoThumbnailSrc} alt="استقدام من اندونيسيا - اندو للجميع"  title="استقدام من اندونيسيا - اندو للجميع" class="indoforall-ads-thumbnail-img" srcset="${videoThumbnailSrc} 480w, ${videoThumbnailSrc} 768w, ${videoThumbnailSrc} 1200w" sizes="(max-width: 768px) 100vw, 50vw" loading="lazy">
+                <video src=${videoSrc} controls title="استقدام من اندونيسيا - اندو للجميع" class="indoforall-ads-orignal-video" preload="metadata"></video>
+            `;
+
+            /* Set The InnerHTML Code For the 'AdsVideoDiv' */
+            AdsVideoDiv.innerHTML = AdsVideoInfo;
+
+            /* Append The 'AdsVideoDiv' To the 'indoforall_ads_videos_and_img_div' */
+            document.getElementById("indoforall-ads-videos-and-img-div").appendChild(AdsVideoDiv);
+
+            /* Get The Elements So You Can Use it Later */
+            let orignalVideos = document.getElementsByClassName("indoforall-ads-orignal-video");
+            let thumbnailImages = document.getElementsByClassName("indoforall-ads-thumbnail-img");
+
+            for (let i = 0; i < orignalVideos.length; i++) {
+                orignalVideos[i].addEventListener("play", function () {
+                    // Pause other videos
+                    for (let j = 0; j < orignalVideos.length; j++) {
+                        if (j !== i) {
+                            orignalVideos[j].pause();
+                            thumbnailImages[j].style.opacity = 1; // Make thumbnail visible
+                        }
+                    }
+                    thumbnailImages[i].style.opacity = 0; // Hide thumbnail of the playing video
+                });
+            }
+        }
+    });
+}
+
+function indoforall_websiteGuidance() {
+    // Disable scrolling
+    document.documentElement.style.overflow = "hidden";
+
+    // Create A Div To Contain The Big Image
+    let FullScreenGuidanceOverlay = document.createElement("div");
+    FullScreenGuidanceOverlay.classList.add("indoforall-full-screen-guidance-overlay");
+
+    // Create A Button To Exit The Big Image Page
+    let fullScreenOverlayExitButton = document.createElement("a");
+    fullScreenOverlayExitButton.classList.add("indoforall-full-screen-overlay-exit-button");
+    fullScreenOverlayExitButton.innerText = "";
+
+    // Create Website Guidance Content
+    let webGuidanceDiv = document.createElement("div");
+    webGuidanceDiv.classList.add("web-guidance-div");
+
+    let webGuidanceText = `
+        <h4>خطة سريعة لبدء الرحلة:</h4>
+        <div class="web-guidance-steps">
+            <div class="web-guidance-step">
+                <div class="web-guidance-step-number">1</div>
+                <p>تصفح الصفحة الرئيسية وحدد نوع العمالة المناسبة لاحتياجك.</p>
+            </div>
+            <div class="web-guidance-step">
+                <div class="web-guidance-step-number">2</div>
+                <p>راجع الأسعار والمدة المتوقعة لإنجاز الطلب عبر صفحة أسعار الاستقدام.</p>
+            </div>
+            <div class="web-guidance-step">
+                <div class="web-guidance-step-number">3</div>
+                <p>تواصل معنا عبر الواتساب للمزيد من التوجيه والبدء في الإجراءات.</p>
+            </div>
+        </div>
+        <div class="web-guidance-actions">
+            <button type="button" onclick="indoforall_whatsApp()">تواصل معنا عبر الواتساب</button>
+        </div>
+    `;
+
+    // Append All The elements inside 'FullScreenGuidanceOverlay'
+    webGuidanceDiv.innerHTML = webGuidanceText;
+    webGuidanceDiv.appendChild(fullScreenOverlayExitButton);
+    FullScreenGuidanceOverlay.appendChild(webGuidanceDiv);
+
+    document.body.appendChild(FullScreenGuidanceOverlay);
+
+    // Trigger fade-in
+    setTimeout(() => {
+        FullScreenGuidanceOverlay.classList.add("active");
+        webGuidanceDiv.classList.add("active");
+    }, 50);
+
+    // Unified close routine (fade-out then remove)
+    function closeGuidance() {
+        // Re-enable scrolling
+        document.documentElement.style.overflow = "auto";
+
+        // Trigger fade-out
+        FullScreenGuidanceOverlay.classList.remove("active");
+        webGuidanceDiv.classList.remove("active");
+
+        // Remove the overlay after transition
+        setTimeout(() => {
+            if (document.body.contains(FullScreenGuidanceOverlay)) {
+                document.body.removeChild(FullScreenGuidanceOverlay);
+            }
+        }, 500);
+    }
+
+    // Close on X button
+    fullScreenOverlayExitButton.onclick = function (e) {
+        e.stopPropagation();
+        closeGuidance();
+    };
+
+    // Prevent clicks inside the guidance card from closing
+    webGuidanceDiv.addEventListener("click", function (e) {
+        e.stopPropagation();
+    });
+
+    // Close when clicking the dark overlay background
+    FullScreenGuidanceOverlay.addEventListener("click", function (e) {
+        if (e.target === FullScreenGuidanceOverlay) {
+            closeGuidance();
+        }
+    });
+}
+
+/* Hide And Show nav Bar - Enhanced with Overlay */
+let scrollPosition = 0;
+
+let indoforall_showNavOptions = () => {
+    const navOptions = document.getElementById("indoforall-nav-options");
+    // Save current scroll position
+    scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Make nav visible and add show class
+    navOptions.style.display = "flex";
+
+    // Trigger animation after a small delay
+    setTimeout(() => {
+        navOptions.classList.add("show");
+        navOptions.style.pointerEvents = "auto";
+    }, 10);
+
+    // Add body classes and disable scrolling
+    document.body.classList.add("nav-open");
+    document.body.style.overflow = "hidden";
+
+    // Prevent body scroll on mobile and maintain scroll position
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollPosition}px`;
+    document.body.style.width = "100%";
+};
+
+let indoforall_hideNavOptions = () => {
+    const navOptions = document.getElementById("indoforall-nav-options");
+
+    // Remove show class to trigger fade-out animation
+    navOptions.classList.remove("show");
+
+    // Wait for animation to complete
+    setTimeout(() => {
+        navOptions.style.display = "none";
+        navOptions.style.pointerEvents = "none";
+
+        // Re-enable scrolling and restore scroll position
+        document.body.classList.remove("nav-open");
+        document.body.style.overflow = "";
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.width = "";
+
+        // Restore scroll position
+        window.scrollTo(0, scrollPosition);
+    }, 400); // Match CSS transition duration
+};
+
+// Initialize nav functionality when DOM is ready
+function initializeNavFunctionality() {
+    const navButton = document.getElementById("indoforall-nav");
+    const closeNavButton = document.getElementById("indoforall-close-nav");
+    const navOptions = document.getElementById("indoforall-nav-options");
+
+    if (!navButton || !closeNavButton || !navOptions) {
+        return; // Elements not found, skip initialization
+    }
+
+    // Open nav on menu button click
+    navButton.addEventListener("click", (event) => {
+        event.stopPropagation();
+        indoforall_showNavOptions();
+    });
+
+    // Close nav on close button click
+    closeNavButton.addEventListener("click", (event) => {
+        event.stopPropagation();
+        indoforall_hideNavOptions();
+    });
+
+    // Close nav when clicking outside (on overlay or document)
+    document.addEventListener("click", (event) => {
+        const isNavOpen = document.body.classList.contains("nav-open");
+        const clickedNav = navOptions.contains(event.target);
+        const clickedNavButton = navButton.contains(event.target);
+        const clickedCloseButton = closeNavButton.contains(event.target);
+
+        if (isNavOpen && !clickedNav && !clickedNavButton && !clickedCloseButton) {
+            indoforall_hideNavOptions();
+        }
+    });
+
+    // Close nav on escape key
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && document.body.classList.contains("nav-open")) {
+            indoforall_hideNavOptions();
+        }
+    });
+
+    // Prevent nav from closing when clicking inside it
+    navOptions.addEventListener("click", (event) => {
+        // Only close if clicking outside of links or on the close button
+        if (event.target === navOptions) {
+            event.stopPropagation();
+        }
+    });
+
+    // Add click handler for nav links to prevent closing
+    const navLinks = navOptions.querySelectorAll("a:not(#indoforall-close-nav)");
+    navLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+            event.stopPropagation();
+            // The menu will stay open when clicking links
+        });
+    });
+}
+
+// Initialize when DOM is loaded
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeNavFunctionality);
+} else {
+    initializeNavFunctionality();
+}
+
+/* Function to run a video in the background of a section */
+function addBackgroundVideo(sectionId, videoSrc) {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+
+    // Avoid heavy background videos on small screens or when user saves data
+    const prefersReducedData = navigator.connection && navigator.connection.saveData;
+    const isMobileViewport = typeof window.matchMedia === "function" && window.matchMedia("(max-width: 768px)").matches;
+
+    if (prefersReducedData || isMobileViewport) {
+        return;
+    }
+
+    // Ensure the section does not already have a background video
+    if (section.querySelector("video")) return;
+
+    const video = document.createElement("video");
+    Object.assign(video, {
+        src: videoSrc,
+        autoplay: true,
+        loop: true,
+        muted: true,
+        playsInline: true,
+    });
+
+    Object.assign(video.style, {
+        position: "absolute",
+        top: "0",
+        left: "0",
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+        zIndex: "-1",
+        opacity: "0", // Start with opacity 0
+        pointerEvents: "none", // Prevent video from interfering with clicks
+        transition: "opacity 2s ease-in-out", // Add smooth transition
+    });
+
+    section.style.position = "relative"; // Ensure section allows absolute positioning
+    section.prepend(video);
+
+    // Add fade-in animation after a short delay
+    setTimeout(() => {
+        video.style.opacity = "0.3"; // Fade to final opacity
+    }, 500); // Start fade after 500ms
+}
+
+// Add videos only to the intended sections
+addBackgroundVideo("indoforall-intro-section", "استقدام-من-اندونيسيا.mp4");
+
+/* Insert new click & return formatted array */
+async function insertNewClick(website) {
+    const monthNames = [
+        "january",
+        "february",
+        "march",
+        "april",
+        "may",
+        "june",
+        "july",
+        "august",
+        "september",
+        "october",
+        "november",
+        "december",
+    ];
+    const now = new Date();
+    const currentMonth = monthNames[now.getMonth()];
+    const currentYear = now.getFullYear();
+
+    // 1. Fetch row
+    const { data, error } = await supabase.from("click_counter").select("*").eq("website", website).single();
+
+    if (error) {
+        console.error("Error fetching data:", error.message);
+        return [];
+    }
+
+    // 2. Ensure we have an array for this month
+    let monthData = data[currentMonth] || [];
+
+    if (typeof monthData === "string") {
+        try {
+            monthData = JSON.parse(monthData);
+        } catch {
+            monthData = [];
+        }
+    }
+
+    // Convert any old object format into strings
+    monthData = monthData.map((entry) => {
+        if (typeof entry === "object" && entry !== null) {
+            return `Clicks ${entry.clicks} - ${entry.year}`;
+        }
+        return entry; // already a string
+    });
+
+    // 3. Check if an entry for the current year exists
+    let yearIndex = monthData.findIndex((entry) => entry.includes(`- ${currentYear}`));
+
+    if (yearIndex !== -1) {
+        // Extract current clicks
+        let parts = monthData[yearIndex].match(/Clicks (\d+) - (\d+)/);
+        let currentClicks = parts ? parseInt(parts[1], 10) : 0;
+        let updatedClicks = currentClicks + 1;
+
+        // Update the string
+        monthData[yearIndex] = `Clicks ${updatedClicks} - ${currentYear}`;
+    } else {
+        // Add new entry for this year
+        monthData.push(`Clicks 1 - ${currentYear}`);
+    }
+
+    // 4. Update Supabase (store as array of strings)
+    const { error: updateError } = await supabase
+        .from("click_counter")
+        .update({ [currentMonth]: monthData })
+        .eq("website", website);
+
+    if (updateError) {
+        console.error("Error updating value:", updateError.message);
+        return [];
+    }
+
+    // 5. Return the updated formatted array
+    return monthData;
+}
+
+// Array of flag image URLs (replace or add your own)
+const flags = [
+    "استقدام-الى-دول-الخليج/استقدام-الى-السعودية.webp",
+    "استقدام-الى-دول-الخليج/استقدام-الى-قطر.webp",
+    "استقدام-الى-دول-الخليج/استقدام-الى-عمان.webp",
+    "استقدام-الى-دول-الخليج/استقدام-الى-البحرين.webp",
+    "استقدام-الى-دول-الخليج/استقدام-الى-الامارات.webp",
+];
+
+const container = document.getElementById("indoforall-orbit-container-id");
+const total = flags.length;
+
+flags.forEach((src, i) => {
+    const angle = (360 / total) * i;
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "indoforall-orbit-flag";
+    wrapper.style.animationDelay = `-${(20 / total) * i}s`; // stagger start
+
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = `Flag ${i}`;
+
+    // Add image to wrapper, wrapper to container
+    wrapper.appendChild(img);
+    wrapper.style.transform = `rotate(${angle}deg)`;
+    container.appendChild(wrapper);
+});
+
+/* Hovering background text functionality */
+function enableMouseGradient(selector = ".indoforall-mouse-gradient") {
+    document.querySelectorAll(selector).forEach((elem) => {
+        let currentX = 50;
+        let currentY = 50;
+        let targetX = 50;
+        let targetY = 50;
+        let animationFrame;
+
+        elem.style.boxShadow = `${(targetX - 50) * 0.5}px ${(targetY - 50) * 0.5}px 25px rgba(255,255,255,0.2)`;
+        elem.style.backgroundPosition = `${currentX}% ${currentY}%`;
+        elem.style.backgroundSize = `${120 + (targetX - 50) * 0.3}% ${120 + (targetY - 50) * 0.3}%`;
+
+        const update = () => {
+            currentX += (targetX - currentX) * 0.2;
+            currentY += (targetY - currentY) * 0.2;
+
+            elem.style.backgroundImage = `radial-gradient(circle at ${currentX}% ${currentY}%, rgba(255,255,255,0.25) 0%, transparent 40%)`;
+
+            animationFrame = requestAnimationFrame(update);
+        };
+
+        elem.addEventListener("mousemove", (e) => {
+            const rect = elem.getBoundingClientRect();
+            targetX = ((e.clientX - rect.left) / rect.width) * 100;
+            targetY = ((e.clientY - rect.top) / rect.height) * 100;
+
+            if (!animationFrame) {
+                animationFrame = requestAnimationFrame(update);
+            }
+        });
+
+        elem.addEventListener("mouseleave", () => {
+            targetX = 50;
+            targetY = 50;
+        });
+    });
+}
+
+// Call the function after DOM is loaded
+document.addEventListener("DOMContentLoaded", () => {
+    enableMouseGradient();
+});
+
+/* Elements Animation On Scroll */
+const animatedElements = document.querySelectorAll(".animate-on-scroll");
+
+function animateOnScroll() {
+    const triggerPoint = window.innerHeight * 0.9;
+
+    animatedElements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const midpoint = rect.top + rect.height / 2;
+
+        if (midpoint < triggerPoint) {
+            el.classList.add("in-view");
+        }
+    });
+}
+
+window.addEventListener("scroll", animateOnScroll);
+window.addEventListener("resize", animateOnScroll);
+document.addEventListener("DOMContentLoaded", animateOnScroll); // safer than immediate call
+
+/* Open WhatsApp Chat */
+async function indoforall_whatsApp() {
+    await insertNewClick("indoforall.com");
+
+    // Create the WhatsApp URL with the phone number.
+    let whatsappURL = "https://wa.me/+966544386245";
+
+    // Detect iOS devices (including iPad on iOS 13+)
+    const isIOS =
+        /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+        (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+    // For iOS Safari, use window.location.href to open WhatsApp app directly
+    // For other platforms, use window.open() to open in a new tab
+    if (isIOS) {
+        window.location.href = whatsappURL;
+    } else {
+        window.open(whatsappURL, "_blank");
+    }
+}
+
+/* Open Gmail Contact */
+function indoforall_gmail() {
+    let mailtoLink = "mailto:info@indoforall.com";
+
+    window.location.href = mailtoLink;
+}
+
+/* Open Loation Address */
+function indoforall_location() {
+    // Address to search on Google Maps
+    let address = "Jl. Mandalawangi No.7, RT.04/RW.04, Babakan, Kecamatan Bogor Tengah, Kota Bogor, Jawa Barat 16128";
+
+    // Encode the address to be used in the URL
+    let encodedAddress = encodeURIComponent(address);
+
+    // Construct the Google Maps URL
+    let mapsUrl = "https://www.google.com/maps?q=" + encodedAddress;
+
+    // Open the Google Maps link in a new tab/window
+    window.open(mapsUrl, "_blank");
+}
