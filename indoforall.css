@@ -1050,11 +1050,6 @@ body.nav-open #indoforall-nav-options * {
     align-self: flex-start;
 }
 
-#indoforall-comment-form button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 15px 25px rgba(106, 75, 31, 0.35);
-}
-
 #indoforall-comment-submit-button-id {
     display: inline-flex;
     align-items: center;
