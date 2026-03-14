@@ -24,6 +24,10 @@ async function sendBrevoCommentNotification(payload) {
 // Supabase: URL and anon key come from Netlify env via /.netlify/functions/get-config
 (function () {
     let config = null;
+    var resolveSupabaseReady;
+    window.supabaseReady = new Promise(function (r) {
+        resolveSupabaseReady = r;
+    });
 
     function initSupabase() {
         if (!config) {
@@ -34,6 +38,7 @@ async function sendBrevoCommentNotification(payload) {
             const client = window.supabase.createClient(config.supabaseUrl, config.supabaseAnonKey);
             window.supabaseClient = client;
             window.supabase = client;
+            resolveSupabaseReady();
         } else {
             setTimeout(initSupabase, 50);
         }
@@ -907,6 +912,7 @@ if (document.getElementById("indoforall-clint-rate-section") || document.getElem
             };
 
             try {
+                await (window.supabaseReady || Promise.resolve());
                 const column = "indoforall";
 
                 // Fetch existing array
@@ -1009,8 +1015,10 @@ if (document.getElementById("indoforall-clint-rate-section") || document.getElem
         }
     }
 
-    // Fetch on load
-    fetchReviews();
+    // Fetch on load only after Supabase client is ready (config loaded from Netlify)
+    (window.supabaseReady || Promise.resolve()).then(function () {
+        fetchReviews();
+    });
 }
 
 /* ArrayName is the name of the Array of The Worker Type Button Clicked */
