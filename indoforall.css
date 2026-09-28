@@ -3854,6 +3854,112 @@ textarea.input {
     color: var(--text);
 }
 
+/* Desktop: modal content a little larger (phones keep the sizes above) */
+@media (min-width: 1024px) {
+    .modal__panel {
+        --fs-xs: 0.875rem;
+        --fs-sm: 0.9375rem;
+        --fs-base: 1.0625rem;
+        --fs-md: 1.25rem;
+        --fs-lg: clamp(1.3125rem, 1.1rem + 0.4vw, 1.5rem);
+        width: min(680px, 100%);
+    }
+
+    .modal--wide .modal__panel {
+        width: min(1040px, 100%);
+    }
+
+    .modal__head {
+        padding: 1.3rem 1.75rem 1.15rem;
+    }
+
+    .modal__close {
+        width: 46px;
+        height: 46px;
+    }
+
+    .modal__close .icon {
+        width: 22px;
+        height: 22px;
+    }
+
+    .modal__body {
+        padding: 1.6rem 1.75rem;
+    }
+
+    .modal__foot {
+        gap: 0.75rem;
+        padding: 1.1rem 1.75rem;
+    }
+
+    .modal__panel .btn {
+        --btn-h: 54px;
+    }
+
+    .modal__panel .input {
+        min-height: 54px;
+        padding: 0.8rem 1.1rem;
+        font-size: var(--fs-base);
+    }
+
+    .modal__panel textarea.input {
+        min-height: 136px;
+    }
+
+    .modal__panel .field {
+        gap: 0.5rem;
+        margin-top: 1.3rem;
+    }
+
+    .choice-grid {
+        gap: 0.8rem;
+    }
+
+    .choice {
+        gap: 0.6rem;
+        padding: 1.05rem 0.75rem 1.1rem;
+    }
+
+    .choice img {
+        width: 76px;
+        height: 76px;
+    }
+
+    .summary-card img {
+        width: 72px;
+        height: 72px;
+    }
+
+    .modal__panel .chip {
+        min-height: 44px;
+        padding: 0.4rem 1.1rem;
+    }
+
+    .city-chips {
+        gap: 0.5rem;
+    }
+
+    .star-input label {
+        width: 52px;
+        height: 52px;
+    }
+
+    .star-input label .icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .modal__panel .stars .icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .guide-steps li::before {
+        width: 38px;
+        height: 38px;
+    }
+}
+
 /* ---------- Floating contact ---------- */
 .fab-wa {
     position: fixed;
