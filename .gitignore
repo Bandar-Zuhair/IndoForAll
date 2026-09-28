@@ -1,0 +1,9 @@
+# Local development config (Supabase URL + anon key for localhost only)
+config.local.js
+
+# Editor / tooling folders
+.claude/
+.vscode/
+node_modules/
+.netlify/
+.env
