@@ -72,16 +72,6 @@ let indoforall_proofVideosArray = [
     { imgSrc: "مصداقية-الاستقدام-من-اندونيسيا/استقدام-من-اندونيسيا-14.webp" },
 ];
 
-/* صور وفيديوهات الإعلانات (صفحة الحسابات) — use imgSrc, or videoSrc + videoThumbnailSrc */
-let indoforall_adsVideosArray = [
-    { imgSrc: "استقدام-من-اندونيسيا/استقدام-عمالة-اندونيسية.webp" },
-    {
-        videoSrc: "استقدام-اندونيسيا/استقدام-من-اندونيسيا.mp4",
-        videoThumbnailSrc: "استقدام-اندونيسيا/استقدام-من-اندونيسيا.webp",
-    },
-    { imgSrc: "استقدام-اندونيسيا/استقدام-من-اندونيسيا.webp" },
-];
-
 /* الأسعار ومدة الإنجاز لكل نوع عمالة (تُستخدم في رسالة الواتساب ونافذة الطلب) */
 const INDOFORALL_WORKER_TYPES = {
     home: {
@@ -1662,35 +1652,6 @@ const INDOFORALL_POPULAR_CITIES = ["الرياض", "جدة", "مكة المكر�
             .join("");
     }
 
-    function renderAdsMedia() {
-        const wrap = $("[data-ads-media]");
-        if (!wrap) return;
-        wrap.innerHTML = indoforall_adsVideosArray
-            .map((item, i) => {
-                if (item.videoSrc) {
-                    return `<figure class="media-card media-card--video" data-reveal="up">
-                        <video src="${item.videoSrc}" poster="${item.videoThumbnailSrc || ""}" controls playsinline preload="none" title="استقدام من اندونيسيا - اندو للجميع"></video>
-                    </figure>`;
-                }
-                return `<figure class="media-card" data-reveal="up">
-                    <button type="button" data-action="lightbox" data-group="ads" data-src="${item.imgSrc}" aria-label="تكبير الإعلان ${i + 1}">
-                        <img src="${item.imgSrc}" alt="إعلان اندو للجميع للاستقدام من اندونيسيا" loading="lazy" decoding="async" />
-                    </button>
-                </figure>`;
-            })
-            .join("");
-
-        /* Only one video plays at a time */
-        const videos = $$("video", wrap);
-        videos.forEach((v) =>
-            v.addEventListener("play", () =>
-                videos.forEach((o) => {
-                    if (o !== v) o.pause();
-                })
-            )
-        );
-    }
-
     function initYear() {
         $$("[data-year]").forEach((el) => (el.textContent = String(new Date().getFullYear())));
     }
@@ -2009,7 +1970,6 @@ const INDOFORALL_POPULAR_CITIES = ["الرياض", "جدة", "مكة المكر�
         initYear();
         renderCvCounts();
         renderProofGallery();
-        renderAdsMedia();
         initHeader();
         initMobileMenu();
         initAnchors();

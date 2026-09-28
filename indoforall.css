@@ -3012,6 +3012,7 @@ button.chip.is-active {
 
 .social-card {
     --brand: var(--ink-900);
+    --brand-glow: rgba(11, 22, 38, 0.45);
     position: relative;
     overflow: hidden;
     display: flex;
@@ -3033,19 +3034,27 @@ button.chip.is-active {
 }
 
 .social-card__icon {
-    width: 50px;
-    height: 50px;
+    width: 56px;
+    height: 56px;
     display: grid;
     place-items: center;
-    margin-bottom: 0.5rem;
-    border-radius: 14px;
+    margin-bottom: 0.6rem;
+    border-radius: 16px;
     color: #fff;
     background: var(--brand);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.22),
+        0 10px 20px -10px var(--brand-glow);
+    transition: transform 0.4s var(--ease-out);
+}
+
+.social-card:hover .social-card__icon {
+    transform: scale(1.06) rotate(-4deg);
 }
 
 .social-card__icon .icon {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
 }
 
 .social-card strong {
@@ -3054,7 +3063,7 @@ button.chip.is-active {
     line-height: 1.3;
 }
 
-.social-card span {
+.social-card strong + span {
     font-size: var(--fs-sm);
     color: var(--text-3);
     direction: ltr;
@@ -3063,31 +3072,38 @@ button.chip.is-active {
 
 .social-card--x {
     --brand: #000;
+    --brand-glow: rgba(0, 0, 0, 0.5);
 }
 
 .social-card--ig {
-    --brand: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
+    --brand: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+    --brand-glow: rgba(214, 36, 159, 0.55);
 }
 
 .social-card--fb {
     --brand: #1877f2;
+    --brand-glow: rgba(24, 119, 242, 0.55);
+}
+
+/* solid "f" like the real Facebook logo */
+.social-card--fb .icon {
+    fill: currentColor;
+    stroke: none;
 }
 
 .social-card--tt {
-    --brand: #111;
+    --brand: #000;
+    --brand-glow: rgba(0, 0, 0, 0.5);
 }
 
-.social-card--wa {
-    --brand: var(--wa-btn);
-}
-
-.social-card--mail {
-    --brand: var(--sand-700);
+/* TikTok's cyan / pink edge */
+.social-card--tt .icon {
+    filter: drop-shadow(-1.2px -1.2px 0 #25f4ee) drop-shadow(1.2px 1.2px 0 #fe2c55);
 }
 
 @media (min-width: 900px) {
     .social-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
@@ -3196,42 +3212,6 @@ button.chip.is-active {
     .gallery-grid--page {
         grid-template-columns: repeat(4, 1fr);
         gap: 1rem;
-    }
-}
-
-.media-grid {
-    display: grid;
-    gap: 1rem;
-}
-
-.media-card {
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--radius-lg);
-    background: var(--ink-900);
-    box-shadow: var(--shadow);
-}
-
-.media-card img,
-.media-card video {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-}
-
-.media-card button {
-    display: block;
-    width: 100%;
-    cursor: zoom-in;
-}
-
-@media (min-width: 768px) {
-    .media-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .media-card--video {
-        grid-column: span 2;
     }
 }
 
@@ -4368,7 +4348,8 @@ html.reduced-motion.menu-open .mobile-menu {
 .reduced-motion .service-card:hover,
 .reduced-motion .bento__item:hover,
 .reduced-motion .contact-card:hover,
-.reduced-motion .social-card:hover {
+.reduced-motion .social-card:hover,
+.reduced-motion .social-card:hover .social-card__icon {
     transform: none;
 }
 
