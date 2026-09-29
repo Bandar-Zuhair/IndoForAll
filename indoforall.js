@@ -692,43 +692,121 @@ const INDOFORALL_POPULAR_CITIES = ["الرياض", "جدة", "مكة المكر�
         return layer;
     }
 
-    /* Swipe the bottom sheet down to close (phones) */
+    /* Swipe the bottom sheet down to close (phones).
+       Drag from the header, or from the content while it is scrolled to the top.
+       The sheet follows the finger 1:1, the backdrop fades with it, and on release it
+       either keeps going at the finger's speed (close) or glides back (cancel). */
     function attachSheetDrag(el, panel, layer) {
         const head = $(".modal__head", el);
+        const body = $(".modal__body", el);
+        const backdrop = $(".modal__backdrop", el);
+        let state = 0; // 0 idle · 1 waiting for the first move · 2 dragging
+        let fromHead = false;
+        let startX = 0;
         let startY = 0;
         let dy = 0;
-        let startT = 0;
-        let active = false;
+        let height = 1;
+        let samples = [];
 
-        head.addEventListener(
+        panel.addEventListener(
             "touchstart",
             (e) => {
-                if (window.innerWidth >= 768 || e.target.closest("button")) return;
-                active = true;
-                startY = e.touches[0].clientY;
-                startT = Date.now();
+                state = 0;
+                if (window.innerWidth >= 768 || e.touches.length > 1) return;
+                if (e.target.closest("input, textarea, select")) return;
+                if (body.contains(e.target) && body.scrollTop > 0) return;
+                const t = e.touches[0];
+                fromHead = head.contains(e.target);
+                startX = t.clientX;
+                startY = t.clientY;
                 dy = 0;
-                el.classList.add("is-dragging");
+                height = panel.offsetHeight || 1;
+                samples = [{ y: startY, t: performance.now() }];
+                state = 1;
             },
             { passive: true }
         );
-        head.addEventListener(
+
+        panel.addEventListener(
             "touchmove",
             (e) => {
-                if (!active) return;
-                dy = Math.max(0, e.touches[0].clientY - startY);
-                panel.style.transform = `translateY(${dy}px)`;
+                if (!state) return;
+                const t = e.touches[0];
+                if (state === 1) {
+                    const mx = t.clientX - startX;
+                    const my = t.clientY - startY;
+                    if (!mx && !my) return;
+                    /* sideways, or pulling up inside the content → leave it to normal scrolling */
+                    if (Math.abs(mx) > Math.abs(my) || (my < 0 && !fromHead)) {
+                        state = 0;
+                        return;
+                    }
+                    state = 2;
+                    el.classList.add("is-dragging");
+                }
+                if (e.cancelable) e.preventDefault();
+                const now = performance.now();
+                dy = Math.max(0, t.clientY - startY);
+                panel.style.transform = `translate3d(0, ${dy}px, 0)`;
+                backdrop.style.opacity = String(1 - Math.min(1, dy / height) * 0.9);
+                samples.push({ y: t.clientY, t: now });
+                while (samples.length > 2 && now - samples[0].t > 100) samples.shift();
             },
-            { passive: true }
+            { passive: false }
         );
-        head.addEventListener("touchend", () => {
-            if (!active) return;
-            active = false;
-            el.classList.remove("is-dragging");
-            const fast = dy > 40 && Date.now() - startT < 250;
-            panel.style.transform = "";
-            if (dy > 110 || fast) layer.close();
-        });
+
+        function release(cancelled) {
+            if (state !== 2) {
+                state = 0;
+                return;
+            }
+            state = 0;
+            const first = samples[0];
+            const last = samples[samples.length - 1];
+            /* finger speed over the last ~100ms, px per ms (positive = down) */
+            const v = last.t > first.t ? (last.y - first.y) / (last.t - first.t) : 0;
+            const shouldClose =
+                !cancelled && ((v > 0.45 && dy > 16) || (dy > Math.min(140, height * 0.35) && v > -0.1));
+
+            /* a drag is not a tap: swallow the click that may follow it (a new touch is a real tap) */
+            if (dy > 8) {
+                const block = (ev) => {
+                    ev.preventDefault();
+                    ev.stopPropagation();
+                };
+                const unblock = () => {
+                    el.removeEventListener("click", block, true);
+                    el.removeEventListener("touchstart", unblock, true);
+                };
+                el.addEventListener("click", block, true);
+                el.addEventListener("touchstart", unblock, true);
+                setTimeout(unblock, 350);
+            }
+
+            if (shouldClose) {
+                const end = height + 24;
+                const dist = end - dy;
+                const speed = Math.max(v, 0);
+                const dur = Math.round(Math.max(180, Math.min(340, dist * 0.7, (1.6 * dist) / Math.max(speed, 0.01))));
+                /* the curve's starting slope = the finger's speed, so the hand-off is seamless */
+                const y1 = Math.min(1, 0.25 * Math.min(4, Math.max(0.3, (speed * dur) / dist)));
+                el.classList.add("is-flung");
+                el.classList.remove("is-dragging");
+                panel.style.transition = `transform ${dur}ms cubic-bezier(0.25, ${y1.toFixed(3)}, 0.5, 1)`;
+                panel.style.transform = `translate3d(0, ${end}px, 0)`;
+                backdrop.style.transition = `opacity ${dur}ms linear`;
+                backdrop.style.opacity = "0";
+                layer.close();
+            } else {
+                /* glide back with the sheet's normal opening transition */
+                el.classList.remove("is-dragging");
+                panel.style.transform = "";
+                backdrop.style.opacity = "";
+            }
+        }
+
+        panel.addEventListener("touchend", () => release(false));
+        panel.addEventListener("touchcancel", () => release(true));
     }
 
     /* ---------------------------------------------------------------------
@@ -1105,9 +1183,9 @@ const INDOFORALL_POPULAR_CITIES = ["الرياض", "جدة", "مكة المكر�
             title: "كيف أستخدم موقع اندو للجميع؟",
             subtitle: "ثلاث خطوات سريعة لبدء طلبك",
             body: `<ol class="guide-steps">
-                    <li>اختر نوع العمالة المناسبة لاحتياجك من قسم «أنواع العمالة» وشاهد السير الذاتية المتاحة.</li>
-                    <li>راجع الأسعار ومدة الإنجاز في صفحة <a class="link-arrow" href="https://indoforall.com/%D8%A7%D8%B3%D8%B9%D8%A7%D8%B1-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%82%D8%AF%D8%A7%D9%85-%D9%85%D9%86-%D8%A7%D9%86%D8%AF%D9%88%D9%86%D9%8A%D8%B3%D9%8A%D8%A7">اسعار الاستقدام</a></li>
-                    <li>اضغط «طلب استقدام» واكتب مدينتك، أو تواصل معنا مباشرة عبر الواتساب لنبدأ الإجراءات.</li>
+                    <li><p>اختر نوع العمالة المناسبة لاحتياجك من قسم «أنواع العمالة» وشاهد السير الذاتية المتاحة.</p></li>
+                    <li><p>راجع الأسعار ومدة الإنجاز في صفحة <a href="https://indoforall.com/%D8%A7%D8%B3%D8%B9%D8%A7%D8%B1-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%82%D8%AF%D8%A7%D9%85-%D9%85%D9%86-%D8%A7%D9%86%D8%AF%D9%88%D9%86%D9%8A%D8%B3%D9%8A%D8%A7">اسعار الاستقدام</a>.</p></li>
+                    <li><p>اضغط «طلب استقدام» واكتب مدينتك، أو تواصل معنا مباشرة عبر الواتساب لنبدأ الإجراءات.</p></li>
                 </ol>`,
             foot: `<button class="btn btn--gold" type="button" data-guide-req>${icon("send")} ابدأ طلب استقدام</button>
                    <a class="btn btn--wa btn--icon" href="${whatsappUrl()}" target="_blank" rel="noopener" data-wa="guide" aria-label="تواصل واتساب">${icon("whatsapp")}</a>`,

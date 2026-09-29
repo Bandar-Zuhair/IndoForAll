@@ -3276,7 +3276,8 @@ button.chip.is-active {
     transition: opacity 0.45s ease;
 }
 
-.modal.is-dragging .modal__panel {
+.modal.is-dragging .modal__panel,
+.modal.is-dragging .modal__backdrop {
     transition: none;
 }
 
@@ -3806,6 +3807,20 @@ textarea.input {
     font-weight: 700;
     color: var(--ink-900);
     background: var(--gold-gradient);
+}
+
+/* in-sentence link: same font and flow as the text around it */
+.guide-steps a {
+    font-weight: 600;
+    color: var(--sand-700);
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 0.35em;
+    transition: color 0.2s;
+}
+
+.guide-steps a:hover {
+    color: var(--ink-900);
 }
 
 .empty-state {
@@ -4339,7 +4354,8 @@ html.reduced-motion.menu-open .mobile-menu {
     transform: none;
 }
 
-.reduced-motion .modal__panel,
+/* a sheet being dragged by the finger still follows it */
+.reduced-motion .modal:not(.is-dragging):not(.is-flung) .modal__panel,
 .reduced-motion .lightbox {
     transform: none !important;
 }
