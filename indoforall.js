@@ -138,7 +138,7 @@ const INDOFORALL_POPULAR_CITIES = ["الرياض", "جدة", "مكة المكر�
     const root = doc.documentElement;
 
     const CONTACT = {
-        phone: "966544386245",
+        phone: "966578427479",
         email: "info@indoforall.com",
         site: "https://indoforall.com",
         address: "Jl. Mandalawangi No.7, RT.04/RW.04, Babakan, Kecamatan Bogor Tengah, Kota Bogor, Jawa Barat 16128",
