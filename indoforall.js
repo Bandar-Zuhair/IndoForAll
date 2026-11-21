@@ -116,6 +116,21 @@ const INDOFORALL_WORKER_TYPES = {
     },
 };
 
+/* عرض رمضان — سعر مخفّض لاستقدام عاملة منزلية بفيزة زيارة
+   - السعر الأصلي يبقى في INDOFORALL_WORKER_TYPES أعلاه (17,000) ويظهر مشطوباً بجانب سعر العرض.
+   - لإيقاف العرض: active: false  ← يختفي شريط العرض ويرجع السعر الأصلي تلقائياً في كل الصفحات.
+   - عدّاد تنازلي + إيقاف تلقائي للعرض: ضع تاريخ نهاية العرض في endsAt بتوقيت السعودية، مثال:
+         endsAt: "2027-03-09T23:59:59+03:00",
+     واتركه "" ليظهر "لفترة محدودة" بدون عدّاد.
+   - سعر العرض مكتوب أيضاً في HTML (شريط العرض أعلى كل صفحة + بطاقة فيزة الزيارة)، غيّره هناك أيضاً عند تغييره هنا. */
+const INDOFORALL_OFFER = {
+    active: true,
+    name: "عرض رمضان",
+    worker: "home",
+    price: "15,500",
+    endsAt: "",
+};
+
 /* Which worker types each price card (visa) offers */
 const INDOFORALL_VISA_OPTIONS = {
     visit: { title: "طلب استقدام بفيزة زيارة", workers: ["home", "driver"] },
@@ -992,6 +1007,100 @@ const INDOFORALL_POPULAR_CITIES = ["الرياض", "جدة", "مكة المكر�
     }
 
     /* ---------------------------------------------------------------------
+       OFFER (عرض رمضان) — settings in INDOFORALL_OFFER at the top.
+       The bar + price card are plain HTML; this switches the popup/WhatsApp
+       price, runs the optional countdown, and hides it all when the offer ends.
+       --------------------------------------------------------------------- */
+    const Offer = (() => {
+        const cfg = typeof INDOFORALL_OFFER === "object" && INDOFORALL_OFFER ? INDOFORALL_OFFER : null;
+        const target = cfg ? INDOFORALL_WORKER_TYPES[cfg.worker] : null;
+        const regular = target ? target.price : "";
+        const endsAt = cfg && cfg.endsAt ? new Date(cfg.endsAt).getTime() : NaN;
+        const hasEnd = !isNaN(endsAt);
+        const toNumber = (v) => Number(String(v).replace(/\D/g, "")) || 0;
+        const pad = (n) => String(n).padStart(2, "0");
+        let timer = 0;
+
+        const isOn = () => !!(cfg && cfg.active && target && cfg.price && (!hasEnd || Date.now() < endsAt));
+
+        /* The worker type data feeds the request popup and the WhatsApp message */
+        function applyPrices(on) {
+            if (!target) return;
+            if (on) {
+                target.price = cfg.price;
+                target.oldPrice = regular;
+                target.offer = cfg.name;
+                target.saving = (toNumber(regular) - toNumber(cfg.price)).toLocaleString("en-US");
+            } else {
+                target.price = regular;
+                delete target.oldPrice;
+                delete target.offer;
+                delete target.saving;
+            }
+        }
+
+        function end() {
+            clearInterval(timer);
+            applyPrices(false);
+            root.classList.add("offer-ended");
+            $$("[data-offer-regular]").forEach((el) => (el.textContent = el.getAttribute("data-offer-regular")));
+            $$(".dock-offer").forEach((el) => el.remove());
+        }
+
+        /* 1 → يوم، 2 → يومين، 3-10 → أيام، 11+ → يوم */
+        function daysLabel(d) {
+            if (d === 1) return "يوم";
+            if (d === 2) return "يومين";
+            return `${d} ${d <= 10 ? "أيام" : "يوم"}`;
+        }
+
+        function tick() {
+            const left = endsAt - Date.now();
+            if (left <= 0) {
+                end();
+                return;
+            }
+            const total = Math.floor(left / 1000);
+            const parts = [
+                Math.floor(total / 86400),
+                pad(Math.floor((total % 86400) / 3600)),
+                pad(Math.floor((total % 3600) / 60)),
+                pad(total % 60),
+            ];
+            const short = parts[0] >= 1 ? `باقي ${daysLabel(parts[0])}` : `باقي ${parts[1]}:${parts[2]}:${parts[3]}`;
+            $$('[data-offer-countdown="short"]').forEach((el) => (el.textContent = short));
+            $$('[data-offer-countdown="full"]').forEach((el) => {
+                if (!el.querySelector(".offer-timer__clock")) {
+                    const unit = (u) => `<span><b></b>${u}</span>`;
+                    el.innerHTML = `<span>ينتهي العرض خلال</span><span class="offer-timer__clock">${["يوم", "ساعة", "دقيقة", "ثانية"].map(unit).join("")}</span>`;
+                }
+                $$(".offer-timer__clock b", el).forEach((b, i) => (b.textContent = parts[i]));
+            });
+        }
+
+        function init() {
+            if (!isOn()) {
+                end();
+                return;
+            }
+            const dock = $(".mobile-dock");
+            if (dock && !$(".dock-offer", dock)) {
+                dock.insertAdjacentHTML(
+                    "afterbegin",
+                    `<span class="dock-offer" aria-hidden="true">${icon("moon")}${escapeHtml(cfg.name)} · ${escapeHtml(cfg.price)} ريال</span>`
+                );
+            }
+            if (hasEnd) {
+                tick();
+                timer = setInterval(tick, 1000);
+            }
+        }
+
+        applyPrices(isOn());
+        return { init };
+    })();
+
+    /* ---------------------------------------------------------------------
        5a) REQUEST FLOW → WhatsApp message
        --------------------------------------------------------------------- */
     function buildRequestMessage(type, city) {
@@ -1001,7 +1110,7 @@ const INDOFORALL_POPULAR_CITIES = ["الرياض", "جدة", "مكة المكر�
         let msg = `طلب جديد استقدام ${t.name} من اندونيسيا\n`;
         msg += `تاريخ إرسال الطلب: ${date}\n\n`;
         msg += `نوع الفيزا: ${t.visa}\n`;
-        msg += `السعر: ${t.price} ريال سعودي\n`;
+        msg += `السعر: ${t.price} ريال سعودي${t.offer ? ` (${t.offer})` : ""}\n`;
         msg += `استقدام الى: ${city}\n\n`;
         msg += `شركة استقدام اندو للجميع`;
         return msg;
@@ -1013,10 +1122,14 @@ const INDOFORALL_POPULAR_CITIES = ["الرياض", "جدة", "مكة المكر�
         const tiles = keys
             .map((k) => {
                 const t = INDOFORALL_WORKER_TYPES[k];
-                return `<button class="choice" type="button" data-pick="${k}">
+                const price = t.oldPrice
+                    ? `<small><s>${t.oldPrice}</s> <b>${t.price} ريال</b></small>`
+                    : `<small>${t.price} ريال سعودي</small>`;
+                return `<button class="choice${t.offer ? " choice--offer" : ""}" type="button" data-pick="${k}">
+                    ${t.offer ? `<span class="choice__badge">${icon("moon")}${t.offer}</span>` : ""}
                     <img src="${t.img}" alt="" width="64" height="64" loading="lazy" />
                     <strong>${t.name}</strong>
-                    <small>${t.price} ريال سعودي</small>
+                    ${price}
                 </button>`;
             })
             .join("");
@@ -1041,7 +1154,8 @@ const INDOFORALL_POPULAR_CITIES = ["الرياض", "جدة", "مكة المكر�
             </div>
             <ul class="summary-list" role="list">
                 <li><span>نوع الفيزا</span><strong>${t.visa}</strong></li>
-                <li><span>السعر</span><strong>${t.price} ريال سعودي</strong></li>
+                <li><span>السعر</span><strong>${t.oldPrice ? `<s>${t.oldPrice}</s> ` : ""}${t.price} ريال سعودي</strong></li>
+                ${t.offer ? `<li class="summary-list__offer"><span>العرض</span><strong>${icon("moon")}${t.offer}: وفّر ${t.saving} ريال</strong></li>` : ""}
                 <li><span>مدة الإنجاز</span><strong>${t.duration}</strong></li>
             </ul>
             <form class="field" id="req-form" novalidate>
@@ -2043,6 +2157,7 @@ const INDOFORALL_POPULAR_CITIES = ["الرياض", "جدة", "مكة المكر�
        BOOT
        --------------------------------------------------------------------- */
     function boot() {
+        Offer.init();
         localizeLinks();
         markCurrentNav();
         initYear();

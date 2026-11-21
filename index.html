@@ -513,6 +513,10 @@
             <path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z" />
             <path d="M19 17l.7 1.8 1.8.7-1.8.7L19 22l-.7-1.8-1.8-.7 1.8-.7z" />
         </symbol>
+        <symbol id="i-moon" viewBox="0 0 24 24">
+            <path fill="currentColor" stroke="none" d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+            <path fill="currentColor" stroke="none" d="M18 3.5l.75 2.25L21 6.5l-2.25.75L18 9.5l-.75-2.25L15 6.5l2.25-.75z" />
+        </symbol>
         <symbol id="i-zoom" viewBox="0 0 24 24">
             <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
         </symbol>
@@ -574,6 +578,17 @@
     <a class="skip-link" href="#main">تخطي إلى المحتوى</a>
 
     <header class="site-header">
+        <!-- عرض رمضان (Ramadan offer bar) - to remove the offer from this page, delete this whole button -->
+        <button class="offer-bar" type="button" data-action="request" data-visa="visit"
+            aria-label="عرض رمضان لفترة محدودة: استقدام عاملة منزلية بفيزة زيارة بسعر 15,500 ريال بدلاً من 17,000 ريال. اطلب الآن">
+            <span class="offer-bar__tag" aria-hidden="true"><svg class="icon" aria-hidden="true">
+                    <use href="#i-moon"></use>
+                </svg><span class="offer-bar__flip"><span>عرض رمضان</span><span data-offer-countdown="short">لفترة محدودة</span></span></span>
+            <span class="offer-bar__text" aria-hidden="true"><span class="offer-bar__lead">استقدام عاملة منزلية</span>فيزة زيارة <s>17,000</s> <b>15,500</b> ريال</span>
+            <span class="offer-bar__go" aria-hidden="true"><span>اطلب الآن</span><svg class="icon" aria-hidden="true">
+                    <use href="#i-arrow"></use>
+                </svg></span>
+        </button>
         <div class="container header-inner">
             <a class="brand" href="https://indoforall.com/" aria-label="اندو للجميع - الصفحة الرئيسية">
                 <img src="صور-مصغرة/شعار-اندو-للجميع.webp" alt="شعار اندو للجميع للاستقدام من اندونيسيا" width="46"
@@ -1047,8 +1062,9 @@
                         الطيران.</p>
                 </div>
                 <div class="pricing">
-                    <article class="price-card price-card--featured" data-reveal="up"><span
+                    <article class="price-card price-card--featured price-card--offer" data-reveal="up"><span
                             class="price-card__ribbon">الخيار الأنسب للأسر</span>
+                        <span class="offer-seal" data-offer aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-moon"></use></svg><b>عرض</b><b>رمضان</b></span>
                         <div class="price-card__head">
                             <span class="price-card__icon"><svg class="icon" aria-hidden="true">
                                     <use href="#i-home"></use>
@@ -1058,10 +1074,12 @@
                                 <p class="price-card__for">عاملة منزلية أو سائق خاص</p>
                             </div>
                         </div>
+                        <p class="price-card__was" data-offer><span class="sr-only">عرض رمضان، السعر قبل الخصم:</span><s>17,000</s><span class="price-card__save">وفّر 1,500 ريال</span></p>
                         <p class="price-card__price">
-                            <span class="price-card__amount">17,000</span>
+                            <span class="price-card__amount" data-offer-regular="17,000">15,500</span>
                             <span class="price-card__currency">ريال سعودي</span>
                         </p>
+                        <p class="offer-timer" data-offer><span class="pulse-dot" aria-hidden="true"></span><span data-offer-countdown="full">عرض رمضان لفترة محدودة — احجز الآن قبل انتهائه</span></p>
                         <span class="price-card__note"><svg class="icon" aria-hidden="true">
                                 <use href="#i-info"></use>
                             </svg> قابل للتفاوض حسب المنطقة</span>
@@ -1479,7 +1497,7 @@
                             <p class="faq-answer__inner">سعر استقدام عاملة منزلية اندونيسية بفيزة زيارة 17,000 ريال
                                 سعودي (قابل للتفاوض حسب المنطقة)، ويشمل توفير العاملة وإصدار الجواز والفحص الطبي
                                 والتفييز وتذاكر الطيران. أما استقدام سائق خاص فبسعر 11,500 ريال سعودي، والعمالة المهنية
-                                بسعر 17,000 ريال سعودي.</p>
+                                بسعر 17,000 ريال سعودي.<span data-offer> وحالياً بسعر 15,500 ريال فقط ضمن عرض رمضان لفترة محدودة.</span></p>
                         </div>
                     </details>
                     <details class="faq-item" data-reveal="up">

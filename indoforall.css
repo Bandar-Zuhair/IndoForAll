@@ -73,6 +73,7 @@
     --container: 1200px;
     --gutter: clamp(1rem, 4vw, 2rem);
     --header-h: 64px;
+    --offer-h: 0px; /* height of the offer bar inside the header (set below when the bar exists) */
     --section-y: clamp(4rem, 9vw, 7rem);
     --dock-h: 0px;
 }
@@ -278,7 +279,7 @@ p {
 .section {
     position: relative;
     padding-block: var(--section-y);
-    scroll-margin-top: var(--header-h);
+    scroll-margin-top: calc(var(--header-h) + var(--offer-h));
 }
 
 .section--white {
@@ -563,7 +564,7 @@ p {
     top: 0;
     inset-inline: 0;
     z-index: 900;
-    height: var(--header-h);
+    height: calc(var(--header-h) + var(--offer-h));
     color: #fff;
     transition:
         transform 0.45s var(--ease-out),
@@ -597,7 +598,7 @@ html.menu-open .site-header {
 }
 
 .header-inner {
-    height: 100%;
+    height: var(--header-h);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -829,7 +830,7 @@ html.menu-open .mobile-menu {
 /* Scroll area starts below the header, so the header never shows links sliding under it */
 .mobile-menu__scroll {
     position: absolute;
-    inset: var(--header-h) 0 0;
+    inset: calc(var(--header-h) + var(--offer-h)) 0 0;
     display: flex;
     flex-direction: column;
     padding: 1.25rem var(--gutter) calc(1.5rem + env(safe-area-inset-bottom));
@@ -953,7 +954,7 @@ html.menu-open .mobile-menu__foot {
     overflow: hidden;
     color: var(--text-on-dark);
     background: var(--ink-900);
-    padding-top: calc(var(--header-h) + clamp(1.75rem, 6vw, 4rem));
+    padding-top: calc(var(--header-h) + var(--offer-h) + clamp(1.75rem, 6vw, 4rem));
     padding-bottom: clamp(4rem, 9vw, 6.5rem);
 }
 
@@ -1479,7 +1480,7 @@ html:not(.reduced-motion) .intro-pop {
     overflow: hidden;
     color: var(--text-on-dark);
     background: var(--ink-900);
-    padding-top: calc(var(--header-h) + clamp(1.75rem, 5vw, 3.5rem));
+    padding-top: calc(var(--header-h) + var(--offer-h) + clamp(1.75rem, 5vw, 3.5rem));
     padding-bottom: clamp(3rem, 7vw, 5rem);
 }
 
@@ -4059,6 +4060,480 @@ html.menu-open .mobile-dock {
     }
 }
 
+/* ---------- Ramadan offer (عرض رمضان) ----------
+   Gold bar at the top of the fixed header on every page + the offer look of the visit-visa price card.
+   Delete the .offer-bar markup from a page and its header shrinks back by itself.
+   html.offer-ended (added by indoforall.js when the offer is switched off / its end date passed) hides it all. */
+html:has(.offer-bar) {
+    --offer-h: 40px;
+}
+
+html.offer-ended {
+    --offer-h: 0px;
+}
+
+html.offer-ended .offer-bar,
+html.offer-ended [data-offer] {
+    display: none !important;
+}
+
+.offer-bar {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    height: var(--offer-h);
+    padding: 0 0.6rem;
+    overflow: hidden;
+    border: 0;
+    color: var(--ink-950);
+    background: linear-gradient(100deg, #dcb983 0%, #f3dfb6 24%, #d2ad74 50%, #f0d8a8 76%, #c9a46c 100%);
+    box-shadow: inset 0 -1px 0 rgba(94, 69, 32, 0.28);
+    font-family: var(--font-display);
+    font-size: 0.8125rem;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+/* light sweeping across the bar, right to left */
+.offer-bar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, 0.7) 50%, transparent 62%);
+    transform: translateX(100%);
+    animation: offerShine 5s var(--ease-in-out) 1.4s infinite;
+}
+
+@keyframes offerShine {
+    0% {
+        transform: translateX(100%);
+    }
+
+    40%,
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.offer-bar:focus-visible {
+    outline-offset: -3px;
+}
+
+.offer-bar__tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    height: 25px;
+    padding-inline: 0.55rem 0.65rem;
+    border-radius: 999px;
+    color: #f6dfb0;
+    background: var(--ink-900);
+    box-shadow: 0 5px 12px -6px rgba(11, 22, 38, 0.7);
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.offer-bar__tag .icon {
+    width: 14px;
+    height: 14px;
+    color: #ffd27a;
+}
+
+/* "عرض رمضان" and "لفترة محدودة" (or the countdown) take turns inside the dark pill */
+.offer-bar__flip {
+    display: inline-grid;
+    justify-items: center;
+    height: 1.4em;
+    overflow: hidden;
+}
+
+.offer-bar__flip > span {
+    grid-area: 1 / 1;
+    line-height: 1.4em;
+    animation: offerFlipA 7s var(--ease-in-out) infinite;
+}
+
+.offer-bar__flip > span + span {
+    animation-name: offerFlipB;
+}
+
+@keyframes offerFlipA {
+    0%,
+    55% {
+        transform: translateY(0);
+    }
+
+    61%,
+    93% {
+        transform: translateY(-130%);
+    }
+
+    93.01% {
+        transform: translateY(130%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes offerFlipB {
+    0%,
+    55% {
+        transform: translateY(130%);
+    }
+
+    61%,
+    93% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-130%);
+    }
+}
+
+.offer-bar__text {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.3rem;
+    font-weight: 600;
+}
+
+.offer-bar__lead {
+    display: none;
+}
+
+.offer-bar__text s {
+    font-weight: 500;
+    opacity: 0.62;
+    text-decoration-thickness: 1.5px;
+    text-decoration-color: #c0392b;
+}
+
+.offer-bar__text b {
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+}
+
+.offer-bar__go {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-weight: 700;
+}
+
+.offer-bar__go > span {
+    display: none;
+}
+
+.offer-bar__go .icon {
+    width: 20px;
+    height: 20px;
+    padding: 4px;
+    border-radius: 50%;
+    color: #f6dfb0;
+    background: var(--ink-900);
+    stroke-width: 2.6;
+}
+
+@media (max-width: 359.98px) {
+    .offer-bar {
+        gap: 0.35rem;
+        padding-inline: 0.4rem;
+        font-size: 0.75rem;
+    }
+
+    .offer-bar__go {
+        display: none;
+    }
+}
+
+@media (min-width: 420px) {
+    .offer-bar__go > span {
+        display: inline;
+    }
+}
+
+@media (min-width: 768px) {
+    html:has(.offer-bar) {
+        --offer-h: 42px;
+    }
+
+    .offer-bar {
+        gap: 0.85rem;
+        font-size: 0.875rem;
+    }
+
+    .offer-bar__lead {
+        display: inline;
+    }
+
+    .offer-bar__lead::after {
+        content: " —";
+        opacity: 0.5;
+    }
+}
+
+@media (hover: hover) {
+    .offer-bar__go .icon {
+        transition: transform 0.3s var(--ease-out);
+    }
+
+    .offer-bar:hover .offer-bar__go .icon {
+        transform: translateX(-3px);
+    }
+}
+
+/* Price card: Ramadan seal, crossed-out old price, limited-time line */
+.offer-seal {
+    position: absolute;
+    z-index: 2;
+    top: -18px;
+    inset-inline-end: -10px;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    border-radius: 50%;
+    color: var(--ink-950);
+    background: var(--gold-gradient);
+    box-shadow:
+        0 12px 26px -10px rgba(194, 156, 102, 0.9),
+        0 0 0 4px rgba(194, 156, 102, 0.18);
+    font-family: var(--font-display);
+    line-height: 1.05;
+    text-align: center;
+    transform: rotate(-12deg);
+    animation: offerSeal 3.4s var(--ease-in-out) infinite alternate;
+}
+
+.offer-seal::before {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border-radius: 50%;
+    border: 1.5px dashed rgba(11, 22, 38, 0.35);
+}
+
+.offer-seal .icon {
+    width: 18px;
+    height: 18px;
+}
+
+.offer-seal b {
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.offer-seal b + b {
+    font-size: 0.95rem;
+    font-weight: 800;
+}
+
+@keyframes offerSeal {
+    from {
+        transform: rotate(-14deg) scale(1);
+    }
+
+    to {
+        transform: rotate(-5deg) scale(1.05);
+    }
+}
+
+.price-card__was {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.45rem 0.7rem;
+    margin-top: 1.4rem;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--text-on-dark-2);
+}
+
+.price-card__was s {
+    position: relative;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: rgba(245, 241, 234, 0.55);
+}
+
+.price-card__was s::after {
+    content: "";
+    position: absolute;
+    inset-inline: -4px;
+    top: 52%;
+    height: 2px;
+    border-radius: 2px;
+    background: #ff7a3d;
+    transform: rotate(-10deg);
+}
+
+.price-card__save {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.7rem;
+    border-radius: 999px;
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, #ff9142, #e5530a);
+    box-shadow: 0 8px 18px -8px rgba(229, 83, 10, 0.8);
+}
+
+.price-card__was + .price-card__price {
+    margin-top: 0.45rem;
+}
+
+.offer-timer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.6rem;
+    margin-top: 0.95rem;
+    padding: 0.6rem 0.8rem;
+    border-radius: 12px;
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    line-height: 1.5;
+    color: #f6dfb0;
+    background: rgba(194, 156, 102, 0.12);
+    border: 1px dashed rgba(194, 156, 102, 0.45);
+}
+
+.offer-timer .pulse-dot {
+    background: #ff9142;
+}
+
+.offer-timer .pulse-dot::after {
+    border-color: #ff9142;
+}
+
+.offer-timer [data-offer-countdown] {
+    display: contents;
+}
+
+.offer-timer__clock {
+    display: inline-flex;
+    gap: 0.35rem;
+}
+
+.offer-timer__clock > span {
+    display: grid;
+    justify-items: center;
+    min-width: 2.7rem;
+    padding: 0.3rem 0.25rem 0.25rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    font-size: 0.6875rem;
+    color: var(--text-on-dark-2);
+}
+
+.offer-timer__clock b {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #fff;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Offer badge sitting on top of the mobile dock's request button */
+.dock-offer {
+    position: absolute;
+    top: -12px;
+    inset-inline-start: 22px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    line-height: 1.2;
+    white-space: nowrap;
+    color: #fff;
+    background: linear-gradient(135deg, #ff9142, #e5530a);
+    box-shadow: 0 8px 18px -8px rgba(229, 83, 10, 0.9);
+    pointer-events: none;
+}
+
+.dock-offer .icon {
+    width: 12px;
+    height: 12px;
+}
+
+/* Request popup: offer price on the home-worker tile and in the summary */
+.choice__badge {
+    position: absolute;
+    top: -9px;
+    inset-inline-start: 50%;
+    transform: translateX(50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    white-space: nowrap;
+    color: #fff;
+    background: linear-gradient(135deg, #ff9142, #e5530a);
+}
+
+.choice__badge .icon {
+    width: 11px;
+    height: 11px;
+}
+
+.choice--offer {
+    border-color: rgba(229, 83, 10, 0.45);
+}
+
+.choice small s,
+.summary-list s {
+    color: var(--text-3);
+    text-decoration-color: #e5530a;
+    text-decoration-thickness: 1.5px;
+}
+
+.choice small b {
+    font-weight: 700;
+    color: #c2410c;
+}
+
+.summary-list li.summary-list__offer {
+    border-color: rgba(229, 83, 10, 0.3);
+    background: #fff4ec;
+}
+
+.summary-list__offer strong {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: #c2410c;
+}
+
+.summary-list__offer .icon {
+    width: 14px;
+    height: 14px;
+}
+
 /* ---------- Footer ---------- */
 .site-footer {
     position: relative;
@@ -4332,8 +4807,15 @@ html.menu-open .mobile-dock {
 .reduced-motion .pulse-dot::after,
 .reduced-motion .fab-wa__icon::after,
 .reduced-motion .ticker__track,
-.reduced-motion .skeleton::after {
+.reduced-motion .skeleton::after,
+.reduced-motion .offer-bar::before,
+.reduced-motion .offer-bar__flip > span,
+.reduced-motion .offer-seal {
     animation: none !important;
+}
+
+.reduced-motion .offer-bar__flip > span + span {
+    display: none;
 }
 
 .reduced-motion .mobile-menu {
