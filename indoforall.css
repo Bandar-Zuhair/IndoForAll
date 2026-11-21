@@ -4292,12 +4292,14 @@ html.offer-ended [data-offer] {
     }
 }
 
-/* Price card: Ramadan seal, crossed-out old price, limited-time line */
+/* Price card: Ramadan seal, crossed-out old price, limited-time line.
+   The seal stays inside the card's side edge: rotated it grows ~8px wider, and if that pokes past
+   the screen edge the whole page gets wider than the phone (a white strip on the left in RTL). */
 .offer-seal {
     position: absolute;
     z-index: 2;
     top: -18px;
-    inset-inline-end: -10px;
+    inset-inline-end: 2px;
     width: 80px;
     height: 80px;
     display: flex;
@@ -4348,6 +4350,29 @@ html.offer-ended [data-offer] {
 
     to {
         transform: rotate(-5deg) scale(1.05);
+    }
+}
+
+/* Very small phones: a smaller seal so it clears the card title */
+@media (max-width: 359.98px) {
+    .offer-seal {
+        top: -22px;
+        width: 66px;
+        height: 66px;
+        gap: 1px;
+    }
+
+    .offer-seal .icon {
+        width: 15px;
+        height: 15px;
+    }
+
+    .offer-seal b {
+        font-size: 0.6875rem;
+    }
+
+    .offer-seal b + b {
+        font-size: 0.8125rem;
     }
 }
 
